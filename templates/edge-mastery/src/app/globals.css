@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@plugin "./hero.ts";
+/* Note: You may need to change the path to fit your project structure */
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* --background: #ffffff; */
+  /* --foreground: #171717; */
+  --accent: #9c8355;
+
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  /* --color-background: var(--background);
+  --color-foreground: var(--foreground); */
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  /* --text-secondary: red; */
+  --max-width: 1920;
+  --min-width: 320;
+  --min-width-px: 320px;
+
+  --cf: calc((100vw - 320px) / (3840 - 320));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --fg: #ededed;
+
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --nextui-primary: #ffffff; */
+  }
+}
+
+@utility fl-text-* {
+  --spreadText: calc(--modifier(integer) - --value(integer));
+
+  font-size: calc(--value(integer) * 1px + var(--spreadText) * var(--cf));
+}
+
+@utility fl-px-* {
+  --spreadX: calc(--modifier(integer) - --value(integer));
+
+  padding-left: calc(--value(integer) * 1px + var(--spreadX) * var(--cf));
+
+  padding-right: calc(--value(integer) * 1px + var(--spreadX) * var(--cf));
+}
+
+@utility fl-pt-* {
+  --spreadT: calc(--modifier(integer) - --value(integer));
+  padding-top: calc(--value(integer) * 1px + var(--spreadT) * var(--cf));
+}
+
+@utility fl-pb-* {
+  --spreadB: calc(--modifier(integer) - --value(integer));
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadB) * var(--cf));
+}
+
+@utility fl-py-* {
+  --spreadY: calc(--modifier(integer) - --value(integer));
+
+  padding-top: calc(--value(integer) * 1px + var(--spreadY) * var(--cf));
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadY) * var(--cf));
+}
+
+@utility fl-w-* {
+  --spreadW: calc(--modifier(integer) - --value(integer));
+  width: calc(--value(integer) * 1px + var(--spreadW) * var(--cf));
+}
+
+@utility fl-max-w-* {
+  --spreadMW: calc(--modifier(integer) - --value(integer));
+  max-width: calc(--value(integer) * 1px + var(--spreadMW) * var(--cf));
+}
+
+@utility fl-gap-* {
+  --spreadG: calc(--modifier(integer) - --value(integer));
+  gap: calc(--value(integer) * 1px + var(--spreadG) * var(--cf));
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+
+main {
+  @apply bg-background grow w-full max-w-full;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+.heightScreenMinusHeader {
+  @apply min-h-[calc(100dvh-80px)];
+}
+
+.padding-4-8-16 {
+  @apply p-4 md:p-8 xl:p-16;
+}
+
+.padding-x-4-8-16 {
+  @apply px-4 md:px-8 xl:px-16;
+}
+
+@layer utilities {
+  /* .btn-glow {
+    @apply border-2 h-14 bg-white/20 px-14 rounded-full border-[#272727] cursor-pointer;
+    box-shadow:
+      0 0 2px rgba(255, 255, 255, 0.8) inset,
+      0 0 15px 0 rgba(255, 255, 255, 0.33);
+    transition: background 0.37s ease-in;
+  } */
+  /* 
+  .btn-glow:hover {
+    @apply bg-white/40;
+    box-shadow:
+      0 0 2px rgb(255 255 255 / 0.7) inset,
+      0px 0px 40px 0px rgb(0 0 0 / 33%);
+  } */
+
+  .bg-card-radial-gradient {
+    position: relative;
+  }
+
+  .bg-card-radial-gradient:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.77s ease-out;
+    background: radial-gradient(
+      110.72% 103.33% at 51.78% 0%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(196, 196, 196, 0) 100%
+    );
+  }
+
+  .bg-card-radial-gradient:hover:before {
+    opacity: 1;
+  }
+
+  .bg-newsletter-lines-glow {
+    width: 33%;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    z-index: 0;
+    background-color: #f5a524;
+    filter: blur(180px);
+    /* aspect-square rounded-full bg-[#F5A524] blur-3xl */
+  }
+  .bg-newsletter-lines-glow::before {
+    content: "";
+    /* mix-blend-mode: luminosity; */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-image: url("/lines-smoll.png");
+    background-size: 100% 100%;
+    background-repeat: repeat;
+  }
+}
+
+.featuresDevider {
+  @apply ml-auto relative border-t border-[#1B1B1B] w-0 block pb-2 md:pb-4 before:content-[''] before:block before:absolute before:rounded-full before:-top-1.5 before:w-0 before:h-0 before:bg-[#1B1B1B];
+}
+
+.shiny-text {
+  color: #b5b5b5a4; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}

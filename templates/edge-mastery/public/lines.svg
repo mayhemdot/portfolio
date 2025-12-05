@@ -1,0 +1,21 @@
+<svg width="360" height="511" viewBox="0 0 360 511" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_1920_3627" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-5" width="361" height="516">
+<rect x="0.0898438" y="-4.94336" width="359.911" height="515.943" rx="24" fill="url(#pattern0_1920_3627)"/>
+</mask>
+<g mask="url(#mask0_1920_3627)">
+<g filter="url(#filter0_f_1920_3627)">
+<ellipse cx="71.0335" cy="102.904" rx="102.955" ry="145.473" fill="#98FFF9"/>
+</g>
+</g>
+<defs>
+<pattern id="pattern0_1920_3627" patternContentUnits="objectBoundingBox" width="0.0194492" height="0.0135674">
+<use xlink:href="#image0_1920_3627" transform="scale(0.00138923 0.0009691)"/>
+</pattern>
+<filter id="filter0_f_1920_3627" x="-231.922" y="-242.568" width="605.91" height="690.945" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1920_3627"/>
+</filter>
+<image id="image0_1920_3627" width="14" height="14" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAQAAAC1QeVaAAAASElEQVQY02NgQALS/5F5Ssg8qa/IUgooUg+QpWRRpA7hNB5VCsV4VANReKjOQDWDgYFIm/G4F7cv8YSNLG4pFCNQeSjq0MwAAPCoHW3Q0Dt9AAAAAElFTkSuQmCC"/>
+</defs>
+</svg>

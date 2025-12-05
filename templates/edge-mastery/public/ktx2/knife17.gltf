@@ -1,0 +1,1241 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v4.1.3",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 208896
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 38134,
+      "max": [
+        0.03772374987602234,
+        0.0591539591550827,
+        0.038535017520189285
+      ],
+      "min": [
+        -0.03938888758420944,
+        -0.0591539591550827,
+        -0.03857763111591339
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 38134
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 38134
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 5982
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1620,
+      "max": [
+        1.0000004768371582,
+        2.0125815868377686,
+        1
+      ],
+      "min": [
+        -0.9999995231628418,
+        -1,
+        -1
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1620
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1620
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 5982
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1620,
+      "max": [
+        0.022220011800527573,
+        0.02300914376974106,
+        0.022220494225621223
+      ],
+      "min": [
+        -0.022219989448785782,
+        -0.011432651430368423,
+        -0.022220494225621223
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1620
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1620
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 4356
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1002,
+      "max": [
+        0.019999999552965164,
+        0.019604317843914032,
+        0.019999999552965164
+      ],
+      "min": [
+        -0.019999999552965164,
+        -0.019604317843914032,
+        -0.019999999552965164
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1002
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1002
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 5088
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1441,
+      "max": [
+        1.0000004768371582,
+        1.1768509149551392,
+        1
+      ],
+      "min": [
+        -0.9999995231628418,
+        -1,
+        -1
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1441
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1441
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 5088
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1433,
+      "max": [
+        0.02222050540149212,
+        0.013454526662826538,
+        0.022220494225621223
+      ],
+      "min": [
+        -0.022220483049750328,
+        -0.011432651430368423,
+        -0.022220494225621223
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1433
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1433
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 9588
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5890,
+      "max": [
+        0.03890351578593254,
+        0.043745093047618866,
+        0.038903553038835526
+      ],
+      "min": [
+        -0.03890358656644821,
+        -0.043745093047618866,
+        -0.038903553038835526
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5890
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 5890
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 8580
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1684,
+      "max": [
+        0.8691524863243103,
+        1.4552265405654907,
+        0.8691558241844177
+      ],
+      "min": [
+        -0.8691534399986267,
+        -1.4552265405654907,
+        -0.8691501021385193
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1684
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1684
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 115872
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 57753,
+      "max": [
+        0.12449266761541367,
+        0.01727168634533882,
+        0.9875425696372986
+      ],
+      "min": [
+        -0.14047296345233917,
+        -0.017823442816734314,
+        -0.08375486731529236
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 57753
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 57753
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 700368
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 180934,
+      "max": [
+        0.15107956528663635,
+        0.04649650678038597,
+        0.1546589732170105
+      ],
+      "min": [
+        -0.14363285899162292,
+        -0.04649650678038597,
+        -0.9819554686546326
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 180934
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 180934
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 14040
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2304,
+      "max": [
+        0.14070633053779602,
+        0.026348181068897247,
+        0.14524398744106293
+      ],
+      "min": [
+        -0.13881343603134155,
+        -0.026348181068897247,
+        -0.979439377784729
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 2304
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 2304
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 142326
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 142326,
+      "byteLength": 9532
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 151858,
+      "byteLength": 9763
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 161621,
+      "byteLength": 6842
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 168463,
+      "byteLength": 8715
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 177178,
+      "byteLength": 8677
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 185855,
+      "byteLength": 13317
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 199172,
+      "byteLength": 12229
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 211401,
+      "byteLength": 85667
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 297068,
+      "byteLength": 598669
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 895737,
+      "byteLength": 13561
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "extensions": {
+        "KHR_texture_basisu": {
+          "source": 1
+        }
+      }
+    },
+    {
+      "sampler": 0,
+      "extensions": {
+        "KHR_texture_basisu": {
+          "source": 0
+        }
+      }
+    },
+    {
+      "sampler": 0,
+      "extensions": {
+        "KHR_texture_basisu": {
+          "source": 2
+        }
+      }
+    }
+  ],
+  "images": [
+    {
+      "name": "dull_metal_normal-ogl",
+      "mimeType": "image/ktx2",
+      "uri": "dull_metal_normal-ogl.ktx2"
+    },
+    {
+      "name": "dull_metal_albedo",
+      "mimeType": "image/ktx2",
+      "uri": "dull_metal_albedo.ktx2"
+    },
+    {
+      "name": "micarta-knife-handle_albedo",
+      "mimeType": "image/ktx2",
+      "uri": "micarta-knife-handle_albedo.ktx2"
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "knife17.bin",
+      "byteLength": 909298
+    }
+  ],
+  "materials": [
+    {
+      "name": "Steel",
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5,
+        "metallicFactor": 0.809667706489563,
+        "baseColorTexture": {
+          "index": 0
+        }
+      },
+      "normalTexture": {
+        "index": 1
+      }
+    },
+    {
+      "name": "Steel",
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5,
+        "metallicFactor": 0.809667706489563,
+        "baseColorTexture": {
+          "index": 0
+        }
+      },
+      "normalTexture": {
+        "index": 1
+      }
+    },
+    {
+      "name": "Gold",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8005450963973999,
+          0.44511839747428894,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.3367697596549988
+      }
+    },
+    {
+      "name": "Gold",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8005450963973999,
+          0.44511839747428894,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.3367697596549988
+      }
+    },
+    {
+      "name": "Gold.001",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8005450963973999,
+          0.44511839747428894,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.3367697596549988
+      }
+    },
+    {
+      "name": "Micarta",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5,
+        "metallicFactor": 0.7014358043670654,
+        "baseColorTexture": {
+          "index": 2
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "CenterFixator",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2,
+            "TEXCOORD_0": 3
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 0,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewRightTopLeftSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 6,
+            "TEXCOORD_0": 7
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 4,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewRightTopRightSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 9,
+            "NORMAL": 10,
+            "TEXCOORD_0": 11
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 8,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FixatorMiddleTop",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "mode": 4,
+          "material": 2,
+          "indices": 12,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FixatorEnd",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "mode": 4,
+          "material": 2,
+          "indices": 12,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewEndLeftSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 6,
+            "TEXCOORD_0": 7
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 4,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewEndRightSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 9,
+            "NORMAL": 10,
+            "TEXCOORD_0": 11
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 8,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewCenterRightSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 17,
+            "NORMAL": 18,
+            "TEXCOORD_0": 19
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 16,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 4,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewCenterLeftSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 21,
+            "NORMAL": 22,
+            "TEXCOORD_0": 23
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 20,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 5,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewStartTopRightSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 6,
+            "TEXCOORD_0": 7
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 4,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ScrewStartTopLeftSide",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 9,
+            "NORMAL": 10,
+            "TEXCOORD_0": 11
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 8,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FixatorStartTop",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "mode": 4,
+          "material": 3,
+          "indices": 12,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FixatorOpeners",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 12,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Openers",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 25,
+            "NORMAL": 26,
+            "TEXCOORD_0": 27
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 24,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 6,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cylinder.003",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 29,
+            "NORMAL": 30,
+            "TEXCOORD_0": 31
+          },
+          "mode": 4,
+          "material": 4,
+          "indices": 28,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 7,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mesh",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 33,
+            "NORMAL": 34,
+            "TEXCOORD_0": 35
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 32,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 8,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handle",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 37,
+            "NORMAL": 38,
+            "TEXCOORD_0": 39
+          },
+          "mode": 4,
+          "material": 5,
+          "indices": 36,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 9,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Skillet",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 41,
+            "NORMAL": 42,
+            "TEXCOORD_0": 43
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 40,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 10,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "CenterFixator",
+      "translation": [
+        -0.001581799704581499,
+        0.01800411194562912,
+        0.0162823349237442
+      ],
+      "rotation": [
+        -1,
+        0,
+        0,
+        4.371138828673793e-8
+      ],
+      "mesh": 0
+    },
+    {
+      "name": "ScrewRightTopLeftSide",
+      "translation": [
+        -0.09313511848449707,
+        -0.012259305454790592,
+        -0.6817604303359985
+      ],
+      "scale": [
+        0.022220494225621223,
+        0.011432651430368423,
+        0.022220494225621223
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "ScrewRightTopRightSide",
+      "translation": [
+        -0.0939968004822731,
+        0.04733991250395775,
+        -0.6827678680419922
+      ],
+      "rotation": [
+        -1,
+        0,
+        0,
+        4.371138828673793e-8
+      ],
+      "mesh": 2
+    },
+    {
+      "name": "FixatorMiddleTop",
+      "translation": [
+        -0.09248322993516922,
+        0.017761480063199997,
+        -0.6825537085533142
+      ],
+      "mesh": 3
+    },
+    {
+      "name": "FixatorEnd",
+      "translation": [
+        0.039612963795661926,
+        0.017761480063199997,
+        -0.9769830703735352
+      ],
+      "mesh": 4
+    },
+    {
+      "name": "ScrewEndLeftSide",
+      "translation": [
+        0.038961078971624374,
+        -0.008095648139715195,
+        -0.9761897921562195
+      ],
+      "scale": [
+        0.022220494225621223,
+        0.011432651430368423,
+        0.022220494225621223
+      ],
+      "mesh": 5
+    },
+    {
+      "name": "ScrewEndRightSide",
+      "translation": [
+        0.038099393248558044,
+        0.046010822057724,
+        -0.9771972298622131
+      ],
+      "rotation": [
+        -1,
+        0,
+        0,
+        4.371138828673793e-8
+      ],
+      "mesh": 6
+    },
+    {
+      "name": "ScrewCenterRightSide",
+      "translation": [
+        -0.014908650889992714,
+        -0.012259305454790592,
+        -0.34172770380973816
+      ],
+      "scale": [
+        0.022220494225621223,
+        0.011432651430368423,
+        0.022220494225621223
+      ],
+      "mesh": 7
+    },
+    {
+      "name": "ScrewCenterLeftSide",
+      "translation": [
+        -0.014850525185465813,
+        0.05080423876643181,
+        -0.3437637686729431
+      ],
+      "rotation": [
+        -1,
+        0,
+        0,
+        4.371138828673793e-8
+      ],
+      "mesh": 8
+    },
+    {
+      "name": "ScrewStartTopRightSide",
+      "translation": [
+        -0.10283654928207397,
+        -0.011666596867144108,
+        0.07252863794565201
+      ],
+      "scale": [
+        0.022220494225621223,
+        0.011432651430368423,
+        0.022220494225621223
+      ],
+      "mesh": 9
+    },
+    {
+      "name": "ScrewStartTopLeftSide",
+      "translation": [
+        -0.10227756947278976,
+        0.04793262109160423,
+        0.07231365144252777
+      ],
+      "rotation": [
+        -1,
+        0,
+        0,
+        4.371138828673793e-8
+      ],
+      "mesh": 10
+    },
+    {
+      "name": "FixatorStartTop",
+      "translation": [
+        -0.10089469701051712,
+        0.01835418865084648,
+        0.07216545939445496
+      ],
+      "mesh": 11
+    },
+    {
+      "name": "FixatorOpeners",
+      "translation": [
+        -0.08039331436157227,
+        0.01835418865084648,
+        -0.03802553936839104
+      ],
+      "mesh": 12
+    },
+    {
+      "name": "Openers",
+      "translation": [
+        -0.07873574644327164,
+        0.01851235143840313,
+        -0.03896019980311394
+      ],
+      "mesh": 13
+    },
+    {
+      "name": "Blocker",
+      "translation": [
+        -0.10124671459197998,
+        -0.00011369772255420685,
+        0.14925724267959595
+      ],
+      "scale": [
+        0.030352924019098282,
+        0.03435740992426872,
+        0.030352924019098282
+      ],
+      "mesh": 14
+    },
+    {
+      "name": "Blade",
+      "translation": [
+        0.0002602040767669678,
+        0.019109943881630898,
+        0.015859268605709076
+      ],
+      "mesh": 15,
+      "children": [
+        14
+      ]
+    },
+    {
+      "name": "Handle",
+      "translation": [
+        -0.00038955826312303543,
+        0.018745504319667816,
+        -0.023755058646202087
+      ],
+      "mesh": 16
+    },
+    {
+      "name": "Skillet",
+      "translation": [
+        0.001054630265571177,
+        0.018453624099493027,
+        -0.024060487747192383
+      ],
+      "mesh": 17
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17
+      ]
+    }
+  ],
+  "scene": 0,
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression",
+    "KHR_texture_basisu"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression",
+    "KHR_texture_basisu"
+  ]
+}

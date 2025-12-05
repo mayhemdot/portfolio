@@ -1,0 +1,220 @@
+{
+  "seo": {
+    "home": {
+      "title": "Premium-Messerladen",
+      "description": "Ein Geschäft für Premium-Messer aus hochfesten Stählen. Zuverlässigkeit, Schärfe und Stil für EDC-Nutzer, Sammler und Kenner hochwertiger Werkzeuge.",
+      "keywords": "EDC Messer, Sammlermesser, Premium Messer, Messer kaufen, Messerladen, Messer aus hochwertigem Stahl"
+    },
+    "store": {
+      "title": "Premium-Messerkatalog",
+      "description": "Katalog hochwertiger Messer aus hochfesten Stählen. Professionelle EDC- und Sammlermodelle für echte Qualitätsliebhaber.",
+      "keywords": "Messerkatalog, Premium Messer, EDC Messer, Sammlermesser"
+    },
+    "login": {
+      "title": "Kontoanmeldung",
+      "description": "Melden Sie sich an, um Bestellungen und Einstellungen zu verwalten."
+    },
+    "register": {
+      "title": "Registrierung",
+      "description": "Erstellen Sie ein Konto, um Bestellungen aufzugeben und Ihre Einstellungen zu speichern."
+    },
+    "cart": {
+      "title": "Warenkorb",
+      "description": "Artikel, die vor dem Bestellabschluss in den Warenkorb gelegt wurden."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "forgotPassword": "Passwort zurücksetzen",
+    "cart": "Warenkorb",
+    "checkout": "Kasse",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "profile": "Profil",
+    "catalog": "Katalog"
+  },
+  "messages": {
+    "demo": {
+      "title": "Dies ist eine Demoversion der Website.",
+      "checkout": "Dies ist eine Demoversion der Website. Der Bestellvorgang ist nicht verfügbar.",
+      "login": "Dies ist eine Demoversion der Website. Die Anmeldung ist nicht verfügbar.",
+      "register": "Dies ist eine Demoversion der Website. Die Registrierung ist nicht verfügbar.",
+      "forgotPassword": "Dies ist eine Demoversion der Website. Die Passwort-Wiederherstellung ist nicht verfugbar.",
+      "subscription": "Dies ist eine Demoversion der Website. Die Abonnementfunktion ist nicht verfugbar."
+    }
+  },
+  "header": {
+    "cart": "Warenkorb",
+    "profile": "Profil",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "search": {
+      "placeholder": "Produkte suchen…"
+    },
+    "menu": {
+      "title": "Menü",
+      "close": "Schließen",
+      "drawer": {
+        "home": "Startseite",
+        "catalog": "Katalog",
+        "about": "Über Uns",
+        "contacts": "Kontakte"
+      }
+    }
+  },
+  "footer": {
+    "developed": "Website entwickelt von",
+    "privacyPolicy": "Alle Rechte vorbehalten",
+    "site": "Shop",
+    "categories": "Kategorien"
+  },
+  "login": {
+    "description": "Melden Sie sich an, um ein verbessertes Einkaufserlebnis zu erhalten.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Passwort vergessen?",
+        "forgot_password_link": "Hier klicken",
+        "register_not_a_member": "Kein Konto?",
+        "register_link": "Registrieren",
+        "or_sign_in": "Oder anmelden mit"
+      },
+      "labels": {
+        "email": "E-Mail",
+        "password": "Passwort",
+        "emailPlaceholder": "E-Mail eingeben",
+        "passwordPlaceholder": "Passwort eingeben"
+      },
+      "submit": "Anmelden",
+      "loading": "Laden..."
+    }
+  },
+  "register": {
+    "title": "Erstellen Sie ein Konto, um Zugang zu Einkäufen zu erhalten.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Passwort vergessen?",
+        "forgot_password_link": "Hier klicken",
+        "already_have_an_account": "Bereits ein Konto?",
+        "login_link": "Anmelden",
+        "or_sign_in": "Oder anmelden mit",
+        "privacy_policy_confirm_label": "Mit dem Erstellen eines Kontos stimmen Sie den Richtlinien unseres Geschäfts zu.",
+        "privacy_policy_confirm_link": "Datenschutzerklärung",
+        "privacy_policy_terms_of_use_link": "Nutzungsbedingungen"
+      },
+      "labels": {
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "phone": "Telefon",
+        "firstNamePlaceholder": "Vornamen eingeben",
+        "lastNamePlaceholder": "Nachnamen eingeben",
+        "emailPlaceholder": "E-Mail eingeben",
+        "passwordPlaceholder": "Passwort eingeben",
+        "phonePlaceholder": "Telefonnummer eingeben"
+      },
+      "submit": "Registrieren",
+      "loading": "Laden..."
+    }
+  },
+  "home": {
+    "hero": {
+      "about": "Messer in Premiumqualität",
+      "toCatalogBtn": "Zum Katalog"
+    },
+    "features": {
+      "tip1": {
+        "title": "Vertrauenswürdige\r\nHaltbarkeit",
+        "description": "Unsere Messer werden mit einem Pulvermetallurgie-Verfahren hergestellt,\r\nwas sie unglaublich widerstandsfähig gegen Absplitterungen und Stöße macht.\r\nDies ist Stahl, der den Anforderungen der realen Welt standhält."
+      },
+      "tip2": {
+        "title": "Bereit für jede Umgebung",
+        "description": "18% Chrom und Molybdän sorgen für hohe Korrosionsbeständigkeit.\r\nRegen, Feuchtigkeit, Blut, Pflanzensäfte – all das ist kein Problem.\r\nIhr Messer bleibt wie neu, unabhängig von den Bedingungen."
+      }
+    },
+    "aboutUs": {
+      "title": "Exzellenz\r\nin jedem Detail",
+      "description1": "Wir beziehen Rohmaterial direkt vom Hersteller und führen sowohl kryogene als auch traditionelle Wärmebehandlungen selbst durch.",
+      "description2": "Egal wie hart der Stahl ist, alle Messer benötigen regelmäßiges Schärfen und Pflege."
+    },
+    "topSale": {
+      "title": "Das Beste für Sie"
+    },
+    "detailedGuide": {
+      "title": "Detaillierte Anleitung"
+    },
+    "newsletter": {
+      "title": "Abonnieren Sie unseren Newsletter",
+      "placeholder": "Geben Sie\r\nIhre E-Mail ein",
+      "button": "Abonnieren"
+    }
+  },
+  "forgotPassword": {
+    "title": "Passwortwiederherstellung",
+    "description": "Geben Sie Ihre E-Mail-Adresse ein, um Ihr Passwort zurückzusetzen.\r\nSie erhalten eine E-Mail-Nachricht mit Anweisungen, wie Sie Ihr Passwort wiederherstellen.",
+    "form": {
+      "links": {
+        "login_link": "Einloggen",
+        "or_sign_in": "Oder anmelden mit"
+      },
+      "labels": {
+        "email": "E-Mail",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail ein"
+      },
+      "submit": "Wiederherstellen",
+      "loading": "Warten..."
+    }
+  },
+  "product": {
+    "relatedProducts": {
+      "title": "Ähnliche Produkte",
+      "description": "Wenn dir dieses Produkt gefällt, könnten dir auch diese gefallen"
+    },
+    "buyBtn": "Kaufen",
+    "description": "Beschreibung",
+    "reviews": "Bewertungen",
+    "weight": "Gewicht",
+    "dimensions": "Abmessungen",
+    "selectVariantBtn": "Variante auswählen",
+    "outOfStockBtn": "Nicht auf Lager",
+    "addToCartBtn": "In den Warenkorb"
+  },
+  "filterProductComponent": {
+    "filterTitle": "Filter",
+    "categoryLabel": "Kategorien",
+    "categoryPlaceholder": "Kategorie auswählen",
+    "priceLabel": "Preis",
+    "ratingLabel": "Bewertung",
+    "fromLabel": "von",
+    "toLabel": "bis"
+  },
+  "sortProducts": {
+    "sortByTitle": "Sortieren nach"
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "empty": "Du hast nichts in deinem Warenkorb.\r\nLass uns das ändern — nutze den Link unten, um unsere Produkte anzusehen.",
+    "browseBtn": "Zum Katalog",
+    "summary": {
+      "title": "Ihr Warenkorb",
+      "checkoutBtn": "Zur Kasse",
+      "totalTitle": "Gesamt:",
+      "giftCardTitle": "Geschenkkarte:",
+      "taxTitle": "Steuer:",
+      "shippingTitle": "Versand:",
+      "discountTitle": "Rabatt:",
+      "subtotalTitle": "Zwischensumme (ohne Steuern und Versand):"
+    },
+    "productTable": {
+      "header": {
+        "name": "Name",
+        "price": "Preis",
+        "quantity": "Menge",
+        "total": "Gesamt"
+      }
+    }
+  }
+}

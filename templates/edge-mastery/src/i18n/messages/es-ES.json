@@ -1,0 +1,221 @@
+{
+  "seo": {
+    "home": {
+      "title": "Tienda de Cuchillos Premium",
+      "description": "Tienda de cuchillos premium fabricados con aceros de alta resistencia. Fiabilidad, filo y estilo para usuarios EDC, coleccionistas y amantes de herramientas de calidad.",
+      "keywords": "cuchillos EDC, cuchillos de colección, cuchillos premium, comprar cuchillo, tienda de cuchillos, cuchillos de acero de alta calidad"
+    },
+    "store": {
+      "title": "Catálogo de Cuchillos Premium",
+      "description": "Catálogo de cuchillos de élite fabricados con aceros de alta resistencia. Modelos EDC profesionales y de colección para verdaderos amantes de la calidad.",
+      "keywords": "catálogo cuchillos, cuchillos premium, cuchillos EDC, cuchillos de colección"
+    },
+    "login": {
+      "title": "Inicio de Sesión",
+      "description": "Inicia sesión para gestionar tus pedidos y configuraciones."
+    },
+    "register": {
+      "title": "Registro",
+      "description": "Crea una cuenta para realizar pedidos y guardar tus preferencias."
+    },
+    "cart": {
+      "title": "Carrito",
+      "description": "Artículos añadidos al carrito antes del pago."
+    },
+    "notFound": {
+      "title": "Página No Encontrada"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "cart": "Carrito",
+    "checkout": "Pagar",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "forgotPassword": "Restablecer contraseña",
+    "profile": "Perfil",
+    "catalog": "Catálogo"
+  },
+  "messages": {
+    "demo": {
+      "title": "Esta es una versión de demostración del sitio web.",
+      "checkout": "Esta es una versión de demostración del sitio web. El proceso de compra no está disponible.",
+      "login": "Esta es una versión de demostración del sitio web. El inicio de sesión no está disponible.",
+      "register": "Esta es una versión de demostración del sitio web. El registro no está disponible.",
+      "forgotPassword": "Esta es una versión de demostración del sitio web. La restablecimiento de contraseña no está disponible.",
+      "subscription": "Esta es una versión de demostración del sitio web. La suscripción no está disponible."
+    }
+  },
+
+  "header": {
+    "cart": "Carrito",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "search": {
+      "placeholder": "Buscar productos…"
+    },
+    "menu": {
+      "title": "Menú",
+      "close": "Cerrar",
+      "drawer": {
+        "home": "Inicio",
+        "catalog": "Catálogo",
+        "about": "Nosotros",
+        "contacts": "Contactos"
+      }
+    }
+  },
+  "footer": {
+    "developed": "Sitio desarrollado por",
+    "privacyPolicy": "Todos los derechos reservados",
+    "site": "Tienda",
+    "categories": "Categorías"
+  },
+  "login": {
+    "description": "Inicia sesión para acceder a una experiencia de compra mejorada.",
+    "form": {
+      "links": {
+        "forgot_password_label": "¿Olvidaste tu contraseña?",
+        "forgot_password_link": "Haz clic aquí",
+        "register_not_a_member": "¿No tienes cuenta?",
+        "register_link": "Regístrate",
+        "or_sign_in": "O inicia sesión con"
+      },
+      "labels": {
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "emailPlaceholder": "Introduce tu correo",
+        "passwordPlaceholder": "Introduce tu contraseña"
+      },
+      "submit": "Iniciar sesión",
+      "loading": "Cargando..."
+    }
+  },
+  "register": {
+    "title": "Crea una cuenta y obtén acceso a las compras.",
+    "form": {
+      "links": {
+        "forgot_password_label": "¿Olvidaste tu contraseña?",
+        "forgot_password_link": "Haz clic aquí",
+        "already_have_an_account": "¿Ya tienes una cuenta?",
+        "login_link": "Inicia sesión",
+        "or_sign_in": "O inicia sesión con",
+        "privacy_policy_confirm_label": "Al crear una cuenta, aceptas las políticas de nuestra tienda.",
+        "privacy_policy_confirm_link": "Política de Privacidad",
+        "privacy_policy_terms_of_use_link": "Términos de Uso"
+      },
+      "labels": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "phone": "Teléfono",
+        "firstNamePlaceholder": "Ingresa tu nombre",
+        "lastNamePlaceholder": "Ingresa tu apellido",
+        "emailPlaceholder": "Ingresa tu correo",
+        "passwordPlaceholder": "Ingresa tu contraseña",
+        "phonePlaceholder": "Ingresa tu teléfono"
+      },
+      "submit": "Registrarse",
+      "loading": "Cargando..."
+    }
+  },
+  "forgotPassword": {
+    "title": "Recuperación de contraseña",
+    "description": "Ingresa tu correo para recuperar tu contraseña. Te enviaremos un correo con instrucciones para restablecer tu contraseña.",
+    "form": {
+      "links": {
+        "login_link": "Iniciar sesión",
+        "or_sign_in": "O iniciar sesión con"
+      },
+      "labels": {
+        "email": "Correo electrónico",
+        "emailPlaceholder": "Ingrese su correo"
+      },
+      "submit": "Recuperar",
+      "loading": "Cargando..."
+    }
+  },
+  "home": {
+    "hero": {
+      "about": "Cuchillos de\r\ncalidad premium",
+      "toCatalogBtn": "Ir al catálogo"
+    },
+    "features": {
+      "tip1": {
+        "title": "Durabilidad de confianza",
+        "description": "Nuestros cuchillos están fabricados mediante un proceso de metalurgia en polvo,\r\nlo que los hace increíblemente resistentes a astillas y golpes.\r\nEs un acero que soporta las exigencias del mundo real."
+      },
+      "tip2": {
+        "title": "Listo para cualquier entorno",
+        "description": "El 18% de cromo y molibdeno proporcionan alta resistencia a la corrosión.\r\nLluvia, humedad, sangre, jugos de plantas — nada es un problema.\r\nTu cuchillo se mantiene como nuevo, sin importar las condiciones."
+      }
+    },
+    "aboutUs": {
+      "title": "Excelencia\r\nen cada detalle",
+      "description1": "Obtenemos materias primas directamente del fabricante y realizamos tanto el tratamiento térmico criogénico como el tradicional nosotros mismos.",
+      "description2": "No importa cuán dura sea el acero, todos los cuchillos requieren afilado y mantenimiento regular."
+    },
+    "topSale": {
+      "title": "Lo Mejor para Ti"
+    },
+    "detailedGuide": {
+      "title": "Guía detallada"
+    },
+    "newsletter": {
+      "title": "Suscríbete al boletín",
+      "placeholder": "Introduce\r\ntu correo electrónico",
+      "button": "Suscribirse"
+    }
+  },
+  "product": {
+    "relatedProducts": {
+      "title": "Productos relacionados",
+      "description": "Si te gusta este producto, quizá también te gusten estos"
+    },
+    "buyBtn": "Comprar",
+    "description": "Descripción",
+    "reviews": "Reseñas",
+    "weight": "Peso",
+    "dimensions": "Dimensiones",
+    "selectVariantBtn": "Seleccionar variante",
+    "outOfStockBtn": "Agotado",
+    "addToCartBtn": "Agregar al carrito"
+  },
+  "filterProductComponent": {
+    "filterTitle": "Filtros",
+    "categoryLabel": "Categorías",
+    "categoryPlaceholder": "Seleccione una categoría",
+    "priceLabel": "Precio",
+    "ratingLabel": "Valoración",
+    "fromLabel": "de",
+    "toLabel": "a"
+  },
+  "sortProducts": {
+    "sortByTitle": "Ordenar por"
+  },
+  "cart": {
+    "title": "Carrito",
+    "empty": "No tienes nada en tu carrito.\r\nVamos a cambiar eso: usa el enlace de abajo para empezar a explorar nuestros productos.",
+    "browseBtn": "Ir al catálogo",
+    "summary": {
+      "title": "Tu carrito",
+      "checkoutBtn": "Proceder al pago",
+      "totalTitle": "Total:",
+      "giftCardTitle": "Tarjeta de regalo:",
+      "taxTitle": "Impuesto:",
+      "shippingTitle": "Envío:",
+      "discountTitle": "Descuento:",
+      "subtotalTitle": "Subtotal (antes de impuestos y envío):"
+    },
+    "productTable": {
+      "header": {
+        "name": "Nombre",
+        "price": "Precio",
+        "quantity": "Cantidad",
+        "total": "Total"
+      }
+    }
+  }
+}

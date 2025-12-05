@@ -1,0 +1,220 @@
+{
+  "seo": {
+    "home": {
+      "title": "Negozio di Coltelli Premium",
+      "description": "Negozio di coltelli premium realizzati in acciai ad alta resistenza. Affidabilità, affilatura e stile per utenti EDC, collezionisti e appassionati di strumenti di qualità.",
+      "keywords": "coltelli EDC, coltelli da collezione, coltelli premium, compra coltello, negozio di coltelli, coltelli in acciai di alta qualità"
+    },
+    "store": {
+      "title": "Catalogo di Coltelli Premium",
+      "description": "Catalogo di coltelli d’élite realizzati in acciai ad alta resistenza. Modelli EDC professionali e da collezione per veri appassionati della qualità.",
+      "keywords": "catalogo coltelli, coltelli premium, coltelli EDC, coltelli da collezione"
+    },
+    "login": {
+      "title": "Accesso all'Account",
+      "description": "Accedi al tuo account per gestire ordini e impostazioni."
+    },
+    "register": {
+      "title": "Registrazione",
+      "description": "Crea un account per effettuare ordini e salvare le tue preferenze."
+    },
+    "cart": {
+      "title": "Carrello",
+      "description": "Articoli aggiunti al carrello prima del checkout."
+    },
+    "notFound": {
+      "title": "Pagina non Trovata"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "cart": "Carrello",
+    "forgotPassword": "Reimposta password",
+    "checkout": "Pagamento",
+    "login": "Accedi",
+    "register": "Registrazione",
+    "profile": "Profilo",
+    "catalog": "Catalogo"
+  },
+  "messages": {
+    "demo": {
+      "title": "Questa è una versione demo del sito.",
+      "checkout": "Questa è una versione demo del sito. Il pagamento non è disponibile.",
+      "login": "Questa è una versione demo del sito. L'accesso non è disponibile.",
+      "register": "Questa è una versione demo del sito. La registrazione non è disponibile.",
+      "forgotPassword": "Questa è una versione demo del sito. La reimpostazione della password nonè disponibile.",
+      "subscription": "Questaè una versione demo del sito. L'iscrizione nonè disponibile."
+    }
+  },
+  "header": {
+    "cart": "Carrello",
+    "profile": "Profilo",
+    "logout": "Esci",
+    "login": "Accedi",
+    "search": {
+      "placeholder": "Cerca prodotti…"
+    },
+    "menu": {
+      "title": "Menu",
+      "close": "Chiudi",
+      "drawer": {
+        "home": "Home",
+        "catalog": "Catalogo",
+        "about": "Chi Siamo",
+        "contacts": "Contatti"
+      }
+    }
+  },
+  "footer": {
+    "developed": "Sito sviluppato da",
+    "privacyPolicy": "Tutti i diritti riservati",
+    "site": "Negozio",
+    "categories": "Categorie"
+  },
+  "login": {
+    "description": "Accedi per usufruire di un’esperienza di acquisto migliorata.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Hai dimenticato la password?",
+        "forgot_password_link": "Clicca qui",
+        "register_not_a_member": "Non hai un account?",
+        "register_link": "Registrati",
+        "or_sign_in": "Oppure accedi con"
+      },
+      "labels": {
+        "email": "Email",
+        "password": "Password",
+        "emailPlaceholder": "Inserisci la tua email",
+        "passwordPlaceholder": "Inserisci la tua password"
+      },
+      "submit": "Accedi",
+      "loading": "Caricamento..."
+    }
+  },
+  "register": {
+    "title": "Crea il tuo account e ottieni un’esperienza di acquisto migliorata.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Password dimenticata?",
+        "forgot_password_link": "Clicca qui",
+        "already_have_an_account": "Hai già un account?",
+        "login_link": "Accedi",
+        "or_sign_in": "Oppure accedi con",
+        "privacy_policy_confirm_label": "Creando un account, accetti la nostra",
+        "privacy_policy_confirm_link": "Informativa sulla privacy",
+        "privacy_policy_terms_of_use_link": "Condizioni d’uso"
+      },
+      "labels": {
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "email": "Email",
+        "password": "Password",
+        "phone": "Telefono",
+        "firstNamePlaceholder": "Inserisci il tuo nome",
+        "lastNamePlaceholder": "Inserisci il tuo cognome",
+        "emailPlaceholder": "Inserisci la tua email",
+        "passwordPlaceholder": "Inserisci la tua password",
+        "phonePlaceholder": "Inserisci il tuo numero di telefono"
+      },
+      "submit": "Registrati",
+      "loading": "Attendere..."
+    }
+  },
+  "forgotPassword": {
+    "title": "Password dimenticata",
+    "description": "Inserisci la tua email qui sotto. Riceverai un messaggio con le istruzioni per reimpostare la tua password.",
+    "form": {
+      "links": {
+        "login_link": "Accedi",
+        "or_sign_in": "Oppure accedi con"
+      },
+      "labels": {
+        "email": "Email",
+        "emailPlaceholder": "Inserisci la tua email"
+      },
+      "submit": "Recupera",
+      "loading": "Caricamento..."
+    }
+  },
+  "home": {
+    "hero": {
+      "about": "Negozio di coltelli\r\n di qualità premium",
+      "toCatalogBtn": "Trova il tuo coltello"
+    },
+    "features": {
+      "tip1": {
+        "title": "Robustezza affidabile",
+        "description": "I nostri coltelli sono realizzati con tecnologia di metallurgia in polvere, che li rende estremamente resistenti a scheggiature e urti. Acciaio in grado di resistere alle esigenze del mondo reale."
+      },
+      "tip2": {
+        "title": "Pronto per ogni ambiente",
+        "description": "Con il 18% di cromo e molibdeno, l’acciaio offre un’eccellente resistenza alla corrosione. Pioggia, umidità, sangue o succhi di piante — nessun problema. Il tuo coltello resta come nuovo in tutte le condizioni."
+      }
+    },
+    "aboutUs": {
+      "title": "Eccellenza\r\n in ogni dettaglio",
+      "description1": "Acquistiamo le materie prime direttamente dal produttore e realizziamo noi stessi il trattamento termico criogenico e tradizionale.",
+      "description2": "Qualunque sia la durezza dell’acciaio, tutti i coltelli richiedono affilatura e manutenzione regolare."
+    },
+    "topSale": {
+      "title": "Il Meglio per Te"
+    },
+    "detailedGuide": {
+      "title": "Guida dettagliata"
+    },
+    "newsletter": {
+      "title": "Iscriviti\r\n alla nostra newsletter",
+      "placeholder": "Inserisci la tua email",
+      "button": "Iscriviti"
+    }
+  },
+  "product": {
+    "relatedProducts": {
+      "title": "Prodotti correlati",
+      "description": "Se ti piace questo prodotto, potrebbero piacerti anche questi"
+    },
+    "buyBtn": "Acquista",
+    "description": "Descrizione",
+    "reviews": "Recensioni",
+    "weight": "Peso",
+    "dimensions": "Dimensioni",
+    "selectVariantBtn": "Seleziona variante",
+    "outOfStockBtn": "Esaurito",
+    "addToCartBtn": "Aggiungi al carrello"
+  },
+  "filterProductComponent": {
+    "filterTitle": "Filtro",
+    "categoryLabel": "Categorie",
+    "categoryPlaceholder": "Seleziona una categoria",
+    "priceLabel": "Prezzo",
+    "ratingLabel": "Valutazione",
+    "fromLabel": "da",
+    "toLabel": "a"
+  },
+  "sortProducts": {
+    "sortByTitle": "Ordina per"
+  },
+  "cart": {
+    "title": "Carrello",
+    "empty": "Non hai nulla nel tuo carrello.\r\nCambiamo questo — usa il link qui sotto per iniziare a sfogliare i nostri prodotti.",
+    "browseBtn": "Vai al catalogo",
+    "summary": {
+      "title": "Riepilogo",
+      "checkoutBtn": "Vai al pagamento",
+      "totalTitle": "Totale:",
+      "giftCardTitle": "Carta regalo:",
+      "taxTitle": "Tasse:",
+      "shippingTitle": "Spedizione:",
+      "discountTitle": "Sconto:",
+      "subtotalTitle": "Subtotale (esclusi tasse e spedizione):"
+    },
+    "productTable": {
+      "header": {
+        "name": "Nome",
+        "price": "Prezzo",
+        "quantity": "Quantità",
+        "total": "Totale"
+      }
+    }
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v4.1.3",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 21648
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5580,
+      "max": [
+        5.291070938110352,
+        1.4552265405654907,
+        0.8691558241844177
+      ],
+      "min": [
+        -0.8691534399986267,
+        -1.4552265405654907,
+        -38.28624725341797
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5580
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 398820
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 124266,
+      "max": [
+        0.14150075614452362,
+        0.05817142128944397,
+        0.9875425696372986
+      ],
+      "min": [
+        -0.14047296345233917,
+        -0.060383088886737823,
+        -1.0193591117858887
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 124266
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 124266
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 700368
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 190464,
+      "max": [
+        0.15107956528663635,
+        0.04649650678038597,
+        0.1546589732170105
+      ],
+      "min": [
+        -0.14363285899162292,
+        -0.04649650678038597,
+        -0.9819554686546326
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 190464
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 190464
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 21091
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 21091,
+      "byteLength": 290396
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 311487,
+      "byteLength": 671665
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 1
+        }
+      }
+    },
+    {
+      "source": 0,
+      "sampler": 0
+    },
+    {
+      "sampler": 0,
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 2
+        }
+      }
+    }
+  ],
+  "images": [
+    {
+      "name": "dull_metal_normal-ogl",
+      "mimeType": "image/png",
+      "uri": "dull_metal_normal-ogl.png"
+    },
+    {
+      "name": "dull_metal_albedo",
+      "mimeType": "image/webp",
+      "uri": "dull_metal_albedo.webp"
+    },
+    {
+      "name": "micarta-knife-handle_albedo",
+      "mimeType": "image/webp",
+      "uri": "micarta-knife-handle_albedo.webp"
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "knife16.bin",
+      "byteLength": 983152
+    }
+  ],
+  "materials": [
+    {
+      "name": "Gold.001",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8005450963973999,
+          0.44511839747428894,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.3367697596549988
+      }
+    },
+    {
+      "name": "Steel",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5,
+        "metallicFactor": 0.809667706489563,
+        "baseColorTexture": {
+          "index": 0
+        }
+      },
+      "normalTexture": {
+        "index": 1
+      }
+    },
+    {
+      "name": "Micarta",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.5,
+        "metallicFactor": 0.7014358043670654,
+        "baseColorTexture": {
+          "index": 2
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cylinder.003",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 0,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plane.010",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 3,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plane",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "mode": 4,
+          "material": 2,
+          "indices": 7,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Blocker",
+      "translation": [
+        -0.10098651051521301,
+        0.01899624615907669,
+        0.16511651128530502
+      ],
+      "scale": [
+        0.030352924019098282,
+        0.03435740992426872,
+        0.030352924019098282
+      ],
+      "mesh": 0
+    },
+    {
+      "name": "Blade",
+      "translation": [
+        0.0002602040767669678,
+        0.019109943881630898,
+        0.015859268605709076
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "Handle",
+      "translation": [
+        -0.00038955826312303543,
+        0.018745504319667816,
+        -0.023755058646202087
+      ],
+      "mesh": 2
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        2,
+        1,
+        0
+      ]
+    }
+  ],
+  "scene": 0,
+  "extensionsUsed": [
+    "EXT_texture_webp",
+    "KHR_draco_mesh_compression"
+  ],
+  "extensionsRequired": [
+    "EXT_texture_webp",
+    "KHR_draco_mesh_compression"
+  ]
+}

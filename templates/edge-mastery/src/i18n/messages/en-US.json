@@ -1,0 +1,222 @@
+{
+	"seo": {
+		"home": {
+			"title": "Premium Knife Store",
+			"description": "A store of premium knives made from high-strength steels. Reliability, sharpness and style for EDC users, collectors and connoisseurs of quality tools.",
+			"keywords": "EDC knives, collectible knives, premium knives, buy knife, knife store, high-end steel knives"
+		},
+		"store": {
+			"title": "Premium Knife Catalog",
+			"description": "A catalog of elite knives made from high-strength steels. Professional EDC and collectible models for true quality enthusiasts.",
+			"keywords": "knife catalog, premium knives, EDC knives, collectible knives"
+		},
+		"login": {
+			"title": "Account Login",
+			"description": "Log in to your personal account to manage orders and settings."
+		},
+		"register": {
+			"title": "Registration",
+			"description": "Create an account to place orders and save your preferences."
+		},
+		"cart": {
+			"title": "Cart",
+			"description": "Items added to your cart before checkout."
+		},
+		"notFound": {
+			"title": "Page Not Found"
+		}
+	},
+	"breadcrumbs": {
+		"home": "Home",
+		"cart": "Cart",
+		"about": "About Us",
+		"forgotPassword": "Password reset",
+		"checkout": "Checkout",
+		"login": "Login",
+		"register": "Register",
+		"profile": "Profile",
+		"catalog": "Catalog"
+	},
+	"messages": {
+		"demo": {
+			"title": "This is a demo version of the website.",
+			"checkout": "This is a demo version of the website. Checkout is not available.",
+			"login": "This is a demo version of the website. Login is not available.",
+			"register": "This is a demo version of the website. Registration is not available.",
+			"forgotPassword": "This is a demo version of the website. Password reset is not available.",
+			"subscription": "This is a demo version of the website. Subscription is not available."
+		}
+	},
+	"header": {
+		"cart": "Cart",
+		"profile": "Profile",
+		"logout": "Logout",
+		"login": "Login",
+		"search": {
+			"placeholder": "Search products…"
+		},
+		"menu": {
+			"title": "Menu",
+			"close": "Close",
+			"drawer": {
+				"home": "Home",
+				"catalog": "Catalog",
+				"about": "About Us",
+				"contacts": "Contacts"
+			}
+		}
+	},
+	"footer": {
+		"developed": "Site developed by",
+		"privacyPolicy": "All rights reserved",
+		"site": "Store",
+		"categories": "Categories"
+	},
+	"login": {
+		"description": "Sign in to access an enhanced shopping experience.",
+		"form": {
+			"links": {
+				"forgot_password_label": "Forgot your password?",
+				"forgot_password_link": "Click here",
+				"register_not_a_member": "No account?",
+				"register_link": "Register",
+				"or_sign_in": "Or sign in with"
+			},
+			"labels": {
+				"email": "Email",
+				"password": "Password",
+				"emailPlaceholder": "Enter your email",
+				"passwordPlaceholder": "Enter your password"
+			},
+			"submit": "Log in",
+			"loading": "Loading..."
+		}
+	},
+	"register": {
+		"title": "Create your account, and get access to an enhanced shopping experience.",
+		"form": {
+			"links": {
+				"forgot_password_label": "Forgot password?",
+				"forgot_password_link": "Click here",
+				"already_have_an_account": "Already have an account?",
+				"login_link": "Login",
+				"or_sign_in": "Or sign in with",
+				"privacy_policy_confirm_label": "By creating an account, you agree to our store",
+				"privacy_policy_confirm_link": "Privacy Policy",
+				"privacy_policy_terms_of_use_link": "Terms of use"
+			},
+			"labels": {
+				"firstName": "First name",
+				"lastName": "Last name",
+				"email": "Email",
+				"password": "Password",
+				"phone": "Phone",
+				"firstNamePlaceholder": "Enter first name",
+				"lastNamePlaceholder": "Enter last name",
+				"emailPlaceholder": "Enter email",
+				"passwordPlaceholder": "Enter password",
+				"phonePlaceholder": "Enter phone"
+			},
+			"submit": "Register",
+			"loading": "Waiting..."
+		}
+	},
+	"forgotPassword": {
+		"title": "Forgot Password",
+		"description": "Please enter your email below. You will receive an email message with instructions on how to reset your password.",
+		"form": {
+			"links": {
+				"login_link": "Log in",
+				"or_sign_in": "Or sign in with"
+			},
+			"labels": {
+				"email": "Email",
+				"emailPlaceholder": "Enter your email"
+			},
+			"submit": "Recover",
+			"loading": "Loading..."
+		}
+	},
+	"home": {
+		"hero": {
+			"about": "Premium quality\r\nknife store",
+			"toCatalogBtn": "Find your knife"
+		},
+		"features": {
+			"tip1": {
+				"title": "The strength that trust",
+				"description": "Our knives are made using powder metallurgy technology, which makes them incredibly resistant to chipping and impact. This is steel that withstands the demands of the real world."
+			},
+			"tip2": {
+				"title": "Ready for any environment",
+				"description": "18% chromium and molybdenum provide excellent corrosion resistance. Rain, humidity, blood, plant juices — none of it is a problem. Your knife stays like new no matter the conditions."
+			}
+		},
+		"aboutUs": {
+			"title": "Excellence\r\nin Every Detail",
+			"description1": "We source raw materials directly from the manufacturer and perform both cryogenic and traditional heat treatment ourselves.",
+			"description2": "No matter how hard the steel is, all knives require regular sharpening and maintenance."
+		},
+		"topSale": {
+			"title": "The Best for You"
+		},
+		"detailedGuide": {
+			"title": "Detailed guide"
+		},
+		"newsletter": {
+			"title": "Subscribe\r\nto our newsletter",
+			"placeholder": "Enter your email",
+			"button": "Subscribe"
+		}
+	},
+
+	"product": {
+		"relatedProducts": {
+			"title": "Related products",
+			"description": "If you like this product, you might also like these"
+		},
+		"buyBtn": "Buy",
+		"description": "Description",
+		"reviews": "Reviews",
+		"weight": "Weight",
+		"dimensions": "Dimensions",
+		"selectVariantBtn": "Select variant",
+		"outOfStockBtn": "Out of stock",
+		"addToCartBtn": "Add to cart"
+	},
+	"filterProductComponent": {
+		"filterTitle": "Filters",
+		"categoryLabel": "Categories",
+		"categoryPlaceholder": "Select a category",
+		"priceLabel": "Price",
+		"ratingLabel": "Rating",
+		"fromLabel": "from",
+		"toLabel": "to"
+	},
+	"sortProducts": {
+		"sortByTitle": "Sort by"
+	},
+	"cart": {
+		"title": "Cart",
+		"empty": "You don't have anything in your cart.\r\nLet's change that — use the link below to start browsing our products.",
+		"browseBtn": "Go to Catalog",
+		"summary": {
+			"title": "Summary",
+			"checkoutBtn": "Go to checkout",
+			"totalTitle": "Total:",
+			"giftCardTitle": "Gift card:",
+			"taxTitle": "Tax:",
+			"shippingTitle": "Shipping:",
+			"discountTitle": "Discount:",
+			"subtotalTitle": "Subtotal (before tax and shipping):"
+		},
+		"productTable": {
+			"header": {
+				"name": "Name",
+				"price": "Price",
+				"quantity": "Quantity",
+				"total": "Total"
+			}
+		}
+	}
+}

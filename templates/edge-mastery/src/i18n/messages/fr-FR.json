@@ -1,0 +1,220 @@
+{
+  "seo": {
+    "home": {
+      "title": "Boutique de Couteaux Premium",
+      "description": "Boutique de couteaux haut de gamme en aciers haute résistance. Fiabilité, tranchant et style pour les utilisateurs EDC, les collectionneurs et les amateurs d’outils de qualité.",
+      "keywords": "couteaux EDC, couteaux de collection, couteaux premium, acheter couteau, boutique de couteaux, couteaux en aciers haut de gamme"
+    },
+    "store": {
+      "title": "Catalogue de Couteaux Premium",
+      "description": "Catalogue de couteaux haut de gamme en aciers haute résistance. Modèles EDC professionnels et pièces de collection pour les passionnés de qualité.",
+      "keywords": "catalogue couteaux, couteaux premium, couteaux EDC, couteaux de collection"
+    },
+    "login": {
+      "title": "Connexion au Compte",
+      "description": "Connectez-vous pour gérer vos commandes et paramètres."
+    },
+    "register": {
+      "title": "Inscription",
+      "description": "Créez un compte pour passer des commandes et enregistrer vos préférences."
+    },
+    "cart": {
+      "title": "Panier",
+      "description": "Articles ajoutés au panier avant la finalisation de la commande."
+    },
+    "notFound": {
+      "title": "Page Introuvable"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "cart": "Panier",
+    "forgotPassword": "Réinitialisation du mot de passe",
+    "checkout": "Paiement",
+    "login": "Connexion",
+    "register": "Inscription",
+    "profile": "Profil",
+    "catalog": "Catalogue"
+  },
+  "messages": {
+    "demo": {
+      "title": "Ceci est une version de démonstration du site.",
+      "checkout": "Ceci est une version de démonstration du site. Le paiement n’est pas disponible.",
+      "login": "Ceci est une version de démonstration du site. La connexion n’est pas disponible.",
+      "register": "Ceci est une version de démonstration du site. L’inscription n’est pas disponible.",
+      "forgotPassword": "Ceci est une version de démonstration du site. La réinitialisation du mot de passe n’est pas disponible.",
+      "subscription": "Ceci est une version de démonstration du site. L’abonnement n’est pas disponible."
+    }
+  },
+  "header": {
+    "cart": "Panier",
+    "profile": "Profil",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "search": {
+      "placeholder": "Rechercher des produits…"
+    },
+    "menu": {
+      "title": "Menu",
+      "close": "Fermer",
+      "drawer": {
+        "home": "Accueil",
+        "catalog": "Catalogue",
+        "about": "À Propos",
+        "contacts": "Contacts"
+      }
+    }
+  },
+  "footer": {
+    "developed": "Site développé par",
+    "privacyPolicy": "Tous droits réservés",
+    "site": "Boutique",
+    "categories": "Catégories"
+  },
+  "login": {
+    "description": "Connectez-vous pour profiter d’une expérience d’achat améliorée.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Mot de passe oublié ?",
+        "forgot_password_link": "Cliquez ici",
+        "register_not_a_member": "Pas de compte ?",
+        "register_link": "Inscription",
+        "or_sign_in": "Ou connectez-vous avec"
+      },
+      "labels": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "emailPlaceholder": "Entrez votre e-mail",
+        "passwordPlaceholder": "Entrez votre mot de passe"
+      },
+      "submit": "Se connecter",
+      "loading": "Chargement..."
+    }
+  },
+  "register": {
+    "title": "Créez votre compte et profitez d’une expérience d’achat améliorée.",
+    "form": {
+      "links": {
+        "forgot_password_label": "Mot de passe oublié ?",
+        "forgot_password_link": "Cliquez ici",
+        "already_have_an_account": "Vous avez déjà un compte ?",
+        "login_link": "Connexion",
+        "or_sign_in": "Ou connectez-vous avec",
+        "privacy_policy_confirm_label": "En créant un compte, vous acceptez la",
+        "privacy_policy_confirm_link": "Politique de confidentialité",
+        "privacy_policy_terms_of_use_link": "Conditions d’utilisation"
+      },
+      "labels": {
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "phone": "Téléphone",
+        "firstNamePlaceholder": "Entrez votre prénom",
+        "lastNamePlaceholder": "Entrez votre nom",
+        "emailPlaceholder": "Entrez votre e-mail",
+        "passwordPlaceholder": "Entrez votre mot de passe",
+        "phonePlaceholder": "Entrez votre numéro de téléphone"
+      },
+      "submit": "S’inscrire",
+      "loading": "Patientez..."
+    }
+  },
+  "forgotPassword": {
+    "title": "Mot de passe oublié",
+    "description": "Veuillez saisir votre e-mail ci-dessous. Vous recevrez un message contenant les instructions pour réinitialiser votre mot de passe.",
+    "form": {
+      "links": {
+        "login_link": "Se connecter",
+        "or_sign_in": "Ou connectez-vous avec"
+      },
+      "labels": {
+        "email": "E-mail",
+        "emailPlaceholder": "Entrez votre e-mail"
+      },
+      "submit": "Récupérer",
+      "loading": "Chargement..."
+    }
+  },
+  "home": {
+    "hero": {
+      "about": "Boutique de couteaux\r\n de qualité premium",
+      "toCatalogBtn": "Trouver votre couteau"
+    },
+    "features": {
+      "tip1": {
+        "title": "Solidité éprouvée",
+        "description": "Nos couteaux sont fabriqués avec une technologie métallurgique en poudre, ce qui les rend extrêmement résistants aux éclats et aux chocs. Un acier capable de supporter les exigences du monde réel."
+      },
+      "tip2": {
+        "title": "Prêt pour tous les environnements",
+        "description": "Avec 18 % de chrome et du molybdène, l’acier offre une excellente résistance à la corrosion. Pluie, humidité, sang ou sève — rien ne lui fait peur. Votre couteau reste comme neuf en toutes circonstances."
+      }
+    },
+    "aboutUs": {
+      "title": "Excellence\r\n dans chaque détail",
+      "description1": "Nous achetons les matériaux directement auprès du fabricant et réalisons nous-mêmes le traitement thermique cryogénique et traditionnel.",
+      "description2": "Quelle que soit la dureté de l’acier, tous les couteaux nécessitent un affûtage et un entretien réguliers."
+    },
+    "topSale": {
+      "title": "Le Meilleur pour Vous"
+    },
+    "detailedGuide": {
+      "title": "Guide détaillé"
+    },
+    "newsletter": {
+      "title": "Abonnez-vous\r\n à notre newsletter",
+      "placeholder": "Entrez votre e-mail",
+      "button": "S’abonner"
+    }
+  },
+  "product": {
+    "relatedProducts": {
+      "title": "Produits associés",
+      "description": "Si vous appréciez ce produit, vous pourriez également aimer ceux-ci"
+    },
+    "buyBtn": "Acheter",
+    "description": "Description",
+    "reviews": "Avis",
+    "weight": "Poids",
+    "dimensions": "Dimensions",
+    "selectVariantBtn": "Choisir la variante",
+    "outOfStockBtn": "En rupture de stock",
+    "addToCartBtn": "Ajouter au panier"
+  },
+  "filterProductComponent": {
+    "filterTitle": "Filtres",
+    "categoryLabel": "Catégories",
+    "categoryPlaceholder": "Sélectionner une catégorie",
+    "priceLabel": "Prix",
+    "ratingLabel": "Évaluation",
+    "fromLabel": "de",
+    "toLabel": "à"
+  },
+  "sortProducts": {
+    "sortByTitle": "Trier par"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Vous n'avez rien dans votre panier.\r\nChangeons cela — utilisez le lien ci-dessous pour commencer à parcourir nos produits.",
+    "browseBtn": "Aller au catalogue",
+    "summary": {
+      "title": "Récapitulatif",
+      "checkoutBtn": "Passer au paiement",
+      "totalTitle": "Total :",
+      "giftCardTitle": "Carte cadeau :",
+      "taxTitle": "Taxe :",
+      "shippingTitle": "Livraison :",
+      "discountTitle": "Réduction :",
+      "subtotalTitle": "Sous-total (hors taxe et livraison) :"
+    },
+    "productTable": {
+      "header": {
+        "name": "Nom",
+        "price": "Prix",
+        "quantity": "Quantité",
+        "total": "Total"
+      }
+    }
+  }
+}
