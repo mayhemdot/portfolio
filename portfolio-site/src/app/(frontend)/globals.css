@@ -1,0 +1,329 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --background: hsl(0 0% 91%);
+  --foreground: hsl(222.2 84% 4.9%);
+
+  --card: hsl(240 5% 96%);
+  --card-foreground: hsl(222.2 84% 4.9%);
+
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(222.2 84% 4.9%);
+
+  --primary: hsl(222.2 47.4% 11.2%);
+  --primary-foreground: hsl(210 40% 98%);
+
+  --secondary: hsl(210 40% 96.1%);
+  --secondary-foreground: hsl(222.2 47.4% 11.2%);
+
+  --muted: hsl(210 40% 96.1%);
+  --muted-foreground: hsl(215.4 16.3% 46.9%);
+
+  --accent: hsl(210 40% 96.1%);
+  --accent-foreground: hsl(222.2 47.4% 11.2%);
+
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: hsl(240 6% 80%);
+  --input: hsl(214.3 31.8% 91.4%);
+  --ring: hsl(222.2 84% 4.9%);
+
+  --radius: 0.2rem;
+
+  --success: hsl(196 52% 74%);
+  --warning: hsl(34 89% 85%);
+  --error: hsl(10 100% 86%);
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(210 40% 98%);
+
+  --card: hsl(0 0% 4%);
+  --card-foreground: hsl(210 40% 98%);
+
+  --popover: hsl(222.2 84% 4.9%);
+  --popover-foreground: hsl(210 40% 98%);
+
+  --primary: hsl(210 40% 98%);
+  --primary-foreground: hsl(222.2 47.4% 11.2%);
+
+  --secondary: hsl(217.2 32.6% 17.5%);
+  --secondary-foreground: hsl(210 40% 98%);
+
+  --muted: hsl(217.2 32.6% 17.5%);
+  --muted-foreground: hsl(215 20.2% 65.1%);
+
+  --accent: hsl(217.2 32.6% 17.5%);
+  --accent-foreground: hsl(210 40% 98%);
+
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: hsl(0 0% 15%);
+  --input: hsl(217.2 32.6% 17.5%);
+  --ring: hsl(212.7 26.8% 83.9%);
+
+  --success: hsl(196 100% 14%);
+  --warning: hsl(34 51% 25%);
+  --error: hsl(10 39% 43%);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-family-alum: var(--font-alum);
+  --font-alum: var(--font-alum);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@custom-variant fl-text {
+  @slot;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.  @config
+ '../../../tailwind.config.mjs'; 
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility fl-text-* {
+  --spreadText: calc(--modifier(integer) - --value(integer));
+
+  font-size: calc(--value(integer) * 1px + var(--spreadText) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@utility fl-px-* {
+  --spreadX: calc(--modifier(integer) - --value(integer));
+
+  padding-left: calc(--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320)));
+
+  padding-right: calc(--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@utility fl-pt-* {
+  --spreadT: calc(--modifier(integer) - --value(integer));
+
+  padding-top: calc(--value(integer) * 1px + var(--spreadT) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@utility fl-pb-* {
+  --spreadB: calc(--modifier(integer) - --value(integer));
+
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadB) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@utility fl-py-* {
+  --spreadY: calc(--modifier(integer) - --value(integer));
+
+  padding-top: calc(--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320)));
+
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320)));
+}
+
+@utility fl-w-* {
+  --spreadW: calc(--modifier(integer) - --value(integer));
+  width: calc(
+    --value(integer) * 1px + var(--spreadW) * ((100vw - 320px) / (1920 - 320))
+  ) !important;
+}
+
+@utility fl-max-w-* {
+  --spreadMW: calc(--modifier(integer) - --value(integer));
+  max-width: calc(
+    --value(integer) * 1px + var(--spreadMW) * ((100vw - 320px) / (1920 - 320))
+  ) !important;
+}
+
+@utility fl-gap-* {
+  --spreadG: calc(--modifier(integer) - --value(integer));
+  gap: calc(--value(integer) * 1px + var(--spreadG) * ((100vw - 320px) / (1920 - 320))) !important;
+}
+
+.heightWithoutHeader {
+  @apply min-h-[calc(100vh-72px)] xl:min-h-[calc(100vh-96px)];
+}
+
+.cardContainer {
+  perspective: 1000px;
+  will-change: width;
+  z-index: 0;
+}
+
+.aboutFlipCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #101010;
+  /* overflow-x: clip; */
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: top;
+  z-index: 0;
+}
+
+.aboutFlipCardFront,
+.aboutFlipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.aboutFlipCardBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.aboutFlipCardBackInner {
+  transform: rotateY(180deg);
+}
+
+.aboutFlipCardFront {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(0deg);
+}
+
+#card-1 {
+  border-radius: 20px 0 0 20px;
+}
+
+#card-3 {
+  border-radius: 0 20px 20px 0px;
+}
+
+@media (max-width: 1000px) {
+  #card-1,
+  #card-2,
+  #card-3,
+  .aboutFlipCardBack {
+    transform: none;
+  }
+
+  .aboutFlipCardFront {
+    display: none;
+  }
+  .aboutFlipCard {
+    width: 80%;
+    position: absolute;
+    transform-origin: center;
+    border-radius: 20px !important;
+  }
+
+  #card-2,
+  #card-3 {
+    transform: translateY(300%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation-name: marquee;
+  animation-duration: 100s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: unset;
+  font-weight: unset;
+} */
+
+html {
+  opacity: 0;
+}
+
+html[data-theme='dark'],
+html[data-theme='light'] {
+  opacity: initial;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  overflow-x: clip;
+  @apply bg-background text-foreground min-h-screen flex flex-col;
+}

@@ -10,6 +10,7 @@ build/
 .next/
 out/
 
+.qodo
 # Env
 .env
 .env.*
@@ -27,3 +28,18 @@ log.txt
 
 # OS
 Thumbs.db
+
+
+# Payload default media upload directory
+public/media/
+
+public/robots.txt
+public/sitemap*.xml
+
+
+# Playwright
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
