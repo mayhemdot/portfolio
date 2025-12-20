@@ -1,0 +1,67 @@
+@reference "tailwindcss";
+
+.header {
+	@apply container
+    sticky
+    z-50 
+    mx-auto
+    w-full
+    max-w-full
+    transform
+    backdrop-blur 
+    transition-transform 
+    duration-500;
+
+	&__top {
+		@apply hidden
+      w-full
+      items-center
+      border-b
+      py-2
+      lg:flex;
+	}
+
+	&__bottom {
+		@apply w-full
+      max-w-full
+      px-0
+      py-2;
+	}
+
+	.nav {
+		@apply flex w-full items-center justify-end gap-2 sm:w-fit md:w-auto md:justify-start md:gap-4;
+	}
+}
+
+.header_bottom {
+	&__wrapper {
+		@apply relative m-auto flex w-full items-center justify-between;
+	}
+	&__left {
+		@apply flex items-center justify-between gap-16 md:gap-32;
+	}
+}
+
+.header_top__list {
+	@apply relative
+    m-auto
+    flex
+    w-full
+    items-center
+    justify-between
+    text-xs 
+    2xl:text-sm;
+}
+
+.avatarFallback {
+	@apply size-[30px]
+    m-auto
+    flex
+    items-center
+    justify-center
+    rounded-full
+    border-2
+    border-dark-color
+    bg-none
+    text-xs;
+}

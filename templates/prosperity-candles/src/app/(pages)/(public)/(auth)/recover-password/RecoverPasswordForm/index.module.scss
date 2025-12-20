@@ -1,0 +1,16 @@
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.formWrapper {
+  @apply w-full md:w-2/3;
+}
+
+.submit {
+  @apply mb-base;
+}
+
+.message {
+  @apply mb-base;
+}

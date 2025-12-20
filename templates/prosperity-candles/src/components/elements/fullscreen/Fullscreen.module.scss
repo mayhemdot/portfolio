@@ -1,0 +1,17 @@
+.roundBlur {
+	@apply absolute
+  right-0
+  m-5
+  flex
+  cursor-pointer
+  items-center
+  justify-center
+  text-center
+  text-white
+  backdrop-blur
+  hover:opacity-80
+  hover:transition-opacity
+  hover:duration-1000
+  md:m-7
+  xl:m-10;
+}

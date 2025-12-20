@@ -1,0 +1,152 @@
+.hero {
+	@apply m-0 
+  flex 
+  max-h-full 
+  min-h-full
+  w-[1520px]
+  max-w-[100vw]
+  justify-center 
+  pb-16
+  pt-[72px]
+  sm:w-full
+  sm:px-8
+  md:justify-between
+  md:pb-32
+  lg:pt-[102px]
+  2xl:max-w-full;
+
+	&__content {
+		@apply hidden 
+    grow 
+    flex-col
+    items-center 
+    justify-center 
+    lg:flex 
+    xl:mt-[-60px];
+	}
+
+	&__left {
+		@apply relative 
+    z-10 
+    mt-40 
+    block 
+    h-[162px]
+    w-[300px]
+    scale-75 
+    lg:scale-100;
+	}
+
+	&__right {
+		@apply hidden
+    grow
+    scale-75
+    items-center
+    justify-center
+    lg:flex
+    lg:scale-100;
+	}
+
+	&__right_content {
+		@apply relative
+      mt-[5%]
+      flex
+      h-[162px]
+      w-[288px]
+      justify-center;
+	}
+
+	&__center {
+		@apply relative
+    mx-auto
+    flex
+    max-w-max
+    grow
+    flex-col
+    items-center
+    justify-between;
+	}
+}
+
+.buttonDarkBordered {
+	@apply border-dark-color
+  mx-auto
+  w-auto
+  border
+  bg-transparent
+  text-sm
+  uppercase
+  md:w-[200px];
+}
+
+.textRoundBlur {
+	/* border-radius: 50%; */
+	@apply absolute
+  left-1/2
+  top-1/2
+  flex
+  -translate-x-1/2
+  -translate-y-1/2
+  transform
+  items-center
+  justify-center
+  rounded-full
+  p-2
+  text-center
+  text-white
+  backdrop-blur;
+}
+
+.bgBlur {
+	@apply backdrop-blur;
+}
+
+/* .carousel {
+  @apply max-w-[100vw] lg:max-w-[1520px];
+
+} */
+
+/* .guarantee {
+  @apply container
+  m-auto
+  max-w-[1520px]
+  px-4
+  lg:px-8
+  pb-16
+  md:pb-32;
+} */
+
+/* .subscribe {
+  @apply container
+  m-auto
+  max-w-[1520px]
+  pb-16
+  px-4
+  md:pb-32
+  lg:px-8;
+
+  &__content {
+    @apply grid
+    relative
+    min-h-[400px]
+    lg:min-h-[500px]
+    md:grid-cols-12;
+  }
+
+  &__left {
+    @apply relative
+    hidden
+    md:block
+    lg:col-span-4
+    col-span-5
+    row-span-1
+    pb-[85%];
+  }
+
+  &__right {
+    @apply flex
+    items-center
+    justify-center
+    lg:col-span-8
+    col-span-7;
+  }
+} */

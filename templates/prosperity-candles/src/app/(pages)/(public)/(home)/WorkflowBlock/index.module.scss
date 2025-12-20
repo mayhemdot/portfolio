@@ -1,0 +1,29 @@
+.workflow {
+  @apply container
+  relative
+  m-auto
+  max-w-[1520px]
+  px-4
+  pb-16
+  lg:px-8
+  md:pb-32;
+
+  &__content {
+    @apply grid
+    grid-cols-1
+    lg:grid-cols-12
+    lg:gap-8;
+  }
+
+  &__image_container {
+    @apply absolute 
+    left-1/2
+    top-1/2
+    h-[68%]
+    w-[68%]
+    -translate-x-1/2
+    -translate-y-1/2
+    transform
+    overflow-hidden;
+  }
+}

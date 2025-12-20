@@ -1,0 +1,34 @@
+@reference "tailwindcss";
+
+.accountMenuLink {
+	@apply flex items-center justify-start gap-8 px-6 py-2 transition-colors;
+}
+.accountMenuLinkActive {
+	@apply bg-dark-beige-color/50;
+}
+
+.account {
+	margin-bottom: var(--block-padding);
+}
+
+.params {
+	margin-top: var(--base);
+}
+
+.purchases {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--base);
+}
+
+.purchase {
+	> * {
+		margin: 0;
+	}
+}
+
+.noPurchases {
+	font-weight: 600;
+}

@@ -1,0 +1,78 @@
+.columns {
+	/* @apply grid auto-rows-auto grid-cols-[repeat(2,_minmax(0,_0.9fr))] place-content-start gap-2 md:grid-cols-[repeat(auto-fit,_minmax(170px,_calc(_33.33%-16px)))] lg:grid-cols-[repeat(auto-fit,_minmax(210px,_calc(_25%-24px)))] */
+
+	@apply grid auto-rows-auto grid-cols-2 place-content-start gap-2 sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] lg:place-content-start lg:gap-3 xl:gap-4;
+}
+
+.pagination {
+	@apply pt-4 md:pt-8;
+}
+
+.column {
+	// sm:h-[440px] xl:h-[520px]
+	@apply h-full;
+}
+
+.list {
+	position: relative;
+}
+
+// this is to make up for the space taken by the fixed header, since the scroll method does not accept an offset parameter
+// .scrollRef {
+//   position: absolute;
+//   left: 0;
+//   top: calc(var(--base) * -5);
+//   @include mid-break {
+//     top: calc(var(--base) * -2);
+//   }
+// }
+
+// .introContent {
+//   position: relative;
+//   margin-bottom: calc(var(--base) * 2);
+
+//   @include mid-break {
+//     margin-bottom: var(--base);
+//   }
+// }
+
+// .resultCountWrapper {
+//   display: flex;
+//   margin-bottom: calc(var(--base) * 2);
+
+//   @include mid-break {
+//     margin-bottom: var(--base);
+//   }
+// }
+
+// .pageRange {
+//   margin-bottom: var(--base);
+
+//   @include mid-break {
+//     margin-bottom: var(--base);
+//   }
+// }
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: repeat(12, 1fr);
+//   width: 100%;
+//   gap: var(--base) 40px;
+
+//   @include mid-break {
+//     grid-template-columns: repeat(6, 1fr);
+//     gap: calc(var(--base) / 2) var(--base);
+//   }
+// }
+
+// .column {
+//   grid-column-end: span 4;
+
+//   @include mid-break {
+//     grid-column-end: span 6;
+//   }
+
+//   @include small-break {
+//     grid-column-end: span 6;
+//   }
+// }

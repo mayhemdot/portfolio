@@ -1,0 +1,27 @@
+.gridContent {
+  @apply grid grid-cols-12 gap-y-2 gap-x-4 md:gap-2;
+}
+
+.column--oneThird {
+  grid-column-end: span 4;
+}
+
+.column--half {
+  grid-column-end: span 6;
+}
+
+.column--twoThirds {
+  grid-column-end: span 8;
+}
+
+.column--full {
+  grid-column-end: span 12;
+}
+
+.column {
+  @apply col-span-12 lg:col-span-6 auto-rows-auto;
+}
+
+.link {
+  margin-top: 2rem;
+}

@@ -1,0 +1,85 @@
+$minWidth: 320px;
+$maxWidth: 3840px;
+$minWidthD: 320;
+$maxWidthD: 3840;
+
+@mixin adptValue($property, $minVal, $maxVal) {
+	$spread: $maxVal - $minVal;
+	#{$property}: calc(
+		#{$minVal}px + #{$spread} * (100vw - #{$minWidth}) / (#{$maxWidthD} - #{$minWidthD})
+	) !important;
+}
+
+// $font-size-title-d: 40; 32|128
+.fsTitle {
+	@include adptValue("font-size", 32, 128);
+	line-height: 1.3;
+	font-family: "Romile" !important;
+}
+
+// $font-size-subtitle-d: 30;
+.fsSubtitle {
+	@include adptValue("font-size", 18, 32);
+	line-height: 1.3;
+}
+
+// $font-size-middle-d: 24;
+.fsMiddle {
+	@include adptValue("font-size", 16, 20);
+}
+
+// $font-size-normal-d: 20;
+.fsNormal {
+	@include adptValue("font-size", 14, 16);
+}
+
+// $font-size-small: 16px;
+.fsSmall {
+	@include adptValue("font-size", 12, 14);
+}
+
+// $font-size-smallest: 14px;
+.fsSmallest {
+	@include adptValue("font-size", 10, 12);
+}
+
+.digits {
+	font-family: var(--font-tt-ricordi) !important;
+}
+
+.fsAccent {
+	font-family: var(--font-romile) !important;
+}
+
+.fsDefault {
+	font-family: var(--font-lagunac) !important;
+}
+
+.gradient {
+	border-radius: 2rem;
+	background: linear-gradient(
+		269deg,
+		rgba(255, 255, 255, 0.4) 1.08%,
+		rgba(255, 255, 255, 0) 125.1%
+	);
+	backdrop-filter: blur(8px);
+}
+
+/* h1 {
+	font-weight: 600;
+	@include adptValue("font-size", 18, 32);
+} */
+
+/* h2 {
+	@include adptValue("font-size", 18, 32);
+	line-height: 1.4;
+}
+
+h3 {
+	@include adptValue("font-size", 16, 20);
+	line-height: 1.4;
+}
+p {
+	@include adptValue("font-size", 15, 19);
+	line-height: 1.5;
+} */

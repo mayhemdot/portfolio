@@ -1,0 +1,21 @@
+.form {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+
+  // width: 66.66%;
+
+  @apply md:w-full;
+}
+
+.changePassword {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.submit {
+  margin-top: calc(var(--base) / 2);
+}

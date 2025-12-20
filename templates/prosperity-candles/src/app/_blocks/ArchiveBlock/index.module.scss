@@ -1,0 +1,15 @@
+.content {
+	@apply w-full space-y-8;
+}
+
+.archiveBlock {
+	position: relative;
+}
+
+.introContent {
+	@apply mb-4 md:mb-2;
+}
+
+.longButton {
+	@apply bg-beige-color hover:bg-beige-color/85 rounded-2xl!  w-full py-4 text-center lg:mt-10;
+}

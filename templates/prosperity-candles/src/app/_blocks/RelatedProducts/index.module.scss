@@ -1,0 +1,55 @@
+.introContent {
+  @apply relative mb-4 md:mb-8;
+}
+
+// .grid {
+// display: grid;
+
+// grid-template-columns: repeat(12, 1fr);
+// width: 100%;
+// gap: var(--base) 40px;
+
+// @include mid-break {
+//   grid-template-columns: repeat(6, 1fr);
+//   gap: calc(var(--base) / 2) var(--base);
+// }
+// }
+
+.column {
+  // max-width: 1/4 * 100%;
+  max-width: 360px;
+}
+//   grid-column-end: span 12;
+
+//   @include mid-break {
+//     grid-column-end: span 6;
+//   }
+
+//   @include small-break {
+//     grid-column-end: span 6;
+//   }
+// }
+
+// .cols-half {
+//   grid-column-end: span 6;
+
+//   @include mid-break {
+//     grid-column-end: span 6;
+//   }
+
+//   @include small-break {
+//     grid-column-end: span 6;
+//   }
+// }
+
+// .cols-thirds {
+//   grid-column-end: span 3;
+
+//   @include mid-break {
+//     grid-column-end: span 6;
+//   }
+
+//   @include small-break {
+//     grid-column-end: span 6;
+//   }
+// }

@@ -1,0 +1,64 @@
+.besides {
+	@apply container
+    m-auto
+    max-w-[1520px]
+    px-4
+    pb-16
+    md:pb-32
+    lg:px-8;
+
+	&__text {
+		@apply relative
+      mx-auto
+      h-[300px]
+      w-full
+      border-2
+      border-dark-color
+      lg:h-full
+      lg:w-[300px];
+	}
+
+	&__content {
+		@apply grid
+      min-h-[500px]
+      grid-cols-12
+      gap-4;
+	}
+
+	&__left {
+		@apply col-span-12
+      row-span-6
+      lg:col-span-6;
+	}
+
+	&__right {
+		@apply col-span-12
+      row-span-6
+      grid
+      grid-cols-6
+      gap-4
+      lg:col-span-6;
+	}
+}
+
+.textRoundBlur {
+	/* border-radius: 50%; */
+	@apply absolute
+    left-1/2
+    top-1/2
+    flex
+    -translate-x-1/2
+    -translate-y-1/2
+    transform
+    items-center
+    justify-center
+    rounded-full
+    p-2
+    text-center
+    text-white
+    backdrop-blur;
+}
+
+.bgBlur {
+	@apply backdrop-blur;
+}

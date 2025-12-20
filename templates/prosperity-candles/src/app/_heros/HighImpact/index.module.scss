@@ -1,0 +1,29 @@
+// /* Hero Block */
+// .hero {
+//   @apply relative md:pt-gutter-h; /* Используем кастомное значение 'gutter-h' */
+// }
+
+// /* Media Block */
+// .media {
+//   @apply relative w-[calc(100% + gutter-h)] left-[calc(gutter-h / -2)] mt-[calc(base * 3)] md:left-0 md:mt-base md:ml-[calc(gutter-h * -1)] md:w-[calc(100% + gutter-h * 2)];
+// }
+
+// /* Links Block */
+// .links {
+//   @apply flex flex-wrap list-none m-0 p-0 pt-base mt-[calc(base * -0.5)];
+
+//   & > * {
+//     @apply m-[calc(base / 2)];
+//   }
+// }
+
+// /* Caption Block */
+// .caption {
+//   color: var(--theme-elevation-500);
+//   @apply relative mt-base left-[calc(gutter-h / 2)] w-[calc(100% - gutter-h)] md:left-gutter-h;
+// }
+
+// /* Content Block */
+// .content {
+//   @apply relative;
+// }

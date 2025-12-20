@@ -1,0 +1,45 @@
+.gradient {
+  border-radius: 2rem;
+  background: linear-gradient(
+    269deg,
+    rgba(255, 255, 255, 0.4) 1.08%,
+    rgba(255, 255, 255, 0) 125.1%
+  );
+  backdrop-filter: blur(8px);
+}
+
+.subscribe {
+  @apply container
+  m-auto
+  max-w-[1520px]
+  px-4
+  pb-16
+  md:pb-32
+  lg:px-8;
+
+  &__content {
+    @apply relative
+    grid
+    min-h-[400px]
+    md:grid-cols-12
+    lg:min-h-[500px];
+  }
+
+  &__left {
+    @apply relative
+    col-span-5
+    row-span-1
+    hidden
+    pb-[85%]
+    md:block
+    lg:col-span-4;
+  }
+
+  &__right {
+    @apply col-span-7
+    flex
+    items-center
+    justify-center
+    lg:col-span-8;
+  }
+}

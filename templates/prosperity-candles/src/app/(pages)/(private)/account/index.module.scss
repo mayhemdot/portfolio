@@ -1,0 +1,29 @@
+.accountMenuLink {
+  @apply flex justify-start items-center gap-8 px-6 py-2 transition-colors;
+}
+
+.account {
+  margin-bottom: var(--block-padding);
+}
+
+.params {
+  margin-top: var(--base);
+}
+
+.purchases {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--base);
+}
+
+.purchase {
+  > * {
+    margin: 0;
+  }
+}
+
+.noPurchases {
+  font-weight: 600;
+}

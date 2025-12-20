@@ -1,0 +1,54 @@
+@utility fl-text-* {
+	--spreadText: calc(--modifier(integer) - --value(integer));
+
+	font-size: calc(--value(integer) * 1px + var(--spreadText) * var(--cf));
+}
+
+@utility fl-px-* {
+	--spreadX: calc(--modifier(integer) - --value(integer));
+
+	padding-left: calc(--value(integer) * 1px + var(--spreadX) * var(--cf));
+
+	padding-right: calc(--value(integer) * 1px + var(--spreadX) * var(--cf));
+}
+
+@utility fl-pt-* {
+	--spreadT: calc(--modifier(integer) - --value(integer));
+	padding-top: calc(--value(integer) * 1px + var(--spreadT) * var(--cf));
+}
+
+@utility fl-pb-* {
+	--spreadB: calc(--modifier(integer) - --value(integer));
+	padding-bottom: calc(--value(integer) * 1px + var(--spreadB) * var(--cf));
+}
+
+@utility fl-mb-* {
+	--spreadMB: calc(--modifier(integer) - --value(integer));
+	margin-bottom: calc(--value(integer) * 1px + var(--spreadMB) * var(--cf));
+}
+@utility fl-mt-* {
+	--spreadMT: calc(--modifier(integer) - --value(integer));
+	margin-top: calc(--value(integer) * 1px + var(--spreadMT) * var(--cf));
+}
+
+@utility fl-py-* {
+	--spreadY: calc(--modifier(integer) - --value(integer));
+
+	padding-top: calc(--value(integer) * 1px + var(--spreadY) * var(--cf));
+	padding-bottom: calc(--value(integer) * 1px + var(--spreadY) * var(--cf));
+}
+
+@utility fl-w-* {
+	--spreadW: calc(--modifier(integer) - --value(integer));
+	width: calc(--value(integer) * 1px + var(--spreadW) * var(--cf));
+}
+
+@utility fl-max-w-* {
+	--spreadMW: calc(--modifier(integer) - --value(integer));
+	max-width: calc(--value(integer) * 1px + var(--spreadMW) * var(--cf));
+}
+
+@utility fl-gap-* {
+	--spreadG: calc(--modifier(integer) - --value(integer));
+	gap: calc(--value(integer) * 1px + var(--spreadG) * var(--cf));
+}

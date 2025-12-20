@@ -1,0 +1,11 @@
+.addToCartButton {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 100ms linear;
+}
+
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}

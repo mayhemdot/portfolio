@@ -1,0 +1,20 @@
+.advantages {
+  &__item {
+    @apply min-w-64 rounded-2xl p-6 xl:min-w-[400px];
+    backdrop-filter: blur(20px);
+    background: linear-gradient(
+      269deg,
+      rgba(255, 255, 255, 0.4) 1.08%,
+      rgba(255, 255, 255, 0) 125.1%
+    );
+  }
+}
+.feature {
+  @apply relative flex w-full min-w-64 items-center justify-between gap-8 rounded-full px-8;
+  background: linear-gradient(
+    269deg,
+    rgba(255, 255, 255, 0) 1.08%,
+    rgba(255, 255, 255, 0.4) 125.1%
+  );
+  backdrop-filter: blur(8px);
+}

@@ -1,0 +1,10 @@
+.resetPassword {
+	margin-bottom: var(--block-padding);
+}
+.form {
+	@apply w-[2/3] md:w-full;
+}
+
+.submit {
+	@apply mt-base;
+}

@@ -1,0 +1,26 @@
+.params {
+	margin-top: 1rem;
+}
+
+.card {
+	@apply mb-32 mt-8 w-full max-w-full p-4 sm:mx-auto sm:max-w-[425px] md:max-w-[520px];
+
+	.cardHeader {
+		@apply relative mb-4 md:mb-8;
+	}
+
+	.cardTitleWrapper {
+		@apply mx-auto flex basis-5/6 flex-col items-center justify-center;
+	}
+	.cardContent {
+		@apply mx-auto max-w-full !p-0;
+	}
+
+	.iconWrapper {
+		@apply absolute left-0 top-0 mx-auto mb-2 hidden md:block;
+	}
+
+	.cardNotice {
+		@apply mb-4 block space-y-1;
+	}
+}
