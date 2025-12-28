@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { JSX } from "react";
-import { AddToCartButton } from "@/components/AddToCartButton";
+import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 import { Icons } from "@/components/icons/Icons";
 import { Price } from "@/components/Price";
 import { Text } from "@/components/Text";
@@ -21,10 +21,11 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 import classes from "./index.module.scss";
 import { useProductCardContext } from "./ProductCardContext";
 
-const ProductCardForm = () => {
+const ProductCardForm = (props: JSX.IntrinsicElements["div"]) => {
 	const {
 		selectProductVariationId,
 		selectedProductVariationId,
@@ -40,8 +41,9 @@ const ProductCardForm = () => {
 	);
 	return (
 		<Card
+			{...props}
 			className={
-				"flex h-fit max-w-full flex-col rounded-3xl border-0 lg:min-w-[480px]"
+				"flex h-fit max-w-[600px]  flex-col rounded-3xl border-0 md:min-w-[380px] xl:min-w-[480px] 2xl:min-w-[600px]"
 			}
 		>
 			<CardHeader className='pb-6!'>
@@ -58,7 +60,7 @@ const ProductCardForm = () => {
 								variant={"secondary"}
 							>
 								<Link href={`/products/${category?.handle || ""}`}>
-									{"+ " + category?.name || "Неизвестная категория"}
+									{`+ ${category?.name || "Неизвестная категория"}`}
 								</Link>
 							</Badge>
 						))}
@@ -96,7 +98,7 @@ const ProductCardForm = () => {
 										<TooltipContent>
 											<div>
 												{/* TODO: Размер */}
-												Нужно форматировать
+												{`≈ ${variation.description}`}
 											</div>
 											{/* <div className='fsSmall text-center'>
 											<span>Размер: {variation.options?.size} </span>
@@ -156,16 +158,59 @@ const ProductCardForm = () => {
 							variant={selectedProductVariation!}
 							className='fsNormal rounded-2xl! h-12 grow normal-case'
 							product={product}
+							isSmall={false}
 						/>
 					) : (
 						<div className='w-full bg-red-400 py-2 text-center'>Распродано</div>
 					)}
 				</div>
 			</CardContent>
-			{/* <CardFooter className={cn("relative flex flex-col items-start justify-start gap-4", "fsSmall")}>
+			<CardFooter
+				className={cn(
+					"relative flex flex-col items-start justify-start gap-4",
+					"fsSmall"
+				)}
+			>
 				<h2 className='sr-only'>Описание</h2>
-				{productLayout}
-			</CardFooter> */}
+				<div className='space-y-3'>
+					<Text
+						size={"smd"}
+						className={"text-muted-foreground w-full"}
+						comp='h3'
+					>
+						Описание
+					</Text>
+					<Text comp='p' size='sm'>
+						{product?.description?.["effect"] || "Описание отсутствует"}
+					</Text>
+				</div>
+				<div className='space-y-3'>
+					<Text
+						size={"smd"}
+						className={"text-muted-foreground w-full"}
+						comp='h3'
+					>
+						Ноты
+					</Text>
+					<Text comp='p' size='sm'>
+						{product?.description?.["notes"] || "Описание отсутствует"}
+					</Text>
+				</div>
+				<div className='space-y-3'>
+					<Text
+						size={"smd"}
+						className={"text-muted-foreground w-full"}
+						comp='h3'
+					>
+						Особенности
+					</Text>
+					<Text comp='p' size='sm'>
+						{product?.description?.["features"] || "Описание отсутствует"}
+					</Text>
+				</div>
+
+				{/* {productLayout} */}
+			</CardFooter>
 		</Card>
 	);
 };

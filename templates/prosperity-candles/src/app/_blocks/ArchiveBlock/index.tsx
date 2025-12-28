@@ -1,9 +1,8 @@
 import Link from "next/link";
-import type React from "react";
 import { Text } from "@/components/Text";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { PRODUCTS } from "@/modules/products/queries";
+import { PRODUCTS } from "@/modules/products/data";
 import { CollectionArchive } from "../../../components/CollectionArchive";
 import classes from "./index.module.scss";
 
@@ -24,8 +23,6 @@ type Props = {
 export function ArchiveBlock(props: Props) {
 	const { introContent, relationTo, slider, limit, moreLink } = props;
 
-	const products = PRODUCTS;
-
 	const href =
 		moreLink?.url || (moreLink?.reference?.value as { slug: string })?.slug;
 
@@ -45,7 +42,7 @@ export function ArchiveBlock(props: Props) {
 				</Text>
 			)}
 			<CollectionArchive
-				docs={products}
+				docs={PRODUCTS}
 				relationTo={relationTo}
 				limit={limit}
 				sort='-publishedOn'

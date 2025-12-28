@@ -64,8 +64,8 @@ export const ProductCardProvider: React.FC<{
 	const sortedVariations = hasVariations
 		? variants.sort(
 				(a, b) =>
-					(b?.calculated_price?.calculated_amount || 0) -
-					(a?.calculated_price?.calculated_amount || 0)
+					(a?.calculated_price?.calculated_amount || 0) -
+					(b?.calculated_price?.calculated_amount || 0)
 		  )
 		: [];
 	return (

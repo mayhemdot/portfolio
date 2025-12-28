@@ -1,11 +1,8 @@
 .card {
-  @apply flex h-fit  flex-col gap-2 md:gap-4;
+	@apply flex h-fit  flex-col gap-2 md:gap-4;
 }
 .cardImage {
-  @apply object-cover max-w-full transition-transform duration-700;
-}
-.cardLink {
-  @apply aspect-[9/11] relative h-full max-w-full overflow-hidden rounded-xl;
+	@apply max-w-full object-cover transition-transform duration-700;
 }
 
 // .content {

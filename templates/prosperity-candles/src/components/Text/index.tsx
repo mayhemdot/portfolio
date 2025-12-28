@@ -17,9 +17,9 @@ export const textVariants = cva(
 				// fsSubtitle: 18, 32;
 				md: "fl-text-18/32",
 				// fsMiddle 16, 20; / h3
-				smd: "fl-text-16/20",
+				smd: "fl-text-14/20",
 				// fsNormal : 14, 16;
-				sm: "fl-text-14/16",
+				sm: "fl-text-13/16",
 				// fsSmall : 12, 14;
 				xs: "fl-text-12/14",
 				// fsSmallest: 10, 12

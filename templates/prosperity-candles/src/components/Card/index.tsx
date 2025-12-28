@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, ViewTransition } from "react";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 import NoImage from "@/components/elements/NoImage";
 import { cn } from "@/lib/utils";
@@ -10,7 +10,6 @@ import type { StoreProduct } from "@/modules/products/types";
 import { Media } from "../Media";
 import { Price } from "../Price";
 import { Text } from "../Text";
-
 import classes from "./index.module.scss";
 
 type Args = {
@@ -50,14 +49,25 @@ export function Card(props: Args) {
 
 	return (
 		<div key={slug || title} className={cn(classes.card, "group", className)}>
-			<Link href={`/products/${slug}`} className={cn(classes.cardLink)}>
+			<Link href={`/products/${slug}`} className={"relative h-full max-w-full"}>
 				{product?.images?.[0].url ? (
-					<Image
-						className={cn(classes.cardImage, "group-hover:scale-105")}
-						src={product?.images?.[0].url}
-						fill
-						alt={title || slug || "card image"}
-					/>
+					<div className='aspect-11/14 relative block h-full w-full max-w-full overflow-hidden rounded-3xl md:aspect-square'>
+						<ViewTransition
+							name={`product-${product?.images?.[0].id}`}
+							key={product?.images?.[0].id}
+						>
+							{/* <div className='relative block aspect-square h-full w-full max-w-full overflow-hidden rounded-3xl'> */}
+							<Image
+								className={cn(
+									"max-w-full rounded-3xl object-cover transition-transform duration-700 group-hover:scale-105"
+								)}
+								src={product?.images?.[0].url}
+								fill
+								alt={title || slug || "card image"}
+							/>
+							{/* </div> */}
+						</ViewTransition>
+					</div>
 				) : (
 					<NoImage />
 				)}
@@ -102,6 +112,7 @@ export function Card(props: Args) {
 							<AddToCartButton
 								variant={selectedProductVariation}
 								product={product}
+								isSmall={true}
 							/>
 						</>
 					) : (

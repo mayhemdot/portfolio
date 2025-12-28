@@ -107,7 +107,7 @@ export default async function Page() {
 						id: 1,
 						title: "Свечи для всех и каждого",
 						link: {
-							url: "/products",
+							url: "/products?categories=aromatic-candles",
 							label: "Свечи для всех и каждого",
 						},
 						media: {
@@ -123,7 +123,7 @@ export default async function Page() {
 						id: 2,
 						title: "Спа",
 						link: {
-							url: "/spa",
+							url: "/products?categories=body-care",
 							label: "Спа",
 						},
 						media: {
@@ -139,7 +139,7 @@ export default async function Page() {
 						id: 3,
 						title: "Подарочные наборы",
 						link: {
-							url: "/surprise",
+							url: "/products?categories=gift-sets",
 							label: "Подарочные наборы",
 						},
 						media: {

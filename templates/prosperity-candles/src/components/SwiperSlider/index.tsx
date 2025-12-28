@@ -42,8 +42,9 @@ function SwiperSlider({
 			spaceBetween={16}
 			loop={false}
 		>
-			{docs?.map((doc, i) => {
-				if (typeof doc === "object" && doc !== null) {
+			{docs
+				?.filter(doc => doc !== null && typeof doc === "object")
+				?.map((doc, i) => {
 					return (
 						<SwiperSlide
 							key={`${doc.title}-${i}`}
@@ -53,9 +54,7 @@ function SwiperSlider({
 							<Card product={doc} relationTo={relationTo} showCategories />
 						</SwiperSlide>
 					);
-				}
-				return null;
-			})}
+				})}
 		</Swiper>
 	);
 }

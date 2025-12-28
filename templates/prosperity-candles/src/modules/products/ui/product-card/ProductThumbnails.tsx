@@ -23,10 +23,10 @@ function ProductThumbnails() {
 					modules={[Thumbs]}
 					watchSlidesProgress
 					onSwiper={p => setThumbsSwiper(p)}
-					className='max-full relative h-full w-full overflow-hidden rounded-3xl'
+					className='mr-auto! ml-0! relative h-40 w-20 overflow-hidden rounded-3xl md:h-64 md:w-32 2xl:h-[512px] 2xl:w-64'
 					effect={"fade"}
 					direction='vertical'
-					slidesPerView={5}
+					slidesPerView={2}
 					allowTouchMove={true}
 					spaceBetween={16}
 					loop={false}
@@ -34,14 +34,14 @@ function ProductThumbnails() {
 				>
 					{images
 						.filter(image => typeof image?.url === "string")
-						.map(image => (
+						.map((image, index) => (
 							<SwiperSlide
-								key={`thumbnail-image-${image.id}`}
-								className='size-16 md:size-32 aspect-square grayscale'
+								key={`thumbnail-image-${image.id}-${index}`}
+								className='aspect-square w-20 grayscale md:w-32 xl:w-64'
 							>
 								<Media
 									imgClassName={
-										"rounded-xl size-16 md:size-32 object-cover transition-all"
+										"rounded-3xl h-full object-cover transition-all"
 									}
 									alt={`Уменьшенное изображение товара`}
 									url={image.url}

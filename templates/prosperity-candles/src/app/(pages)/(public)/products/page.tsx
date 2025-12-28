@@ -2,7 +2,7 @@ import type { SortOptions } from "@/app/(pages)/(public)/products/_old/SortProdu
 import { CollectionArchive } from "@/components/CollectionArchive";
 import { Breadcrumbs } from "@/components/elements/Breadcrumbs";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/modules/common/data/constants";
-import { PRODUCTS } from "@/modules/products/queries";
+import { PRODUCTS } from "@/modules/products/data";
 import { generateMeta } from "@/utilities/generateMeta";
 
 type Props = {

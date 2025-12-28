@@ -9,9 +9,9 @@ import { Text } from "@/components/Text";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import CartList from "@/modules/cart/components/CartList";
-import CartSummary from "@/modules/cart/components/CartSummary";
 import { useCartStore } from "@/modules/cart/store";
+import CartList from "@/modules/cart/ui/cart-list";
+import CartSummary from "@/modules/cart/ui/cart-summary";
 import { MESSAGES } from "@/modules/common/data/constants";
 import { useAuth } from "@/modules/users/queries";
 import type { CartPageType } from "@/payload/seed/cart-static";
@@ -22,6 +22,8 @@ import type { CartPageType } from "@/payload/seed/cart-static";
 // import classes from './index.module.scss'
 // import type {  Settings } from "@/payload/payload-types";
 
+/*************  ✨ Windsurf Command ⭐  *************/
+/*******  c8991592-ff99-4555-a232-3c5002a598d4  *******/
 export function CartPage({ page }: { page: CartPageType }) {
 	const router = useRouter();
 	const { user } = useAuth();
@@ -43,13 +45,12 @@ export function CartPage({ page }: { page: CartPageType }) {
 	const cart = getCart();
 
 	const total = cartTotal();
-	const length = items?.length || 0; //selectedItems?.
 	const isEmpty = cartIsEmpty();
 	const allItemsIsSelected = allIsSelected();
 	const cartItemsIsNotSelected = cartIsNotSelected();
 
 	return (
-		<div className={"fl-px-16/96 flex grow flex-wrap  gap-4 pb-24  lg:px-0"}>
+		<div className={"fl-px-8/96 flex grow flex-wrap gap-4 pb-24 lg:px-0"}>
 			{hasInitializedCart && isEmpty && (
 				<div
 					className={
@@ -103,7 +104,7 @@ export function CartPage({ page }: { page: CartPageType }) {
 								raw: total,
 								formatted: total.toFixed(2),
 							}}
-							countItems={length || 0}
+							countItems={items?.length || 0}
 							description={
 								"Доступные способы и время доставки можно выбрать при оформлении заказа"
 							}
@@ -129,25 +130,6 @@ export function CartPage({ page }: { page: CartPageType }) {
 		</div>
 	);
 }
-
-// function CartTable({
-//   cartItems,
-//   cartIsEmpty,
-//   productsPage,
-//   ...rest
-// }: {
-//   cartItems: CartItems
-//   cartIsEmpty: boolean
-//   productsPage: any
-//   isSubmitting?: boolean
-// }) {
-//   const items = formattedCartItems(cartItems)
-
-//   // const isExisted = items?.filter((item) => item.variant.in_stock != 0 && item.variant.in_stock - item.quantity >= 0);
-//   // const isNotExisted = items?.filter((item) => item.variant.in_stock == 0 || item.variant.in_stock - item.quantity < 0);
-
-//   return <CartList items={items} {...rest} />
-// }
 
 function GoToCatalog({ slug }: { slug: string }) {
 	return (

@@ -37,6 +37,7 @@ export interface StoreProduct {
 export interface StoreProductVariant {
 	id: string;
 	title?: string | null;
+	description?: string | null;
 	sku?: string | null;
 	barcode?: string | null;
 	ean?: string | null;
@@ -53,7 +54,7 @@ export interface StoreProductVariant {
 	created_at?: string;
 	updated_at?: string;
 	deleted_at?: string | null;
-	product?: StoreProduct;
+	product?: Omit<StoreProduct, "created_at" | "updated_at">;
 	// В API медузы нет поля product внутри variants → убираем
 	// product?: StoreProduct;
 }
@@ -110,7 +111,7 @@ export interface StoreProductType {
 export interface StoreCollection {
 	id: string;
 	title: string;
-	handle?: string;
+	handle: string;
 	category_id?: string;
 	created_at?: string;
 	updated_at?: string;
@@ -119,7 +120,7 @@ export interface StoreCollection {
 export interface StoreCategory {
 	id: string;
 	name: string;
-	handle?: string;
+	handle: string;
 }
 // export interface StoreProductVariant {
 //   id: string;

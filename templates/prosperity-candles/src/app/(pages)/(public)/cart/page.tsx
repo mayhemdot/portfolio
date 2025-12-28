@@ -9,8 +9,6 @@ import { type CartPageType, staticCart } from "@/payload/seed/cart-static";
 import { generateMeta } from "@/utilities/generateMeta";
 import { CartPage } from "./page.client";
 
-// Force this page to be dynamic so that Next.js does not cache it
-// See the note in '../[slug]/page.tsx' about this
 export const dynamic = "force-dynamic";
 
 export default async function Cart() {
@@ -31,7 +29,7 @@ export default async function Cart() {
 			<div className='min-h-dvh container mx-auto'>
 				{!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY && <EnableCheckout />}
 
-				<Text comp='h1' size={"lg"} font='laguna' className='mb-8 text-center'>
+				<Text comp='h1' size={"xl"} font='romile' className='my-8 text-center'>
 					{"Корзина"}
 				</Text>
 

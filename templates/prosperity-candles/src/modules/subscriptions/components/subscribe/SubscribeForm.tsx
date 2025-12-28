@@ -14,6 +14,7 @@ import InputField from "@/components/elements/InputField";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { MESSAGES } from "@/modules/common/data/constants";
 import { SERVICE_LINKS } from "@/modules/common/data/urls";
 
 // import { SERVICE_LINKS } from "@/data/urls";
@@ -32,69 +33,11 @@ import { SERVICE_LINKS } from "@/modules/common/data/urls";
 const SubscribeForm: FC = () => {
 	const [isSubscribed, setSubscribed] = useState(false);
 	const [checked, setChecked] = useState(false);
-	// const {
-	// 	register,
-	// 	handleSubmit,
-	// 	setError,
-	// 	formState: { errors, isSubmitting },
-	// } = useForm<SubscribeSchemaType>({
-	// 	resolver: zodResolver(SubscribeSchema),
-	// });
 
-	// const { mutate: subscribe } = useMutation({
-	//   mutationFn: (data: ISubscribeForm) =>
-	//     SubscribeService.create<ISubscribeForm, ISubscribeForm>(data),
-	//   onSuccess: () => setSubscribed(true),
-	//   onError: (e: AxiosError) => setServerError(e, setError)
-	// })
-	// const { mutate: subscribeUser, isPending } = useMutation({
-	// 	mutationFn: (data: SubscribeSchemaType) =>
-	// 		restApi(`/api/subscribers`, {
-	// 			method: "POST",
-	// 			body: JSON.stringify({
-	// 				email: data.email,
-	// 			}),
-	// 		}),
-	// 	onSuccess: (data: any) => {
-	// 		if (!data?.errors?.length) {
-	// 			toast.success(data?.message || "Successfully subscribed.");
-	// 		} else {
-	// 			toast.error(
-	// 				data?.errors?.[0].message || "An error occurred while subscribing."
-	// 			);
-	// 		}
-	// 	},
-	// 	onError: e => {
-	// 		toast.error(e?.message || "There was a problem updating your account.");
-	// 	},
-	// });
-	const onSubmit = async (data: any) => {
-		toast.success("Спасибо за подписку!");
-	}; // subscribeUser(data)
-	// const onSubmit: SubmitHandler<SubscribeSchemaType> = async (data) => {
-	//   if (!data) return
-
-	//   try {
-	//     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/subscribe`, {
-	//       method: 'POST',
-	//       headers: {
-	//         'Content-Type': 'application/json',
-	//       },
-	//       body: JSON.stringify(data),
-	//     })
-
-	//     if (res && res.ok) {
-	//       setSubscribed(true)
-	//     } else {
-	//       setError('root', { message: 'Something went wrong while subscribing' })
-	//       const data = await res?.json()
-	//       console.error(data)
-	//     }
-	//   } catch (error) {
-	//     console.error(error)
-	//     setError('root', { message: 'Something went wrong while subscribing' })
-	//   }
-	// }
+	const onSubmit = async (e: any) => {
+		e.preventDefault();
+		toast.error(MESSAGES.subscription);
+	};
 
 	return !isSubscribed ? (
 		<form
@@ -104,8 +47,8 @@ const SubscribeForm: FC = () => {
 			<div className='flex h-auto shrink-0 flex-col items-start justify-center gap-4 xl:flex-row'>
 				<div className='inline-flex flex-col gap-4'>
 					<InputField
-						// disabled={isSubmitting}
 						label={""}
+						// disabled={isSubmitting}
 						// error={errors.email}
 						className='fsNormal min-h-14 max-h-14 shrink-0 grow basis-2/3 rounded-2xl '
 						type='email'

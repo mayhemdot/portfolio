@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type React from "react";
-import type { ElementType } from "react";
+import type { ElementType, PropsWithChildren } from "react";
 
 import classes from "./index.module.scss";
 
@@ -10,7 +10,7 @@ export type Props = {
 	label?: string;
 	appearance?: "default" | "primary" | "secondary" | "none" | "round";
 	el?: "button" | "link" | "a";
-	onClick?: () => void;
+	onClick?: (e: any) => void;
 	href?: string;
 	newTab?: boolean;
 	className?: string;
@@ -19,7 +19,7 @@ export type Props = {
 	invert?: boolean;
 };
 
-export const Button: React.FC<Props> = ({
+export const Button: React.FC<PropsWithChildren<Props>> = ({
 	el: elFromProps = "link",
 	label,
 	newTab,
@@ -30,6 +30,7 @@ export const Button: React.FC<Props> = ({
 	type = "button",
 	disabled,
 	invert,
+	children,
 }) => {
 	let el = elFromProps;
 
@@ -58,11 +59,17 @@ export const Button: React.FC<Props> = ({
 		return (
 			<Link
 				href={href || ""}
+				type={type}
 				className={className}
 				{...newTabProps}
 				onClick={onClick}
 			>
 				{content}
+				{children && (
+					<span className='absolute right-10 top-1/2 translate-y-[-50%]'>
+						{children}
+					</span>
+				)}
 			</Link>
 		);
 	}

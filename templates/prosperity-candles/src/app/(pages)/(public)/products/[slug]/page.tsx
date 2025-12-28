@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/elements/Breadcrumbs";
-import { PRODUCTS } from "@/modules/products/queries";
+import { PRODUCTS } from "@/modules/products/data";
 import { ProductCardProvider } from "@/modules/products/ui/product-card/ProductCardContext";
 import ProductCardForm from "@/modules/products/ui/product-card/ProductCardForm";
 import ProductCardSlider from "@/modules/products/ui/product-card/ProductCardSlider";
@@ -35,16 +35,20 @@ export default async function Product({ params }: Args) {
 						{ id: 3, name: product.title, href: `` },
 					]}
 				/>
-				<section className='content-section fl-gap-16/64 flex max-w-full flex-col justify-between lg:flex-row'>
-					<div className='fl-gap-8/64 relative flex flex-auto grow'>
-						<div className='absolute inset-0 z-10 h-full shrink-0 p-2 lg:relative lg:p-0'>
+				<section className='content-section fl-gap-16/86 flex max-w-full flex-col justify-between lg:flex-row'>
+					<div className='fl-gap-8/86 relative flex flex-auto grow'>
+						<div
+							className='absolute inset-0 z-10 h-full shrink-0 p-2 lg:relative lg:p-0'
+							style={{ viewTransitionName: "productThumbnails" }}
+						>
 							<ProductThumbnails />
 						</div>
 						<div className='max-w-full flex-1 pb-4'>
 							<ProductCardSlider />
 						</div>
 					</div>
-					<ProductCardForm />
+
+					<ProductCardForm style={{ viewTransitionName: "productCardForm" }} />
 				</section>
 			</ProductCardProvider>
 

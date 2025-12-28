@@ -43,25 +43,27 @@ export const TextArea: React.FC<Props> = ({
 			<Textarea
 				placeholder={placeholder}
 				hidden={hidden}
-				rows={8}
+				rows={10}
 				defaultValue={value && String(value)}
 				className={cn("fsNormal bg-beige-color h-12 rounded-2xl", {
 					"focus-visible:ring-red-500": error,
 					hidden: (disabled || hidden) ?? false,
 				})}
 				{...{ type }}
-				{...register(name, {
-					required,
-					validate,
-					...(type === "email"
-						? {
-								pattern: {
-									value: /\S+@\S+\.\S+/,
-									message: "Please enter a valid email",
-								},
-						  }
-						: {}),
-				})}
+				{...(register
+					? register(name, {
+							required,
+							validate,
+							...(type === "email"
+								? {
+										pattern: {
+											value: /\S+@\S+\.\S+/,
+											message: "Please enter a valid email",
+										},
+								  }
+								: {}),
+					  })
+					: {})}
 				disabled={disabled}
 			/>
 

@@ -44,6 +44,7 @@ interface CartState {
 export interface CartLineItem {
 	id: string;
 	thumbnail: string;
+	images: StoreImage[];
 	variant: StoreProductVariant;
 	name: string;
 	product_handle: string;
@@ -193,6 +194,7 @@ export const useCartStore = create<CartState>()(
 										: Math.random()
 								}`,
 								quantity: 1,
+								images: item.images,
 								updated_at: date,
 								created_at: date,
 							},
@@ -254,6 +256,7 @@ export const useCartStore = create<CartState>()(
 						id: item.id, //`item_${crypto.randomUUID()}`,
 						variant: item.variant,
 						name: item.name,
+						images: item.images,
 						thumbnail: item?.images?.[0].url, //item.variant.product?.images?.[0].url || "",
 						product_handle: item.variant.product?.id,
 						quantity: item.quantity,

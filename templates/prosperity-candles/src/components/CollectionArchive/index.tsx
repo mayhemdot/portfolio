@@ -11,14 +11,14 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
+
 import { CATEGORIES } from "@/modules/categories/static";
-import { PRODUCTS } from "@/modules/products/queries";
+import { SORT_OPTIONS } from "@/modules/orders/constants";
+import { PRODUCT_INFO, PRODUCTS } from "@/modules/products/data";
 import type { StoreCategory, StoreProduct } from "@/modules/products/types";
-import classes from "./index.module.scss";
-import { CatalogFilterMobile } from "./ui/CatalogFilterMobile";
-import { GridContent } from "./ui/GridContent";
-import { SliderContent } from "./ui/SliderContent";
+import { CatalogFilterMobile } from "../../modules/products/ui/product-list/CatalogFilterMobile";
+import { GridContent } from "../../modules/products/ui/product-list/GridContent";
+import { SliderContent } from "../../modules/products/ui/product-list/SliderContent";
 
 export type Result = {
 	docs: (StoreProduct | string | number)[];
@@ -42,28 +42,8 @@ export type Props = {
 	showPageRange?: boolean;
 	sort?: string;
 };
-export type PriceLimits = { min: number; max: number };
 
 const PAGE_SIZE_LIST: number[] = [12, 24, 64, 128];
-
-const SORT_OPTIONS = [
-	{ value: "-updated_at", label: "По дате ↓" },
-	{ value: "updated_at", label: "По дате ↑" },
-	{ value: "title", label: "По названию" },
-	{ value: "-price", label: "По цене ↓" },
-	{ value: "price", label: "По цене ↑" },
-];
-
-export const MAX_PRICE =
-	PRODUCTS.reduce((max, product) => {
-		product.variants?.forEach(variant => {
-			const amount = variant.calculated_price?.calculated_amount ?? 0;
-			if (amount > max) {
-				max = amount;
-			}
-		});
-		return max;
-	}, 0) / 100;
 
 export const CollectionArchive: React.FC<Props> = props => {
 	const {
@@ -78,7 +58,7 @@ export const CollectionArchive: React.FC<Props> = props => {
 	const currentDocs: (StoreProduct | string | number)[] = docs || [];
 
 	const { limits, isLoading, isSuccess } = {
-		limits: { min: 0, max: MAX_PRICE },
+		limits: { min: PRODUCT_INFO.MIN_PRICE, max: PRODUCT_INFO.MAX_PRICE },
 		isLoading: false,
 		isSuccess: true,
 	};
@@ -97,12 +77,12 @@ export const CollectionArchive: React.FC<Props> = props => {
 	// if (isLoadingPrice) return <SkeletonCard className={''} />
 
 	return (
-		<div className={cn(classes.collectionArchive, className)}>
-			<div className={classes.scrollRef} ref={scrollRef} />
+		<div className={className}>
+			<div ref={scrollRef} />
 			{!slider ? (
-				<div className='flex justify-between'>
+				<div className='mb-4 flex justify-between'>
 					<CatalogFilterMobile categories={categories} limits={limits} />
-					<div className='max-w-96 mb-4 ml-auto flex items-center gap-4'>
+					<div className='max-w-96 ml-auto flex items-center gap-4'>
 						<Select
 							name='pageSize'
 							defaultValue={String(PAGE_SIZE_LIST[0])}
@@ -152,7 +132,6 @@ export const CollectionArchive: React.FC<Props> = props => {
 			{/* "Показать нумерацию" */}
 			{!slider ? (
 				<GridContent
-					className={"flex-auto"}
 					docs={currentDocs}
 					relationTo={relationTo}
 					categories={categories}
