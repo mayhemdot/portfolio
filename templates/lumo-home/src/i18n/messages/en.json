@@ -1,0 +1,269 @@
+{
+  "buttons": {
+    "goBack": "Go Back"
+  },
+  "notFoundPage": {
+    "title": "Page Not Found. Error 404"
+  },
+  "homePage": {
+    "heroSection": {
+      "title": "Welcome to the Payload Website Template",
+      "description": "This is the homepage of the Payload Website Template."
+    }
+  },
+  "aboutPage": {
+    "title": "About"
+  },
+  "checkoutPage": {
+    "title": "Checkout",
+    "shippingAddress": {
+      "title": "Shipping Address",
+      "form": {
+        "street": "Street, Building",
+        "city": "City",
+        "zip": "Postal Code"
+      }
+    },
+    "shippingMethod": {
+      "title": "Shipping Method",
+      "description": "Choose shipping method"
+    },
+    "billingAddress": {
+      "title": "Billing Address"
+    },
+    "customerInformation": {
+      "title": "Customer Information",
+      "form": {
+        "phoneNumber": "Phone Number"
+      }
+    },
+    "orderSummary": {
+      "title": "Your Order",
+      "productItems": "Items",
+      "shippingPrice": "Shipping",
+      "subtotalPrice": "Subtotal",
+      "totalPrice": "Total",
+      "completeOrderButton": "Place Order"
+    }
+  },
+  "cartPage": {
+    "title": "Cart",
+    "goToCheckoutButton": "Checkout",
+    "emptyCart": {
+      "title": "Cart is empty",
+      "description": "Add items to the shopping cart to continue shopping.",
+      "backToShopping": "Back to Shopping"
+    }
+  },
+  "CartSheet": {
+    "title": "Cart",
+    "manage": "Manage the items in your cart",
+    "backToShopping": "Back to Shopping",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "AddToCartButton": {
+    "AddToCart": "Add to Cart",
+    "GoToCart": "Go to Cart",
+    "OutOfStock": "Out of Stock"
+  },
+  "HeaderBlock": {
+    "logIn": "Log in"
+  },
+  "SliderArchive": {
+    "inCatalog": "In catalog"
+  },
+  "CategoriesBlock": {
+    "title": "Categories"
+  },
+  "MainHero": {
+    "title": "Modern Lightning & Furniture",
+    "description": "Infusing spaces with light and emotion, our unique creations transform interiors into art. We don't just design furniture—we curate a feeling.",
+    "showMore": "Read more",
+    "topSale": "Best of sales"
+  },
+  "Login": {
+    "title": "Login to your account",
+    "description": "Enter your email below to login to your account",
+    "signUp": "Sign up",
+    "breadcrumbs": {
+      "home": "Home",
+      "login": "Login"
+    }
+  },
+  "ForgotPassword": {
+    "title": "Forgot your password?",
+    "description": "Enter your email below to receive a reset link",
+    "backToLogin": "Back to login",
+    "breadcrumbs": {
+      "home": "Home",
+      "forgotPassword": "Forgot password"
+    }
+  },
+  "Register": {
+    "title": "Create your account",
+    "description": "Enter your details to register a new account",
+    "logIn": "Log in",
+    "breadcrumbs": {
+      "home": "Home",
+      "register": "Register"
+    }
+  },
+  "ResetPassword": {
+    "title": "Set a new password",
+    "description": "Create a new password for your account",
+    "signUp": "Sign up",
+    "breadcrumbs": {
+      "home": "Home",
+      "resetPassword": "Reset password"
+    }
+  },
+  "LoginFormBetterAuth": {
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password"
+    },
+    "submit": "Log in"
+  },
+  "ForgotPasswordFormBetterAuth": {
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email"
+    },
+    "reset": "Reset password"
+  },
+  "RegisterFormBetterAuth": {
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "repeatPasswordLabel": "Repeat password",
+      "repeatPasswordPlaceholder": "Repeat your password"
+    },
+    "submit": "Create Account"
+  },
+  "RestorePasswordFormBetterAuth": {
+    "form": {
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your new password",
+      "repeatPasswordLabel": "Repeat password",
+      "repeatPasswordPlaceholder": "Repeat your password"
+    },
+    "submit": "Restore Password"
+  },
+  "LogoutButtonBetterAuth": {
+    "signOut": "Sign Out"
+  },
+  "AccountPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "account": "Account"
+    },
+    "title": "Account",
+    "cards": {
+      "activeOrders": "Active Orders",
+      "completedOrders": "Completed Orders"
+    },
+    "orders": {
+      "orderNumber": "Order: #{id}",
+      "actions": {
+        "check": "Check",
+        "toggle": "Toggle details"
+      },
+      "statusSteps": {
+        "pending": "Pending",
+        "waiting_for_capture": "Awaiting confirmation",
+        "delivery": "Delivery",
+        "completed": "Completed"
+      },
+      "statuses": {
+        "pending": "Pending",
+        "waiting_for_capture": "Awaiting confirmation",
+        "paid": "Paid",
+        "preparing": "Preparing",
+        "delivering": "Delivering",
+        "shipped": "Completed",
+        "cancelled": "Cancelled",
+        "refund_requested": "Refund requested"
+      },
+      "details": {
+        "orderedBy": "Ordered by:",
+        "phone": "Phone:",
+        "email": "Email:",
+        "address": "Address:",
+        "status": "Status:",
+        "addressValue": "{city}, {address}, index: {zip}"
+      }
+    },
+    "nav": {
+      "statistic": "Statistic",
+      "orders": "Orders",
+      "helpSupport": "Help & Support",
+      "faq": "F.A.Q",
+      "settings": "Settings"
+    }
+  },
+  "AccountOrdersPage": {
+    "title": "Orders",
+    "cards": {
+      "all": "All orders",
+      "active": "In delivery",
+      "completed": "Completed orders"
+    },
+    "search": {
+      "placeholder": "Search orders by order number..."
+    },
+    "filters": {
+      "status": {
+        "placeholder": "All orders",
+        "options": {
+          "all": "All orders"
+        }
+      }
+    },
+    "loading": {
+      "title": "Loading...",
+      "description": "Please wait"
+    },
+    "empty": {
+      "title": "No orders found",
+      "description": "Try changing your search settings."
+    },
+    "list": {
+      "orderTitle": "Order #{id}",
+      "orderDate": "from {date}",
+      "itemsCount": "{count, plural, one {{count} item} other {{count} items}}",
+      "sections": {
+        "products": "Items in this order:",
+        "shipping": "Shipping address:"
+      },
+      "product": {
+        "quantity": "Quantity: {count}"
+      },
+      "actions": {
+        "details": "Details",
+        "reorder": "Order again"
+      }
+    }
+  },
+  "AccountSettingsPage": {
+    "title": "Settings",
+    "collapsible": {
+      "button": "Edit user account",
+      "srOnly": "Toggle"
+    },
+    "avatarSection": {
+      "title": "User Information",
+      "fields": {
+        "name": "Name:",
+        "email": "Email:",
+        "phone": "Phone:"
+      },
+      "noPhone": "No phone",
+      "changePassword": "Change Password"
+    }
+  }
+}

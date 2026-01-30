@@ -1,0 +1,79 @@
+@use '@/shared/styles/helpers' as *;
+@import 'tailwindcss';
+
+@custom-variant fl-text {
+  @slot;
+}
+
+@utility fl-text-* {
+  --spread: calc(--modifier(integer) - --value(integer));
+
+  font-size: calc(
+    --value(integer) * 1px + var(--spread) * ((100vw - 320px) / (1920 - 320))
+  ) !important;
+}
+
+@utility fl-w-* {
+  --spread: calc(--modifier(integer) - --value(integer));
+  width: calc(
+    --value(integer) * 1px + var(--spread) * ((100vw - 320px) / (1920 - 320))
+  ) !important;
+}
+
+@utility fl-px-* {
+  --spread: calc(--modifier(integer) - --value(integer));
+
+  padding-left: calc(
+    --value(integer) * 1px + var(--spread) * ((100vw - 320px) / (1920 - 320))
+  );
+
+  padding-right: calc(
+    --value(integer) * 1px + var(--spread) * ((100vw - 320px) / (1920 - 320))
+  );
+}
+
+@utility fl-max-w-* {
+  --spread: calc(--modifier(integer) - --value(integer));
+  max-width: calc(
+    --value(integer) * 1px + var(--spread) * ((100vw - 320px) / (1920 - 320))
+  ) !important;
+}
+
+.text-fluid-96-62 {
+  @include fluid-text(96, 62);
+}
+
+.text-fluid-48-32 {
+  @include fluid-text(48, 32);
+}
+
+.text-fluid-68-48 {
+  @include fluid-text(68, 48);
+}
+
+.text-fluid-24-20 {
+  @include fluid-text(24, 20);
+}
+
+/* 
+.text-fluid-20-16 {
+  @include fluid-text(20, 16);
+} 
+*/
+
+.text-fluid {
+  hyphens: auto;
+  @include fluid-text(20, 15);
+}
+
+.text-fluid-32-24 {
+  @include fluid-text(32, 24);
+}
+
+.text-fluid-16-12 {
+  @include fluid-text(16, 12);
+}
+
+.text-fluid-80-32 {
+  @include fluid-text(80, 32);
+}
