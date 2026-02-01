@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { Product } from "@/modules/products/model/types";
+import type { Product, ProductRaw } from "@/modules/products/model/types";
 
 // import type { Product } from "@/payload-types";
 
 // Уточнённый тип, содержащий только нужные поля продукта
 type ProductInCart = Pick<
-  Product,
+  ProductRaw,
   "id" | "title" | "price" | "images" | "slug"
 >;
 

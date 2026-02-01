@@ -28,7 +28,7 @@ export function LayoutAuth({
   imageSrc = "/images/product_2.jpg",
 }: Props) {
   return (
-    <div className="flex items-stretch md:mx-auto fl-my-48/128 mx-2 max-w-4xl h-fit justify-center">
+    <div className="flex items-stretch md:mx-auto fl-my-48/128 mx-2 max-w-4xl min-h-[600px] h-fit justify-center">
       {imageSrc && (
         <div className="hidden lg:block relative min-h-full w-1/2">
           <Image

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDebouncedCallback } from "use-debounce";
@@ -16,6 +17,8 @@ export function RegisterFormClient() {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<any>({});
 
+  const t = useTranslations("Register");
+
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
@@ -28,7 +31,6 @@ export function RegisterFormClient() {
     setIsLoading(true);
 
     await sleep(2000);
-   
 
     toast.success("Account created successfully!");
     setIsLoading(false);
@@ -40,40 +42,40 @@ export function RegisterFormClient() {
   return (
     <form onSubmit={handleSignupDebounced} className="space-y-4">
       <InputField
-        label={"Email"}
+        label={t("form.emailLabel")}
         type="text"
         name="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
+        placeholder={t("form.emailPlaceholder")}
         autoComplete="email"
         disabled={isLoading}
       />
 
       <InputField
-        label="Password"
+        label={t("form.passwordLabel")}
         type="password"
         name="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
+        placeholder={t("form.passwordPlaceholder")}
         autoComplete="new-password"
         disabled={isLoading}
       />
 
       <InputField
-        label="Repeat password"
+        label={t("form.repeatPasswordLabel")}
         type="password"
         name="repeatPassword"
         value={repeatPassword}
         onChange={(e) => setRepeatPassword(e.target.value)}
-        placeholder="Password"
+        placeholder={t("form.repeatPasswordPlaceholder")}
         autoComplete="new-password"
         disabled={isLoading}
       />
 
-      <Button type="submit" disabled={isLoading} className="w-full">
-        Create Account
+      <Button type="submit" size={"lg"} disabled={isLoading} className="w-full">
+        {t("form.submit")}
       </Button>
 
       {errors?.root && (

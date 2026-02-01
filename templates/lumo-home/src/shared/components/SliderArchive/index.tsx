@@ -7,22 +7,29 @@ import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { EffectFlip, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import type { Product } from "@/modules/products/model/types";
+import { Product, type ProductRaw } from "@/modules/products/model/types";
 import { Card } from "@/shared/components/Card";
 import { Button, btnVariants } from "@/shared/components/ui/button";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import type { LocaleCode } from "@/i18n/localization";
 
 export type Props = {
   title?: string;
-  products: Product[];
+  products: ProductRaw[];
   inCatalogButton?: boolean;
-  locale: string;
+  locale: LocaleCode;
 };
 
 export function SliderArchive(props: Props) {
-  const { products, inCatalogButton = true, title, locale = "en" } = props;
+  const {
+    products: productsRaw,
+    title,
+    locale,
+    inCatalogButton = true,
+  } = props;
+  const products = productsRaw.map((product) => new Product(product, locale));
   const t = useTranslations("SliderArchive");
 
   const swiperRef = useRef<any>(null);
@@ -71,7 +78,7 @@ export function SliderArchive(props: Props) {
         {products?.map((product, index: number) => (
           <SwiperSlide key={product.title + index.toString()}>
             <Card
-              doc={product}
+              doc={product.raw}
               relationTo="products"
               showCategories
               title={product.title}

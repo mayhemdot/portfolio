@@ -57,7 +57,7 @@ export function DesktopDropdownMenu({ user }: Props) {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="text-red-600 [*]:hover:bg-none!">
-          <LogoutButton disabled={false} className="w-full" />
+          <LogoutButton disabled={false} className="w-full grow" />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,20 +1,89 @@
 "use client";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
-import { useActionState, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { loginUserWithPlugin } from "@/modules/auth/actions/loginAction";
 import { InputField } from "@/shared/components/InputField";
-import { Button, buttonVariants } from "@/shared/components/ui/button";
-import { Input } from "@/shared/components/ui/input";
+import { Button } from "@/shared/components/ui/button";
 import { sleep } from "@/shared/utils/timeout";
-import { GoogleLoginButton } from "../better-auth/GoogleLoginButton";
+
+// import { GoogleLoginButton } from "../better-auth/GoogleLoginButton";
 
 type LoginFormProps = {
   data?: any;
   errors?: any;
   success: boolean;
 };
+
+export function LoginFormClient() {
+  const router = useRouter();
+  const [errors, setErrors] = useState<any>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const t = useTranslations("Login");
+
+  const handleSignin = async (e: any) => {
+    toast.success("You are logged in!");
+    e.preventDefault();
+    setErrors({});
+
+    if (!password) {
+      setErrors({ root: "Passwords do not match" });
+      return;
+    }
+    if (!email) {
+      setErrors({ root: "Email is required" });
+      return;
+    }
+
+    setIsLoading(true);
+
+    await sleep(2000);
+
+    setErrors({});
+    toast.success("Account created successfully!");
+
+    setIsLoading(false);
+
+    router.push("/login");
+  };
+
+  return (
+    <form onSubmit={handleSignin} className="space-y-4">
+      <InputField
+        label={t("form.emailLabel")}
+        type="text"
+        name="email"
+        placeholder={t("form.emailPlaceholder")}
+        autoComplete="email"
+        disabled={isLoading}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <InputField
+        label={t("form.passwordLabel")}
+        type="password"
+        name="password"
+        link={{
+          href: "/forgot-password",
+          label: t("form.forgotPassword"),
+        }}
+        placeholder={t("form.passwordPlaceholder")}
+        autoComplete="current-password"
+        disabled={isLoading}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Button type="submit" size={"lg"} disabled={isLoading} className="w-full">
+        {t("form.submit")}
+      </Button>
+      {errors?.root?.message && (
+        <p className="text-red-600 py-4">{errors.root.message}</p>
+      )}
+    </form>
+  );
+}
 
 // export function LoginForm() {
 //   const [state, loginAction, isLoading] = useActionState<LoginFormProps, any>(
@@ -62,83 +131,3 @@ type LoginFormProps = {
 //     </form>
 //   );
 // }
-
-export function LoginFormClient() {
-  const router = useRouter();
-  const [errors, setErrors] = useState<any>();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  const handleSignin = async (e:any) => {
-    toast.success("You are logged in!");
-    e.preventDefault();
-    setErrors({});
-
-    if (!password) {
-      setErrors({ root: "Passwords do not match" });
-      return;
-    }
-    if(!email) {
-      setErrors({ root: "Email is required" });
-      return;
-    }
-
-    setIsLoading(true);
-
-    await sleep(2000);
-
-    setErrors({});
-    toast.success("Account created successfully!");
-    
-    setIsLoading(false);
-    router.push("/login");
-  };
-
-  return (
-    <form onSubmit={handleSignin} className="space-y-4">
-      <InputField<any>
-        label={"Email"}
-        type="text"
-        name="email"
-        placeholder="Email"
-        autoComplete="email"
-        disabled={isLoading}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <div>
-        <div className="flex items-center grow w-full">
-          <Link
-            href="/forgot-password"
-            className={buttonVariants({
-              variant: "link",
-              className: "ml-auto",
-            })}
-          >
-            Forgot your password?
-          </Link>
-        </div>
-        <InputField<any>
-          label="Password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          autoComplete="current-password"
-          disabled={isLoading}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-
-      <Button type="submit" disabled={isLoading} className="w-full">
-        Log in
-      </Button>
-
-      {errors?.root?.message && (
-        <p className="text-red-600 py-4">{errors.root.message}</p>
-      )}
-    </form>
-  );
-}

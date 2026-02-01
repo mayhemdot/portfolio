@@ -1,10 +1,8 @@
 import { draftMode } from "next/headers";
 import type { Locale } from "next-intl";
-import React from "react";
+import { getTranslations } from "next-intl/server";
+import type { LocaleCode } from "@/i18n/localization";
 import { CATEGORIES } from "@/modules/categories/model/data";
-// import type { RequiredDataFromCollectionSlug, TypedLocale } from "payload";
-// import { queryPageBySlug } from "@/app/(frontend)/[locale]/(public)/(store)/[slug]/page";
-import type { Category } from "@/modules/categories/model/types";
 import { CategoriesBlock } from "@/shared/blocks/CategoriesBlock/Component";
 import { FormBlock } from "@/shared/blocks/Form/Component";
 import { MainHero } from "@/shared/blocks/Heros/HomeHero";
@@ -36,7 +34,7 @@ export default async function HomePage({ params }: Args) {
   const { isEnabled: draft } = await draftMode();
 
   const url = "/" + slug;
-
+  const t = await getTranslations("HomePage");
   // const payload = await getPayload();
 
   // const { docs: categories } = await payload.find({
@@ -68,40 +66,58 @@ export default async function HomePage({ params }: Args) {
   // }
 
   // const { layout } = page;
+
+  //  "PromoSection": {
+  //   "title": "Откройте для себя мир эстетики\r\n с нашей тщательно отобранной\r\n коллекцией мебели"
+  // },
+  // "MediaSection": {
+  //   "title": "       Соответствуют самым высоким мировым стандартам качества и нашим строгим обязательствам"
+  // },
+  // "FormSection": {
+  //   "title": "Оставайтесь с нами и получайте эксклюзивные\r\n скидки и предложения"
+  // }
   return (
     <>
       <MainHero />
-      <CategoriesBlock categories={CATEGORIES as any} />
+      <CategoriesBlock categories={CATEGORIES} locale={locale as LocaleCode} />
       <SliderBlock
         introContent={"Products"}
         limit={100}
         populateBy={"collection"}
-        locale={"ru"}
+        locale={locale}
       />
       <PromoBlock
-        introContent={
-          "Step into a world of beauty with\r\n our meticulously curated\r\n collection of furniture"
-        }
+        introContent={t("PromoSection.title")}
+        // "Step into a world of beauty with\r\n our meticulously curated\r\n collection of furniture"
       />
-      <MediaBlock 
-        description={"        The highest quality standards\r\n and align with our commitment"} 
+      <MediaBlock
+        // "The highest quality standards\r\n and align with our commitment"
+        introContent={t("MediaSection.title")}
         media={{
           id: 10,
-          alt: "alt",
-          caption: "caption",
+          alt: {
+            en: "alt",
+            ru: "alt",
+          },
+          caption: {
+            en: "alt",
+            ru: "alt",
+          },
           url: "/images/video_preview.png",
           mimeType: "image/png",
           width: 1920,
           height: 1080,
           updatedAt: new Date().toISOString(),
           createdAt: new Date().toISOString(),
-        }}/>
+        }}
+      />
 
-      <FormBlock 
-        introContent={"Stay with us and get exclusive\r\n discounts and offers"} 
-        enableIntro={true} 
-        width={400} 
-        submitButtonLabel={"Submit"} 
+      <FormBlock
+        introContent={t("FormSection.title")}
+        // "Stay with us and get exclusive\r\n discounts and offers"
+        enableIntro={true}
+        width={400}
+        submitButtonLabel={"Submit"}
       />
       {/* <CallToActionBlock/> */}
       {/* <MediaBlock/> */}

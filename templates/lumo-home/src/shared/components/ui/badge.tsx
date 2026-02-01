@@ -49,7 +49,7 @@ const bdgVariants = cva(
       size: {
         default:
           "h-10 fl-text-16/20 px-3 md:px-4 py-2 has-[>svg]:px-3" /* 42px */,
-        xs: "h-4 lg:h-6 gap-1.5 px-2 md:px-3 has-[>svg]:px-2.5 fl-text-14/18" /* 32px */,
+        xs: "h-4 lg:h-6 gap-1.5 px-2 md:px-2.5 has-[>svg]:px-2.5 fl-text-14/18" /* 32px */,
         sm: "h-8 md:h-9 fl-text-16/20 gap-1.5 px-3 md:px-4 lg:px-5 has-[>svg]:px-2.5" /* 32px */,
         lg: "h-14 fl-text-16/20 px-6 has-[>svg]:px-4" /* 56px */,
         xl: "h-16 fl-text-18/24 px-8 has-[>svg]:px-5" /* 64px */,

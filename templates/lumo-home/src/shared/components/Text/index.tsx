@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { React } from "next/dist/server/route-modules/app-page/vendored/rsc/entrypoints";
 
-const textVariants = cva("leading-tight whitespace-pre-line leading-tight", {
+const textVariants = cva("leading-tight whitespace-pre-line", {
   variants: {
     font: {
       sans: "text-[var(--font-alum)]",

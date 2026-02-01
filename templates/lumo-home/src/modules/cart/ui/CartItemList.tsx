@@ -1,4 +1,5 @@
 import { useLocale } from "next-intl";
+import type { LocaleCode } from "@/i18n/localization";
 import type { CartItem } from "@/modules/cart/model/store";
 import { CartItemPreviewLink } from "@/modules/cart/ui/CartItemPreviewLink";
 
@@ -7,7 +8,11 @@ export function CartItemList({ cartItems }: { cartItems: CartItem[] }) {
   return (
     <>
       {cartItems?.map((item) => (
-        <CartItemPreviewLink key={item.id} cartItem={item} locale={locale} />
+        <CartItemPreviewLink
+          key={item.id}
+          cartItem={item}
+          locale={locale as LocaleCode}
+        />
       ))}
     </>
   );

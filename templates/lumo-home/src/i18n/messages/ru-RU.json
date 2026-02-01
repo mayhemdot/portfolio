@@ -5,10 +5,30 @@
   "notFoundPage": {
     "title": "Страница не найдена"
   },
-  "homePage": {
-    "heroSection": {
-      "title": "Welcome to the Payload Website Template",
-      "description": "This is the homepage of the Payload Website Template."
+  "HomePage": {
+    "HeroSection": {
+      "title": "Стильное освещение и мебель",
+      "description": "Наполняя пространство светом и эмоциями, наши уникальные творения превращают интерьеры в произведения искусства. Мы не просто проектируем мебель — мы создаем ощущение.",
+      "showMore": "В каталог",
+      "topSale": "Лидеры продаж",
+
+       "ourDesign": {
+          "title": "3", 
+          "description": "Награды дизайна"
+        },
+        "ourClients": {
+          "title": "1000+",
+          "description": "Довольных клиентов"
+        }
+    },
+    "PromoSection": {
+      "title": "Откройте для себя мир эстетики\r\n с нашей тщательно отобранной\r\n коллекцией мебели"
+    },
+    "MediaSection": {
+      "title": "   Соответствуют самым высоким мировым стандартам\r\n качества и нашим строгим обязательствам"
+    },
+    "FormSection": {
+      "title": "Оставайтесь с нами и получайте\r\n эксклюзивные скидки и предложения"
     }
   },
   "aboutPage": {
@@ -76,12 +96,7 @@
   "CategoriesBlock": {
     "title": "Категории"
   },
-  "MainHero": {
-    "title": "Modern Lightning & Furniture",
-    "description": "Наполняя пространство светом и эмоциями, наши уникальные творения превращают интерьеры в произведения искусства. Мы не просто проектируем мебель — мы создаем ощущение.",
-    "showMore": "В каталог",
-    "topSale": "Лидеры продаж"
-  },
+ 
   "Login": {
     "title": "Вход в аккаунт",
     "description": "Заполните форму, чтобы войти в свой аккаунт",
@@ -89,6 +104,14 @@
     "breadcrumbs": {
       "home": "Главная",
       "login": "Вход"
+    },
+    "form": {
+      "emailLabel": "Почта",
+      "emailPlaceholder": "Введите ваш email",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Введите ваш пароль",
+      "forgotPassword": "Забыли пароль?",
+      "submit": "Войти"
     }
   },
   "ForgotPassword": {
@@ -107,6 +130,15 @@
     "breadcrumbs": {
       "home": "Главная",
       "register": "Регистрация"
+    },
+    "form": {
+      "emailLabel": "Почта",
+      "emailPlaceholder": "Введите ваш email",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Введите ваш пароль",
+      "repeatPasswordLabel": "Повторите пароль",
+      "repeatPasswordPlaceholder": "Повторите ваш пароль",
+      "submit": "Создать аккаунт"
     }
   },
   "ResetPassword": {

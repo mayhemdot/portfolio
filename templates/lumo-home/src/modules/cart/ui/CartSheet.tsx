@@ -3,7 +3,9 @@
 import { ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { useState } from "react";
+import { getCurrency, type LocaleCode } from "@/i18n/localization";
 import { EmptyCart } from "@/modules/cart/ui/CartIsEmpty";
 import { CartItemList } from "@/modules/cart/ui/CartItemList";
 import { Badge } from "@/shared/components/ui/badge";
@@ -27,29 +29,31 @@ const useTotalItems = () => {
   return cartItems.reduce((total, item) => total + item.quantity, 0);
 };
 
-const useTotalPrice = () => {
+const useTotalPrice = (code: LocaleCode) => {
+  const currency = getCurrency(code).toLowerCase() as keyof typeof getCurrency;
   const { cartItems } = useCartStore();
-  return cartItems.reduce(
-    (total, item) => total + (item.product?.price || 0) * item.quantity,
-    0,
-  );
+  const amount = cartItems.reduce(
+      (total, item) =>
+        total + (item.product?.price?.[currency] || 0) * item.quantity,
+      0,
+    );
+  return { 
+    amount: amount,
+    total: formatPrice(amount,{  localeCode: code,  currencyCode: getCurrency(code)})
+  };
 };
 
 export function CartSheet() {
-  const locale = useLocale();
+  const locale = useLocale() as LocaleCode;
   const t = useTranslations("CartSheet");
 
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems, isCartEmpty } = useCartStore();
 
   const totalItems = useTotalItems();
-  const totalPrice = useTotalPrice();
+  const { total } = useTotalPrice(locale);
   const isEmptyCart = isCartEmpty();
 
-  const priceSettings = {
-    locale,
-    currencyCode: "USD",
-  };
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -86,15 +90,18 @@ export function CartSheet() {
         {isEmptyCart && <EmptyCart />}
         {!isEmptyCart && (
           <>
-            <ScrollArea className="grow min-h-0! max-h-full! px-4 pb-4">
-              <CartItemList cartItems={cartItems} />
+            <ScrollArea className="grow min-h-0! max-h-full! px-4 pb-4 ">
+              {/* [&_[data-radix-scroll-area-viewport]>div]:min-w-0 [&_[data-radix-scroll-area-viewport]>div]:block */}
+              {/* <div className="min-w-0 relative max-w-full w-full"> */}
+                <CartItemList cartItems={cartItems} />
+              {/* </div> */}
             </ScrollArea>
             <Separator />
             <div className="shrink-0 space-y-2 px-4">
               <div className="flex justify-between items-center font-semibold">
                 <span className="fl-text-24/32">{t("total")}:</span>
                 <span className="fl-text-24/32">
-                  {formatPrice(totalPrice, priceSettings)}
+                  {total}
                 </span>
               </div>
 
@@ -102,6 +109,7 @@ export function CartSheet() {
                 <Button
                   variant="secondary"
                   className="w-full! grow"
+                  size={"lg"}
                   onClick={() => setIsOpen(false)}
                 >
                   {t("backToShopping")}
@@ -110,6 +118,7 @@ export function CartSheet() {
                   href="/checkout"
                   className={btnVariants({
                     className: "w-full!",
+                    size: "lg",
                   })}
                   onClick={() => setIsOpen(false)}
                 >

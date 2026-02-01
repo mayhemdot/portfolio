@@ -8,6 +8,10 @@ import { Input } from "../ui/input";
 
 type Props<S> = {
   label: string;
+  link?: {
+    href: string;
+    label: string;
+  },
   name: string; //Path<S>;
   wrapperClassName?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -16,10 +20,10 @@ export function InputField<S>(params: Props<S>) {
   const {
     label,
     name,
-  
     hidden = false,
     type,
     className,
+    link,
     wrapperClassName,
     ...rest
   } = params;
@@ -27,6 +31,7 @@ export function InputField<S>(params: Props<S>) {
   // const form = useFormContext();
   const [showPassword, setShowPassword] = useState(false);
   const [inputType, setInputType] = useState(type);
+
   useEffect(() => {
     if (type === "password" && showPassword) {
       setInputType("text");
@@ -36,25 +41,28 @@ export function InputField<S>(params: Props<S>) {
       setInputType("password");
     }
   }, [type, showPassword]);
+
   return (
     <div className={wrapperClassName}>
       {name && (
-        <div>
+        <div className="space-y-1">
           <Label htmlFor={name} className="fl-text-16/20 flex justify-between">
              <span>{label}</span>
-             <Link
-               href="/forgot-password"
-               className={buttonVariants({
-                 variant: "link",
-                 className: cn("ml-auto h-fit p-0! text-blue-600!", {
-                   "hidden!":
-                     type !== "password" ||
-                     name.toLowerCase() !== "password",
-                 }),
-               })}
-             >
-               Forgot your password?
-             </Link>
+             {
+              link?.href && <Link
+                href={link?.href}
+                className={buttonVariants({
+                  variant: "link",
+                  className: cn("ml-auto h-fit p-0! text-blue-600!", {
+                    "hidden!":
+                      type !== "password" ||
+                      name.toLowerCase() !== "password",
+                  }),
+                })}
+              >
+                {link.label}
+              </Link>
+              }
           </Label>
 
           <div className="relative">

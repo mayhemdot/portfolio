@@ -1,3 +1,4 @@
+import Image  from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { CartSheet } from "@/modules/cart/ui/CartSheet";
@@ -8,6 +9,7 @@ import { DesktopDropdownMenu } from "@/shared/components/Header/DesktopDropdownM
 import { Logo } from "@/shared/components/Header/Logo";
 import { MobileMenuSheet } from "@/shared/components/Header/MobileMenu";
 import { CMSLink } from "@/shared/components/Link";
+import { Media } from "@/shared/components/Media";
 import { btnVariants } from "@/shared/components/ui/button";
 
 type Props = {
@@ -54,8 +56,14 @@ export async function HeaderBlock(props: Props) {
 
   return (
     <header className="fl-pt-16/24 w-full z-50 fl-px-8/32 self-center sticky flex justify-between items-center">
-      <Logo logo={header.logo} />
-
+      <Link href="/" className={"block m-0! p-0! border-0! cursor-pointer relative aspect-square h-14! xl:h-16!"}>
+        <Image
+          src={"/Logo-1.svg"}
+          loading="eager"
+          fill
+          unoptimized={false}
+          className="block object-cover" alt={"Logo"}  />
+      </Link>
       <div className="flex items-center fl-gap-x-8/16">
         {!searchIsHidden && (
           <div className={"hidden lg:block"}>
@@ -68,7 +76,6 @@ export async function HeaderBlock(props: Props) {
 
         <div className="flex items-center fl-gap-x-12/16 fl-px-16/24 py-3 bg-secondary rounded-full">
           <CartSheet />
-
           {user ? (
             <DesktopDropdownMenu user={user} />
           ) : (

@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useDebouncedCallback } from "use-debounce";
 import { useCartStore } from "@/modules/cart/model/store";
-import type { CardProductData } from "@/shared/components/Card";
+import type { ProductRaw } from "@/modules/products/model/types";
+
 import {
   Button,
   btnVariants,
@@ -15,7 +16,7 @@ import { ROUTES } from "@/shared/utils/constants";
 
 type Props = {
   productVariant?: string;
-  product: CardProductData;
+  product: ProductRaw;
   btnClassName?: string;
   rounded?: VariantProps<typeof btnVariants>["rounded"];
   size?: VariantProps<typeof btnVariants>["size"];
@@ -70,7 +71,7 @@ export function AddToCartButton(props: Props) {
             handleAddToCart({
               id: selectedProductId,
               // id: uuidv4(),
-              product,
+              product: product,
               quantity: 1,
             })
           }

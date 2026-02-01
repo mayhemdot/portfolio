@@ -25,7 +25,7 @@ export const MainHero: React.FC = () => {
   const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
   const timeline = React.useRef(gsap.timeline({ paused: true })).current;
 
-  const t = useTranslations("MainHero");
+  const t = useTranslations("HomePage.HeroSection");
 
   useGSAP(
     () => {
@@ -201,10 +201,11 @@ export const MainHero: React.FC = () => {
           <div className="flex items-center h-full flex-col justify-start">
             <div className="flex flex-col w-full max-w-65 grow gap-2 items-end">
               <Badge size={"sm"} variant={"outline"} className="fl-text-20/24">
-                1000+ Happy clients
+                {/* 1000+ Happy clients */}
+                <span className="font-medium fl-text-20/24">{t("ourClients.title")}</span> {t("ourClients.description")}
               </Badge>
               <Badge size={"sm"} variant={"outline"} className="fl-text-20/24">
-                2+ Design awards
+                <span className="font-medium fl-text-20/24">{t("ourDesign.title")}</span> {t("ourDesign.description")}
               </Badge>
             </div>
             <div className="p-3 space-y-3 w-fit max-w-65 bg-secondary rounded-2xl mb-[10%]">

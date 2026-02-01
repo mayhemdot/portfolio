@@ -4,7 +4,7 @@ import { useCartStore } from '@/modules/cart/model/store'
 import { InputQuantity } from '@/shared/components/ui/input-quantity'
 
 type Props = {
-  productId: number
+  productId: number 
   productVariant?: number
   enableVariants: boolean
 }

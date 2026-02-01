@@ -7,7 +7,7 @@ import { Media } from "../../components/Media";
 
 type Props =  {
   media: MediaType;
-  description?: string;
+  introContent?: string;
   breakout?: boolean;
   captionClassName?: string;
   className?: string;
@@ -24,12 +24,12 @@ export const MediaBlock: React.FC<Props> = (props) => {
     enableGutter = true,
     imgClassName,
     media,
-    description,
+    introContent,
     staticImage,
     disableInnerContainer,
   } = props;
 
-  const caption = media?.caption?.toString() || description;
+  const caption = media?.caption?.toString() || introContent;
   //   if (media && typeof media === "object") caption = media.caption;
 
   return (
@@ -43,10 +43,10 @@ export const MediaBlock: React.FC<Props> = (props) => {
         <div className="relative mx-auto grow max-w-[90%] md:max-w-[80%] xl:max-w-[60%]">
          <Text
            comp="h4"
-           size="smd"
+           size="sm"
            variant={"secondary"}
            className="md:pb-8 font-medium! xl:pb-16 whitespace-pre-wrap! pb-4 pt-0 rounded-2xl">
-              {description}
+              {introContent}
           </Text>
           <Media
             // videoClassName='border border-border rounded-[0.8rem] h-full !w-full aspect-video'

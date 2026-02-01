@@ -1,34 +1,31 @@
 import type { Metadata } from "next";
-
-import type { Config, Media, Page, Product } from "@/payload-types";
-
+import type { Product } from "@/modules/products/model/types";
+import type { MediaType } from "@/shared/components/Media/types";
 // import { mergeOpenGraph } from "./mergeOpenGraph";
 import { getServerSideURL } from "./getUrl";
 import { mergeOpenGraph } from "./mergeOpenGraph";
 
-const getImageURL = (image?: Media | Config["db"]["defaultIDType"] | null) => {
+const getImageURL = (image?: MediaType | null) => {
   const serverUrl = getServerSideURL();
-
-  let url = serverUrl + "/website-template-OG.webp";
+  
+  const url = `${serverUrl}/website-template-OG.webp`;
 
   if (image && typeof image === "object" && "url" in image) {
-    const ogUrl = image.sizes?.og?.url;
-
-    url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url;
+    // const ogUrl = image.sizes?.og?.url;
+    // url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url;
   }
-
   return url;
 };
 
 export const generateMeta = async (args: {
-  doc: Partial<Page> | Partial<Product>;
+  doc: Partial<any> | Partial<Product>;
+
 }): Promise<Metadata> => {
   const { doc } = args || {};
-
   const ogImage = getImageURL(doc?.meta?.image);
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + " | Payload Website Template"
+    ? `${ doc?.meta?.title} | Payload Website Template`
     : "Payload Website Template";
 
   return {

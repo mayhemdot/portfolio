@@ -3,6 +3,7 @@ import { type Locale, useLocale } from "next-intl";
 import { getLocale } from "next-intl/server";
 // import { getPayload, type TypedLocale } from "payload";
 import React from "react";
+import type { LocaleCode } from "@/i18n/localization";
 import { PRODUCTS } from "@/modules/products/model/data";
 import type { Product } from "@/modules/products/model/types";
 // import type { Product, SliderBlock as SliderBlockProps } from "@/payload-types";
@@ -19,49 +20,11 @@ type SliderBlockProps = {
 };
 
 export async function SliderBlock(props: SliderBlockProps) {
-  const {
-    id,
-    introContent,
-    limit: limitFromProps,
-    populateBy,
-    selectedDocs,
-  } = props;
+  const { id, introContent, limit: limitFromProps } = props;
 
   const limit = limitFromProps || 3;
-  let products: Product[] = [];
-  const locale = await getLocale();
-  console.log("locale", locale);
-  if (populateBy === "collection") {
-    // const payload = await getPayload({ config: configPromise });
-    // const flattenedCategories = categories?.map((category) => {
-    //   if (typeof category === 'object') return category.id
-    //   else return category
-    // })
-    // const fetchedPrograms = await payload.find({
-    //   collection: "products",
-    //   depth: 1,
-    //   limit,
-    //   locale: locale as TypedLocale,
-    //   // ...(flattenedCategories && flattenedCategories.length > 0
-    //   //   ? {
-    //   //       where: {
-    //   //         categories: {
-    //   //           in: flattenedCategories,
-    //   //         },
-    //   //       },
-    //   //     }
-    //   //   : {}),
-    // });
-    products = PRODUCTS; //fetchedPrograms.docs;
-  } else {
-    if (selectedDocs?.length) {
-      const filteredSelectedPrograms = selectedDocs
-        ?.map((product) => (typeof product === "object" ? product : null))
-        .filter(Boolean) as Product[];
 
-      products = filteredSelectedPrograms;
-    }
-  }
+  const locale = (await getLocale()) as LocaleCode;
 
   return (
     <div id={`slider-block-${id}`} className="padding-default">
@@ -70,7 +33,7 @@ export async function SliderBlock(props: SliderBlockProps) {
           <Text className="ml-0 max-w-3xl">{introContent}</Text>
         </div>
       )}
-      <SliderArchive products={products} locale={locale} />
+      <SliderArchive products={PRODUCTS} locale={locale} />
     </div>
   );
 }

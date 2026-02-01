@@ -17,13 +17,13 @@ export function LogoutButton({ className, disabled }: Props) {
   };
 
   return (
-    <form onSubmit={handleSignOut}>
+    <form onSubmit={handleSignOut} className={className}>
       <Button
         type="submit"
         className={cn("w-full", className)}
         disabled={disabled}
       >
-        Logout <LogOut />
+         <LogOut /> Logout
       </Button>
       {/* {state.error && <p className="text-red-600 py-4">{state.error}</p>} */}
     </form>

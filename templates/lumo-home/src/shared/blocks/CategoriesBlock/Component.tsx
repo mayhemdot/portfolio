@@ -4,15 +4,19 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { EffectFlip, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Category } from "@/modules/categories/model/types";
+import type { LocaleCode } from "@/i18n/localization";
+import { Category, type CategoryRaw } from "@/modules/categories/model/types";
 
 type Props = {
-  categories: Category[];
+  categories: CategoryRaw[];
+  locale: LocaleCode;
 };
 
-export const CategoriesBlock = ({ categories }: Props) => {
+export const CategoriesBlock = ({ categories, locale }: Props) => {
   const t = useTranslations("CategoriesBlock");
-
+  const categoryList = categories.map(
+    (category) => new Category(category, locale),
+  );
   return (
     <section className="padding-default">
       <div className="fl-py-14/28 mb-8 xl:mb-16 bg-card-foreground rounded-full fl-px-16/32">
@@ -40,7 +44,7 @@ export const CategoriesBlock = ({ categories }: Props) => {
               },
             }}
           >
-            {categories?.map((category, index: number) => (
+            {categoryList?.map((category, index: number) => (
               <SwiperSlide
                 key={category.name}
                 className="h-full w-auto flex items-center"

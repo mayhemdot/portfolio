@@ -1,37 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type React from "react";
+import type { LocaleCode } from "@/i18n/localization";
 import { AddToCartButton } from "@/modules/cart/ui/AddToCartButton";
-import type { Product } from "@/modules/products/model/types";
+import { Product, type ProductRaw } from "@/modules/products/model/types";
 import { Media } from "@/shared/components/Media";
+import { Text } from "@/shared/components/Text";
 import { Badge } from "@/shared/components/ui/badge";
 import { cn } from "@/shared/lib/utils";
-import { formatPrice } from "@/shared/utils/formatPrice";
 import useClickableCard from "@/shared/utils/useClickableCard";
-
-export type CardProductData = Pick<
-  Product,
-  | "title"
-  | "price"
-  | "slug"
-  | "images"
-  | "category"
-  | "id"
-  | "inStock"
-  | "description"
-  | "variants"
-  | "enableVariants"
->;
+// export type CardProductData = Pick<
+//   ProductRaw,
+//   | "title"
+//   | "price"
+//   | "slug"
+//   | "images"
+//   | "category"
+//   | "id"
+//   | "inStock"
+//   | "description"
+//   | "variants"
+//   | "enableVariants"
+// >;
 
 export const Card: React.FC<{
   alignItems?: "center";
   className?: string;
-  doc?: CardProductData;
+  doc?: ProductRaw;
   relationTo?: "products";
   showCategories?: boolean;
   title?: string;
-  locale?: string;
+  locale: LocaleCode;
 }> = (props) => {
   const { card, link } = useClickableCard({});
   const {
@@ -43,20 +44,21 @@ export const Card: React.FC<{
     title: titleFromProps,
   } = props;
 
-  const { slug, category, title, price, images } = doc || {};
+  if (!doc) notFound();
 
+  const product = new Product(doc, locale);
   const { description, image: metaImage } = { description: "", image: "" }; // meta ||
 
-  const categories = [category];
+  const categories = [product.category];
 
   const hasCategories =
     categories && Array.isArray(categories) && categories.length > 0;
 
-  const titleToUse = titleFromProps || title;
+  const titleToUse = titleFromProps || product.title || "";
 
   const sanitizedDescription = description?.replace(/\s/g, " "); // replace non-breaking space with white space
 
-  const href = `/${relationTo}/${slug}`;
+  const href = `/${relationTo}/${product.slug}`;
 
   return (
     <article
@@ -79,9 +81,9 @@ export const Card: React.FC<{
 
       <div className="grow z-0 w-full relative">
         <Link href={href} ref={link.ref}>
-          {images && images.length > 0 && (
+          {product.images && product.images.length > 0 && (
             <Media
-              url={images[0].url || ""}
+              url={product.images[0].url || ""}
               fill
               className="object-contain"
               imgClassName="object-cover mix-blend-multiply"
@@ -90,7 +92,7 @@ export const Card: React.FC<{
         </Link>
         <div className="absolute right-0 bottom-0 z-10 fl-px-8/20 fl-py-8/20">
           <AddToCartButton
-            product={doc!}
+            product={product.raw}
             size={"iconXL"}
             variant={"ghost"}
             rounded={"default"}
@@ -100,15 +102,16 @@ export const Card: React.FC<{
 
       <div className="flex flex-row justify-between bg-secondary z-10 fl-gap-8/16 fl-px-8/24 fl-py-8/24 ">
         <div className="flex flex-col gap-1 2xl:gap-2 grow">
-          <span className="fl-py-2/8 fl-px-8/16 leading-tight bg-background rounded-full fl-text-16/24">
-            {formatPrice(price!, {
-              locale: locale,
-              currencyCode: "USD",
-            })}
+          <span className="fl-py-2/8 fl-px-8/16 leading-tight bg-background rounded-full">
+            <Text comp="h4" className="w-full leading-none!" weight={"medium"} variant={"secondary"} size={"xs"}>
+              {product.prettyPrice()}
+            </Text>
           </span>
-          <h4 className="fl-py-2/8 fl-px-8/16 bg-background fl-text-16/24 rounded-full leading-tight w-full font-semibold line-clamp-1">
-            {titleToUse}
-          </h4>
+          <div className="fl-py-2/8 fl-px-8/16 bg-background rounded-lg w-full font-semibold">
+            <Text comp="h4" className="w-full leading-none! line-clamp-2" weight={"medium"} variant={"secondary"} size={"xs"}>
+              {titleToUse}
+            </Text>
+          </div>
         </div>
       </div>
       {/* <div className="relative w-full">

@@ -5,10 +5,29 @@
   "notFoundPage": {
     "title": "Page Not Found. Error 404"
   },
-  "homePage": {
-    "heroSection": {
-      "title": "Welcome to the Payload Website Template",
-      "description": "This is the homepage of the Payload Website Template."
+  "HomePage": {
+    "HeroSection": {
+      "title": "Modern Lightning & Furniture",
+      "description": "Infusing spaces with light and emotion, our unique creations transform interiors into art. We don't just design furniture—we curate a feeling.",
+      "showMore": "Read more",
+      "topSale": "Best of sales",
+      "ourDesign": {
+        "title": "3", 
+        "description": "Design Awards"
+      },
+      "ourClients": {
+        "title": "1000+",
+        "description": "Happy clients"
+      }
+    },
+    "PromoSection": {
+      "title": "Step into a world of beauty with\r\n our meticulously curated\r\n collection of furniture"
+    },
+    "MediaSection": {
+      "title": "    The highest quality standards\r\n and align with our commitment"
+    },
+    "FormSection": {
+      "title": "Stay with us and get exclusive\r\n discounts and offers"
     }
   },
   "aboutPage": {
@@ -76,12 +95,6 @@
   "CategoriesBlock": {
     "title": "Categories"
   },
-  "MainHero": {
-    "title": "Modern Lightning & Furniture",
-    "description": "Infusing spaces with light and emotion, our unique creations transform interiors into art. We don't just design furniture—we curate a feeling.",
-    "showMore": "Read more",
-    "topSale": "Best of sales"
-  },
   "Login": {
     "title": "Login to your account",
     "description": "Enter your email below to login to your account",
@@ -89,6 +102,14 @@
     "breadcrumbs": {
       "home": "Home",
       "login": "Login"
+    },
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "forgotPassword": "Forgot your password?",
+      "submit": "Log in"
     }
   },
   "ForgotPassword": {
@@ -107,6 +128,15 @@
     "breadcrumbs": {
       "home": "Home",
       "register": "Register"
+    },
+    "form": {
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "repeatPasswordLabel": "Repeat password",
+      "repeatPasswordPlaceholder": "Repeat your password",
+      "submit": "Create Account"
     }
   },
   "ResetPassword": {

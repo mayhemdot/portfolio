@@ -13,6 +13,7 @@ export interface Props {
 	imgClassName?: string;
 	videoClassName?: string;
 	htmlElement?: ElementType | null;
+  loading?:any,
 	onClick?: () => void;
 	onLoad?: () => void;
 	ref?: Ref<null | HTMLImageElement | HTMLVideoElement>;
@@ -20,10 +21,14 @@ export interface Props {
 
 export interface MediaType {
 	id: number;
-	alt: string;
-	caption?:
-		| string
-		| null;
+	alt: {
+    en: string;
+    ru: string;
+  };
+	caption?: {
+    en: string;
+    ru: string;
+  };
 	updatedAt: string;
 	createdAt: string;
 	url?: string | null;
