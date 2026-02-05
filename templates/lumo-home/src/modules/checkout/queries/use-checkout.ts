@@ -3,7 +3,6 @@
 // import { CheckoutActionSchema } from '@/modules/checkout/model/schemas'
 // import { useRouter } from 'next/navigation'
 // import { useCartStore } from '@/modules/cart/model/store'
-// import { Order, Payment } from '@/payload-types'
 // import toast from 'react-hot-toast'
 
 // type CheckoutResponseError = {

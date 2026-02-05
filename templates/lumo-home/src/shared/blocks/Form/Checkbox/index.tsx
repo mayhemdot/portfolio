@@ -6,41 +6,46 @@ import { ErrorText } from "../Error";
 import { Width } from "../Width";
 
 export const Checkbox: React.FC<
-  CheckboxField & {
-    errors: Partial<any>;
-    control?: any;
-    form?: any;
-    label?: any;
-    getValues: () => boolean;
-    register: any; //UseFormRegister<FieldValues>;
-    setValue: (field: string, value: boolean) => void;
-  }
+	CheckboxField & {
+		errors?: Partial<any>;
+		control?: any;
+		form?: any;
+		label?: any;
+		getValues: () => boolean;
+		setValue: (value: boolean) => void;
+		className: string;
+		classNameWrapper: string;
+	}
 > = ({
-  name,
-  defaultValue,
-  errors,
-  label,
-  register,
-  required: requiredFromProps,
-  width,
+	name,
+	defaultValue,
+	errors,
+	label,
+	required: requiredFromProps,
+	width,
+	setValue,
+	classNameWrapper,
+	className,
 }) => {
-  const props = register(name, { required: requiredFromProps });
-  // const { setValue } = useFormContext();
+	// const props = register(name, { required: requiredFromProps });
+	// const { setValue } = useFormContext();
 
-  return (
-    <Width width={width}>
-      <div className="flex items-center gap-2">
-        <CheckboxUi
-          defaultChecked={defaultValue}
-          id={name}
-          {...props}
-          onCheckedChange={(checked: boolean) => {
-            // setValue(props.name, checked);
-          }}
-        />
-        <Label htmlFor={name}>{label}</Label>
-      </div>
-      {name && requiredFromProps && errors?.[name] && <ErrorText />}
-    </Width>
-  );
+	return (
+		<div className={classNameWrapper}>
+			<div className='flex items-start gap-2'>
+				<CheckboxUi
+					className={className}
+					defaultChecked={!!defaultValue}
+					id={name}
+					// name={"nc"}
+					// {...props}
+					onCheckedChange={checked => {
+						setValue(checked === true);
+					}}
+				/>
+				<Label htmlFor={name}>{label}</Label>
+			</div>
+			{name && requiredFromProps && errors?.[name] && <ErrorText />}
+		</div>
+	);
 };

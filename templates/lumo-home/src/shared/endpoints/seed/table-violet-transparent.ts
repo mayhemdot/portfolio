@@ -1,70 +1,70 @@
-import type { Media } from '@/payload-types'
+import { MediaType } from "@/shared/components/Media/types";
 
 export const tableVioletTransparent: Omit<
-  Media,
-  'createdAt' | 'id' | 'updatedAt'
+	MediaType,
+	"createdAt" | "id" | "updatedAt"
 > = {
-  alt: 'Modern violet glass table transparent',
-  //   caption: {
-  //     root: {
-  //       type: 'root',
-  //       children: [
-  //         {
-  //           type: 'paragraph',
-  //           children: [
-  //             {
-  //               type: 'text',
-  //               detail: 0,
-  //               format: 0,
-  //               mode: 'normal',
-  //               style: '',
-  //               text: 'Photo by ',
-  //               version: 1,
-  //             },
-  //             {
-  //               type: 'link',
-  //               children: [
-  //                 {
-  //                   type: 'text',
-  //                   detail: 0,
-  //                   format: 0,
-  //                   mode: 'normal',
-  //                   style: '',
-  //                   text: 'Andrew Kliatskyi',
-  //                   version: 1,
-  //                 },
-  //               ],
-  //               direction: 'ltr',
-  //               fields: {
-  //                 linkType: 'custom',
-  //                 newTab: true,
-  //                 url: 'https://unsplash.com/@kirp',
-  //               },
-  //               format: '',
-  //               indent: 0,
-  //               version: 2,
-  //             },
-  //             {
-  //               type: 'text',
-  //               detail: 0,
-  //               format: 0,
-  //               mode: 'normal',
-  //               style: '',
-  //               text: ' on Unsplash.',
-  //               version: 1,
-  //             },
-  //           ],
-  //           direction: 'ltr',
-  //           format: '',
-  //           indent: 0,
-  //           textFormat: 0,
-  //           version: 1,
-  //         },
-  //       ],
-  //       direction: 'ltr',
-  //       format: '',
-  //       indent: 0,
-  //       version: 1,
-  //     },
-  //   },
-}
+	alt: { en: "Modern violet glass table transparent", ru: "" },
+	//   caption: {
+	//     root: {
+	//       type: 'root',
+	//       children: [
+	//         {
+	//           type: 'paragraph',
+	//           children: [
+	//             {
+	//               type: 'text',
+	//               detail: 0,
+	//               format: 0,
+	//               mode: 'normal',
+	//               style: '',
+	//               text: 'Photo by ',
+	//               version: 1,
+	//             },
+	//             {
+	//               type: 'link',
+	//               children: [
+	//                 {
+	//                   type: 'text',
+	//                   detail: 0,
+	//                   format: 0,
+	//                   mode: 'normal',
+	//                   style: '',
+	//                   text: 'Andrew Kliatskyi',
+	//                   version: 1,
+	//                 },
+	//               ],
+	//               direction: 'ltr',
+	//               fields: {
+	//                 linkType: 'custom',
+	//                 newTab: true,
+	//                 url: 'https://unsplash.com/@kirp',
+	//               },
+	//               format: '',
+	//               indent: 0,
+	//               version: 2,
+	//             },
+	//             {
+	//               type: 'text',
+	//               detail: 0,
+	//               format: 0,
+	//               mode: 'normal',
+	//               style: '',
+	//               text: ' on Unsplash.',
+	//               version: 1,
+	//             },
+	//           ],
+	//           direction: 'ltr',
+	//           format: '',
+	//           indent: 0,
+	//           textFormat: 0,
+	//           version: 1,
+	//         },
+	//       ],
+	//       direction: 'ltr',
+	//       format: '',
+	//       indent: 0,
+	//       version: 1,
+	//     },
+	//   },
+};

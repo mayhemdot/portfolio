@@ -4,7 +4,6 @@
 // import { Input } from "@/shared/components/ui/input";
 // import { Suspense, use } from "react";
 // import { PaginatedDocs } from "payload";
-// import { Product } from "@/payload-types";
 
 // type Props = {
 //   products: PaginatedDocs<Product>;

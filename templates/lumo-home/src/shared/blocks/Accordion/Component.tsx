@@ -1,59 +1,68 @@
-
 export type AccordionBlockProps = {
-  introContent: string,
-  items: AccordionItemType[]
-}
+	introContent: string;
+	items: AccordionItemType[];
+};
 
-export type AccordionItemType = { 
-  id: string | number, 
-  content: string, 
-  title: string, 
-}
+export type AccordionItemType = {
+	id: string | number;
+	content: string;
+	title: string;
+};
 
-import {Text} from "@/shared/components/Text";
+import { Text } from "@/shared/components/Text";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
 } from "@/shared/components/ui/accordion";
 
 export function AccordionBlock(props: AccordionBlockProps) {
-  const { introContent, items } = props;
+	const { introContent, items } = props;
 
-  return (
-    <section className="mb-24">
-      {introContent && (
-        <div className="max-w-3xl mx-auto mb-12">
-          <Text className="ms-0 max-w-3xl text-muted-foreground mt-4">
-            {introContent}
-          </Text>
-        </div>
-      )}
-      <div className="max-w-3xl mx-auto">
-        <Accordion type="single" collapsible className="w-full">
-          {items?.map((item, i) => (
-            <AccordionItem
-              key={item.id || `item-${i}`}
-              value={String(item.id) || `item-${i}`}
-            >
-              <AccordionTrigger>
-                <Text comp="p" size={"sm"} weight={"medium"} variant={"mutedForeground"}>{item.title}</Text>
-              </AccordionTrigger>
-              <AccordionContent>
-                {item.content && <Text comp="p" variant={"mutedForeground"}>{item.content}</Text>}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-
-        </Accordion>
-      </div>
-    </section>
-  );
+	return (
+		<section className='mb-24'>
+			{introContent && (
+				<div className='mx-auto mb-12 max-w-3xl'>
+					<Text className='text-muted-foreground ms-0 mt-4 max-w-3xl'>
+						{introContent}
+					</Text>
+				</div>
+			)}
+			<div className='mx-auto max-w-3xl'>
+				<Accordion type='single' collapsible className='w-full'>
+					{items?.map((item, i) => (
+						<AccordionItem
+							key={item.id || `item-${i}`}
+							value={String(item.id) || `item-${i}`}
+						>
+							<AccordionTrigger>
+								<Text
+									comp='p'
+									size={"sm"}
+									weight={"medium"}
+									variant={"mutedForeground"}
+								>
+									{item.title}
+								</Text>
+							</AccordionTrigger>
+							<AccordionContent>
+								{item.content && (
+									<Text comp='p' variant={"mutedForeground"}>
+										{item.content}
+									</Text>
+								)}
+							</AccordionContent>
+						</AccordionItem>
+					))}
+				</Accordion>
+			</div>
+		</section>
+	);
 }
 
-
- {/* 
+{
+	/* 
  <AccordionItem value="item-2">
    <AccordionTrigger className="text-lg font-medium">
      What is your return policy?
@@ -91,4 +100,5 @@ export function AccordionBlock(props: AccordionBlockProps) {
      Yes, we offer digital gift cards in various denominations. They
      are delivered via email and can be redeemed online at checkout.
    </AccordionContent>
- </AccordionItem> */}
+ </AccordionItem> */
+}

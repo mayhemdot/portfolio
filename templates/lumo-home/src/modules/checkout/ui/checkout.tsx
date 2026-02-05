@@ -4,145 +4,198 @@ import { Loader2, MapPin, Truck, UserIcon } from "lucide-react";
 import { type Locale, useTranslations } from "next-intl";
 import { useState } from "react";
 import {
-  useCartItems,
-  useTotalItems,
-  useTotalPrice,
+	useCartItems,
+	useTotalItems,
+	useTotalPrice,
 } from "@/modules/cart/model/helpers";
 import { CartAndCheckoutLayout } from "@/modules/cart/ui/CartLayout";
 import type { User } from "@/modules/users/model/types";
 import { InputField } from "@/shared/components/InputField";
 import { Button } from "@/shared/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
+	Card,
+	CardContent,
+	CardHeader,
+	CardTitle,
 } from "@/shared/components/ui/card";
 import { Checkbox } from "@/shared/components/ui/checkbox";
 import { Label } from "@/shared/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/shared/components/ui/radio-group";
 import { formatPrice } from "@/shared/utils/formatPrice";
-
-
-type Shipping = {
-  id: number;
-  name: string;
-  price: number;
-}
+import { Shipping, ShippingRaw } from "@/modules/shipping/model/types";
+import { getCurrency, LocaleCode } from "@/i18n/localization";
+import toast from "react-hot-toast";
 
 type Props = {
-  shippings: Shipping[];
-  user: User;
-  locale: Locale;
+	shippings: ShippingRaw[];
+	user: User;
+	locale: LocaleCode;
 };
 
 const percentRate = 0; //0.08;
 
-export default function CheckoutClient({ shippings, user, locale }: Props) {
-  const [sameAsShipping, setSameAsShipping] = useState(true);
+export default function CheckoutClient({
+	shippings: shippingsRaw,
+	user,
+	locale,
+}: Props) {
+	const shippings = shippingsRaw.map(s => new Shipping(s, locale));
 
-  const totalItems = useTotalItems();
-  const subtotal = useTotalPrice();
-  const cartItems = useCartItems();
+	const [sameAsShipping, setSameAsShipping] = useState(true);
+	const currencyCode = getCurrency(locale);
+	const totalItems = useTotalItems();
+	const subtotal = useTotalPrice(currencyCode);
+	const cartItems = useCartItems();
 
-  const t = useTranslations("checkoutPage");
+	const t = useTranslations("CheckoutPage");
+	const tGlob = useTranslations("Global.Messages");
 
-  // const clearCart = useCartStore(store => store.clearCart)
+	const [shippingMethodSelected, setShippingMethodSelected] = useState<
+		string | null
+	>(null);
 
-  // const form = useForm({
-  //   resolver: zodResolver(checkoutSchema),
-  //   defaultValues: {
-  //     orderedBy: {
-  //       user: user.id,
-  //     },
-  //     phone: "",
-  //     address: "",
-  //     city: "",
-  //     zip: "",
-  //     items: cartItems?.map((item) => ({
-  //       product: item.product.id,
-  //       quantity: item.quantity,
-  //     })),
-  //   },
-  // });
-  // const shippingMethodId = form.watch("shippingMethod");
+	const [isLoading, setIsLoading] = useState(false);
+	const [errors, setErrors] = useState<any>(null);
 
-  // const shippingMethodSelected = shippings.find(
-  //   (item) => shippingMethodId && item.id === Number(shippingMethodId),
-  // );
+	const shipping =
+		(shippingMethodSelected &&
+			shippings.find(s => s.raw.id === Number(shippingMethodSelected))
+				?.price) ||
+		0;
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { isLoading, errors },
-  // } = form;
+	// console.log("shippingMethodSelected", shippings.map(s => s.raw.id), shippingMethodSelected)
+	const tax = subtotal * percentRate;
+	const total = subtotal + shipping + tax;
 
-  const [shippingMethodSelected, setShippingMethodSelected] =
-    useState<any | null>(null);
+	// const { mutate } = useCheckout();
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState<any>(null);
+	const handlerCheckout = () => toast.error(tGlob("demo.checkout"));
 
-  
+	return (
+		<CartAndCheckoutLayout
+			currencyCode={currencyCode}
+			title={t("title")}
+			totalShipping={shipping}
+			totalItems={totalItems}
+			totalPrice={total}
+			action={
+				<Button
+					type='button'
+					onClick={handlerCheckout}
+					className='w-full'
+					disabled={isLoading}
+					size='lg'
+				>
+					{t("orderSummary.completeOrderButton")}
+					{isLoading && <Loader2 className='ml-2 animate-spin' />}
+				</Button>
+			}
+		>
+			<form onSubmit={handlerCheckout}>
+				{/* Checkout Form */}
+				<div className='grid grid-cols-1 gap-4 xl:grid-cols-2'>
+					{/* Shipping Method */}
+					<Card className='bg-secondary h-fit rounded-3xl'>
+						<CardHeader>
+							<CardTitle className='flex items-center gap-2'>
+								<Truck className='size-5' />
+								{t("shippingMethod.title")}
+							</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<RadioGroup
+								name='shippingMethod'
+								onValueChange={setShippingMethodSelected}
+								defaultValue={shippingMethodSelected || ""}
+							>
+								{shippings?.map(s => (
+									<div
+										key={s.id}
+										className='bg-primary text-primary-foreground flex items-center justify-between rounded-full px-4'
+									>
+										<div className='dark flex h-fit grow items-center space-x-2'>
+											<RadioGroupItem value={String(s.id)} id={String(s.id)} />
+											<Label
+												htmlFor={String(s.id)}
+												className='w-full! fl-text-16/20 flex h-10 justify-between font-medium md:h-12 xl:h-14'
+											>
+												<div className='fl-text-16/20 grow'>{s.name}</div>
+												<div className='fl-text-16/20 ml-auto w-fit'>
+													{s.prettyPrice()}
+												</div>
+											</Label>
+										</div>
+									</div>
+								))}
+							</RadioGroup>
 
-  const shipping = shippingMethodSelected?.price || 0;
-  const tax = subtotal * percentRate;
-  const total = subtotal + shipping + tax;
+							{errors?.shippingMethod && (
+								<p className='fl-text-16/20 py-2 text-red-500'>
+									{errors.shippingMethod.message}
+								</p>
+							)}
+						</CardContent>
+					</Card>
 
-  // const { mutate } = useCheckout();
+					<Card className='bg-secondary h-fit rounded-3xl'>
+						<CardHeader>
+							<CardTitle className='flex items-center gap-2'>
+								<UserIcon className='size-5' />
+								{t("customerInformation.title")}
+							</CardTitle>
+						</CardHeader>
+						<CardContent className='flex flex-col gap-4'>
+							<InputField
+								label=''
+								disabled={true}
+								className='hidden'
+								wrapperClassName='hidden'
+								name={"orderedBy.user"}
+							/>
+							<InputField
+								label={t("customerInformation.form.phoneNumber")}
+								name='phone'
+								className='bg-background!'
+								placeholder={t(
+									"customerInformation.form.phoneNumberPlaceholder"
+								)}
+								required
+							/>
+						</CardContent>
+					</Card>
 
-  const handlerCheckout = (data: any) => {
-    console.log(data);
-  };
-
-  return (
-    <CartAndCheckoutLayout
-      currencyCode="USD"
-      title={t("title")}
-      totalShipping={shipping}
-      totalItems={totalItems}
-      totalPrice={total}
-      action={
-        <Button type="submit" className="w-full" disabled={isLoading} size="lg">
-          {t("orderSummary.completeOrderButton")}
-          {isLoading && <Loader2 className="animate-spin ml-2" />}
-        </Button>
-      }
-    >
-  
-        <form onSubmit={handlerCheckout}>
-          {/* Checkout Form */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-            {/* Shipping Address */}
-            <Card className="bg-secondary rounded-3xl">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MapPin className="size-5" />
-                  {t("shippingAddress.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <InputField
-                  name="address"
-                  label={t("shippingAddress.form.street")}
-                  placeholder={t("shippingAddress.form.street")}
-                  required
-                />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <InputField
-                    name="city"
-                    label={t("shippingAddress.form.city")}
-                    placeholder={t("shippingAddress.form.city")}
-                    required
-                    className=""
-                  />
-                  <InputField
-                    name="zip"
-                    label={t("shippingAddress.form.zip")}
-                    placeholder={t("shippingAddress.form.zip")}
-                    required
-                  />
-                  {/* <div>
+					{/* Shipping Address */}
+					<Card className='bg-secondary rounded-3xl'>
+						<CardHeader>
+							<CardTitle className='flex items-center gap-2'>
+								<MapPin className='size-5' />
+								{t("shippingAddress.title")}
+							</CardTitle>
+						</CardHeader>
+						<CardContent className='space-y-4'>
+							<InputField
+								name='address'
+								className='bg-background!'
+								label={t("shippingAddress.form.street")}
+								placeholder={t("shippingAddress.form.street")}
+								required
+							/>
+							<div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+								<InputField
+									name='city'
+									className='bg-background!'
+									label={t("shippingAddress.form.city")}
+									placeholder={t("shippingAddress.form.city")}
+									required
+								/>
+								<InputField
+									name='zip'
+									className='bg-background!'
+									label={t("shippingAddress.form.zip")}
+									placeholder={t("shippingAddress.form.zip")}
+									required
+								/>
+								{/* <div>
                         <Label htmlFor="state">State</Label>
                         <Select>
                           <SelectTrigger>
@@ -154,112 +207,31 @@ export default function CheckoutClient({ shippings, user, locale }: Props) {
                           </SelectContent>
                         </Select>
                       </div> */}
-                </div>
-              </CardContent>
-            </Card>
+							</div>
+						</CardContent>
+					</Card>
 
-            {/* Shipping Method */}
-            <Card className="bg-secondary rounded-3xl h-fit">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Truck className="size-5" />
-                  {t("shippingMethod.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RadioGroup
-                   name="shippingMethod"
-                   onValueChange={shippingMethodSelected}
-                 >
-                   {shippings?.map((s) => (
-                     <div
-                       key={s.id}
-                       className="flex bg-primary text-primary-foreground items-center justify-between px-4 rounded-full"
-                     >
-                       <div className="dark h-fit flex grow items-center space-x-2">
-                         <RadioGroupItem
-                           value={String(s.id)}
-                           id={String(s.id)}
-                         />
-                         <Label
-                           htmlFor={String(s.id)}
-                           className="font-medium flex justify-between h-10 md:h-12 xl:h-14 w-full! fl-text-16/20"
-                         >
-                           <div className="fl-text-16/20 grow">{s.name}</div>
-                           <div className="w-fit ml-auto fl-text-16/20">
-                             {formatPrice(s.price, {
-                               locale: locale,
-                               currencyCode: "USD",
-                             })}
-                           </div>
-                         </Label>
-                       </div>
-                     </div>
-                   ))}
-                 </RadioGroup>
-
-                {/* <Controller
-                  control={form.control}
-                  name="shippingMethod"
-                  render={({ field }) => (
-                 
-                  )}
-                /> */}
-                {errors?.shippingMethod && (
-                  <p className="fl-text-16/20 text-red-500 py-2">
-                    {errors.shippingMethod.message}
-                  </p>
-                )}
-              </CardContent>
-            </Card>
-            <Card className="bg-secondary rounded-3xl h-fit">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <UserIcon className="size-5" />
-                  {t("customerInformation.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                <InputField
-                  label=""
-                  disabled={true}
-                  className="hidden"
-                  wrapperClassName="hidden"
-                  name={"orderedBy.user"}
-                  // register={register}
-                />
-
-                <InputField
-                  label={t("customerInformation.form.phoneNumber")}
-                  name="phone"
-                  placeholder="+7 (xxx) xxx-xx-xx"
-                  required
-                  // register={register}
-                />
-              </CardContent>
-            </Card>
-            {/* Billing Address */}
-            <Card className="bg-secondary rounded-3xl h-fit">
-              <CardHeader>
-                <CardTitle>{t("billingAddress.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center space-x-2 mb-4">
-                  <Checkbox
-                    id="sameAsShipping"
-                    checked={sameAsShipping}
-                    onCheckedChange={(data: any) =>
-                      setSameAsShipping(Boolean(data))
-                    }
-                  />
-                  <Label htmlFor="sameAsShipping">
-                    Same as shipping address
-                  </Label>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </form>
-    </CartAndCheckoutLayout>
-  );
+					{/* Billing Address */}
+					<Card className='bg-secondary h-fit rounded-3xl'>
+						<CardHeader>
+							<CardTitle>{t("billingAddress.title")}</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<div className='mb-4 flex items-center space-x-2'>
+								<Checkbox
+									disabled={true}
+									id='sameAsShipping'
+									checked={sameAsShipping}
+									onCheckedChange={(data: any) =>
+										setSameAsShipping(Boolean(data))
+									}
+								/>
+								<Label htmlFor='sameAsShipping'>Same as shipping address</Label>
+							</div>
+						</CardContent>
+					</Card>
+				</div>
+			</form>
+		</CartAndCheckoutLayout>
+	);
 }

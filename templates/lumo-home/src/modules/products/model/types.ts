@@ -7,6 +7,7 @@ import {
 } from "@/i18n/localization";
 import { routing } from "@/i18n/routing";
 import type { Category, CategoryRaw } from "@/modules/categories/model/types";
+import { PRODUCTS } from "@/modules/products/model/data";
 import type { MediaType } from "@/shared/components/Media/types";
 import { formatPrice } from "@/shared/utils/formatPrice";
 
@@ -25,7 +26,6 @@ export type ProductRaw = {
   price: {
     rub: number;
     usd: number;
-    // EUR: number;
   };
   images?: MediaType[] | null;
   updatedAt: string;
@@ -53,7 +53,7 @@ export type ProductRaw = {
       ru: string;
     };
   };
-  relatedProducts: ProductRaw[];
+  relatedProducts: number[];
 };
 
 export class Product {
@@ -136,9 +136,10 @@ export class Product {
   }
 
   get relatedProducts() {
-    return this.raw.relatedProducts.map(
-      (product) => new Product(product, this.locale),
-    );
+      return this.raw.relatedProducts
+    // return this.raw.relatedProducts.filter(id => PRODUCTS.).map(
+    //   (product) => new Product(product, this.locale),
+    // );
   }
 
   get relatedProductsRaw() {

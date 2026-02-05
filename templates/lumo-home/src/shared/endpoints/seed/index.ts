@@ -20,7 +20,6 @@
 // import { getClientSideURL } from '@/shared/utils/getUrl'
 // import { BetterAuthReturn } from 'payload-auth/better-auth'
 // import { BetterAuthPlugin } from 'better-auth/types'
-// import { Category, Media, Product, VariantType } from '@/payload-types'
 
 // // import { contactForm as contactFormData } from "./contact-form";
 // // import { contact as contactPageData } from "./contact-page";

@@ -27,10 +27,10 @@ export function UpdateQuantityCart({
 
   return (
     <InputQuantity
-      className={'bg-secondary'}
+      // className={'bg-secondary'}
       quantity={countInCart}
       update={pos => updateQuantity(item?.id!, Math.max(0, countInCart + pos))}
-      variant={'outline'}
+      variant={'default'}
       size={'default'}
     />
   )

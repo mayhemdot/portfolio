@@ -1,7 +1,9 @@
-export function formatDate(date: string, lang: 'ru-RU' | 'en-US' = 'ru-RU') {
-  return new Date(date).toLocaleDateString(lang, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+import { LocaleCode } from "@/i18n/localization";
+
+export function formatDate(date: string, locale: LocaleCode = "ru-RU") {
+	return new Date(date).toLocaleDateString(locale, {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
 }

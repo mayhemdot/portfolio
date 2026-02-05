@@ -1,6 +1,5 @@
 // import type React from "react";
 // import { Fragment } from "react";
-// // import type { Page } from "@/payload-types";
 // import { AccordionBlock } from "@/shared/blocks/Accordion/Component";
 // import { ArchiveBlock } from "@/shared/blocks/ArchiveBlock/Component";
 // import { CallToActionBlock } from "@/shared/blocks/CallToAction/Component";

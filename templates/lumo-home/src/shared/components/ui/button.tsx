@@ -3,109 +3,106 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type * as React from "react";
 import { cn } from "@/shared/lib/utils";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
+// export const buttonVariants = cva(
+// 	"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+// 	{
+// 		variants: {
+// 			variant: {
+// 				default:
+// 					"bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+// 				destructive:
+// 					"bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+// 				outline:
+// 					"border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+// 				secondary:
+// 					"bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+// 				ghost:
+// 					"hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+// 				link: "text-primary underline-offset-4 hover:underline",
+// 			},
+// 			size: {
+// 				default: "h-9 px-4 py-2 has-[>svg]:px-3",
+// 				sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+// 				lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+// 				icon: "size-9",
+// 			},
+// 		},
+// 		defaultVariants: {
+// 			variant: "default",
+// 			size: "default",
+// 		},
+// 	}
+// );
 
 const btnVariants = cva(
-  "inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground  hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white  hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border bg-background  hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost:
-          "bg-background hover:bg-background/50 text-accent-foreground hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default:
-          "h-8 xl:h-10 fl-text-16/20 fl-px-12/16 fl-py-4/8 has-[>svg]:px-3 grow" /* 42px */,
-        sm: "h-7 xl:h-8 fl-text-14/18 fl-px-10/16 gap-1.5 has-[>svg]:px-2.5 grow" /* 32px */,
-        lg: "h-10 md:h-12 xl:h-14 fl-text-16/20 fl-px-20/24 has-[>svg]:px-4 grow" /* 56px */,
-        xl: "min-w-12 h-12 lg:min-w-14 xl:min-w-16 lg:h-14 xl:h-16 fl-text-20/24 fl-px-24/32 has-[>svg]:px-5 grow" /* 64px */,
-        iconXS: "size-6 md:size-7 xl:size-8 !p-0 grow-0",
-        icon: "size-8 xl:size-9 2xl:size-10 !p-0 grow-0",
-        iconXL: "size-10 md:size-12 2xl:size-16 !p-0 grow-0",
-        // icon-sm: 'size-8',
-        // icon-lg: 'size-14',
-        // icon-xl: 'size-16'
-      },
-      rounded: {
-        md: "rounded-md",
-        lg: "rounded-lg",
-        xl: "rounded-xl",
-        default: "rounded-full",
-      },
-    },
-    defaultVariants: {
-      rounded: "default",
-      variant: "default",
-      size: "default",
-    },
-  },
+	"inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap font-normal transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+	{
+		variants: {
+			variant: {
+				default: "bg-primary text-primary-foreground  hover:bg-primary/90",
+				destructive:
+					"bg-destructive text-white  hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+				outline:
+					"border bg-background  hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+				secondary:
+					"bg-secondary text-secondary-foreground hover:bg-secondary/80",
+				ghost:
+					"bg-background hover:bg-background/50 text-accent-foreground hover:text-accent-foreground",
+				link: "text-primary underline-offset-4 hover:underline",
+			},
+			size: {
+				default:
+					"h-8 xl:h-10 fl-text-16/20 fl-px-12/16 fl-py-4/8 has-[>svg]:px-3 grow" /* 42px */,
+				sm: "h-7 xl:h-8 fl-text-14/18 fl-px-10/16 gap-1.5 has-[>svg]:px-2.5 grow" /* 32px */,
+				lg: "h-10 md:h-12 xl:h-14 fl-text-16/20 fl-px-20/24 has-[>svg]:px-4 grow" /* 56px */,
+				xl: "min-w-12 h-12 lg:min-w-14 xl:min-w-16 lg:h-14 xl:h-16 fl-text-20/24 fl-px-24/32 has-[>svg]:px-5 grow" /* 64px */,
+				iconXS: "size-6 md:size-7 xl:size-8 !p-0 grow-0",
+				icon: "size-8 xl:size-9 2xl:size-10 !p-0 grow-0",
+				iconXL: "size-10 md:size-12 2xl:size-16 !p-0 grow-0",
+				// icon-sm: 'size-8',
+				// icon-lg: 'size-14',
+				// icon-xl: 'size-16'
+			},
+			rounded: {
+				md: "rounded-md",
+				lg: "rounded-lg",
+				xl: "rounded-xl",
+				default: "rounded-full",
+			},
+		},
+		defaultVariants: {
+			rounded: "default",
+			variant: "default",
+			size: "default",
+		},
+	}
 );
 
 export type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
-  VariantProps<typeof btnVariants> & {
-    asChild?: boolean;
-  };
+	VariantProps<typeof btnVariants> & {
+		asChild?: boolean;
+	};
 
 function Button({
-  className,
-  variant,
-  rounded,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof btnVariants> & {
-    asChild?: boolean;
-  }) {
-  const Comp = asChild ? Slot : "button";
+	className,
+	variant,
+	rounded,
+	size,
+	asChild = false,
+	...props
+}: ButtonProps) {
+	const Comp = asChild ? Slot : "button";
 
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(
-        "cursor-pointer",
-        btnVariants({ variant, rounded, size, className }),
-      )}
-      {...props}
-    />
-  );
+	return (
+		<Comp
+			data-slot='button'
+			className={cn(
+				"cursor-pointer",
+				btnVariants({ variant, rounded, size, className })
+			)}
+			{...props}
+		/>
+	);
 }
 
-export { Button, buttonVariants, btnVariants, type VariantProps };
+export { Button, btnVariants, type VariantProps };

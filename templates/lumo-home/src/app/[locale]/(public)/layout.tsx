@@ -4,27 +4,24 @@ import { Footer } from "@/shared/components/Footer/Component";
 import { Header } from "@/shared/components/Header/Component";
 import { constructMetadata } from "@/shared/utils/meta";
 
-
 export const metadata: Metadata = constructMetadata({
-  title: "Modern furniture",
-  url: "/",
-  description: "Modern design and functionality.",
+	title: "Modern furniture",
+	url: "/",
+	description: "Modern design and functionality.",
 });
 
 type Props = {
-  children: React.ReactNode;
-  searchParams: Promise<{ [key: string]: string | string[] }>;
-  params: Promise<{ locale: string }>;
+	children: React.ReactNode;
 };
 
 export default async function Layout(props: Props) {
-  const { children, searchParams } = props;
+	const { children } = props;
 
-  return (
-    <>
-      <Header searchParams={searchParams} />
-      <main className="min-h-[calc(100dvh-112px)]">{children}</main>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<main className='min-h-[calc(100dvh-112px)]'>{children}</main>
+			<Footer />
+		</>
+	);
 }

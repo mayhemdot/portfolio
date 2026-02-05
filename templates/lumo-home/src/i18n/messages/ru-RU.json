@@ -1,301 +1,355 @@
 {
-  "buttons": {
-    "goBack": "Вернуться назад"
-  },
-  "notFoundPage": {
-    "title": "Страница не найдена"
-  },
-  "HomePage": {
-    "HeroSection": {
-      "title": "Стильное освещение и мебель",
-      "description": "Наполняя пространство светом и эмоциями, наши уникальные творения превращают интерьеры в произведения искусства. Мы не просто проектируем мебель — мы создаем ощущение.",
-      "showMore": "В каталог",
-      "topSale": "Лидеры продаж",
+	"Global": {
+		"Messages": {
+			"demo": {
+				"title": "Это демонстрационная версия сайта.",
+				"checkout": "Это демонстрационная версия сайта. Оформление заказа недоступно.",
+				"login": "Это демонстрационная версия сайта. Вход недоступен.",
+				"register": "Это демонстрационная версия сайта. Регистрация недоступна.",
+				"forgotPassword": "Это демонстрационная версия сайта. Восстановление пароля недоступно.",
+				"subscription": "Это демонстрационная версия сайта. Подписка недоступна."
+			}
+		},
+		"Search": {
+			"noProductsFound": "Товары не найдены",
+			"form": {
+				"termPlaceholder": "Поиск товаров...",
+				"productName": "Наименование",
+				"productPrice": "Цена",
+				"clearButton": "Очистить поиск"
+			}
+		},
+		"Sort": {
+			"byPopularity": "По популярности",
+			"lowToHigh": "Цена: по возрастанию",
+			"highToLow": "Цена: по убыванию",
+			"byRating": "По рейтингу"
+		},
+		"Footer": {
+			"headers": {
+				"resources": "Ресурсы",
+				"followUs": "Подписывайтесь"
+			},
+			"policy": {
+				"rights": "Все права защищены"
+			}
+		}
+	},
+	"buttons": {
+		"goBack": "Вернуться назад"
+	},
+	"notFoundPage": {
+		"title": "Страница не найдена"
+	},
+	"HomePage": {
+		"HeroSection": {
+			"title": "Стильное освещение и мебель",
+			"description": "Наполняя пространство светом и эмоциями, наши уникальные творения превращают интерьеры в произведения искусства. Мы не просто проектируем мебель — мы создаем ощущение.",
+			"showMore": "В каталог",
+			"topSale": "Лидеры продаж",
+			"ourDesign": {
+				"title": "3",
+				"description": "Награды дизайна"
+			},
+			"ourClients": {
+				"title": "1000+",
+				"description": "Довольных клиентов"
+			}
+		},
+		"PromoSection": {
+			"title": "Откройте для себя мир эстетики\r\n с нашей тщательно отобранной\r\n коллекцией мебели"
+		},
+		"MediaSection": {
+			"title": "   Соответствуют самым высоким мировым стандартам\r\n качества и нашим строгим обязательствам"
+		},
+		"FormSection": {
+			"title": "Оставайтесь с нами и получайте\r\n эксклюзивные скидки и предложения",
+			"form": {
+				"emailPlaceholder": "Введите ваш email",
+				"emailLabel": "Почта",
+				"policyLabel": "Я соглашаюсь с условиями подписки, включая автоматическое продление, и принимаю ",
+				"submit": "Подписаться",
+				"policyLink": "Политика конфиденциальности",
+				"and": " и ",
+				"policyAgreement": "Пользовательское соглашение"
+			}
+		}
+	},
+	"ProductPage": {
+		"descriptionTitle": "Описание",
+		"characteristicsTitle": "Характеристики",
+		"relatedProducts": "Похожие товары",
+		"price": "Цена"
+	},
+	"CatalogPage": {
+		"title": "Каталог"
+	},
+	"aboutPage": {
+		"title": "About"
+	},
+	"CheckoutPage": {
+		"title": "Оформление заказа",
+		"shippingAddress": {
+			"title": "Адрес доставки",
+			"form": {
+				"street": "Улица, дом",
+				"city": "Город",
+				"zip": "Почтовый индекс"
+			}
+		},
+		"shippingMethod": {
+			"title": "Способ доставки",
+			"description": "Выберите способ доставки"
+		},
+		"billingAddress": {
+			"title": "Адрес платежа"
+		},
+		"customerInformation": {
+			"title": "Информация о покупателе",
+			"form": {
+				"phoneNumber": "Номер телефона",
+				"phoneNumberPlaceholder": "+7 (xxx) xxx-xx-xx"
+			}
+		},
+		"orderSummary": {
+			"title": "Ваш заказ",
+			"productItems": "Товары",
+			"shippingPrice": "Доставка",
+			"subtotalPrice": "За товары",
+			"totalPrice": "Итого",
+			"completeOrderButton": "Оформить заказ"
+		}
+	},
+	"cartPage": {
+		"title": "Корзина",
+		"goToCheckoutButton": "К оформлению заказа",
+		"emptyCart": {
+			"title": "Корзина пуста",
+			"description": "Добавьте товары в корзину, чтобы продолжить покупки.",
+			"backToShopping": "Вернуться к покупкам"
+		}
+	},
+	"CartSheet": {
+		"title": "Корзина",
+		"manage": "Управление товарами в корзине",
+		"backToShopping": "Вернуться к покупкам",
+		"total": "Итого",
+		"checkout": "Оформить заказ"
+	},
+	"AddToCartButton": {
+		"AddToCart": "Добавить в корзину",
+		"GoToCart": "Перейти в корзину",
+		"OutOfStock": "Нет в наличии"
+	},
+	"HeaderBlock": {
+		"logIn": "Войти"
+	},
+	"SliderArchive": {
+		"inCatalog": "В каталог"
+	},
+	"CategoriesBlock": {
+		"title": "Категории"
+	},
 
-       "ourDesign": {
-          "title": "3", 
-          "description": "Награды дизайна"
-        },
-        "ourClients": {
-          "title": "1000+",
-          "description": "Довольных клиентов"
-        }
-    },
-    "PromoSection": {
-      "title": "Откройте для себя мир эстетики\r\n с нашей тщательно отобранной\r\n коллекцией мебели"
-    },
-    "MediaSection": {
-      "title": "   Соответствуют самым высоким мировым стандартам\r\n качества и нашим строгим обязательствам"
-    },
-    "FormSection": {
-      "title": "Оставайтесь с нами и получайте\r\n эксклюзивные скидки и предложения"
-    }
-  },
-  "aboutPage": {
-    "title": "About"
-  },
-  "checkoutPage": {
-    "title": "Оформление заказа",
-    "shippingAddress": {
-      "title": "Адрес доставки",
-      "form": {
-        "street": "Улица, дом",
-        "city": "Город",
-        "zip": "Почтовый индекс"
-      }
-    },
-    "shippingMethod": {
-      "title": "Способ доставки",
-      "description": "Выберите способ доставки"
-    },
-    "billingAddress": {
-      "title": "Адрес платежа"
-    },
-    "customerInformation": {
-      "title": "Информация о покупателе",
-      "form": {
-        "phoneNumber": "Номер телефона"
-      }
-    },
-    "orderSummary": {
-      "title": "Ваш заказ",
-      "productItems": "Товары",
-      "shippingPrice": "Доставка",
-      "subtotalPrice": "За товары",
-      "totalPrice": "Итого",
-      "completeOrderButton": "Оформить заказ"
-    }
-  },
-  "cartPage": {
-    "title": "Корзина",
-    "goToCheckoutButton": "К оформлению заказа",
-    "emptyCart": {
-      "title": "Корзина пуста",
-      "description": "Добавьте товары в корзину, чтобы продолжить покупки.",
-      "backToShopping": "Вернуться к покупкам"
-    }
-  },
-  "CartSheet": {
-    "title": "Корзина",
-    "manage": "Управление товарами в корзине",
-    "backToShopping": "Вернуться к покупкам",
-    "total": "Итого",
-    "checkout": "Оформить заказ"
-  },
-  "AddToCartButton": {
-    "AddToCart": "Добавить в корзину",
-    "GoToCart": "Перейти в корзину",
-    "OutOfStock": "Нет в наличии"
-  },
-  "HeaderBlock": {
-    "logIn": "Войти"
-  },
-  "SliderArchive": {
-    "inCatalog": "В каталог"
-  },
-  "CategoriesBlock": {
-    "title": "Категории"
-  },
- 
-  "Login": {
-    "title": "Вход в аккаунт",
-    "description": "Заполните форму, чтобы войти в свой аккаунт",
-    "signUp": "Регистрация",
-    "breadcrumbs": {
-      "home": "Главная",
-      "login": "Вход"
-    },
-    "form": {
-      "emailLabel": "Почта",
-      "emailPlaceholder": "Введите ваш email",
-      "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль",
-      "forgotPassword": "Забыли пароль?",
-      "submit": "Войти"
-    }
-  },
-  "ForgotPassword": {
-    "title": "Забыли пароль?",
-    "description": "Введите вашу почту ниже, чтобы получить ссылку на восстановление",
-    "backToLogin": "Вернуться к входу",
-    "breadcrumbs": {
-      "home": "Главная",
-      "forgotPassword": "Восстановление пароля"
-    }
-  },
-  "Register": {
-    "title": "Создать свой аккаунт",
-    "description": "Заполните поля ниже, чтобы создать свой аккаунт",
-    "logIn": "Войти",
-    "breadcrumbs": {
-      "home": "Главная",
-      "register": "Регистрация"
-    },
-    "form": {
-      "emailLabel": "Почта",
-      "emailPlaceholder": "Введите ваш email",
-      "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль",
-      "repeatPasswordLabel": "Повторите пароль",
-      "repeatPasswordPlaceholder": "Повторите ваш пароль",
-      "submit": "Создать аккаунт"
-    }
-  },
-  "ResetPassword": {
-    "title": "Установите новый пароль",
-    "description": "Создайте новый пароль для вашего аккаунта",
-    "signUp": "Вход",
-    "breadcrumbs": {
-      "home": "Главная",
-      "resetPassword": "Сброс пароля"
-    }
-  },
-  "LoginFormBetterAuth": {
-    "form": {
-      "emailLabel": "Почта",
-      "emailPlaceholder": "Введите ваш email",
-      "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль"
-    },
-    "submit": "Войти в аккаунт"
-  },
-  "ForgotPasswordFormBetterAuth": {
-    "form": {
-      "emailLabel": "Почта",
-      "emailPlaceholder": "Введите ваш email"
-    },
-    "reset": "Сбросить пароль"
-  },
-  "RegisterFormBetterAuth": {
-    "form": {
-      "emailLabel": "Почта",
-      "emailPlaceholder": "Введите ваш email",
-      "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите ваш пароль",
-      "repeatPasswordLabel": "Повторите пароль",
-      "repeatPasswordPlaceholder": "Повторите ваш пароль"
-    },
-    "submit": "Создать аккаунт"
-  },
-  "RestorePasswordFormBetterAuth": {
-    "form": {
-      "passwordLabel": "Пароль",
-      "passwordPlaceholder": "Введите новый пароль",
-      "repeatPasswordLabel": "Повторите пароль",
-      "repeatPasswordPlaceholder": "Повторите ваш пароль"
-    },
-    "submit": "Восстановить пароль"
-  },
-  "LogoutButtonBetterAuth": {
-    "signOut": "Выйти"
-  },
-  "AccountPage": {
-    "breadcrumbs": {
-      "home": "Главная",
-      "account": "Аккаунт"
-    },
-    "title": "Аккаунт",
-    "cards": {
-      "activeOrders": "Активные заказы",
-      "completedOrders": "Выполненные заказы"
-    },
-    "orders": {
-      "orderNumber": "Заказ: №{id}",
-      "actions": {
-        "check": "Чек",
-        "toggle": "Показать детали"
-      },
-      "statusSteps": {
-        "pending": "В ожидании",
-        "waiting_for_capture": "Ожидает подтверждения",
-        "delivery": "Доставка",
-        "completed": "Завершён"
-      },
-      "statuses": {
-        "pending": "В ожидании",
-        "waiting_for_capture": "Ожидает подтверждения",
-        "paid": "Оплачен",
-        "preparing": "Готовится",
-        "delivering": "Доставляется",
-        "shipped": "Завершён",
-        "cancelled": "Отменён",
-        "refund_requested": "Запрошен возврат"
-      },
-      "details": {
-        "orderedBy": "Оформил:",
-        "phone": "Телефон:",
-        "email": "Email:",
-        "address": "Адрес:",
-        "status": "Статус:",
-        "addressValue": "{city}, {address}, индекс: {zip}"
-      }
-    },
-    "nav": {
-      "statistic": "Статистика",
-      "orders": "Заказы",
-      "helpSupport": "Помощь и поддержка",
-      "faq": "Вопросы и ответы",
-      "settings": "Настройки"
-    }
-  },
-  "AccountOrdersPage": {
-    "title": "Заказы",
-    "cards": {
-      "all": "Все заказы",
-      "active": "Заказы в доставке",
-      "completed": "Завершённые заказы"
-    },
-    "search": {
-      "placeholder": "Поиск заказов по номеру..."
-    },
-    "filters": {
-      "status": {
-        "placeholder": "Все заказы",
-        "options": {
-          "all": "Все заказы"
-        }
-      }
-    },
-    "loading": {
-      "title": "Загрузка...",
-      "description": "Пожалуйста, подождите"
-    },
-    "empty": {
-      "title": "Заказы не найдены",
-      "description": "Попробуйте изменить параметры поиска."
-    },
-    "list": {
-      "orderTitle": "Заказ №{id}",
-      "orderDate": "от {date}",
-      "itemsCount": "{count, plural, one {{count} товар} few {{count} товара} many {{count} товаров} other {{count} товаров}}",
-      "sections": {
-        "products": "Товары в заказе:",
-        "shipping": "Адрес доставки:"
-      },
-      "product": {
-        "quantity": "Количество: {count}"
-      },
-      "actions": {
-        "details": "Подробнее",
-        "reorder": "Заказать снова"
-      }
-    }
-  },
-  "AccountSettingsPage": {
-    "title": "Настройки",
-    "collapsible": {
-      "button": "Редактировать профиль",
-      "srOnly": "Переключить раскрытие"
-    },
-    "avatarSection": {
-      "title": "Информация о пользователе",
-      "fields": {
-        "name": "Имя:",
-        "email": "Email:",
-        "phone": "Телефон:"
-      },
-      "noPhone": "Телефон не указан",
-      "changePassword": "Сменить пароль"
-    }
-  }
+	"Login": {
+		"title": "Вход в аккаунт",
+		"description": "Заполните форму, чтобы войти в свой аккаунт",
+		"signUp": "Регистрация",
+		"breadcrumbs": {
+			"home": "Главная",
+			"login": "Вход"
+		},
+		"form": {
+			"emailLabel": "Почта",
+			"emailPlaceholder": "Введите ваш email",
+			"passwordLabel": "Пароль",
+			"passwordPlaceholder": "Введите ваш пароль",
+			"forgotPassword": "Забыли пароль?",
+			"submit": "Войти"
+		}
+	},
+	"ForgotPassword": {
+		"title": "Забыли пароль?",
+		"description": "Введите вашу почту ниже, чтобы получить ссылку на восстановление",
+		"backToLogin": "Вернуться к входу",
+		"breadcrumbs": {
+			"home": "Главная",
+			"forgotPassword": "Восстановление пароля"
+		}
+	},
+	"Register": {
+		"title": "Создать свой аккаунт",
+		"description": "Заполните поля ниже, чтобы создать свой аккаунт",
+		"logIn": "Войти",
+		"breadcrumbs": {
+			"home": "Главная",
+			"register": "Регистрация"
+		},
+		"form": {
+			"emailLabel": "Почта",
+			"emailPlaceholder": "Введите ваш email",
+			"passwordLabel": "Пароль",
+			"passwordPlaceholder": "Введите ваш пароль",
+			"repeatPasswordLabel": "Повторите пароль",
+			"repeatPasswordPlaceholder": "Повторите ваш пароль",
+			"submit": "Создать аккаунт"
+		}
+	},
+	"ResetPassword": {
+		"title": "Установите новый пароль",
+		"description": "Создайте новый пароль для вашего аккаунта",
+		"signUp": "Вход",
+		"breadcrumbs": {
+			"home": "Главная",
+			"resetPassword": "Сброс пароля"
+		}
+	},
+	"LoginFormBetterAuth": {
+		"form": {
+			"emailLabel": "Почта",
+			"emailPlaceholder": "Введите ваш email",
+			"passwordLabel": "Пароль",
+			"passwordPlaceholder": "Введите ваш пароль"
+		},
+		"submit": "Войти в аккаунт"
+	},
+	"ForgotPasswordFormBetterAuth": {
+		"form": {
+			"emailLabel": "Почта",
+			"emailPlaceholder": "Введите ваш email"
+		},
+		"reset": "Сбросить пароль"
+	},
+	"RegisterFormBetterAuth": {
+		"form": {
+			"emailLabel": "Почта",
+			"emailPlaceholder": "Введите ваш email",
+			"passwordLabel": "Пароль",
+			"passwordPlaceholder": "Введите ваш пароль",
+			"repeatPasswordLabel": "Повторите пароль",
+			"repeatPasswordPlaceholder": "Повторите ваш пароль"
+		},
+		"submit": "Создать аккаунт"
+	},
+	"RestorePasswordFormBetterAuth": {
+		"form": {
+			"passwordLabel": "Пароль",
+			"passwordPlaceholder": "Введите новый пароль",
+			"repeatPasswordLabel": "Повторите пароль",
+			"repeatPasswordPlaceholder": "Повторите ваш пароль"
+		},
+		"submit": "Восстановить пароль"
+	},
+	"LogoutButtonBetterAuth": {
+		"signOut": "Выйти"
+	},
+	"AccountPage": {
+		"breadcrumbs": {
+			"home": "Главная",
+			"account": "Аккаунт"
+		},
+		"title": "Аккаунт",
+		"cards": {
+			"activeOrders": "Активные заказы",
+			"completedOrders": "Выполненные заказы"
+		},
+		"orders": {
+			"orderNumber": "Заказ: №{id}",
+			"actions": {
+				"check": "Чек",
+				"toggle": "Показать детали"
+			},
+			"statusSteps": {
+				"pending": "В ожидании",
+				"waiting_for_capture": "Ожидает подтверждения",
+				"delivery": "Доставка",
+				"completed": "Завершён"
+			},
+			"statuses": {
+				"pending": "В ожидании",
+				"waiting_for_capture": "Ожидает подтверждения",
+				"paid": "Оплачен",
+				"preparing": "Готовится",
+				"delivering": "Доставляется",
+				"shipped": "Завершён",
+				"cancelled": "Отменён",
+				"refund_requested": "Запрошен возврат"
+			},
+			"details": {
+				"orderedBy": "Оформил:",
+				"phone": "Телефон:",
+				"email": "Email:",
+				"address": "Адрес:",
+				"status": "Статус:",
+				"addressValue": "{city}, {address}, индекс: {zip}"
+			}
+		},
+		"nav": {
+			"statistic": "Статистика",
+			"orders": "Заказы",
+			"helpSupport": "Помощь и поддержка",
+			"faq": "Вопросы и ответы",
+			"settings": "Настройки"
+		}
+	},
+	"AccountOrdersPage": {
+		"title": "Заказы",
+		"cards": {
+			"all": "Все заказы",
+			"active": "Заказы в доставке",
+			"completed": "Завершённые заказы"
+		},
+		"search": {
+			"placeholder": "Поиск заказов по номеру..."
+		},
+		"filters": {
+			"status": {
+				"placeholder": "Все заказы",
+				"options": {
+					"all": "Все заказы"
+				}
+			}
+		},
+		"loading": {
+			"title": "Загрузка...",
+			"description": "Пожалуйста, подождите"
+		},
+		"empty": {
+			"title": "Заказы не найдены",
+			"description": "Попробуйте изменить параметры поиска."
+		},
+		"list": {
+			"orderTitle": "Заказ №{id}",
+			"orderDate": "от {date}",
+			"itemsCount": "{count, plural, one {{count} товар} few {{count} товара} many {{count} товаров} other {{count} товаров}}",
+			"sections": {
+				"products": "Товары в заказе:",
+				"shipping": "Адрес доставки:"
+			},
+			"product": {
+				"quantity": "Количество: {count}"
+			},
+			"actions": {
+				"details": "Подробнее",
+				"reorder": "Заказать снова"
+			}
+		}
+	},
+	"AccountSettingsPage": {
+		"title": "Настройки",
+		"collapsible": {
+			"button": "Редактировать профиль",
+			"srOnly": "Переключить раскрытие"
+		},
+		"avatarSection": {
+			"title": "Информация о пользователе",
+			"fields": {
+				"name": "Имя:",
+				"email": "Email:",
+				"phone": "Телефон:"
+			},
+			"noPhone": "Телефон не указан",
+			"changePassword": "Сменить пароль"
+		}
+	}
 }

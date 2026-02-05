@@ -1,3 +1,4 @@
+import { CurrencyCode } from '@/i18n/localization'
 import { useCartStore } from './store'
 
 export const useCartItems = () => useCartStore(state => state.cartItems)
@@ -7,10 +8,10 @@ export const useTotalItems = () =>
     state.cartItems.reduce((total, item) => total + item.quantity, 0),
   )
 
-export const useTotalPrice = () =>
+export const useTotalPrice = (currencyCode: CurrencyCode) =>
   useCartStore(state =>
     state.cartItems.reduce(
-      (total, item) => total + (item.product.price ?? 0) * item.quantity,
+      (total, item) => total + (item.product.price[currencyCode.toLowerCase() as "rub" | "usd"] ?? 0) * item.quantity,
       0,
     ),
   )

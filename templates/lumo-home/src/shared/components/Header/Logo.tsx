@@ -1,20 +1,15 @@
-import type { Media as MediaType } from '@/payload-types'
-import { Media } from '@/shared/components/Media'
+
+import LogoIcon from '@/shared/components/Header/LogoIcon'
 import Link from 'next/link'
 
-export function Logo({ logo }: { logo: number | MediaType }) {
+export function Logo() {
   return (
-    <div>
-      {logo && typeof logo === 'object' && (
+    <>
+      {(
         <Link href="/" className={'cursor-pointer relative'}>
-          <Media
-            resource={logo}
-            loading="eager"
-            unoptimized={false}
-            imgClassName="h-[70px] xl:h-[80px] w-auto"
-          />
+          <LogoIcon className="size-15 xl:size-16"/>
         </Link>
       )}
-    </div>
+    </>
   )
 }

@@ -30,7 +30,6 @@
 //   useTotalPrice,
 // } from '@/modules/cart/model/helpers'
 // import { formatPrice } from '@/shared/utils/formatPrice'
-// import { Media, Shipping, User } from '@/payload-types'
 // import { processCheckout } from '../actions/checkoutAction'
 // import { useCartStore } from '@/modules/cart/model/store'
 // import { useRouter } from 'next/navigation'

@@ -39,7 +39,7 @@ export const Image: React.FC<MediaProps> = props => {
 	let alt = altFromProps;
 	let src: StaticImageData | string = srcFromProps || urlFromProps || "";
 
-  console.log("RESOURCE", src);
+  // console.log("RESOURCE", src);
 	if (!src && resource && typeof resource !== "string") {
 		const {
 			width: fullWidth,
@@ -51,7 +51,7 @@ export const Image: React.FC<MediaProps> = props => {
 
 		width = fullWidth;
 		height = fullHeight;
-		alt = altFromResource;
+		alt = altFromResource['en'];
 
     src =  fullUrl || `${process.env.NEXT_PUBLIC_SERVER_URL}/images/${fullFilename}`;
 	}

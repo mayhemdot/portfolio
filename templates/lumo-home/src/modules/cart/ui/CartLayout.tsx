@@ -2,13 +2,14 @@ import { useLocale, useTranslations } from "next-intl";
 import type { PropsWithChildren } from "react";
 import { Shell } from "@/shared/components/ui/shell";
 import { formatPrice } from "@/shared/utils/formatPrice";
+import { CurrencyCode, LocaleCode } from "@/i18n/localization";
 
 type Props = {
   title: string;
   totalShipping: number;
   totalItems: number;
   totalPrice: number;
-  currencyCode: string;
+  currencyCode: CurrencyCode;
   action: React.ReactNode;
 };
 
@@ -23,15 +24,16 @@ export function CartAndCheckoutLayout(props: PropsWithChildren<Props>) {
     currencyCode,
   } = props;
 
-  const locale = useLocale();
-
+  const locale = useLocale() as LocaleCode;
+  
   const subTotalPrice = totalPrice - totalShipping;
+
   const priceSettings = {
-    locale: locale,
+    localeCode: locale,
     currencyCode: currencyCode,
   };
-
-  const t = useTranslations("checkoutPage");
+  console.log("props", props)
+  const t = useTranslations("CheckoutPage");
 
   return (
     <section className="container max-w-7xl mx-auto mb-8">

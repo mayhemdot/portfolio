@@ -6,103 +6,105 @@ import { type ButtonProps, btnVariants } from "@/shared/components/ui/button";
 import { cn } from "@/shared/lib/utils";
 
 type CMSLinkType = {
-  appearance?: "inline" | ButtonProps["variant"];
-  children?: React.ReactNode;
-  className?: string;
-  label?: string | null;
-  newTab?: boolean | null;
-  icon?: any;
-  variant?: ButtonProps["variant"];
-  reference?: {
-    relationTo: "pages" | "products" | "categories";
-    value: any | Product | string | number; //| Post
-  } | null;
-  size?: ButtonProps["size"] | null;
-  type?: "custom" | "reference" | null;
-  url?: string | null;
+	appearance?: "inline" | ButtonProps["variant"];
+	children?: React.ReactNode;
+	className?: string;
+	label?: string | null;
+	newTab?: boolean | null;
+	icon?: any;
+	variant?: ButtonProps["variant"];
+	reference?: {
+		relationTo: "pages" | "products" | "categories";
+		value: any | Product | string | number; //| Post
+	} | null;
+	size?: ButtonProps["size"] | null;
+	type?: "custom" | "reference" | null;
+	url?: string | null;
 };
 
 export const CMSLink = forwardRef<HTMLAnchorElement, CMSLinkType>(
-  ({ ...props }, ref) => {
-    const {
-      type,
-      appearance = "inline",
-      children,
-      className,
-      label,
-      newTab,
-      reference,
-      size: sizeFromProps,
-      url,
-    } = props;
+	({ ...props }, ref) => {
+		const {
+			type,
+			appearance = "inline",
+			children,
+			className,
+			label,
+			newTab,
+			reference,
+			size: sizeFromProps,
+			url,
+		} = props;
 
-    const href =
-      type === "reference" &&
-      typeof reference?.value === "object" &&
-      reference.value.slug
-        ? `${reference?.relationTo !== "pages" ? `/${reference?.relationTo}` : ""}/${
-            reference.value.slug
-          }`
-        : url;
+		const href =
+			type === "reference"
+				? typeof reference?.value === "object" && reference.value.slug
+					? `${
+							reference?.relationTo !== "pages"
+								? `/${reference?.relationTo}`
+								: ""
+					  }/${reference.value.slug}`
+					: url
+				: url;
 
-    if (!href) return null;
+		if (!href) return null;
 
-    const size = appearance === "link" ? "default" : sizeFromProps;
+		const size = appearance === "link" ? "default" : sizeFromProps;
 
-    const newTabProps = newTab
-      ? { rel: "noopener noreferrer", target: "_blank" }
-      : {};
+		const newTabProps = newTab
+			? { rel: "noopener noreferrer", target: "_blank" }
+			: {};
 
-    /* Ensure we don't break any styles set by richText */
-    // Убедитесь, что мы не нарушаем никаких стилей, установленных RichText
-    if (appearance === "inline") {
-      return (
-        <Link
-          ref={ref}
-          className={btnVariants({
-            variant: appearance && appearance === "inline" ? "link" : "default",
-            size,
-            className: cn("relative", className),
-          })}
-          href={href || url || ""}
-          {...newTabProps}
-        >
-          {label && label}
-          {children && children}
-          {props?.icon && (
-            <props.icon className={"ml-auto size-5 bg-secondary"} />
-          )}
-        </Link>
-      );
-    }
+		/* Ensure we don't break any styles set by richText */
+		// Убедитесь, что мы не нарушаем никаких стилей, установленных RichText
+		if (appearance === "inline") {
+			return (
+				<Link
+					ref={ref}
+					className={btnVariants({
+						variant: appearance && appearance === "inline" ? "link" : "default",
+						size,
+						className: cn("relative", className),
+					})}
+					href={href || url || ""}
+					{...newTabProps}
+				>
+					{label && label}
+					{children && children}
+					{props?.icon && (
+						<props.icon className={"size-5 bg-secondary ml-auto"} />
+					)}
+				</Link>
+			);
+		}
 
-    // <Button asChild className={className} size={size} variant={appearance}>
-    return (
-      <Link
-        ref={ref}
-        className={btnVariants({
-          variant: appearance,
-          size,
-          className: cn("relative", className),
-        })}
-        href={href || url || ""}
-        {...newTabProps}
-      >
-        {label && (
-          <span className="link-text" style={{ fontSize: "inherit" }}>
-            {label}
-          </span>
-        )}
-        {children && children}
-        {props?.icon && (
-          <div className="link-icon size-8 lg:size-10 xl:size-12 absolute right-2 rounded-full bg-secondary justify-center flex items-center">
-            <props.icon className={"text-primary size-5 xl:size-6"} />
-          </div>
-        )}
-      </Link>
-      // </Button>
-    );
-  },
+		// <Button asChild className={className} size={size} variant={appearance}>
+		return (
+			<Link
+				ref={ref}
+				className={btnVariants({
+					variant: appearance,
+					size,
+					className: cn("relative", className),
+				})}
+				href={href || url || ""}
+				{...newTabProps}
+			>
+				{label && (
+					<span className='link-text' style={{ fontSize: "inherit" }}>
+						{label}
+					</span>
+				)}
+				{children && children}
+				{props?.icon && (
+					<div className='link-icon size-8 lg:size-10 xl:size-12 bg-secondary absolute right-2 flex items-center justify-center rounded-full'>
+						<props.icon className={"text-primary size-5 xl:size-6"} />
+					</div>
+				)}
+			</Link>
+			// </Button>
+		);
+	}
 );
 
 // export const CMSLink: React.FC<CMSLinkType> = ({
@@ -154,20 +156,20 @@ export const CMSLink = forwardRef<HTMLAnchorElement, CMSLinkType>(
 // };
 
 export const fetchUrl = (
-  type: "custom" | "reference",
-  reference?: {
-    value: string | number | any;
-    relationTo: "pages";
-  },
-  url?: string,
+	type: "custom" | "reference",
+	reference?: {
+		value: string | number | any;
+		relationTo: "pages";
+	},
+	url?: string
 ) => {
-  return type === "reference" &&
-    typeof reference?.value === "object" &&
-    reference.value.slug
-    ? `${
-        reference?.relationTo !== "pages" ? `/${reference?.relationTo}` : ""
-      }/${reference.value.slug}`
-    : url;
+	return type === "reference" &&
+		typeof reference?.value === "object" &&
+		reference.value.slug
+		? `${
+				reference?.relationTo !== "pages" ? `/${reference?.relationTo}` : ""
+		  }/${reference.value.slug}`
+		: url;
 };
 
 // <Button
@@ -182,7 +184,6 @@ export const fetchUrl = (
 // import Link from "next/link";
 // import type React from "react";
 // import { forwardRef, Ref } from "react";
-// import type { Page, Product } from "@/payload-types";
 // import {
 //   Button,
 //   type ButtonProps,

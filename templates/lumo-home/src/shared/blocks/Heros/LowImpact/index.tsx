@@ -1,28 +1,25 @@
 import type React from "react";
-
-import type { Page } from "@/payload-types";
-
-import Text from "@/shared/components/Text";
+import { Text } from "@/shared/components/Text";
 
 type LowImpactHeroType =
-  | {
-      children?: React.ReactNode;
-      Text?: never;
-    }
-  | (Omit<Page["hero"], "Text"> & {
-      children?: never;
-      Text?: Page["hero"]["Text"];
-    });
+	| {
+			children?: React.ReactNode;
+			Text?: never;
+	  }
+	| (Omit<any, "Text"> & {
+			children?: never;
+			Text?: any;
+	  });
 
 export const LowImpactHero: React.FC<LowImpactHeroType> = ({
-  children,
-  Text,
+	children,
+	Text,
 }) => {
-  return (
-    <div className="container mt-4 xl:mt-8 flex justify-center">
-      <div className="max-w-[48rem]">
-        {children || (Text && <Text data={Text} enableGutter={false} />)}
-      </div>
-    </div>
-  );
+	return (
+		<div className='container mt-4 flex justify-center xl:mt-8'>
+			<div className='max-w-[48rem]'>
+				{children || (Text && <Text data={Text} enableGutter={false} />)}
+			</div>
+		</div>
+	);
 };
