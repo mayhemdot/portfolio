@@ -17,17 +17,16 @@ import {
 } from "@/shared/components/ui/dropdown-menu";
 import { cn } from "@/shared/lib/utils";
 
+export type BreadcrumbType = {
+  doc?: (number | null) | any
+  id?: string | null
+  label: string;
+  url: string;
+};
+
 interface BreadcrumbProps {
   padding?: boolean
-	breadcrumbs:
-		| {
-				doc?: (number | null) | any;
-				url?: string | null;
-				label?: string | null;
-				id?: string | null;
-		  }[]
-		| null
-		| undefined;
+	breadcrumbs?: BreadcrumbType[] | null
 }
 
 export function DynamicBreadcrumb({ breadcrumbs, padding = true }: BreadcrumbProps) {

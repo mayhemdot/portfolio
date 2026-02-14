@@ -1,4 +1,4 @@
-import { Package, Settings, Star, User as UserIcon } from "lucide-react";
+import { Package, Settings, User as UserIcon } from "lucide-react";
 import Link from "next/link";
 import { LogoutButton } from "@/modules/auth/ui/auth/LogoutButton";
 import type { User } from "@/modules/users/model/types";

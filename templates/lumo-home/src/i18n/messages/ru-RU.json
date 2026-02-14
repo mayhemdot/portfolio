@@ -176,7 +176,11 @@
 			"passwordPlaceholder": "Введите ваш пароль",
 			"forgotPassword": "Забыли пароль?",
 			"submit": "Войти"
-		}
+		},
+    "meta": {
+      "title": "Вход в аккаунт",
+      "description": "Вход в аккаунт"
+    }
 	},
 	"ForgotPassword": {
 		"title": "Забыли пароль?",
@@ -203,7 +207,11 @@
 			"repeatPasswordLabel": "Повторите пароль",
 			"repeatPasswordPlaceholder": "Повторите ваш пароль",
 			"submit": "Создать аккаунт"
-		}
+		},
+    "meta": {
+      "title": "Регистрация",
+      "description": "Регистрация аккаунта"
+    }
 	},
 	"ResetPassword": {
 		"title": "Установите новый пароль",

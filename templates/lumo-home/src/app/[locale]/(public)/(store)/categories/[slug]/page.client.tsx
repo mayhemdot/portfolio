@@ -54,7 +54,6 @@ export function CategoryClient({
             {t("title")}
             {/* Catalog */}
           </Text>
-      
         {/* <SearchAndSort /> */}
       </div>
       {/* <CollectionArchive products={products.docs} /> */}

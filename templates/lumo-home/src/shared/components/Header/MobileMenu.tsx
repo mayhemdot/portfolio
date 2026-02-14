@@ -45,7 +45,7 @@ function generateNavItems(t: any) {
     {
       icon: SettingsIcon,
       label: t("Headers.Mobile.SettingsLink"),
-      href: "/settings",
+      href: "/account/settings",
       badge: "",
     },
     // { icon: Heart, label: 'Избранное', href: '/account/wishlist', badge: '12' },

@@ -14,6 +14,7 @@ type Props = {
 
 export const CategoriesBlock = ({ categories, locale }: Props) => {
 	const t = useTranslations("CategoriesBlock");
+  
 	const categoryList = categories.map(
 		category => new Category(category, locale)
 	);

@@ -60,6 +60,7 @@ export function LoginFormClient() {
 				placeholder={t("form.emailPlaceholder")}
 				autoComplete='email'
 				disabled={isLoading}
+        className="bg-background!"
 				onChange={e => setEmail(e.target.value)}
 			/>
 			<InputField
@@ -70,6 +71,7 @@ export function LoginFormClient() {
 					href: "/forgot-password",
 					label: t("form.forgotPassword"),
 				}}
+        className="bg-background!"
 				placeholder={t("form.passwordPlaceholder")}
 				autoComplete='current-password'
 				disabled={isLoading}

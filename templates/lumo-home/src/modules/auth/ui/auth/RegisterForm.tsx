@@ -49,6 +49,7 @@ export function RegisterFormClient() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder={t("form.emailPlaceholder")}
         autoComplete="email"
+        className="bg-background!"
         disabled={isLoading}
       />
 
@@ -60,6 +61,7 @@ export function RegisterFormClient() {
         onChange={(e) => setPassword(e.target.value)}
         placeholder={t("form.passwordPlaceholder")}
         autoComplete="new-password"
+        className="bg-background!"
         disabled={isLoading}
       />
 
@@ -71,6 +73,7 @@ export function RegisterFormClient() {
         onChange={(e) => setRepeatPassword(e.target.value)}
         placeholder={t("form.repeatPasswordPlaceholder")}
         autoComplete="new-password"
+        className="bg-background!"
         disabled={isLoading}
       />
 

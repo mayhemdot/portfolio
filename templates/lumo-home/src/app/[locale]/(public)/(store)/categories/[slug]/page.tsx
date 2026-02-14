@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { cache } from "react";
-import { getLang, type Lang, type LocaleCode } from "@/i18n/localization";
+import type { Lang, LocaleCode } from "@/i18n/localization";
 import { CATEGORIES } from "@/modules/categories/model/data";
 import { Category } from "@/modules/categories/model/types";
-import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
-import { generateMeta } from "@/shared/utils/generateMeta";
+import {
+  type BreadcrumbType,
+  DynamicBreadcrumb,
+} from "@/shared/components/Breadcrumbs";
+import { constructMetadata } from "@/shared/utils/meta";
 import { CategoryClient } from "./page.client";
 
 type Args = {
@@ -17,14 +20,20 @@ type Args = {
 export default async function Page({ params }: Args) {
   const { slug, locale } = await params;
 
-  const lang = getLang(locale);
+  const { language } = new Intl.Locale(locale);
 
   const category = queryCategoryBySlug({ slug, locale });
 
   return (
     <div className="fl-px-8/32 3xl:px-0! container mx-auto">
-      <DynamicBreadcrumb padding={false} breadcrumbs={generateBreadcrumbs(category, lang)} />
-      <CategoryClient categoryRaw={category.raw} locale={locale as LocaleCode} />
+      <DynamicBreadcrumb
+        padding={false}
+        breadcrumbs={generateBreadcrumbs(category, language as Lang)}
+      />
+      <CategoryClient
+        categoryRaw={category.raw}
+        locale={locale as LocaleCode}
+      />
     </div>
   );
 }
@@ -46,15 +55,16 @@ export async function generateMetadata({
 }: Args): Promise<Metadata> {
   const { slug, locale } = await paramsPromise;
 
-  const product = queryCategoryBySlug({ slug, locale });
+  const category = queryCategoryBySlug({ slug, locale });
 
-  return generateMeta({ doc: product });
+  return constructMetadata({
+    locale,
+    title: category.name,
+    url: `/categories/${category.slug}`,
+  });
 }
 
-function generateBreadcrumbs(
-  category: Category,
-  lang: Lang,
-): { label: string; url: string }[] {
+function generateBreadcrumbs(category: Category, lang: Lang): BreadcrumbType[] {
   return {
     ru: [
       { label: "Главная", url: "/" },

@@ -1,24 +1,33 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import type { LocaleCode } from "@/i18n/localization";
 import { GoogleLoginButton } from "@/modules/auth/ui/auth/GoogleLoginButton";
 import { LayoutAuth } from "@/modules/auth/ui/auth/LayoutAuth";
 import { LoginFormClient } from "@/modules/auth/ui/auth/LoginForm";
 import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
 import { btnVariants } from "@/shared/components/ui/button";
 import { constructMetadata } from "@/shared/utils/meta";
+
 // import { GoogleLoginButton } from "@/modules/auth/ui/better-auth/GoogleLoginButton";
 
-export const metadata: Metadata = constructMetadata({
-  title: "Аутентификация | Вход",
-  url: "/",
-  description: "Вход в аккаунт",
-});
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations("Login");
+  
+  return constructMetadata({
+    title: t("meta.title"),
+    description: t("meta.description"),
+    onlyName: false,
+    locale: locale as LocaleCode,
+    url: `/login`,
+  });
+}
 
 export default async function Login({ params }: Props) {
   // const session = await getSession();

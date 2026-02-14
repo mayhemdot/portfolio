@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import type { Lang, LocaleCode } from "@/i18n/localization";
+import { routing } from "@/i18n/routing";
 import {
   ROUTES,
   SITE_AUTHORS,
   SITE_DESCRIPTION,
-  SITE_LOCALE,
   SITE_NAME,
   SITE_TITLE,
 } from "./constants";
 
 export function constructMetadata({
-  title = SITE_TITLE,
-  description = SITE_DESCRIPTION,
+  locale,
+  title = SITE_NAME,
+  description = SITE_DESCRIPTION[routing.defaultLocale as Lang],
   url = ROUTES.HOME,
   image = "/images/og-image.jpg",
   icons = "/favicon.ico",
@@ -19,19 +21,22 @@ export function constructMetadata({
 }: {
   title?: string;
   description?: string;
+  url?: string;
+  locale?: LocaleCode;
   image?: string;
   icons?: string;
-  url?: string;
   noIndex?: boolean;
   onlyName?: boolean;
   shortName?: boolean;
 } = {}): Metadata {
+  const titleSite = onlyName ? title : `${title} | ${SITE_NAME}`;
+  const {language} = new Intl.Locale(locale || routing.defaultLocale);
   return {
-    title: onlyName ? title : `${SITE_NAME} | ${title}`,
+    title: `${titleSite} - ${SITE_TITLE[language as Lang]}`,
     description,
     openGraph: {
       title,
-      locale: SITE_LOCALE,
+      locale: locale?.split("-").join("_"),
       description,
       url,
       authors: SITE_AUTHORS,
@@ -60,25 +65,30 @@ export function constructMetadata({
   };
 }
 
-const defaultOpenGraph: Metadata["openGraph"] = {
-  type: "website",
-  siteName: SITE_NAME,
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  images: [
-    {
-      url: "/images/og-image.jpg",
-    },
-  ],
-};
+function generateOpenGraph(language: Lang) {
+  const defaultOpenGraph: Metadata["openGraph"] = {
+    type: "website",
+    siteName: SITE_NAME,
+    title: SITE_TITLE[language],
+    description: SITE_DESCRIPTION[language],
+    images: [
+      {
+        url: "/images/og-image.jpg",
+      },
+    ],
+  };
+  return defaultOpenGraph;
+}
 
 export const mergeOpenGraph = (
   og?: Metadata["openGraph"],
+  language: Lang = "ru",
 ): Metadata["openGraph"] => {
+  const openGraph = generateOpenGraph(language);
   return {
-    ...defaultOpenGraph,
+    ...openGraph,
     ...og,
 
-    images: og?.images ? og.images : defaultOpenGraph.images,
+    images: og?.images ? og.images : openGraph.images,
   };
 };

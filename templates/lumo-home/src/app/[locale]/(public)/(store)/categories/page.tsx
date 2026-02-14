@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getLang, type LocaleCode } from "@/i18n/localization";
+import type { Lang, LocaleCode } from "@/i18n/localization";
 import { getCategories } from "@/modules/categories/model/queries";
 import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
 import { Text } from "@/shared/components/Text";
+import { constructMetadata } from "@/shared/utils/meta";
 
 type Props = {
   params: Promise<{
@@ -22,15 +24,28 @@ const BREADCRUMBS = {
   ],
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const { language } = new Intl.Locale(locale);
+
+  return constructMetadata({
+    title: BREADCRUMBS[language as Lang][1].label,
+    onlyName: false,
+    locale: locale as LocaleCode,
+    url: `/categories`,
+  });
+}
+
 export default async function Page({ params }: Props) {
   const { locale } = await params;
-  const lang = getLang(locale);
+  const { language } = new Intl.Locale(locale);
+
   const categories = getCategories();
 
   return (
     <>
       <div className="container mx-auto">
-        <DynamicBreadcrumb breadcrumbs={BREADCRUMBS[lang]} />
+        <DynamicBreadcrumb breadcrumbs={BREADCRUMBS[language as Lang]} />
       </div>
       <div className="bg-secondary py-8">
         <div className="container mx-auto rounded-2xl">
@@ -54,7 +69,7 @@ export default async function Page({ params }: Props) {
                     size={"md"}
                     className="z-3"
                   >
-                    {item.name[lang]}
+                    {item.name[language as Lang]}
                   </Text>
                 </div>
               </Link>

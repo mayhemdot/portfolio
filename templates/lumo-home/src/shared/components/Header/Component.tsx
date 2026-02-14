@@ -9,7 +9,6 @@ import { LanguageSwitcher } from "@/shared/components/Header/LanguageSwitcher";
 import { Logo } from "@/shared/components/Header/Logo";
 import { MobileMenuSheet } from "@/shared/components/Header/MobileMenu";
 import { CMSLink } from "@/shared/components/Link";
-import { Media } from "@/shared/components/Media";
 import { btnVariants } from "@/shared/components/ui/button";
 
 type Props = {
@@ -55,14 +54,6 @@ export async function HeaderBlock(props: Props) {
 
   return (
     <header className="fl-pt-16/24 fl-px-8/32 sticky z-50 flex w-full items-center justify-between self-center">
-      {/* <Link href="/" className={"block m-0! p-0! border-0! cursor-pointer relative aspect-square h-14! xl:h-16!"}>
-        <Image
-          src={"/Logo.svg"}
-          loading="eager"
-          fill
-          unoptimized={false}
-          className="block object-cover" alt={"Logo"}  />
-      </Link> */}
       <Logo />
       <div className="fl-gap-x-8/16 flex items-center">
         {!searchIsHidden && (
@@ -73,11 +64,10 @@ export async function HeaderBlock(props: Props) {
             <SearchInput />
           </div>
         )}
-        {!searchIsHidden && (
-          <div className={"hidden lg:flex items-center bg-secondary p-2 md:p-3 rounded-full"}>
+      
+        <div className={"hidden lg:flex items-center bg-secondary p-2 md:p-3 rounded-full"}>
            <LanguageSwitcher isMobile={false} />
-          </div>
-        ) }
+        </div>
          
         <div className="fl-gap-x-12/16 fl-px-16/24 bg-secondary flex items-center rounded-full py-3">
           <CartSheet />

@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import type React from "react";
+import type { PropsWithChildren } from "react";
+import type { LocaleCode } from "@/i18n/localization";
 import { Footer } from "@/shared/components/Footer/Component";
 import { Header } from "@/shared/components/Header/Component";
 import { constructMetadata } from "@/shared/utils/meta";
 
-export const metadata: Metadata = constructMetadata({
-	title: "Modern furniture",
-	url: "/",
-	description: "Modern design and functionality.",
-});
 
-type Props = {
-	children: React.ReactNode;
-};
+export async function generateMetadata({ params }: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
-export default async function Layout(props: Props) {
-	const { children } = props;
+  return constructMetadata({
+    onlyName: true,
+    locale: locale as LocaleCode,
+    url: `/`,
+  });
+}
 
-	return (
-		<>
-			<Header />
-			<main className='min-h-[calc(100dvh-112px)]'>{children}</main>
-			<Footer />
-		</>
-	);
+export default async function Layout({ children }: PropsWithChildren) {
+  return (
+    <>
+      <Header />
+      <main className="min-h-[calc(100dvh-112px)]">{children}</main>
+      <Footer />
+    </>
+  );
 }

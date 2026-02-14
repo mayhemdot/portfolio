@@ -175,7 +175,11 @@
 			"passwordPlaceholder": "Enter your password",
 			"forgotPassword": "Forgot your password?",
 			"submit": "Log in"
-		}
+		},
+    "meta": {
+      "title": "Login",
+      "description": "Login to your account"
+    }
 	},
 	"ForgotPassword": {
 		"title": "Forgot your password?",
@@ -202,7 +206,11 @@
 			"repeatPasswordLabel": "Repeat password",
 			"repeatPasswordPlaceholder": "Repeat your password",
 			"submit": "Create Account"
-		}
+		},
+    "meta": {
+      "title": "Register",
+      "description": "Create your account"
+    }
 	},
 	"ResetPassword": {
 		"title": "Set a new password",

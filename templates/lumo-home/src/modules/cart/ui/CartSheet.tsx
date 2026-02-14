@@ -68,7 +68,7 @@ export function CartSheet() {
           <Badge
             variant={"default"}
             size={"iconXS"}
-            className="absolute w-fit size-3 rounded-full top-0 right-0 translate-x-1/2 -translate-y-1/6"
+            className="absolute w-fit p-1.75! shrink-0! grow-0! size-3 rounded-full top-0 right-0 translate-x-1/2 -translate-y-1/6"
           >
             {cartItems?.length || 0}
           </Badge>

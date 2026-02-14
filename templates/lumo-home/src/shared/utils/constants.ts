@@ -4,9 +4,16 @@ export const SITE_LOCALE = 'ru'
 
 export const SITE_NAME = 'LUMO HOME'
 
-export const SITE_TITLE = 'Site title'
+export const SITE_TITLE = {
+  "ru": 'интернет магазин современной мебели и освещения',
+  "en": 'online store of modern furniture and lighting',
+}
 
-export const SITE_DESCRIPTION = 'What we do?'
+//'What we do?'
+export const SITE_DESCRIPTION = {
+  "ru": "" ,
+  "en": ""
+}
 
 export const SITE_PHONE = '+7(499)-343-77-71'
 
