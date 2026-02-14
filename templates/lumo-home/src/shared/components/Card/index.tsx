@@ -11,19 +11,6 @@ import { Text } from "@/shared/components/Text";
 import { Badge } from "@/shared/components/ui/badge";
 import { cn } from "@/shared/lib/utils";
 import useClickableCard from "@/shared/utils/useClickableCard";
-// export type CardProductData = Pick<
-//   ProductRaw,
-//   | "title"
-//   | "price"
-//   | "slug"
-//   | "images"
-//   | "category"
-//   | "id"
-//   | "inStock"
-//   | "description"
-//   | "variants"
-//   | "enableVariants"
-// >;
 
 export const Card: React.FC<{
   alignItems?: "center";

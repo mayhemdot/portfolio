@@ -9,6 +9,16 @@ const localization = {
   defaultLocale: "en-US",
   fallback: true,
   defaultLocalePublishOption: "active",
+  localePrefix: {
+    mode: 'always' as const,
+    prefixes: {
+      'en-US': '/us',
+      'ru-RU': '/ru',
+      'de-DE': '/de',
+      // 'de-AT': '/eu/at'
+      // (/zh will be used as-is)
+    }
+  },
   locales: [
     {
       rtl: false,
@@ -23,7 +33,7 @@ const localization = {
     },
   ] as {
     rtl: boolean,
-    code: "en-US" | "ru-RU";
+    code: LocaleCode;
     label: string;
     fallbackLocale?: string;
   }[],

@@ -181,7 +181,7 @@ export const MainHero: React.FC = () => {
 						<CMSLink
 							ref={buttonRef}
 							className={
-								"mx-auto w-[16%] max-w-[460px] opacity-0 [&>span]:opacity-0"
+								"mx-auto w-[16%] max-w-115 opacity-0 [&>span]:opacity-0"
 							}
 							size={"xl"}
 							appearance={"default"}
@@ -191,7 +191,7 @@ export const MainHero: React.FC = () => {
 						/>
 					</div>
 
-					<div className='absolute left-0 top-0 z-0 h-[110%] w-[120%] translate-x-[-10%] translate-y-[-10%] backdrop-blur-2xl xl:hidden' />
+					<div className='absolute left-0 top-0 z-0 h-screen w-[120%] translate-x-[-10%] translate-y-[-10%] backdrop-blur-2xl xl:hidden' />
 				</div>
 
 				<div

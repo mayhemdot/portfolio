@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { Locale } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { cache } from "react";
 import { getLang, type Lang, type LocaleCode } from "@/i18n/localization";
@@ -26,7 +25,7 @@ type Args = {
 
 export default async function ProductPage({ params }: Args) {
 	const { slug = "" } = await params;
-	const url = `/products/${slug}`;
+
 	const t = await getTranslations("ProductPage");
 	const localeCode = (await getLocale()) as LocaleCode;
 
@@ -37,7 +36,9 @@ export default async function ProductPage({ params }: Args) {
 	if (!product) notFound();
 
 	const lang = getLang(localeCode);
-	console.log("breadcrumbs", product.title, generateBreadcrumbs(product, lang));
+	// console.log("breadcrumbs", product.title, generateBreadcrumbs(product, lang));
+
+
 	return (
 		<div className='mx-auto'>
 			<DynamicBreadcrumb breadcrumbs={generateBreadcrumbs(product, lang)} />
@@ -288,8 +289,8 @@ const queryProductBySlug = cache(
 	},
 );
 
-function generateBreadcrumbs(product: Product, lang: Lang) {
-	const breadcrumbs = {
+function generateBreadcrumbs(product: Product, lang: Lang): { label: string; url: string }[] {
+	return {
 		ru: [
 			{ label: "Главная", url: "/" },
 			{ label: "Каталог", url: "/products" },
@@ -300,9 +301,8 @@ function generateBreadcrumbs(product: Product, lang: Lang) {
 			{ label: "Catalog", url: "/products" },
 			{ label: product.title, url: "!" },
 		],
-	} as Record<string, { label: string; url: string }[]>;
-	// console.log("bbbb", breadcrumbs);
-	return breadcrumbs[lang];
+	}[lang];
+
 }
 
 // export async function generateStaticParams() {

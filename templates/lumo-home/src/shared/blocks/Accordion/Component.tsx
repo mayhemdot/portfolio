@@ -23,13 +23,18 @@ export function AccordionBlock(props: AccordionBlockProps) {
 	return (
 		<section className='mb-24'>
 			{introContent && (
-				<div className='mx-auto mb-12 max-w-3xl'>
-					<Text className='text-muted-foreground ms-0 mt-4 max-w-3xl'>
+				<div className='fl-px-16/32 mx-auto  mb-12 max-w-3xl rounded-3xl'>
+					<Text
+						comp='h1'
+						variant={"secondary"}
+						size='smd'
+						className='ms-0 mt-4 max-w-3xl'
+					>
 						{introContent}
 					</Text>
 				</div>
 			)}
-			<div className='mx-auto max-w-3xl'>
+			<div className='bg-secondary  fl-py-8/16 fl-px-16/32 mx-auto max-w-3xl rounded-3xl'>
 				<Accordion type='single' collapsible className='w-full'>
 					{items?.map((item, i) => (
 						<AccordionItem
@@ -41,7 +46,7 @@ export function AccordionBlock(props: AccordionBlockProps) {
 									comp='p'
 									size={"sm"}
 									weight={"medium"}
-									variant={"mutedForeground"}
+									variant={"secondary"}
 								>
 									{item.title}
 								</Text>

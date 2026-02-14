@@ -1,22 +1,22 @@
-import { Order } from "@/modules/orders/model/types";
+import { OrderRaw } from "@/modules/orders/model/types";
 import { PRODUCTS } from "@/modules/products/model/data";
 import { CUSTOMER } from "@/modules/users/model/data";
+import { Shipping } from "@/modules/shipping/model/types";
+import { SHIPPINGS } from "@/modules/shipping/model/data";
 
-export const ORDERS: Order[] = [
+export const ORDERS: OrderRaw[] = [
 	{
 		id: 2,
-		// payment?: (number | null) | Payment;
-		paymentData: {
+		paymentDataRaw: {
 			paymentStatus: "paid",
-			paymentAmount: "23000",
+			paymentAmount: PRODUCTS[0].price,
 			paymentPaid: true,
 		},
 		orderedBy: CUSTOMER,
 		items: [
 			{
 				id: 1,
-				product: PRODUCTS[0],
-
+				productRaw: PRODUCTS[0],
 				totalPrice: PRODUCTS[0].price,
 				quantity: 1,
 			},
@@ -27,11 +27,7 @@ export const ORDERS: Order[] = [
 		phone: "+7 (999) 999 99 99",
 		status: "pending",
 
-		shippingMethod: {
-			id: 1,
-			name: "Standard",
-			price: 0,
-		} as any,
+		shippingMethodRaw: SHIPPINGS[0],
 		isRefunded: true,
 		updatedAt: "2025-10-31T14:30:00.000Z",
 		createdAt: "2025-10-31T14:30:00.000Z",

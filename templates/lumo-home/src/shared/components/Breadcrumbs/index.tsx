@@ -15,8 +15,10 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/shared/components/ui/dropdown-menu";
+import { cn } from "@/shared/lib/utils";
 
 interface BreadcrumbProps {
+  padding?: boolean
 	breadcrumbs:
 		| {
 				doc?: (number | null) | any;
@@ -28,13 +30,13 @@ interface BreadcrumbProps {
 		| undefined;
 }
 
-export function DynamicBreadcrumb({ breadcrumbs }: BreadcrumbProps) {
+export function DynamicBreadcrumb({ breadcrumbs, padding = true }: BreadcrumbProps) {
 	// We'll show max 3 items: first, last, and dropdown for middle items
-	const maxItems = 3;
+	const maxItems = 4;
 	const shouldCollapse = breadcrumbs?.length || 0 > maxItems;
 
 	return (
-		<Breadcrumb className='fl-mx-16/32 my-4'>
+		<Breadcrumb className={cn('my-4', { "fl-mx-16/32" : padding })}>
 			<BreadcrumbList>
 				{breadcrumbs?.map((crumb, index) => {
 					// Always show first item
@@ -43,7 +45,7 @@ export function DynamicBreadcrumb({ breadcrumbs }: BreadcrumbProps) {
 							<React.Fragment key={String(index)}>
 								<BreadcrumbItem>
 									<BreadcrumbLink asChild>
-										<Link href={crumb?.url!} className='fl-text-16/20'>
+										<Link href={crumb?.url || "/"} className='fl-text-16/20'>
 											{crumb?.label}
 										</Link>
 									</BreadcrumbLink>

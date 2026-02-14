@@ -10,9 +10,10 @@ import { Metadata } from "next";
 import { constructMetadata } from "@/shared/utils/meta";
 import { ROUTES } from "@/shared/utils/constants";
 import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
-import { Order } from "@/modules/orders/model/types";
+import { OrderStatus } from "@/modules/orders/model/types";
 import { retrieveCustomer } from "@/modules/users/actions/getUser";
 import { searchOrders } from "@/modules/orders/queries/searchOrders";
+import { LocaleCode } from "@/i18n/localization";
 
 export const metadata: Metadata = constructMetadata({
 	title: "Заказы",
@@ -22,7 +23,7 @@ export const metadata: Metadata = constructMetadata({
 
 const pageItemsList = [10, 20, 30, 40, 50] as const;
 
-export const pageSearchParams = {
+const pageSearchParams = {
 	q: parseAsString.withDefault("").withOptions({
 		shallow: false,
 	}),
@@ -31,15 +32,18 @@ export const pageSearchParams = {
 };
 
 // Then pass it to the parser
-export const loadSearchParams = createLoader(pageSearchParams);
+const loadSearchParams = createLoader(pageSearchParams);
 
 type Props = {
+	params: Promise<{ locale: string }>;
 	searchParams: Promise<{
 		[key: string]: string | string[];
 	}>;
 };
 
-export default async function PageOrders({ searchParams }: Props) {
+export default async function PageOrders({ params, searchParams }: Props) {
+	const { locale } = await params;
+
 	const userProfile = await retrieveCustomer();
 
 	const { pageItems, page, q: query } = loadSearchParams(await searchParams);
@@ -49,13 +53,14 @@ export default async function PageOrders({ searchParams }: Props) {
 			userId: Number(userProfile.id),
 			page,
 			pageItems,
+			localeCode: locale as LocaleCode,
 		},
 		query,
 	);
 
 	// const { docs: orders, totalDocs, totalPages } = ordersData;
 
-	const ORDER_STATUS_LIST: Order["status"][] = [
+	const ORDER_STATUS_LIST: OrderStatus[] = [
 		// Ожидание оплаты
 		"pending", //or created
 		// Ожидание подтверждения товара
@@ -83,8 +88,9 @@ export default async function PageOrders({ searchParams }: Props) {
       /> */}
 			<OrderPageClient
 				userId={Number(userProfile.id)}
-				ordersData={ordersData}
+				ordersData={{ ...ordersData, docs: ordersData?.docs.map(o => o.raw) }}
 				statusList={ORDER_STATUS_LIST}
+				locale={locale as LocaleCode}
 			/>
 		</div>
 	);

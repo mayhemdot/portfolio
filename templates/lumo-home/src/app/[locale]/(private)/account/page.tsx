@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { AccountPageClient } from "./page.client";
 import { retrieveCustomer } from "@/modules/users/actions/getUser";
 import { routing } from "@/i18n/routing";
-import { ORDERS } from "@/modules/orders/model/data";
 import { LocaleCode } from "@/i18n/localization";
+import { getOrders } from "@/modules/orders/queries/getOrders";
 
 export const metadata: Metadata = constructMetadata({
 	title: "Личный кабинет",
@@ -20,30 +20,14 @@ type Props = {
 
 export default async function Page({ params }: Props) {
 	const { locale = routing.defaultLocale } = await params;
-
-	// const payload = await getPayload()
-
-	// const userProfile = await getCurrentUserAction({
-	//   depth: 2,
-	//   redirectUrl: '/login',
-	// })
 	const userProfile = await retrieveCustomer();
-
-	// const { docs: orders } = await payload.find({
-	//   collection: 'orders',
-	//   where: {
-	//     'orderedBy.user': {
-	//       equals: userProfile!.id,
-	//     },
-	//   },
-	//   limit: 200,
-	// })
+	const orders = getOrders({ localeCode: locale as LocaleCode });
 
 	return (
 		<NonSSRWrapper>
 			<AccountPageClient
 				userProfile={userProfile!}
-				orders={ORDERS}
+				ordersData={{ ...orders, docs: orders?.docs.map(o => o.raw) }}
 				locale={locale as LocaleCode}
 			/>
 		</NonSSRWrapper>

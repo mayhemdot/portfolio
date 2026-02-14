@@ -1,4 +1,4 @@
-import { Order } from "@/modules/orders/model/types";
+import { OrderStatus } from "@/modules/orders/model/types";
 import {
 	Package,
 	Truck,
@@ -9,7 +9,7 @@ import {
 	X,
 } from "lucide-react";
 
-type OrderStatus = Order["status"];
+// type OrderStatus = Order["status"];
 
 export const getStatusColor = (status: OrderStatus) => {
 	switch (status) {

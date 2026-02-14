@@ -10,7 +10,6 @@ import {
 	Truck,
 	Zap,
 } from "lucide-react";
-
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
 import {
@@ -49,19 +48,20 @@ import { useDebouncedCallback } from "use-debounce";
 import { Pagination } from "@/shared/components/Pagination/Pagination";
 import { Shell } from "@/shared/components/ui/shell";
 import { getStatusColor, getStatusIcon } from "./_constants";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { ActiveOrderCard } from "@/app/[locale]/(private)/account/page.client";
-import { Order } from "@/modules/orders/model/types";
+import { Order, OrderRaw, OrderStatus } from "@/modules/orders/model/types";
 import { PaginatedDocs } from "@/modules/products/queries/searchProducts";
-import { ORDERS } from "@/modules/orders/model/data";
 import { LocaleCode } from "@/i18n/localization";
+import { Product } from "@/modules/products/model/types";
+import { Text } from "@/shared/components/Text";
 
 type Props = {
 	userId: number;
-	statusList: Order["status"][];
-	ordersData?: PaginatedDocs<Order>;
+	statusList: OrderStatus[];
+	ordersData: PaginatedDocs<OrderRaw>;
 	totalDocs?: number;
-	locale?: LocaleCode;
+	locale: LocaleCode;
 };
 
 export default function OrderPageClient({
@@ -71,7 +71,7 @@ export default function OrderPageClient({
 	locale,
 }: Props) {
 	// const localeFromContext = useLocale();
-
+	// const { docs: orders } = ordersData;
 	const t = useTranslations("AccountOrdersPage");
 	const tStatuses = useTranslations("AccountPage.orders.statuses");
 
@@ -115,13 +115,13 @@ export default function OrderPageClient({
 	]);
 
 	const [inputValue, setInputValue] = useState(searchTerm);
-	const [statusFilter, setStatusFilter] = useState<string>("all");
+	const [statusFilter, setStatusFilter] = useState<string | null>(null);
 
 	const debouncedSearch = useDebouncedCallback((value: string) => {
 		setSearchTerm(value);
 	}, 1000);
 
-	const orders = ordersData?.docs || [];
+	const orders = ordersData?.docs?.map(o => new Order(o, locale)) || [];
 
 	return (
 		<div className='grow space-y-2 md:space-y-4'>
@@ -150,7 +150,7 @@ export default function OrderPageClient({
 						placeholder={t("search.placeholder")}
 						value={inputValue || ""}
 						className={
-							"bg-background mb:mb-0 fl-text-16/20 rounded-full! h-10 border-0 shadow-none md:h-12 xl:h-14"
+							"bg-background! mb:mb-0 fl-text-16/20 rounded-full! h-10 border-0 shadow-none md:h-12 xl:h-14"
 						}
 						onChange={e => {
 							setInputValue(e.target.value);
@@ -158,8 +158,8 @@ export default function OrderPageClient({
 						}}
 					/>
 				</div>
-				<Select value={statusFilter} onValueChange={setStatusFilter}>
-					<SelectTrigger className='inline-flex !h-10 w-[150px] rounded-full md:!h-12 xl:!h-14 xl:w-[200px]'>
+				<Select value={statusFilter || ""} onValueChange={setStatusFilter}>
+					<SelectTrigger className='h-10! bg-background! md:h-12! xl:h-14! inline-flex w-[150px] rounded-full xl:w-[200px]'>
 						<SelectValue placeholder={t("filters.status.placeholder")} />
 					</SelectTrigger>
 					<SelectContent>
@@ -176,7 +176,12 @@ export default function OrderPageClient({
 			</Shell>
 			<OrderList
 				userId={userId}
-				ordersData={ordersData}
+				ordersData={{
+					...ordersData,
+					docs: ordersData?.docs?.filter(data =>
+						statusFilter ? data.status === statusFilter : true,
+					),
+				}}
 				currentPage={currentPage + 1}
 				searchTerm={searchTerm}
 				statusList={statusList}
@@ -199,49 +204,12 @@ export function OrderList({
 	searchTerm: string;
 }) {
 	const [expandedOrders, setExpandedOrders] = useState<number[]>([]);
+
 	const t = useTranslations("AccountOrdersPage");
 	const tStatuses = useTranslations("AccountPage.orders.statuses");
 
-	// const displayLocale: "ru-RU" | "en-US" = (() => {
-	// 	if (typeof locale === "string") {
-	// 		if (locale.startsWith("ru")) return "ru-RU";
-	// 		if (locale.startsWith("en")) return "en-US";
-	// 	}
-	// 	return "en-US";
-	// })();
-
 	const [isLoading, setIsLoading] = useState();
-	const orders = ordersData;
-
-	// const { isLoading, data: orders } = useQuery({
-	// 	queryKey: ["search", searchTerm, currentPage],
-	// 	initialData: ordersData,
-	// 	queryFn: async ({ signal }) => {
-	// 		const res = await fetch(
-	// 			`/api/orders${stringify(
-	// 				{
-	// 					where: whereQ({
-	// 						userId,
-	// 						query: searchTerm,
-	// 					}),
-	// 					depth: 2,
-	// 					page: currentPage,
-	// 					pageItems: 4,
-	// 				},
-	// 				{ addQueryPrefix: true },
-	// 			)}`,
-	// 			{
-	// 				method: "GET",
-	// 				signal,
-	// 			},
-	// 		);
-
-	// 		if (!res.ok) {
-	// 			throw new Error(res.statusText);
-	// 		}
-	// 		return await res.json();
-	// 	},
-	// });
+	const orders = ordersData?.docs?.map(order => new Order(order, locale)) || [];
 
 	const toggleOrderExpansion = (orderId: number) => {
 		setExpandedOrders(prev =>
@@ -260,7 +228,7 @@ export function OrderList({
 						<p className='text-muted-foreground'>{t("loading.description")}</p>
 					</CardContent>
 				</Card>
-			) : orders?.docs?.length === 0 ? (
+			) : orders?.length === 0 ? (
 				<Card className='flex-1'>
 					<CardContent className='p-12 text-center'>
 						<Package className='size-12 text-muted-foreground mx-auto mb-4' />
@@ -271,7 +239,7 @@ export function OrderList({
 			) : null}
 
 			{!isLoading &&
-				orders?.docs?.map((order: Order) => (
+				orders?.map(order => (
 					<Card key={order.id} className='overflow-hidden'>
 						<Collapsible
 							open={expandedOrders.includes(order.id)}
@@ -315,17 +283,11 @@ export function OrderList({
 										})}
 									</div>
 									<div className='text-lg font-semibold'>
-										{formatPrice(
-											typeof order?.paymentData === "object"
-												? order?.paymentData?.paymentAmount?.value || 0
-												: 0,
-											{
-												localeCode: locale,
-											},
-										)}
+										{formatPrice(order?.paymentAmount || 0, {
+											localeCode: locale,
+										})}
 									</div>
 								</div>
-
 								{/* Трекинг информация */}
 								{/* {order.trackingNumber && (
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -351,46 +313,43 @@ export function OrderList({
 											{t("list.sections.products")}
 										</h4>
 										<div className='space-y-3'>
-											{order.items?.map(item => (
-												<div
-													key={item.id}
-													className={
-														"bg-muted/50 flex items-center gap-4 overflow-clip rounded-lg p-3"
-													}
-												>
-													<Media
-														className='size-10'
-														imgClassName='object-contain'
-														resource={
-															typeof item.product === "object"
-																? item.product?.images?.[0] ||
-																  "/placeholder.svg"
-																: ""
+											{order.items?.map(item => {
+												return (
+													<div
+														key={item.id}
+														className={
+															"bg-muted/50 flex items-center gap-4 overflow-clip rounded-lg p-3"
 														}
-													/>
-
-													<div className='min-w-0 flex-1'>
-														<h5 className='truncate font-medium'>
-															{typeof item.product === "object"
-																? item.product?.title || ""
-																: ""}
-														</h5>
-														<p className='text-muted-foreground text-sm'>
-															{t("list.product.quantity", {
-																count: item.quantity ?? 0,
-															})}
-														</p>
+													>
+														<div className='size-10 relative'>
+															<Media
+																imgClassName='object-contain'
+																fill
+																resource={
+																	item.product.images?.[0] || "/placeholder.svg"
+																}
+															/>
+														</div>
+														<div className='min-w-0 flex-1'>
+															<h5 className='truncate font-medium'>
+																{item.product.title || ""}
+															</h5>
+															<p className='text-muted-foreground text-sm'>
+																{t("list.product.quantity", {
+																	count: item.quantity ?? 0,
+																})}
+															</p>
+														</div>
+														<Text
+															comp='p'
+															variant='secondary'
+															className='text-right'
+														>
+															{item.product.prettyPrice()}
+														</Text>
 													</div>
-													<div className='text-right'>
-														<p className='font-semibold'>
-															{formatPrice(item.totalPrice || 0, {
-																currency_code: "RUB",
-																locale: displayLocale,
-															})}
-														</p>
-													</div>
-												</div>
-											))}
+												);
+											})}
 										</div>
 
 										{/* Адрес доставки */}
@@ -399,7 +358,7 @@ export function OrderList({
 												{t("list.sections.shipping")}
 											</h4>
 											<p className='text-muted-foreground text-sm'>
-												{shippingMethodName(order.shippingMethod)}
+												{order.shippingMethod.name}
 											</p>
 										</div>
 

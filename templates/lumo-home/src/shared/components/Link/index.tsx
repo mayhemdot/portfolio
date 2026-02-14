@@ -72,7 +72,7 @@ export const CMSLink = forwardRef<HTMLAnchorElement, CMSLinkType>(
 					{label && label}
 					{children && children}
 					{props?.icon && (
-						<props.icon className={"size-5 bg-secondary ml-auto"} />
+						<props.icon className={"size-4 bg-secondary ml-auto"} />
 					)}
 				</Link>
 			);

@@ -1,13 +1,17 @@
+import { LocaleCode } from "@/i18n/localization";
 import { ORDERS } from "@/modules/orders/model/data";
+import { Order } from "@/modules/orders/model/types";
 
 export async function searchOrders(
 	{
 		userId,
 		page,
 		pageItems,
+		localeCode,
 	}: {
 		userId: number;
 		page: number;
+		localeCode: LocaleCode;
 		pageItems: 10 | 20 | 30 | 40 | 50 | null;
 	},
 	query?: string,
@@ -21,7 +25,7 @@ export async function searchOrders(
 	// });
 
 	return {
-		docs: ORDERS,
+		docs: ORDERS.map(order => new Order(order, localeCode)),
 		page: Number(1),
 		limit: 10,
 		totalDocs: ORDERS.length || 0,

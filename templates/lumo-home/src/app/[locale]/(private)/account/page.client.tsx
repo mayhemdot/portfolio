@@ -1,5 +1,4 @@
 "use client";
-// import { Order, Product, User } from "@/payload-types";
 import {
 	Zap,
 	PrinterIcon,
@@ -27,31 +26,24 @@ import {
 import { CancelActionButton } from "@/modules/orders/ui/cancelActionButton";
 import React from "react";
 import { useTranslations } from "next-intl";
-import { ORDERS } from "@/modules/orders/model/data";
 import { LocaleCode } from "@/i18n/localization";
 import { User } from "@/modules/users/model/types";
-import { Order, OrderItem } from "@/modules/orders/model/types";
+import { OrderRaw, OrderItemRaw, Order } from "@/modules/orders/model/types";
 import { Product } from "@/modules/products/model/types";
+import { PaginatedDocs } from "@/modules/products/queries/searchProducts";
 
 type Props = {
 	userProfile: User;
-	orders: Order[];
+	ordersData: PaginatedDocs<OrderRaw>;
 	locale: LocaleCode;
 };
 
-// type OrderItem = {
-// 	id?: string | null;
-// 	product?:  ProductRaw;
-// 	totalPrice?: number | null;
-// 	quantity?: number | null;
-// };
-
-export function AccountPageClient({ userProfile, orders, locale }: Props) {
+export function AccountPageClient({ userProfile, ordersData, locale }: Props) {
 	const [isOpen, setIsOpen] = React.useState(false);
-
 	const t = useTranslations("AccountPage");
+	const orders = ordersData?.docs?.map(o => new Order(o, locale));
 
-	const statusLabels: Record<string, string> = {
+	const STATUS_LABELS: Record<string, string> = {
 		pending: t("orders.statuses.pending"),
 		waiting_for_capture: t("orders.statuses.waiting_for_capture"),
 		paid: t("orders.statuses.paid"),
@@ -63,16 +55,16 @@ export function AccountPageClient({ userProfile, orders, locale }: Props) {
 	};
 	return (
 		<div className='grow'>
-			<div className={"fl-gap-8/24  mb-2 flex md:mb-4 xl:mb-6"}>
+			<div className={"fl-gap-8/24 mb-2 flex md:mb-4 xl:mb-6"}>
 				<ActiveOrderCard
 					icon={Zap}
 					title={t("cards.activeOrders")}
-					count={isActiveOrders(ORDERS)?.length || 0}
+					count={isActiveOrders(orders)?.length || 0}
 				/>
 				<ActiveOrderCard
 					icon={Zap}
 					title={t("cards.completedOrders")}
-					count={isShippedOrders(ORDERS)?.length || 0}
+					count={isShippedOrders(orders)?.length || 0}
 				/>
 			</div>
 			<div
@@ -80,9 +72,9 @@ export function AccountPageClient({ userProfile, orders, locale }: Props) {
 					"2xl:rounded-4xl flex items-center gap-3 rounded-2xl md:rounded-3xl xl:gap-4"
 				}
 			>
-				{[...isActiveOrders(ORDERS), ...ORDERS].map((order: Order) => {
+				{[...isActiveOrders(orders)].map(order => {
 					const orderStatusText = order.status
-						? statusLabels[order.status] || order.status
+						? STATUS_LABELS[order.status] || order.status
 						: "";
 					return (
 						<div
@@ -102,11 +94,9 @@ export function AccountPageClient({ userProfile, orders, locale }: Props) {
 								</div>
 								<div className='flex items-center gap-3'>
 									<p className='fl-text-20/28 font-semibold'>
-										{order?.paymentData?.paymentAmount
-											? formatPrice(Number(order.paymentData.paymentAmount), {
-													localeCode: locale,
-											  })
-											: ""}
+										{formatPrice(Number(order.paymentAmount), {
+											localeCode: locale,
+										})}
 									</p>
 									<Button variant='default' size='sm'>
 										{<PrinterIcon size={10} className='size-3' />}
@@ -158,9 +148,9 @@ export function AccountPageClient({ userProfile, orders, locale }: Props) {
 								className='flex flex-col gap-2'
 							>
 								<CollapsibleContent className='flex flex-col gap-1'>
-									{order?.items?.map(orderItem => (
+									{order?.raw.items?.map(orderItem => (
 										<OrderProductItem
-											key={orderItem?.product?.id}
+											key={orderItem?.id}
 											orderItem={orderItem}
 											localeCode={locale}
 										/>
@@ -174,7 +164,7 @@ export function AccountPageClient({ userProfile, orders, locale }: Props) {
 													<span className='text-muted-foreground'>
 														{t("orders.details.orderedBy")}
 													</span>
-													<span>{order.orderedBy?.first_name},</span>
+													<span>{order.orderedBy?.firstName},</span>
 												</div>
 												<div className='flex gap-2'>
 													<span className='text-muted-foreground'>
@@ -256,18 +246,16 @@ function OrderProductItem({
 	orderItem,
 	localeCode,
 }: {
-	orderItem: OrderItem;
+	orderItem: OrderItemRaw;
 	localeCode: LocaleCode;
 }) {
-	const product = new Product(orderItem.product, localeCode);
-	// typeof orderItem.product === "object" ? orderItem?.product : null;
-
+	const product = new Product(orderItem.productRaw, localeCode);
 	if (!product) return null;
 
 	const resource = product?.images?.[0];
 
 	const currentPrice = product?.price || 0;
-	const currentPriceWithQuantity = currentPrice * (orderItem?.quantity || 1);
+	// const currentPriceWithQuantity = currentPrice * (orderItem?.quantity || 1);
 	return (
 		<div
 			key={orderItem.id}

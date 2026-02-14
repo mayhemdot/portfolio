@@ -3,9 +3,9 @@
 // dayjs.locale('ru')
 
 import {
-  type CurrencyCode,
-  getCurrency,
-  type LocaleCode,
+	type CurrencyCode,
+	getCurrency,
+	type LocaleCode,
 } from "@/i18n/localization";
 
 // export function onlyNumber(str: string): number {
@@ -62,76 +62,85 @@ export const isObject = (input: any) => input instanceof Object;
 export const isArray = (input: any) => Array.isArray(input);
 
 export const isEmpty = (input: any) => {
-  return (
-    input === null ||
-    input === undefined ||
-    (isObject(input) && Object.keys(input).length === 0) ||
-    (isArray(input) && (input as any[]).length === 0) ||
-    (typeof input === "string" && input.trim().length === 0)
-  );
+	return (
+		input === null ||
+		input === undefined ||
+		(isObject(input) && Object.keys(input).length === 0) ||
+		(isArray(input) && (input as any[]).length === 0) ||
+		(typeof input === "string" && input.trim().length === 0)
+	);
 };
 
 export type ConvertToLocaleParams = {
-  localeCode?: LocaleCode;
-  currencyCode?: CurrencyCode;
-  minimumFractionDigits?: number;
-  maximumFractionDigits?: number;
-  quantity?: number;
+	localeCode: LocaleCode;
+	currencyCode?: CurrencyCode;
+	minimumFractionDigits?: number;
+	maximumFractionDigits?: number;
+	quantity?: number;
 };
 
 export const formatPrice = (amount: number, options: ConvertToLocaleParams) => {
-  const numericPrice = typeof amount === "string" ? parseFloat(amount) : amount;
-  const { localeCode, currencyCode, minimumFractionDigits = 0, maximumFractionDigits = 0 } = options;
+	const numericPrice = typeof amount === "string" ? parseFloat(amount) : amount;
+	let {
+		localeCode,
+		currencyCode,
+		minimumFractionDigits = 0,
+		maximumFractionDigits = 0,
+	} = options;
 
-  return localeCode && !isEmpty(localeCode)
-    ? new Intl.NumberFormat(localeCode, {
-        style: "currency",
-        currency: currencyCode,
-        minimumFractionDigits,
-        maximumFractionDigits,
-      }).format(numericPrice)
-    : numericPrice.toString();
+	if (!currencyCode) {
+		currencyCode = getCurrency(localeCode);
+	}
+
+	return localeCode && !isEmpty(localeCode)
+		? new Intl.NumberFormat(localeCode, {
+				style: "currency",
+				currency: currencyCode,
+				minimumFractionDigits,
+				maximumFractionDigits,
+		  }).format(numericPrice)
+		: numericPrice.toString();
 };
 
 export const formatPriceRaw = (
-  amount?: {
-    usd: number;
-    rub: number;
-  },
-  options?: ConvertToLocaleParams,
+	amount?: {
+		usd: number;
+		rub: number;
+	},
+	options?: ConvertToLocaleParams,
 ) => {
-  if (isEmpty(amount)) return "-";
+	if (isEmpty(amount)) return "-";
 
-  let {
-    currencyCode,
-    minimumFractionDigits = 0,
-    maximumFractionDigits = 0,
-    quantity = 1,
-    localeCode = "en-US",
-  } = options || {};
+	let {
+		currencyCode,
+		minimumFractionDigits = 0,
+		maximumFractionDigits = 0,
+		quantity = 1,
+		localeCode = "en-US",
+	} = options || {};
 
-  if (!currencyCode) {
-    currencyCode = getCurrency(localeCode);
-  }
+	if (!currencyCode) {
+		currencyCode = getCurrency(localeCode);
+	}
 
-  const currentAmount =
-    amount?.[currencyCode.toLowerCase() as keyof typeof amount];
+	const currentAmount =
+		amount?.[currencyCode.toLowerCase() as keyof typeof amount];
 
-  let numericPrice =
-    typeof currentAmount === "string"
-      ? parseFloat(currentAmount)
-      : currentAmount;
+	let numericPrice =
+		typeof currentAmount === "string"
+			? parseFloat(currentAmount)
+			: currentAmount;
 
-  if (!numericPrice) return "-";
+	if (!numericPrice) return "-";
 
-  numericPrice = numericPrice * quantity;
+	numericPrice = numericPrice * quantity;
 
-  return currencyCode && !isEmpty(currencyCode)
-    ? new Intl.NumberFormat(localeCode, {
-        style: "currency",
-        currency: currencyCode,
-        minimumFractionDigits: minimumFractionDigits || 0,
-        maximumFractionDigits: maximumFractionDigits || 0,
-      }).format(numericPrice)
-    : numericPrice.toString();
+	return currencyCode && !isEmpty(currencyCode)
+		? new Intl.NumberFormat(localeCode, {
+				style: "currency",
+				currency: currencyCode,
+				minimumFractionDigits: minimumFractionDigits || 0,
+				maximumFractionDigits: maximumFractionDigits || 0,
+		  }).format(numericPrice)
+		: numericPrice.toString();
 };

@@ -1,18 +1,16 @@
 import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
+import { getLang, type LocaleCode } from "@/i18n/localization";
 import { Logo } from "@/shared/components/Header/Logo";
 import { CMSLink } from "@/shared/components/Link";
 import { btnVariants } from "@/shared/components/ui/button";
-import { getLang, LocaleCode } from "@/i18n/localization";
-import { getLocale, getTranslations } from "next-intl/server";
 import { SITE_NAME } from "@/shared/utils/constants";
 
-
 export async function Footer() {
+  const locale = (await getLocale()) as LocaleCode;
+  const t = await getTranslations("Global.Footer");
 
-  const locale = await getLocale() as LocaleCode;
-  const t = await getTranslations("Global.Footer")
-
-  const lang  = getLang(locale);
+  const lang = getLang(locale);
 
   const footer = {
     navItems: [
@@ -20,8 +18,8 @@ export async function Footer() {
         link: {
           url: "/",
           label: {
-            "en": "Home",
-            "ru": "Главная"
+            en: "Home",
+            ru: "Главная",
           },
         },
       },
@@ -29,8 +27,8 @@ export async function Footer() {
         link: {
           url: "/about",
           label: {
-            "en": "About",
-            "ru": "O нас"
+            en: "About",
+            ru: "O нас",
           },
         },
       },
@@ -38,8 +36,8 @@ export async function Footer() {
         link: {
           url: "/products",
           label: {
-            "en": "Catalog",
-            "ru": "Каталог"
+            en: "Catalog",
+            ru: "Каталог",
           },
         },
       },
@@ -47,8 +45,8 @@ export async function Footer() {
         link: {
           url: "/contacts",
           label: {
-            "en": "Contacts",
-            "ru": "Контакты"
+            en: "Contacts",
+            ru: "Контакты",
           },
         },
       },
@@ -71,23 +69,22 @@ export async function Footer() {
       },
     ],
     policy: [
-      { 
+      {
         url: "/privacy-policy",
         label: {
           en: "Privacy Policy",
           ru: "Политика конфиденциальности",
-        } 
+        },
       },
       {
         url: "/terms-and-conditions",
         label: {
           en: "Terms & Conditions",
-          ru: "Условия использования"
-        }
-      }
-    ]
-  } 
-
+          ru: "Условия использования",
+        },
+      },
+    ],
+  };
 
   return (
     <footer className="bg-secondary dark:bg-card text-foreground w-full">
@@ -95,42 +92,48 @@ export async function Footer() {
         <div className="w-full flex flex-col xl:flex-row justify-between gap-4 xl:gap-8">
           {/* <Logo logo={footer.logo} /> */}
 
-          <p className="fl-text-80/140 text-foreground font-medium">{SITE_NAME}</p>
+          <p className="fl-text-80/140 text-foreground font-medium">
+            {SITE_NAME}
+          </p>
           <div className="inline-flex py-8 xl:py-16 items-start md:flex-row fl-gap-16/32 md:items-start">
             {/* <ThemeSelector /> */}
             <div className="flex flex-col fl-gap-4/16">
-              <h3 className="mb-2 text-center fl-text-20/24">{t("headers.resources")}</h3>
+              <h3 className="mb-2 text-center fl-text-20/24">
+                {t("headers.resources")}
+              </h3>
               <nav className="flex flex-col fl-gap-4/16">
-                {footer?.navItems?.map(({ link: {url, label} }, index) =>  (
-                    <CMSLink
-                      size={"sm"}
-                      label={label[lang]}
-                      className={btnVariants({
-                        variant: "ghost",
-                        className: "w-full px-8! fl-text-20/24",
-                      })}
-                      key={String(index)}
-                      url={url}
-                    />
-                  )
-                )}
+                {footer?.navItems?.map(({ link: { url, label } }, index) => (
+                  <CMSLink
+                    size={"sm"}
+                    label={label[lang]}
+                    className={btnVariants({
+                      variant: "ghost",
+                      className: "w-full px-8! fl-text-20/24",
+                    })}
+                    key={String(index)}
+                    url={url}
+                  />
+                ))}
               </nav>
             </div>
 
             <div className="flex flex-col fl-gap-4/16">
-              <h3 className="mb-2 text-center fl-text-20/24">{t("headers.followUs")}</h3>
+              <h3 className="mb-2 text-center fl-text-20/24">
+                {t("headers.followUs")}
+              </h3>
+           
               <div className="flex flex-col fl-gap-4/16">
-                {footer.socialLinks?.map(({ link }, index: number) =>
-                   <CMSLink
-                     size={"sm"}
-                     key={String(index)}
-                     {...link}
-                     className={btnVariants({
-                       variant: "ghost",
-                       className: "w-full px-8! fl-text-20/24",
-                     })}
-                   />
-                  )}
+                {footer.socialLinks?.map(({ link }, index: number) => (
+                  <CMSLink
+                    size={"sm"}
+                    key={String(index)}
+                    {...link}
+                    className={btnVariants({
+                      variant: "ghost",
+                      className: "w-full px-8! fl-text-20/24",
+                    })}
+                  />
+                ))}
               </div>
             </div>
           </div>

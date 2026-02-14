@@ -23,8 +23,8 @@ export function Nav({ navigationItems, afterItems, className }: Props) {
   return (
     <nav
       className={cn(
-        "flex flex-col items-start lg:items-start gap-1 fl-px-12/24 fl-py-12/24 overflow-x-scroll lg:overflow-x-auto",
-        className, // lg:flex-col  flex-row
+        "flex flex-col items-start lg:items-start gap-2 fl-px-12/24 fl-py-12/24 overflow-x-scroll lg:overflow-x-auto",
+        className, 
       )}
     >
       {/* <ScrollArea className="w-full max-w-full !h-full"> */}
@@ -44,12 +44,14 @@ export function Nav({ navigationItems, afterItems, className }: Props) {
             ),
           })}
         >
-          <span className="p-1 lg:p-2 bg-secondary rounded-full w-fit lg:mr-3">
-            <item.icon className="size-4 lg:size-5" />
+          <span className="p-2 lg:p-2 bg-secondary rounded-full mr-1 w-fit lg:mr-3">
+            <item.icon className="size-4" />
           </span>
-          <span className="text-left fl-text-16/20">{item.label}</span>
+          <span className="text-left fl-text-20/24">
+            {item.label}
+          </span>
           {item.badge && (
-            <Badge variant="secondary" className="size-5 text-xs">
+            <Badge variant="secondary" className="size-5">
               {item.badge}
             </Badge>
           )}

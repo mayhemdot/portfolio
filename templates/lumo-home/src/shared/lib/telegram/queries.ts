@@ -1,32 +1,32 @@
-import { TG_URL } from '@/shared/lib/telegram/data'
-import { restApi } from '@/shared/utils/restApi'
+import { TG_URL } from "@/shared/lib/telegram/data";
+import { restApi } from "@/shared/utils/restApi";
 
 // https://api.telegram.org/bot123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11/getMe
 
-const BOT_PREFIX = '/bot'
-const QUERY_BOT = `${TG_URL}${BOT_PREFIX}`
+const BOT_PREFIX = "/bot";
+const QUERY_BOT = `${TG_URL}${BOT_PREFIX}`;
 
 type UserInfo = {
-  id: number
-  is_bot: boolean
-  first_name: string
-  username: string
-  can_join_groups: boolean
-  can_read_all_group_messages: boolean
-  supports_inline_queries: boolean
-  can_connect_to_business: boolean
-  has_main_web_app: boolean
-}
+	id: number;
+	is_bot: boolean;
+	firstName: string;
+	username: string;
+	can_join_groups: boolean;
+	can_read_all_group_messages: boolean;
+	supports_inline_queries: boolean;
+	can_connect_to_business: boolean;
+	has_main_web_app: boolean;
+};
 
 type TelegramBotErrorResult = {
-  error_code: number
-  description: string
-}
+	error_code: number;
+	description: string;
+};
 
 type TGBotResponse<T> = {
-  ok: boolean
-  result: T | TelegramBotErrorResult
-}
+	ok: boolean;
+	result: T | TelegramBotErrorResult;
+};
 
 /**
  * Fetches information about the bot via the Telegram API.
@@ -35,56 +35,58 @@ type TGBotResponse<T> = {
  */
 
 export async function getMe() {
-  const response = await restApi<TGBotResponse<UserInfo>>(
-    `${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/getMe`,
-  )
+	const response = await restApi<TGBotResponse<UserInfo>>(
+		`${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/getMe`,
+	);
 
-  if (!response) {
-    throw Error('Telegram API error: No response')
-  }
+	if (!response) {
+		throw Error("Telegram API error: No response");
+	}
 
-  const { ok, result } = response
+	const { ok, result } = response;
 
-  if (!ok) {
-    const resp = response.result as TelegramBotErrorResult
+	if (!ok) {
+		const resp = response.result as TelegramBotErrorResult;
 
-    throw new Error(
-      `Telegram API error (${resp?.error_code || 400}): ${resp?.description || 'No description'}`,
-    )
-  }
-  return result
+		throw new Error(
+			`Telegram API error (${resp?.error_code || 400}): ${
+				resp?.description || "No description"
+			}`,
+		);
+	}
+	return result;
 }
 
 type SentMessageUser = {
-  id: number
-  is_bot: boolean
-  first_name: string
-  username?: string
-  language_code?: string
-}
+	id: number;
+	is_bot: boolean;
+	firstName: string;
+	username?: string;
+	language_code?: string;
+};
 
 type SentMessageChat = {
-  id: number
-  first_name?: string
-  last_name?: string
-  username?: string
-  type: 'private' | 'group' | 'supergroup' | 'channel'
-}
+	id: number;
+	firstName?: string;
+	last_name?: string;
+	username?: string;
+	type: "private" | "group" | "supergroup" | "channel";
+};
 
 type TGMessageEntity = {
-  offset: number
-  length: number
-  type: 'bot_command' | string
-}
+	offset: number;
+	length: number;
+	type: "bot_command" | string;
+};
 
 type SentMessage = {
-  message_id: number
-  from: SentMessageUser
-  chat: SentMessageChat
-  date: number
-  text: string
-  entities?: TGMessageEntity[]
-}
+	message_id: number;
+	from: SentMessageUser;
+	chat: SentMessageChat;
+	date: number;
+	text: string;
+	entities?: TGMessageEntity[];
+};
 
 /**
  * Send a message to the specified chat.
@@ -104,35 +106,37 @@ type SentMessage = {
  */
 
 export async function sendMessage(chatId: string, text: string) {
-  const response = await restApi<TGBotResponse<SentMessage>>(
-    `${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/sendMessage`,
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-      }),
-    },
-  )
-  if (!response) {
-    throw new Error('Telegram API error (400): No response')
-  }
+	const response = await restApi<TGBotResponse<SentMessage>>(
+		`${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/sendMessage`,
+		{
+			method: "POST",
+			body: JSON.stringify({
+				chat_id: chatId,
+				text,
+			}),
+		},
+	);
+	if (!response) {
+		throw new Error("Telegram API error (400): No response");
+	}
 
-  if (!response.ok) {
-    const resp = response.result as TelegramBotErrorResult
+	if (!response.ok) {
+		const resp = response.result as TelegramBotErrorResult;
 
-    throw new Error(
-      `Telegram API error (${resp?.error_code || 400}): ${resp?.description || 'No description'}`,
-    )
-  }
+		throw new Error(
+			`Telegram API error (${resp?.error_code || 400}): ${
+				resp?.description || "No description"
+			}`,
+		);
+	}
 
-  return response.result
+	return response.result;
 }
 
 type TelegramUpdate = {
-  update_id: number
-  message?: SentMessage
-}
+	update_id: number;
+	message?: SentMessage;
+};
 
 /**
  * Retrieves any new updates for the bot from the Telegram API.
@@ -141,21 +145,23 @@ type TelegramUpdate = {
  * @see https://core.telegram.org/bots/api#getupdates
  */
 export async function getUpdates() {
-  const response = await restApi<TGBotResponse<TelegramUpdate[]>>(
-    `${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/getUpdates`,
-  )
+	const response = await restApi<TGBotResponse<TelegramUpdate[]>>(
+		`${QUERY_BOT}${process.env.TELEGRAM_API_KEY}/getUpdates`,
+	);
 
-  if (!response) {
-    throw new Error('Telegram API error (400): No response')
-  }
+	if (!response) {
+		throw new Error("Telegram API error (400): No response");
+	}
 
-  if (!response.ok) {
-    const resp = response.result as TelegramBotErrorResult
-    // console.log('[getUpdates] ', resp)
-    throw new Error(
-      `Telegram API error (${resp?.error_code || 400}): ${resp?.description || 'No description'}`,
-    )
-  }
+	if (!response.ok) {
+		const resp = response.result as TelegramBotErrorResult;
+		// console.log('[getUpdates] ', resp)
+		throw new Error(
+			`Telegram API error (${resp?.error_code || 400}): ${
+				resp?.description || "No description"
+			}`,
+		);
+	}
 
-  return response.result
+	return response.result;
 }

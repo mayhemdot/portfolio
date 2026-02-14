@@ -1,35 +1,70 @@
-import { redirect } from "next/navigation";
-import CheckoutClient from "@/modules/checkout/ui/checkout";
+import type { Metadata } from "next";
+import { cache } from "react";
+import { getLang, type Lang, type LocaleCode } from "@/i18n/localization";
+import { CATEGORIES } from "@/modules/categories/model/data";
+import { Category } from "@/modules/categories/model/types";
 import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
-import { getLang, LocaleCode } from "@/i18n/localization";
-import { getShippings } from "@/modules/shipping/queries/getShippings";
-import { retrieveCustomer } from "@/modules/users/actions/getUser";
+import { generateMeta } from "@/shared/utils/generateMeta";
+import { CategoryClient } from "./page.client";
 
-type Props = {
-	params: Promise<{
-		locale: LocaleCode;
-	}>;
+type Args = {
+  params: Promise<{
+    locale: LocaleCode;
+    slug: string;
+  }>;
 };
 
-const BREADCRUMBS = {
-	ru: [
-		{ label: "Главная", url: "/" },
-		{ label: "Категории", url: "!" },
-	],
-	en: [
-		{ label: "Home", url: "/" },
-		{ label: "Categories", url: "!" },
-	],
-};
+export default async function Page({ params }: Args) {
+  const { slug, locale } = await params;
 
-export default async function Page({ params }: Props) {
-	const { locale } = await params;
-	const lang = getLang(locale);
+  const lang = getLang(locale);
 
-	return (
-		<div className='container mx-auto'>
-			<DynamicBreadcrumb breadcrumbs={BREADCRUMBS[lang]} />
-			<div>{}</div>
-		</div>
-	);
+  const category = queryCategoryBySlug({ slug, locale });
+
+  return (
+    <div className="fl-px-8/32 3xl:px-0! container mx-auto">
+      <DynamicBreadcrumb padding={false} breadcrumbs={generateBreadcrumbs(category, lang)} />
+      <CategoryClient categoryRaw={category.raw} locale={locale as LocaleCode} />
+    </div>
+  );
+}
+
+const queryCategoryBySlug = cache(
+  ({ slug, locale }: { slug: string; locale: LocaleCode }) => {
+    if (!slug) throw new Error("Slug not found");
+
+    const categoryRaw = CATEGORIES.find((c) => c.slug === slug);
+
+    if (!categoryRaw) throw new Error("Product not found");
+
+    return new Category(categoryRaw, locale);
+  },
+);
+
+export async function generateMetadata({
+  params: paramsPromise,
+}: Args): Promise<Metadata> {
+  const { slug, locale } = await paramsPromise;
+
+  const product = queryCategoryBySlug({ slug, locale });
+
+  return generateMeta({ doc: product });
+}
+
+function generateBreadcrumbs(
+  category: Category,
+  lang: Lang,
+): { label: string; url: string }[] {
+  return {
+    ru: [
+      { label: "Главная", url: "/" },
+      { label: "Категории", url: "/categories" },
+      { label: category.name, url: "!" },
+    ],
+    en: [
+      { label: "Home", url: "/" },
+      { label: "Categories", url: "/categories" },
+      { label: category.name, url: "!" },
+    ],
+  }[lang];
 }

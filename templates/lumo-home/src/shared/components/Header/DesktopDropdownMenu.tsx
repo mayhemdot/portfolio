@@ -27,7 +27,7 @@ export function DesktopDropdownMenu({ user }: Props) {
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className='w-56' align='end'>
 				<div className='flex flex-col space-y-1 p-2 leading-none'>
-					<p className='font-medium'>{user?.first_name || "Аноним"}</p>
+					<p className='font-medium'>{user?.firstName || "Аноним"}</p>
 					{user?.email && (
 						<p className='w-50 text-muted-foreground truncate text-sm'>
 							{user?.email || "email"}
@@ -38,13 +38,13 @@ export function DesktopDropdownMenu({ user }: Props) {
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>
 					<Link href={ROUTES.PROFILE} className='flex grow items-center py-1'>
-						<UserIcon className='size-5 mr-2' /> Аккаунт
+						<UserIcon className='size-4 mr-2' /> Аккаунт
 					</Link>
 				</DropdownMenuItem>
 
 				<DropdownMenuItem>
 					<Link href={ROUTES.ORDERS} className='flex grow items-center py-1'>
-						<Package className='size-5 mr-2' /> Заказы
+						<Package className='size-4 mr-2' /> Заказы
 					</Link>
 				</DropdownMenuItem>
 				<DropdownMenuItem>
@@ -52,7 +52,7 @@ export function DesktopDropdownMenu({ user }: Props) {
 						href={ROUTES.PROFILE_EDIT}
 						className='flex grow items-center py-1'
 					>
-						<Settings className='size-5 mr-2' /> Настройки
+						<Settings className='size-4 mr-2' /> Настройки
 					</Link>
 				</DropdownMenuItem>
 				<DropdownMenuSeparator />

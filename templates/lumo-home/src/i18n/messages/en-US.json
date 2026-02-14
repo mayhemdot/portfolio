@@ -1,5 +1,13 @@
 {
 	"Global": {
+    "Headers": {
+      "Mobile":{
+        "Menu": "Menu",
+        "AccountLink": "Account",
+        "OrderLink": "My orders",
+        "SettingsLink": "Settings"
+      }
+    },
 		"Messages": {
 			"demo": {
 				"title": "This is a demo version of the website.",
@@ -33,10 +41,12 @@
 			"policy": {
 				"rights": "All rights reserved"
 			}
-		}
-	},
-	"buttons": {
-		"goBack": "Go Back"
+		},
+    "Buttons": {
+      "goBack": "Go Back",
+      "logOut": "Log Out",
+      "logIn": "Log In"
+    }
 	},
 	"notFoundPage": {
 		"title": "Page Not Found. Error 404"
@@ -350,5 +360,12 @@
 			"noPhone": "No phone",
 			"changePassword": "Change Password"
 		}
+	},
+	"FaqPage": {
+		"title": "Frequently Asked Questions",
+		"description": "",
+		"adminLink": "Visit the admin dashboard",
+		"descriptionEnd": "to make your account and seed content for your website.",
+		"intro": "Find answers to the most common questions about our products, orders, and services."
 	}
 }

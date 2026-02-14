@@ -1,10 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import localization, { type LocaleCode } from "@/i18n/localization";
-// import type en from "./messages/en-US.json";
-// import type ru from "./messages/ru-RU.json";
 import { routing } from "./routing";
-
-// type Messages = typeof en | typeof ru;
 
 // declare global {
 //   // Use type safe message keys with `next-intl`

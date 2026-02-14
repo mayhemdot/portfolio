@@ -32,7 +32,7 @@ export function CartItemPreviewLink({
             />
           </div>
         )}
-        <div className="flex-1 max-w-[110px] xs:max-w-[150px] sm:max-w-[260px] min-w-0 w-full">
+        <div className="flex-1 xs:max-w-[150px] sm:max-w-[260px] min-w-0 w-full">
           <h4 className="fl-text-16/20 font-medium whitespace-nowrap! truncate text-ellipsis w-full max-w-full">
             {product.title}
           </h4>

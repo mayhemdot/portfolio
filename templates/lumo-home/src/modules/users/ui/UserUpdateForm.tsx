@@ -4,74 +4,31 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { InputField } from "@/shared/components/InputField";
 import { Button } from "@/shared/components/ui/button";
-
-// import { Form } from "@/shared/components/ui/form";
-
-// import { useMutation } from '@tanstack/react-query'
-// import { restApi } from "@/shared/utils/restApi";
-
-// import {
-//   type UpdateProfileSchema,
-//   updateProfileSchema,
-// } from "../modules/schemas";
-
-// import { stringify } from 'qs-esm'
+import { User } from "@/modules/users/model/types";
 
 type Props = {
-	user: any;
+	user: User;
 	avatarUrl: string;
 };
 
 export function UserUpdateForm({ user, avatarUrl }: Props) {
-	// const { mutate: updateUser } = useMutation({
-	//   mutationFn: (data: UpdateProfileSchema) =>
-	//     restApi(
-	//       `/api/users${stringify(
-	//         {
-	//           where: {
-	//             id: {
-	//               equals: user.id,
-	//             },
-	//           },
-	//         },
-	//         { addQueryPrefix: true },
-	//       )}`,
-	//       {
-	//         method: 'PATCH',
-	//         body: JSON.stringify(data),
-	//       },
-	//     ),
-	//   onSuccess: () => toast.success('Profile updated successfully!'),
-	//   onError: () => toast.error('Something went wrong!'),
-	// })
-
-	// const form = useForm<UpdateProfileSchema>({
-	//   resolver: zodResolver(updateProfileSchema),
-	//   defaultValues: {
-	//     userId: user.id,
-	//     name: user.name || '',
-	//     phoneNumber: user.phoneNumber || '',
-	//   },
-	// })
-
-	// const { isLoading, isSubmitting, errors } = form.formState
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [errors, setErrors] = useState<any>({});
 
 	const handleSignin = (value: any) => {
 		toast.success("Profile updated successfully!");
-	}; //updateUser(value)
+	};
 	return (
 		<form onSubmit={handleSignin} className='mb-4 space-y-4'>
-			<h3 className='fl-text-20/32 '>Basic information</h3>
+			<h3 className='fl-text-20/32'>Basic information</h3>
 			<div className='flex flex-col gap-4 md:flex-row'>
 				<InputField
 					label={""}
 					type='number'
 					name='userId'
 					disabled={isSubmitting || isLoading}
-					className='hidden w-full'
+					className='bg-background! hidden w-full'
 					wrapperClassName='hidden'
 				/>
 
@@ -81,7 +38,7 @@ export function UserUpdateForm({ user, avatarUrl }: Props) {
 					name='name'
 					placeholder='Name'
 					autoComplete='Name'
-					className='grow'
+					className='bg-background! grow'
 					wrapperClassName='grow'
 					disabled={isSubmitting || isLoading}
 				/>
@@ -92,6 +49,7 @@ export function UserUpdateForm({ user, avatarUrl }: Props) {
 					name='phoneNumber'
 					placeholder='Phone number'
 					wrapperClassName='grow'
+					className='bg-background!'
 					disabled={isSubmitting || isLoading}
 				/>
 			</div>
