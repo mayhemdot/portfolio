@@ -21,21 +21,26 @@ export function AccordionBlock(props: AccordionBlockProps) {
 	const { introContent, items } = props;
 
 	return (
-		<section className='mb-24'>
+		<section className='min-h-dvh mb-24'>
 			{introContent && (
-				<div className='fl-px-16/32 mx-auto  mb-12 max-w-3xl rounded-3xl'>
+				<div className='fl-px-16/32 mx-auto mb-12 max-w-3xl rounded-3xl'>
 					<Text
 						comp='h1'
 						variant={"secondary"}
 						size='smd'
-						className='ms-0 mt-4 max-w-3xl'
+						className='font-semibold! ms-0 mt-4 max-w-3xl'
 					>
 						{introContent}
 					</Text>
 				</div>
 			)}
-			<div className='bg-secondary  fl-py-8/16 fl-px-16/32 mx-auto max-w-3xl rounded-3xl'>
-				<Accordion type='single' collapsible className='w-full'>
+			<div className='bg-secondary fl-py-8/16 fl-px-16/32 mx-auto max-w-3xl rounded-3xl'>
+				<Accordion
+					defaultValue={String(items[0]?.id || 0)}
+					type='single'
+					collapsible
+					className='w-full'
+				>
 					{items?.map((item, i) => (
 						<AccordionItem
 							key={item.id || `item-${i}`}

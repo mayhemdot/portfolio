@@ -84,13 +84,19 @@ export const FormBlock: React.FC<
 										<div>
 											{t("form.policyLabel")}
 											{
-												<Link className='hover:underline' href='/policy'>
+												<Link
+													className='hover:underline'
+													href='/terms-and-conditions'
+												>
 													{t("form.policyAgreement")}
 												</Link>
 											}
 											{t("form.and")}
 											{
-												<Link className='hover:underline' href='/policy'>
+												<Link
+													className='hover:underline'
+													href='/privacy-policy'
+												>
 													{t("form.policyLink")}
 												</Link>
 											}

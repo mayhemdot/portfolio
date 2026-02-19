@@ -1,5 +1,6 @@
 import { createLoader, parseAsString } from "nuqs/server";
-import SearchInputClient from "./search";
+// import SearchInputClient from "./search-popup";
+import SearchDropdownMenu from "./search-dropdown-menu";
 
 export const pageSearchParams = {
 	query: parseAsString.withDefault("").withOptions({
@@ -14,44 +15,5 @@ type Props = {
 };
 
 export async function SearchInput({ searchParams }: Props) {
-	console.log(searchParams);
-	// const { query } = loadSearchParams(await searchParams)
-	// const payload = await getPayload({ config: config })
-
-	// const products = await payload.find({
-	//   collection: 'products',
-	//   depth: 1,
-	//   limit: 12,
-	//   pagination: false,
-	//   ...(query
-	//     ? {
-	//         where: {
-	//           or: [
-	//             {
-	//               title: {
-	//                 like: query,
-	//               },
-	//             },
-	//             {
-	//               'meta.description': {
-	//                 like: query,
-	//               },
-	//             },
-	//             {
-	//               'meta.title': {
-	//                 like: query,
-	//               },
-	//             },
-	//             {
-	//               slug: {
-	//                 like: query,
-	//               },
-	//             },
-	//           ],
-	//         },
-	//       }
-	//     : {}),
-	// })
-
-	return <SearchInputClient />;
+	return <SearchDropdownMenu />;
 }

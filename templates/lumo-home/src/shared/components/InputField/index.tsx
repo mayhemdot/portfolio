@@ -12,6 +12,7 @@ type Props<S> = {
 		href: string;
 		label: string;
 	};
+	ref?: any;
 	name: string; //Path<S>;
 	wrapperClassName?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -24,6 +25,7 @@ export function InputField<S>(params: Props<S>) {
 		type,
 		className,
 		link,
+		ref,
 		wrapperClassName,
 		...rest
 	} = params;
@@ -66,13 +68,14 @@ export function InputField<S>(params: Props<S>) {
 
 					<div className='relative'>
 						<Input
+							ref={ref}
 							id={name}
 							type={inputType}
 							{...rest}
 							hidden={hidden}
 							className={cn(
 								className,
-								"bg-background rounded-full! fl-text-16/20 h-10 px-4 md:h-12 xl:h-14"
+								"bg-background rounded-full! fl-text-16/20 h-10 px-4 md:h-12 xl:h-14",
 							)}
 						/>
 

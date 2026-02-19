@@ -1,13 +1,13 @@
 {
 	"Global": {
-    "Headers": {
-      "Mobile":{
-        "Menu": "Menu",
-        "AccountLink": "Account",
-        "OrderLink": "My orders",
-        "SettingsLink": "Settings"
-      }
-    },
+		"Headers": {
+			"Mobile": {
+				"Menu": "Menu",
+				"AccountLink": "Account",
+				"OrderLink": "My orders",
+				"SettingsLink": "Settings"
+			}
+		},
 		"Messages": {
 			"demo": {
 				"title": "This is a demo version of the website.",
@@ -20,6 +20,8 @@
 		},
 		"Search": {
 			"noProductsFound": "No products found",
+			"youSearched": "You searched",
+			"alsoSearch": "Others also search",
 			"form": {
 				"termPlaceholder": "Search products...",
 				"productName": "Name",
@@ -42,11 +44,11 @@
 				"rights": "All rights reserved"
 			}
 		},
-    "Buttons": {
-      "goBack": "Go Back",
-      "logOut": "Log Out",
-      "logIn": "Log In"
-    }
+		"Buttons": {
+			"goBack": "Go Back",
+			"logOut": "Log Out",
+			"logIn": "Log In"
+		}
 	},
 	"notFoundPage": {
 		"title": "Page Not Found. Error 404"
@@ -176,10 +178,10 @@
 			"forgotPassword": "Forgot your password?",
 			"submit": "Log in"
 		},
-    "meta": {
-      "title": "Login",
-      "description": "Login to your account"
-    }
+		"meta": {
+			"title": "Login",
+			"description": "Login to your account"
+		}
 	},
 	"ForgotPassword": {
 		"title": "Forgot your password?",
@@ -207,10 +209,10 @@
 			"repeatPasswordPlaceholder": "Repeat your password",
 			"submit": "Create Account"
 		},
-    "meta": {
-      "title": "Register",
-      "description": "Create your account"
-    }
+		"meta": {
+			"title": "Register",
+			"description": "Create your account"
+		}
 	},
 	"ResetPassword": {
 		"title": "Set a new password",
@@ -375,5 +377,83 @@
 		"adminLink": "Visit the admin dashboard",
 		"descriptionEnd": "to make your account and seed content for your website.",
 		"intro": "Find answers to the most common questions about our products, orders, and services."
+	},
+	"PrivacyPolicyPage": {
+		"introText": "Learn about how we process your personal data on our website.",
+		"intro": {
+			"title": "1. General Provisions",
+			"content": "This Privacy Policy defines the procedure for processing and protecting personal data of users of our online store. We strive to ensure the confidentiality of your personal information and guarantee its protection in accordance with applicable law."
+		},
+		"collection": {
+			"title": "2. Collection of Personal Data",
+			"content": "We collect the following data when you interact with our website:\n\n• Name and contact information (email, phone) when registering or placing an order\n• Delivery address for order fulfillment\n• Information about viewed products and preferences\n• Order and purchase history data\n\nData collection is carried out only with your consent or when necessary to fulfill a contract."
+		},
+		"usage": {
+			"title": "3. Use of Personal Data",
+			"content": "The collected data is used for:\n\n• Processing and delivering orders\n• Contacting you regarding your order\n• Improving service quality and site functionality\n• Sending informational materials (with your consent)\n• Conducting market research in anonymized form"
+		},
+		"storage": {
+			"title": "4. Storage and Protection of Data",
+			"content": "We apply organizational and technical measures to protect your personal data from unauthorized access, destruction, alteration, blocking, copying and distribution. Data is stored for the period necessary for processing purposes, or until you withdraw your consent to processing."
+		},
+		"sharing": {
+			"title": "5. Disclosure to Third Parties",
+			"content": "We do not disclose your personal data to third parties, except in the following cases:\n\n• Transfer of data to delivery services for order fulfillment\n• Legal requirements\n• Transfer with your explicit consent"
+		},
+		"rights": {
+			"title": "6. User Rights",
+			"content": "You have the right to:\n\n• Obtain information about the data collected about you\n• Request correction of inaccurate data\n• Withdraw consent for personal data processing\n• Request deletion of your personal data\n\nTo exercise these rights, contact us through the contact details provided."
+		},
+		"cookies": {
+			"title": "7. Cookies",
+			"content": "Our website uses cookies to ensure proper functioning, analyze traffic and improve user experience. You can configure your browser to block cookies; however, this may affect the functionality of the site."
+		},
+		"contact": {
+			"title": "8. Contact",
+			"content": "For any questions regarding personal data processing, you can contact us through the contact details provided on the website. We undertake to consider your requests as soon as possible."
+		}
+	},
+	"TermsOfServicePage": {
+		"introText": "Please read the terms of use of our online store and the rules for making purchases.",
+		"intro": {
+			"title": "1. General Provisions",
+			"content": "This User Agreement governs the use of our website and the terms of making purchases in our online store. By placing an order or registering on the site, you confirm your acceptance of these terms. We recommend that you read this agreement carefully."
+		},
+		"useOfService": {
+			"title": "2. Use of Service",
+			"content": "The website is intended for browsing products, placing orders, and obtaining information about our company. It is prohibited to use the site for unlawful purposes, post false information, disrupt the service, or attempt to gain unauthorized access to data. We reserve the right to restrict access to the site in case of violation of the rules of use."
+		},
+		"registration": {
+			"title": "3. Registration and Account",
+			"content": "Registering on the site allows you to place orders faster, track delivery status, and save favorite items. You are responsible for keeping your login credentials secure. In case of lost access, contact us for account recovery. We recommend providing accurate contact information when registering."
+		},
+		"orders": {
+			"title": "4. Orders and Payment",
+			"content": "An order is considered placed after confirmation by a manager. Available payment methods are indicated on the site at the time of checkout. Prices and product availability may change without prior notice; however, already placed orders are fulfilled under the terms fixed at the time of order. Payment for an order confirms your agreement with the price and product specifications."
+		},
+		"delivery": {
+			"title": "5. Delivery",
+			"content": "Delivery times and costs depend on the selected method and region. Estimated delivery times are indicated when placing an order. The risk of accidental loss or damage to goods passes to you upon receipt. Please check the completeness and condition of the goods upon delivery; in case of damage, note this on the delivery document."
+		},
+		"returns": {
+			"title": "6. Returns and Exchanges",
+			"content": "You have the right to return goods of proper quality within 14 days if they have not been used and the original condition is preserved. Returns of defective goods are handled in accordance with applicable law. To initiate a return, contact us through the contact details on the website. Delivery costs for returns initiated by the customer are not refunded."
+		},
+		"intellectualProperty": {
+			"title": "7. Intellectual Property",
+			"content": "All materials on the site — texts, images, logos, design — are intellectual property and are protected by law. Copying, reproducing, or distributing site materials without written permission of the rights holder is prohibited, except where expressly permitted by law."
+		},
+		"liability": {
+			"title": "8. Liability",
+			"content": "We strive to ensure the accuracy of product information but do not guarantee the absence of errors. In case of discrepancies, the information specified in the order confirmation shall prevail. Our liability is limited to the value of the order, except where a higher liability is provided by law."
+		},
+		"changes": {
+			"title": "9. Changes to Terms",
+			"content": "We reserve the right to modify these terms. The current version is always available on this page. Changes take effect upon publication. Continued use of the site after changes constitutes your acceptance of the new terms. We recommend that you periodically review this agreement."
+		},
+		"contact": {
+			"title": "10. Contact",
+			"content": "For any questions regarding the terms of use, orders, or customer service, you can contact us through the contact details provided on the website. We undertake to consider your requests within a reasonable time."
+		}
 	}
 }

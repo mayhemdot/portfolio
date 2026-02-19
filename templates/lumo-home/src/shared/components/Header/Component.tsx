@@ -10,77 +10,82 @@ import { Logo } from "@/shared/components/Header/Logo";
 import { MobileMenuSheet } from "@/shared/components/Header/MobileMenu";
 import { CMSLink } from "@/shared/components/Link";
 import { btnVariants } from "@/shared/components/ui/button";
+import { retrieveCustomer } from "@/modules/users/actions/getUser";
 
 type Props = {
-  user?: User | null;
-  searchIsHidden?: boolean;
+	user?: User | null;
+	searchIsHidden?: boolean;
 };
 
 export async function Header(props: Props) {
-  // const user = await getCurrentUserAction({ depth: 2, redirectUrl: null });
-  const user: User = ADMIN;
+	// const user = await getCurrentUserAction({ depth: 2, redirectUrl: null });
+	const user: User = await retrieveCustomer();
 
-  return <HeaderBlock {...{ ...props, user: user }} />;
+	return <HeaderBlock {...{ ...props, user: user }} />;
 }
 
 export async function HeaderBlock(props: Props) {
-  const { searchIsHidden = false, user } = props;
-  const t = await getTranslations("HeaderBlock");
+	const { searchIsHidden = false, user } = props;
+	const t = await getTranslations("HeaderBlock");
 
-  // const header: HeaderType = await getCachedGlobal("header", 1)();
-  const HEADER = {
-    navItems: [
-      {
-        link: {
-          href: "/",
-          label: "Home",
-        },
-      },
-      {
-        link: {
-          href: "/about",
-          label: "About",
-        },
-      },
-      {
-        link: {
-          href: "/contact",
-          label: "Contact",
-        },
-      },
-    ],
-    logo: null,
-  };
+	// const header: HeaderType = await getCachedGlobal("header", 1)();
+	const HEADER = {
+		navItems: [
+			{
+				link: {
+					href: "/",
+					label: "Home",
+				},
+			},
+			{
+				link: {
+					href: "/about",
+					label: "About",
+				},
+			},
+			{
+				link: {
+					href: "/contact",
+					label: "Contact",
+				},
+			},
+		],
+		logo: null,
+	};
 
-  return (
-    <header className="fl-pt-16/24 fl-px-8/32 sticky z-50 flex w-full items-center justify-between self-center">
-      <Logo />
-      <div className="fl-gap-x-8/16 flex items-center">
-        {!searchIsHidden && (
-          <div className={"hidden lg:block"}>
-            {HEADER.navItems?.map((item, index) => (
-              <CMSLink size={"sm"} key={String(index)} {...item} />
-            ))}
-            <SearchInput />
-          </div>
-        )}
-      
-        <div className={"hidden lg:flex items-center bg-secondary p-2 md:p-3 rounded-full"}>
-           <LanguageSwitcher isMobile={false} />
-        </div>
-         
-        <div className="fl-gap-x-12/16 fl-px-16/24 bg-secondary flex items-center rounded-full py-3">
-          <CartSheet />
-          {user ? (
-            <DesktopDropdownMenu user={user} />
-          ) : (
-            <Link className={btnVariants({})} href={"/login"}>
-              {t("logIn")}
-            </Link>
-          )}
-          <MobileMenuSheet user={user} />
-        </div>
-      </div>
-    </header>
-  );
+	return (
+		<header className='fl-pt-16/24 fl-px-8/32 sticky z-50 flex w-full items-center justify-between self-center'>
+			<Logo />
+			<div className='fl-gap-x-8/16 flex items-center'>
+				{!searchIsHidden && (
+					<div className={"hidden lg:block"}>
+						{HEADER.navItems?.map((item, index) => (
+							<CMSLink size={"sm"} key={String(index)} {...item} />
+						))}
+						<SearchInput />
+					</div>
+				)}
+
+				<div
+					className={
+						"bg-secondary hidden items-center rounded-full p-2 md:p-3 lg:flex"
+					}
+				>
+					<LanguageSwitcher isMobile={false} />
+				</div>
+
+				<div className='fl-gap-x-12/16 fl-px-16/24 bg-secondary flex items-center rounded-full py-3'>
+					<CartSheet />
+					{user ? (
+						<DesktopDropdownMenu user={user} />
+					) : (
+						<Link className={btnVariants({})} href={"/login"}>
+							{t("logIn")}
+						</Link>
+					)}
+					<MobileMenuSheet user={user} />
+				</div>
+			</div>
+		</header>
+	);
 }

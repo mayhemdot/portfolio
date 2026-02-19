@@ -17,32 +17,44 @@ import type { LocaleCode } from "@/i18n/localization";
 
 export type Props = {
 	title?: string;
+	name?: string;
 	products: ProductRaw[];
 	inCatalogButton?: boolean;
+	showNavigation?: boolean;
 	locale: LocaleCode;
+	relationTo: string;
 };
 
 export function SliderArchive(props: Props) {
 	const {
+		name,
+		relationTo,
 		products: productsRaw,
 		title,
 		locale,
+		showNavigation = true,
 		inCatalogButton = true,
 	} = props;
+
 	const products = productsRaw.map(product => new Product(product, locale));
+
 	const t = useTranslations("SliderArchive");
 
 	const swiperRef = useRef<any>(null);
 
 	return (
 		<section className='fl-py-12/32 relative block h-fit w-full overflow-y-clip'>
-			<div className='relative mb-4 flex w-full justify-between gap-2 md:mb-8'>
-				<h3 className='fl-text-20/32'>{title}</h3>
-				<div className='space-x-2 md:space-x-4'>
-					<SlidePrevButton swiperRef={swiperRef} />
-					<SlideNextButton swiperRef={swiperRef} />
+			{(title || (showNavigation && productsRaw.length > 4)) && (
+				<div className='relative mb-4 flex w-full justify-between gap-2 md:mb-8'>
+					{title && <h3 className='fl-text-20/32'>{title}</h3>}
+					{showNavigation && (
+						<div className='space-x-2 md:space-x-4'>
+							<SlidePrevButton swiperRef={swiperRef} />
+							<SlideNextButton swiperRef={swiperRef} />
+						</div>
+					)}
 				</div>
-			</div>
+			)}
 			<Swiper
 				onSwiper={swiper => {
 					swiperRef.current = swiper;
@@ -51,7 +63,7 @@ export function SliderArchive(props: Props) {
 				modules={[Navigation, EffectFlip]}
 				direction='horizontal'
 				// autoHeight={true}
-				className='relative max-h-full' // h-[734px]
+				className='relative max-h-full'
 				// className="relative !w-full !mx-0 [.swiper-wrapper]:h-auto [&>.swiper-wrapper]:flex"
 				allowTouchMove={true}
 				loop={false}
@@ -75,11 +87,12 @@ export function SliderArchive(props: Props) {
 					// },
 				}}
 			>
-				{products?.map((product, index: number) => (
-					<SwiperSlide key={product.title + index.toString()}>
+				{products?.map(product => (
+					<SwiperSlide key={product.id}>
 						<Card
 							doc={product.raw}
-							relationTo='products'
+							name={name}
+							relationTo={relationTo}
 							showCategories
 							title={product.title}
 							locale={locale}
@@ -109,8 +122,6 @@ export function SlideNextButton({
 }: {
 	swiperRef: React.RefObject<SwiperType>;
 }) {
-	const swiper = useSwiper();
-
 	return (
 		<Button size='icon' onClick={() => swiperRef.current?.slideNext()}>
 			<ArrowRightIcon />

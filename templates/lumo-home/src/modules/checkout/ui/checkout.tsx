@@ -157,7 +157,7 @@ export default function CheckoutClient({
 								name='phone'
 								className='bg-background!'
 								placeholder={t(
-									"customerInformation.form.phoneNumberPlaceholder"
+									"customerInformation.form.phoneNumberPlaceholder",
 								)}
 								required
 							/>
@@ -168,7 +168,7 @@ export default function CheckoutClient({
 					<Card className='bg-secondary rounded-3xl'>
 						<CardHeader>
 							<CardTitle className='flex items-center gap-2'>
-								<MapPin className='size-5' />
+								<MapPin className='size-5 shrink-0' />
 								{t("shippingAddress.title")}
 							</CardTitle>
 						</CardHeader>
