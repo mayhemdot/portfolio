@@ -72,7 +72,14 @@
 			"title": "Step into a world of beauty with\r\n our meticulously curated\r\n collection of furniture"
 		},
 		"MediaSection": {
-			"title": "    The highest quality standards\r\n and align with our commitment"
+			"title": "Where Design Meets Presence",
+      "description": "Bold form. Refined material. Absolute precision.\r\nCrafted in tinted acrylic, each piece balances lightness and strength — designed to be seen, designed to be remembered."
+		},
+		"BenefitsSection": {
+			"title": "Why Choose Us",
+			"description": "We work for those who are tired of ordinary solutions. For those who choose style over compromise. For those who understand that interior design is an extension of personality. If you want your home, salon, office, or showroom to look like it stepped straight out of the pages of a glossy magazine — come directly to us.",
+			"qualityTitle": "Quality",
+			"qualityDescription": "Quality is not a promise. It is a standard we do not negotiate. Our acrylic is not a compromise material. It offers high optical clarity, density, durability, and crystal transparency without distortion. It holds its shape. It carries weight. It carries status."
 		},
 		"FormSection": {
 			"title": "Stay with us and get exclusive\r\n discounts and offers",

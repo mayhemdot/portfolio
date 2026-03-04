@@ -57,7 +57,7 @@ function PaginationLink({
 					variant: isActive ? "outline" : "ghost",
 					size,
 				}),
-				className
+				className,
 			)}
 			{...props}
 		/>
@@ -109,7 +109,7 @@ function PaginationEllipsis({
 			className={cn("size-9 flex items-center justify-center", className)}
 			{...props}
 		>
-			<MoreHorizontalIcon className='size-4' />
+			<MoreHorizontalIcon className='icon-size' />
 			<span className='sr-only'>More pages</span>
 		</span>
 	);

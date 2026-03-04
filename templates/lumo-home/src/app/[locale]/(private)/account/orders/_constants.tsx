@@ -37,22 +37,22 @@ export const getStatusColor = (status: OrderStatus) => {
 export const getStatusIcon = (status: OrderStatus) => {
 	switch (status) {
 		case "pending":
-			return <Package className='size-4' />;
+			return <Package className='icon-size' />;
 		case "delivering":
-			return <Truck className='size-4' />;
+			return <Truck className='icon-size' />;
 		case "waiting_for_capture":
-			return <CreditCard className='size-4' />;
+			return <CreditCard className='icon-size' />;
 		case "preparing":
-			return <RefreshCw className='size-4 animate-spin' />;
+			return <RefreshCw className='icon-size animate-spin' />;
 		case "paid":
-			return <CreditCard className='size-4' />;
+			return <CreditCard className='icon-size' />;
 		case "shipped":
-			return <Truck className='size-4' />;
+			return <Truck className='icon-size' />;
 		case "cancelled":
-			return <X className='size-4' />;
+			return <X className='icon-size' />;
 		case "refund_requested":
-			return <CurrencyIcon className='size-4' />;
+			return <CurrencyIcon className='icon-size' />;
 		default:
-			return <Package className='size-4' />;
+			return <Package className='icon-size' />;
 	}
 };

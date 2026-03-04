@@ -25,6 +25,7 @@ import { formatPrice } from "@/shared/utils/formatPrice";
 import { Shipping, ShippingRaw } from "@/modules/shipping/model/types";
 import { getCurrency, LocaleCode } from "@/i18n/localization";
 import toast from "react-hot-toast";
+import { Text } from "@/shared/components/Text";
 
 type Props = {
 	shippings: ShippingRaw[];
@@ -63,7 +64,6 @@ export default function CheckoutClient({
 				?.price) ||
 		0;
 
-	// console.log("shippingMethodSelected", shippings.map(s => s.raw.id), shippingMethodSelected)
 	const tax = subtotal * percentRate;
 	const total = subtotal + shipping + tax;
 
@@ -87,7 +87,7 @@ export default function CheckoutClient({
 					size='lg'
 				>
 					{t("orderSummary.completeOrderButton")}
-					{isLoading && <Loader2 className='ml-2 animate-spin' />}
+					{isLoading && <Loader2 className='icon-size ml-2 animate-spin' />}
 				</Button>
 			}
 		>
@@ -119,10 +119,20 @@ export default function CheckoutClient({
 												htmlFor={String(s.id)}
 												className='w-full! fl-text-16/20 flex h-10 justify-between font-medium md:h-12 xl:h-14'
 											>
-												<div className='fl-text-16/20 grow'>{s.name}</div>
-												<div className='fl-text-16/20 ml-auto w-fit'>
+												<Text
+													comp='span'
+													variant={"secondary"}
+													className='block grow'
+												>
+													{s.name}
+												</Text>
+												<Text
+													comp='span'
+													variant={"secondary"}
+													className='ml-auto block w-fit'
+												>
 													{s.prettyPrice()}
-												</div>
+												</Text>
 											</Label>
 										</div>
 									</div>
@@ -140,7 +150,7 @@ export default function CheckoutClient({
 					<Card className='bg-secondary h-fit rounded-3xl'>
 						<CardHeader>
 							<CardTitle className='flex items-center gap-2'>
-								<UserIcon className='size-5' />
+								<UserIcon className='icon-size' />
 								{t("customerInformation.title")}
 							</CardTitle>
 						</CardHeader>
@@ -168,7 +178,7 @@ export default function CheckoutClient({
 					<Card className='bg-secondary rounded-3xl'>
 						<CardHeader>
 							<CardTitle className='flex items-center gap-2'>
-								<MapPin className='size-5 shrink-0' />
+								<MapPin className='icon-size' />
 								{t("shippingAddress.title")}
 							</CardTitle>
 						</CardHeader>

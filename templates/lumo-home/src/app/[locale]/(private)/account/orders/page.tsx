@@ -1,4 +1,3 @@
-import OrderPageClient from "./page.client";
 import {
 	createLoader,
 	parseAsIndex,
@@ -6,14 +5,14 @@ import {
 	parseAsString,
 } from "nuqs/server";
 
+import OrderPageClient from "./page.client";
 import { Metadata } from "next";
 import { constructMetadata } from "@/shared/utils/meta";
 import { ROUTES } from "@/shared/utils/constants";
-import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
 import { OrderStatus } from "@/modules/orders/model/types";
 import { retrieveCustomer } from "@/modules/users/actions/getUser";
 import { searchOrders } from "@/modules/orders/queries/searchOrders";
-import { LocaleCode } from "@/i18n/localization";
+import type { LocaleCode } from "@/i18n/localization";
 
 export const metadata: Metadata = constructMetadata({
 	title: "Заказы",

@@ -4,45 +4,47 @@ import type { MediaType } from "@/shared/components/Media/types";
 import { SITE_NAME, SITE_TITLE } from "@/shared/utils/constants";
 import { getServerSideURL } from "./getUrl";
 import { mergeOpenGraph } from "./mergeOpenGraph";
+import { Lang } from "@/i18n/localization";
 
 // import { mergeOpenGraph } from "./mergeOpenGraph";
 
 const getImageURL = (image?: MediaType | null) => {
-  const serverUrl = getServerSideURL();
+	const serverUrl = getServerSideURL();
 
-  const url = `${serverUrl}/website-template-OG.webp`;
+	const url = `${serverUrl}/website-template-OG.webp`;
 
-  if (image && typeof image === "object" && "url" in image) {
-    // const ogUrl = image.sizes?.og?.url;
-    // url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url;
-  }
-  return url;
+	if (image && typeof image === "object" && "url" in image) {
+		// const ogUrl = image.sizes?.og?.url;
+		// url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url;
+	}
+	return url;
 };
 
 export const generateMeta = async (args: {
-  doc: Partial<any> | Partial<Product>;
+	doc: Partial<any> | Partial<Product>;
+	lang: Lang;
 }): Promise<Metadata> => {
-  const { doc } = args || {};
-  const ogImage = getImageURL(doc?.meta?.image);
+	const { doc, lang = "en" } = args || {};
+	const ogImage = getImageURL(doc?.meta?.image);
 
-  const title = doc?.meta?.title
-    ? `${doc?.meta?.title} | ${SITE_TITLE}`
-    : "Payload Website Template";
+	const title = doc?.meta?.title
+		? `${doc?.meta?.title} | ${SITE_TITLE[lang]}`
+		: "Payload Website Template";
 
-  return {
-    description: doc?.meta?.description,
-    openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || "",
-      images: ogImage
-        ? [
-            {
-              url: ogImage,
-            },
-          ]
-        : undefined,
-      title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join("/") : "/",
-    }),
-    title,
-  };
+	return {
+		description: doc?.meta?.description,
+		openGraph: mergeOpenGraph({
+			description: doc?.meta?.description || "",
+			images: ogImage
+				? [
+						{
+							url: ogImage,
+						},
+				  ]
+				: undefined,
+			title,
+			url: Array.isArray(doc?.slug) ? doc?.slug.join("/") : "/",
+		}),
+		title,
+	};
 };

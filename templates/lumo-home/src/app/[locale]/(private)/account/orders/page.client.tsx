@@ -55,6 +55,7 @@ import { PaginatedDocs } from "@/modules/products/queries/searchProducts";
 import { LocaleCode } from "@/i18n/localization";
 import { Product } from "@/modules/products/model/types";
 import { Text } from "@/shared/components/Text";
+import { OrderListItem } from "@/modules/orders/ui/order-list";
 
 type Props = {
 	userId: number;
@@ -124,7 +125,7 @@ export default function OrderPageClient({
 	const orders = ordersData?.docs?.map(o => new Order(o, locale)) || [];
 
 	return (
-		<div className='grow space-y-2 md:space-y-4'>
+		<div className='mb-32 grow space-y-2 md:space-y-4'>
 			<h1 className='fl-text-32/48'>{t("title")}</h1>
 			<div className='fl-gap-8/16 flex'>
 				<ActiveOrderCard
@@ -238,7 +239,7 @@ export function OrderList({
 				</Card>
 			) : null}
 
-			{!isLoading &&
+			{/* {!isLoading &&
 				orders?.map(order => (
 					<Card key={order.id} className='overflow-hidden'>
 						<Collapsible
@@ -248,14 +249,16 @@ export function OrderList({
 							<CardHeader className='pb-4'>
 								<div className='flex items-center justify-between'>
 									<div className='space-y-1'>
-										<CardTitle className='text-lg'>
+										<CardTitle className='fl-text-16/24'>
 											{t("list.orderTitle", { id: order.id })}
 										</CardTitle>
 										<CardDescription className='flex items-center gap-2'>
-											<Calendar className='size-4' />
-											{t("list.orderDate", {
-												date: formatDate(order.createdAt, locale),
-											})}
+											<Calendar className='icon-size' />
+											<Text comp='p' variant={"mutedForeground"} size={"xxs"}>
+												{t("list.orderDate", {
+													date: formatDate(order.createdAt, locale),
+												})}
+											</Text>
 										</CardDescription>
 									</div>
 									<div className='flex items-center gap-3'>
@@ -266,52 +269,47 @@ export function OrderList({
 										<CollapsibleTrigger asChild>
 											<Button variant='ghost' size='sm'>
 												{expandedOrders.includes(order.id) ? (
-													<ChevronDown className='size-4' />
+													<ChevronDown className='icon-size' />
 												) : (
-													<ChevronRight className='size-4' />
+													<ChevronRight className='icon-size' />
 												)}
 											</Button>
 										</CollapsibleTrigger>
 									</div>
 								</div>
 
-								{/* Краткая информация */}
 								<div className='flex items-center justify-between pt-2'>
-									<div className='text-muted-foreground text-sm'>
+									<Text comp='p' variant={"mutedForeground"} size={"xs"}>
 										{t("list.itemsCount", {
 											count: order.items?.length ?? 0,
 										})}
-									</div>
-									<div className='text-lg font-semibold'>
+									</Text>
+									<Text
+										comp='p'
+										variant={"secondary"}
+										size={"xsm"}
+										className='font-semibold'
+									>
 										{formatPrice(order?.paymentAmount || 0, {
 											localeCode: locale,
 										})}
-									</div>
+									</Text>
 								</div>
-								{/* Трекинг информация */}
-								{/* {order.trackingNumber && (
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Truck className="size-4" />
-                      <span>Трек-номер: {order.trackingNumber}</span>
-                      {order.estimatedDelivery && (
-                        <span>
-                          • Ожидаемая доставка:{" "}
-                          {formatDate(order.estimatedDelivery)}
-                        </span>
-                      )}
-                    </div>
-                  )} */}
 							</CardHeader>
 
 							<CollapsibleContent>
 								<CardContent className='pt-0'>
 									<Separator className='mb-4' />
 
-									{/* Детали заказа */}
 									<div className='space-y-4'>
-										<h4 className='font-semibold'>
+										<Text
+											comp='h4'
+											variant={"secondary"}
+											className='font-semibold'
+										>
 											{t("list.sections.products")}
-										</h4>
+										</Text>
+
 										<div className='space-y-3'>
 											{order.items?.map(item => {
 												return (
@@ -331,19 +329,30 @@ export function OrderList({
 															/>
 														</div>
 														<div className='min-w-0 flex-1'>
-															<h5 className='truncate font-medium'>
+															<Text
+																comp='p'
+																variant={"secondary"}
+																size={"xs"}
+																className='truncate font-medium'
+															>
 																{item.product.title || ""}
-															</h5>
-															<p className='text-muted-foreground text-sm'>
+															</Text>
+
+															<Text
+																comp='p'
+																variant={"mutedForeground"}
+																size={"xxs"}
+																className='truncate font-medium'
+															>
 																{t("list.product.quantity", {
 																	count: item.quantity ?? 0,
 																})}
-															</p>
+															</Text>
 														</div>
 														<Text
 															comp='p'
 															variant='secondary'
-															className='text-right'
+															className='text-right font-semibold'
 														>
 															{item.product.prettyPrice()}
 														</Text>
@@ -352,44 +361,54 @@ export function OrderList({
 											})}
 										</div>
 
-										{/* Адрес доставки */}
 										<div>
-											<h4 className='mb-2 font-semibold'>
+											<Text
+												comp='h4'
+												variant={"secondary"}
+												size={"xs"}
+												className='mb-2 font-semibold'
+											>
 												{t("list.sections.shipping")}
-											</h4>
-											<p className='text-muted-foreground text-sm'>
+											</Text>
+											<Text
+												comp='p'
+												variant={"secondary"}
+												size={"xs"}
+												className=''
+											>
 												{order.shippingMethod.name}
-											</p>
+											</Text>
 										</div>
 
-										{/* Действия */}
 										<div className='flex gap-2 pt-4'>
 											<Button variant='outline' size='sm'>
-												<Eye className='size-4 mr-2' />
+												<Eye className='icon-size mr-2' />
 												{t("list.actions.details")}
 											</Button>
 											{order.status === "shipped" && (
 												<Button variant='outline' size='sm'>
-													<RefreshCw className='size-4 mr-2' />
+													<RefreshCw className='icon-size mr-2' />
 													{t("list.actions.reorder")}
 												</Button>
 											)}
 											{isRefundableOrder(order) && (
 												<CancelActionButton id={order.id} />
 											)}
-											{/* {order.trackingNumber && (
-                          <Button variant="outline" size="sm">
-                            <Truck className="h-4 w-4 mr-2" />
-                            Отследить
-                          </Button>
-                        )} */}
 										</div>
 									</div>
 								</CardContent>
 							</CollapsibleContent>
 						</Collapsible>
 					</Card>
-				))}
+				))} */}
+			{orders?.map(order => (
+				<OrderListItem
+					key={order.id}
+					orderData={order.raw}
+					locale={locale}
+					orderStatusText={""}
+				/>
+			))}
 		</div>
 	);
 }

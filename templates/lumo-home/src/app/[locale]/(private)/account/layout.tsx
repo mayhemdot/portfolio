@@ -8,40 +8,42 @@ import { Text } from "@/shared/components/Text";
 import { Shell } from "@/shared/components/ui/shell";
 
 export default async function Layout({ children }: PropsWithChildren) {
-  const userProfile = await retrieveCustomer();
+	const userProfile = await retrieveCustomer();
 
-  const t = await getTranslations("AccountPage");
+	const t = await getTranslations("AccountPage");
 
-  const breadcrumbs = [
-    { label: t("breadcrumbs.home"), url: "/" },
-    { label: t("breadcrumbs.account") },
-  ];
+	const breadcrumbs = [
+		{ label: t("breadcrumbs.home"), url: "/" },
+		{ label: t("breadcrumbs.account"), url: "!" },
+	];
 
-  return (
-    <>
-      <DynamicBreadcrumb breadcrumbs={breadcrumbs} padding={false} />
-      <div className="mx-auto">
-        {/* fl-px-16/32 */}
-        <Text
-          comp="h1"
-          variant={"secondary"}
-          size="smd"
-          className="mb-4 capitalize"
-        >
-          {t("title")}
-        </Text>
-        <div className="fl-gap-8/32 flex flex-col lg:flex-row">
-          <div className="lg:max-w-64 xl:max-w-80 h-fit w-full shrink grow">
-            <Shell variant="primary" className="grow">
-              <UserInfoPreview user={userProfile} className="bg-primary" nameTextProps={{"variant":"primary"}}  />
-              <ProfileNav />
-            </Shell>
-            {/* bg-secondary  */}
-          </div>
+	return (
+		<>
+			<DynamicBreadcrumb breadcrumbs={breadcrumbs} padding={false} />
+			<div className='mx-auto'>
+				<Text
+					comp='h1'
+					size='md'
+					variant='secondary'
+					className='mb-4 font-semibold capitalize'
+				>
+					{t("title")}
+				</Text>
+				<div className='fl-gap-8/32 flex flex-col lg:flex-row'>
+					<div className='lg:max-w-64 xl:max-w-80 h-fit w-full shrink grow'>
+						<Shell variant='primary' className='grow'>
+							<UserInfoPreview
+								user={userProfile}
+								className='bg-primary'
+								nameTextProps={{ variant: "primary" }}
+							/>
+							<ProfileNav />
+						</Shell>
+					</div>
 
-          {children}
-        </div>
-      </div>
-    </>
-  );
+					{children}
+				</div>
+			</div>
+		</>
+	);
 }

@@ -39,12 +39,8 @@
 	--sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
-* {
-	box-sizing: border-box;
-}
-
-svg {
-	vertical-align: middle;
+@theme {
+    --expand: (100vw - 320px) / (1920 - 320);
 }
 
 @theme inline {
@@ -121,132 +117,132 @@ svg {
 	--sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-body {
-	@include fluid-text(20, 13);
-}
+
 
 @custom-variant fl-text {
 	@slot;
 }
 
 @utility fl-text-* {
-	--spreadText: calc(--modifier(integer) - --value(integer));
-
-	font-size: calc(
-		--value(integer) * 1px + var(--spreadText) *
-			((100vw - 320px) / (1920 - 320))
-	);
+	--spread-txt: calc(--modifier(integer) - --value(integer));
+	font-size: calc(--value(integer) * 1px + var(--spread-txt) * var(--expand));
 }
 
 @utility fl-px-* {
-	--spreadX: calc(--modifier(integer) - --value(integer));
-
+	--spread-px: calc(--modifier(integer) - --value(integer));
 	padding-left: calc(
-		--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-px) * var(--expand)
 	);
-
 	padding-right: calc(
-		--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-px) * var(--expand)
 	);
 }
 
 @utility fl-pt-* {
-	--spreadT: calc(--modifier(integer) - --value(integer));
-
+	--spread-pt: calc(--modifier(integer) - --value(integer));
 	padding-top: calc(
-		--value(integer) * 1px + var(--spreadT) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-pt) * var(--expand)
 	);
 }
+
 @utility fl-pb-* {
-	--spreadB: calc(--modifier(integer) - --value(integer));
+	--spread-pb: calc(--modifier(integer) - --value(integer));
 
 	padding-bottom: calc(
-		--value(integer) * 1px + var(--spreadB) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-pb) * var(--expand)
 	);
 }
 
 @utility fl-py-* {
-	--spreadY: calc(--modifier(integer) - --value(integer));
-
+	--spread-py: calc(--modifier(integer) - --value(integer));
 	padding-top: calc(
-		--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-py) * var(--expand)
 	);
-
 	padding-bottom: calc(
-		--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-py) * var(--expand)
 	);
 }
 
 @utility fl-mx-* {
-	--spreadMX: calc(--modifier(integer) - --value(integer));
-
+	--spread-mx: calc(--modifier(integer) - --value(integer));
 	margin-left: calc(
-		--value(integer) * 1px + var(--spreadMX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-mx) * var(--expand)
 	);
-
 	margin-right: calc(
-		--value(integer) * 1px + var(--spreadMX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-mx) * var(--expand)
+	);
+}
+
+@utility fl-mt-* {
+	--spread-mt: calc(--modifier(integer) - --value(integer));
+	margin-top: calc(
+		--value(integer) * 1px + var(--spread-mt) * var(--expand)
+	);
+}
+
+@utility fl-mb-* {
+	--spread-mb: calc(--modifier(integer) - --value(integer));
+	margin-bottom: calc(
+		--value(integer) * 1px + var(--spread-mb) * var(--expand)
 	);
 }
 
 @utility fl-my-* {
-	--spreadMY: calc(--modifier(integer) - --value(integer));
-
+	--spread-my: calc(--modifier(integer) - --value(integer));
 	margin-top: calc(
-		--value(integer) * 1px + var(--spreadMY) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-my) * var(--expand)
 	);
-
 	margin-bottom: calc(
-		--value(integer) * 1px + var(--spreadMY) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-my) * var(--expand)
 	);
 }
 
 @utility fl-w-* {
-	--spreadW: calc(--modifier(integer) - --value(integer));
+	--spread-w: calc(--modifier(integer) - --value(integer));
 	width: calc(
-		--value(integer) * 1px + var(--spreadW) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-w) * var(--expand)
 	) !important;
 }
 
 @utility fl-max-w-* {
-	--spreadMW: calc(--modifier(integer) - --value(integer));
+	--spread-max-w: calc(--modifier(integer) - --value(integer));
 	max-width: calc(
-		--value(integer) * 1px + var(--spreadMW) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-max-w) * var(--expand)
 	) !important;
 }
 
 @utility fl-gap-* {
-	--spreadG: calc(--modifier(integer) - --value(integer));
+	--spread-gap: calc(--modifier(integer) - --value(integer));
 	gap: calc(
-		--value(integer) * 1px + var(--spreadG) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-gap) * var(--expand)
 	) !important;
 }
 
 @utility fl-gap-x-* {
-	--spreadGX: calc(--modifier(integer) - --value(integer));
+	--spread-gap-x: calc(--modifier(integer) - --value(integer));
 	column-gap: calc(
-		--value(integer) * 1px + var(--spreadGX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-gap-x) * var(--expand)
 	) !important;
 }
 
 @utility fl-gap-y-* {
-	--spreadGY: calc(--modifier(integer) - --value(integer));
+	--spread-gap-y: calc(--modifier(integer) - --value(integer));
 	row-gap: calc(
-		--value(integer) * 1px + var(--spreadGX) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-gap-y) * var(--expand)
 	) !important;
 }
 
 @utility fl-top-* {
-	--spreadTop: calc(--modifier(integer) - --value(integer));
+	--spread-top: calc(--modifier(integer) - --value(integer));
 	top: calc(
-		--value(integer) * 1px + var(--spreadTop) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-top) * var(--expand)
 	) !important;
 }
 
 @utility fl-bottom-* {
-	--spreadTop: calc(--modifier(integer) - --value(integer));
+	--spread-bottom: calc(--modifier(integer) - --value(integer));
 	bottom: calc(
-		--value(integer) * 1px + var(--spreadTop) * ((100vw - 320px) / (1920 - 320))
+		--value(integer) * 1px + var(--spread-bottom) * var(--expand)
 	) !important;
 }
 
@@ -254,20 +250,32 @@ body {
 	@apply xl:rounded-4xl rounded-xl md:rounded-2xl lg:rounded-3xl;
 }
 
+/* @utility fl-card {
+  width: clamp(
+    22%,
+    1w,
+    70%
+  );
+} */
+
 @layer base {
+
+  svg {
+    vertical-align: middle; 
+  }
+
 	* {
-		@apply border-border outline-ring/50 text-base leading-tight;
-		font-size: 20px;
+		@apply border-border box-border outline-ring/50 leading-normal fl-text-13/20;
 	}
 
+
 	body {
-		@apply min-h-dvh bg-background text-foreground flex flex-col items-center;
+		@apply min-h-dvh bg-background text-foreground flex flex-col items-center fl-text-13/20;
 	}
 
 	/* container */
 	main {
 		@apply w-full max-w-full grow self-center overflow-x-clip;
-		/* -mx-2 xl:-mx-8 lg:-mx-4 fl-px-8/32  */
 	}
 
 	/* Fallback для шрифтов */
@@ -278,6 +286,22 @@ body {
 
 	.font-inter {
 		font-family: var(--font-inter), "Inter", "Arial", "Helvetica", sans-serif;
+	}
+
+	.icon-size-btn {
+		@apply size-8 xl:size-9 2xl:size-10 shrink-0;
+	}
+
+	.icon-size-btn-important {
+		@apply size-8! xl:size-9! 2xl:size-10! shrink-0;
+	}
+
+	.icon-size {
+		@apply size-5;
+	}
+
+	.icon-size-important {
+		@apply size-5!;
 	}
 
 	/* .before-wider {
@@ -295,6 +319,39 @@ body {
     background-color: var(--secondary); 
     z-index: -1; 
   } */
+
+  .hero {
+    .content-hero {
+      @apply h-[44%] lg:h-[50%]
+    }
+    .main-image {
+      @apply -translate-x-1/2 absolute left-1/2 top-[67%] w-[min(70%,22rem)];
+    }
+    .hero-button {
+      @apply w-[min(90%,30rem)]!;
+      position: relative;
+      /* w-[90%] sm:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[25%] */
+      /* max-width: 100%; */
+    }
+
+    .hero-button::before {
+        max-width: 100%;
+        position: absolute;
+        content: '';
+        transform: translateY(-50%);
+        /* top: -50%; */
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        background-image: url("/btn-curve.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        z-index: -1;
+        opacity: 1;
+    }
+  }
 }
 
 .padding-default {

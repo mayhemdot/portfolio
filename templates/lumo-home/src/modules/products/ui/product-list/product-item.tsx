@@ -43,7 +43,7 @@ export function ProductItem({ product }: { product: Product }) {
 							size='icon'
 							className='absolute right-3 top-3 bg-white/80 hover:bg-white'
 						>
-							<Heart className='size-4' />
+							<Heart className='icon-size' />
 						</Button>
 					</div>
 				</Link>
@@ -91,7 +91,7 @@ const renderStars = (rating: number) => {
 	return Array.from({ length: 5 }, (_, i) => (
 		<Star
 			key={String(i)}
-			className={`size-4 ${
+			className={`icon-size ${
 				i < Math.floor(rating)
 					? "fill-yellow-400 text-yellow-400"
 					: i < rating

@@ -43,7 +43,7 @@ export function AddToCartButton(props: Props) {
 			: product.id.toString();
 
 	const countInCart = cartItems.find(
-		item => item.id === selectedProductId
+		item => item.id === selectedProductId,
 	)?.quantity;
 
 	const notIcon = !size || !size?.startsWith("icon");
@@ -77,7 +77,7 @@ export function AddToCartButton(props: Props) {
 					}
 				>
 					{notIcon && addToCartOrNotLabel}
-					<ShoppingCart className={cn("size-3 2xl:size-4", {})} />
+					<ShoppingCart className={cn("icon-size", {})} />
 				</Button>
 			) : (
 				<Link
@@ -92,12 +92,7 @@ export function AddToCartButton(props: Props) {
 					href={ROUTES.CHECKOUT}
 				>
 					{notIcon && t("GoToCart")}
-					<ArrowRightIcon className={"size-3 2xl:size-4"} />
-					{/* {notIcon ? (
-            addToCartOrNotLabel
-          ) : (
-            <ArrowRightIcon className={'size-3 2xl:size-4'} />
-          )} */}
+					<ArrowRightIcon className={"icon-size"} />
 				</Link>
 			)}
 		</>

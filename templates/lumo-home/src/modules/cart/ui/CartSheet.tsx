@@ -8,6 +8,7 @@ import { useState } from "react";
 import { getCurrency, type LocaleCode } from "@/i18n/localization";
 import { EmptyCart } from "@/modules/cart/ui/CartIsEmpty";
 import { CartItemList } from "@/modules/cart/ui/CartItemList";
+import { ShellButton } from "@/shared/components/Header/Component";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button, btnVariants } from "@/shared/components/ui/button";
 import { ScrollArea } from "@/shared/components/ui/scroll-area";
@@ -33,13 +34,16 @@ const useTotalPrice = (code: LocaleCode) => {
   const currency = getCurrency(code).toLowerCase() as keyof typeof getCurrency;
   const { cartItems } = useCartStore();
   const amount = cartItems.reduce(
-      (total, item) =>
-        total + (item.product?.price?.[currency] || 0) * item.quantity,
-      0,
-    );
-  return { 
+    (total, item) =>
+      total + (item.product?.price?.[currency] || 0) * item.quantity,
+    0,
+  );
+  return {
     amount: amount,
-    total: formatPrice(amount,{  localeCode: code,  currencyCode: getCurrency(code)})
+    total: formatPrice(amount, {
+      localeCode: code,
+      currencyCode: getCurrency(code),
+    }),
   };
 };
 
@@ -57,30 +61,50 @@ export function CartSheet() {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <button
-          type="button"
-          className={btnVariants({
-            variant: "ghost",
-            size: "icon",
-            className: "relative",
-          })}
-        >
-          <Badge
-            variant={"default"}
-            size={"iconXS"}
-            className="absolute w-fit p-1.75! shrink-0! grow-0! size-3 rounded-full top-0 right-0 translate-x-1/2 -translate-y-1/6"
+        {/* <ShellButton> */}
+          <button
+            type="button"
+            className={btnVariants({
+              variant: "ghost",
+              size: "icon",
+              className: "relative p-0!",
+            })}
           >
-            {cartItems?.length || 0}
-          </Badge>
-          <ShoppingCartIcon className="size-4" />
-        </button>
+          <Badge
+						variant={"default"}
+						size={"icon"}
+						className='shrink-0! size-4! -translate-y-1/6 absolute right-0 top-0 translate-x-1/2 rounded-full'
+					>
+						{cartItems?.length || 0}
+					</Badge>
+					<ShoppingCartIcon className='icon-size antialiased' />
+
+          </button>
+        {/* </ShellButton> */}
+        {/* <button
+					type='button'
+					className={btnVariants({
+						variant: "ghost",
+						size: "iconXS",
+						className: "relative",
+					})}
+				>
+					<Badge
+						variant={"default"}
+						size={"icon"}
+						className='shrink-0! h-4! w-4! -translate-y-1/6 absolute right-0 top-0 translate-x-1/2 rounded-full'
+					>
+						{cartItems?.length || 0}
+					</Badge>
+					<ShoppingCartIcon className='icon-size-important' />
+				</button> */}
       </SheetTrigger>
 
-      <SheetContent className="flex flex-col w-full sm:max-w-lg">
+      <SheetContent className="flex w-full flex-col sm:max-w-lg">
         <SheetHeader>
-          <SheetTitle className="block mt-8 fl-text-32/48">
+          <SheetTitle className="fl-text-32/48 mt-8 block">
             {t("title")}
-            <span className="ml-1 fl-text-20/32">
+            <span className="fl-text-20/32 ml-1">
               {totalItems > 0 && `(${totalItems})`}
             </span>
           </SheetTitle>
@@ -90,19 +114,17 @@ export function CartSheet() {
         {isEmptyCart && <EmptyCart />}
         {!isEmptyCart && (
           <>
-            <ScrollArea className="grow min-h-0! max-h-full! px-4 pb-4 ">
+            <ScrollArea className="min-h-0! max-h-full! grow px-4 pb-4">
               {/* [&_[data-radix-scroll-area-viewport]>div]:min-w-0 [&_[data-radix-scroll-area-viewport]>div]:block */}
               {/* <div className="min-w-0 relative max-w-full w-full"> */}
-                <CartItemList cartItems={cartItems} />
+              <CartItemList cartItems={cartItems} />
               {/* </div> */}
             </ScrollArea>
             <Separator />
             <div className="shrink-0 space-y-2 px-4">
-              <div className="flex justify-between items-center font-semibold">
+              <div className="flex items-center justify-between font-semibold">
                 <span className="fl-text-24/32">{t("total")}:</span>
-                <span className="fl-text-24/32">
-                  {total}
-                </span>
+                <span className="fl-text-24/32">{total}</span>
               </div>
 
               <SheetFooter className="flex-col gap-2 px-0">

@@ -72,7 +72,7 @@ export const CMSLink = forwardRef<HTMLAnchorElement, CMSLinkType>(
 					{label && label}
 					{children && children}
 					{props?.icon && (
-						<props.icon className={"size-4 bg-secondary ml-auto"} />
+						<props.icon className={"icon-size bg-secondary ml-auto"} />
 					)}
 				</Link>
 			);
@@ -104,7 +104,7 @@ export const CMSLink = forwardRef<HTMLAnchorElement, CMSLinkType>(
 			</Link>
 			// </Button>
 		);
-	}
+	},
 );
 
 // export const CMSLink: React.FC<CMSLinkType> = ({
@@ -161,7 +161,7 @@ export const fetchUrl = (
 		value: string | number | any;
 		relationTo: "pages";
 	},
-	url?: string
+	url?: string,
 ) => {
 	return type === "reference" &&
 		typeof reference?.value === "object" &&

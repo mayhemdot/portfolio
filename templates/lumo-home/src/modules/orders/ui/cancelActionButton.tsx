@@ -32,7 +32,7 @@ export function CancelActionButton({
 				disabled={isLoading || isPending}
 				className={cn(
 					"bg-transparent text-red-600 hover:text-red-700",
-					className
+					className,
 				)}
 			>
 				Отменить заказ

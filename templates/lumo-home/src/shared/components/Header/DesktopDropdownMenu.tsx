@@ -11,13 +11,19 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/shared/components/ui/dropdown-menu";
-import { ROUTES } from "@/shared/utils/constants";
+import { getTranslations } from "next-intl/server";
+import { generateNavItems } from "@/modules/common/nav/model/nav-items";
+import { Text } from "@/shared/components/Text";
 
 type Props = {
 	user?: User | null;
 };
 
-export function DesktopDropdownMenu({ user }: Props) {
+export async function DesktopDropdownMenu({ user }: Props) {
+	const t = await getTranslations("Global");
+
+	const navItems = generateNavItems(t);
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -26,38 +32,44 @@ export function DesktopDropdownMenu({ user }: Props) {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className='w-56' align='end'>
-				<div className='flex flex-col space-y-1 p-2 leading-none'>
-					<p className='font-medium'>{user?.firstName || "Аноним"}</p>
+				<div className='flex flex-col p-2 leading-none'>
+					<Text
+						comp='p'
+						size={"xsm"}
+						variant='secondary'
+						className='font-medium'
+					>
+						{user?.firstName || "Аноним"}
+					</Text>
 					{user?.email && (
 						<p className='w-50 text-muted-foreground truncate text-sm'>
-							{user?.email || "email"}
+							{user?.email}
 						</p>
 					)}
 				</div>
 
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>
-					<Link href={ROUTES.PROFILE} className='flex grow items-center py-1'>
-						<UserIcon className='size-4 mr-2' /> Аккаунт
-					</Link>
-				</DropdownMenuItem>
 
-				<DropdownMenuItem>
-					<Link href={ROUTES.ORDERS} className='flex grow items-center py-1'>
-						<Package className='size-4 mr-2' /> Заказы
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuItem>
-					<Link
-						href={ROUTES.PROFILE_EDIT}
-						className='flex grow items-center py-1'
-					>
-						<Settings className='size-4 mr-2' /> Настройки
-					</Link>
-				</DropdownMenuItem>
+				{navItems?.map(item => (
+					<DropdownMenuItem key={item.label}>
+						<Link href={item.href} className='flex grow items-center py-1'>
+							<item.icon className='icon-size-important shrink-0! mr-2' />{" "}
+							{item.label}
+						</Link>
+					</DropdownMenuItem>
+				))}
+
 				<DropdownMenuSeparator />
-				<DropdownMenuItem className='[*]:hover:bg-none! text-red-600'>
-					<LogoutButton disabled={false} className='w-full grow' size={"lg"} />
+				<DropdownMenuItem
+					asChild
+					className='[*]:hover:bg-none! cursor-pointer rounded-full'
+				>
+					<LogoutButton
+						disabled={false}
+						variant={"secondary"}
+						className='w-full grow'
+						size={"lg"}
+					/>
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

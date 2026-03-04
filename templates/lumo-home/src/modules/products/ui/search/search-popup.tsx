@@ -118,9 +118,9 @@ export default function SearchInputClient() {
 					<div className='bg-secondary rounded-full p-2 md:p-3'>
 						<Button variant='ghost' size={"icon"}>
 							{open ? (
-								<Search className='size-4 shrink-0' />
+								<Search className='icon-size' />
 							) : (
-								<X className='size-4 shrink-0' />
+								<X className='icon-size' />
 							)}
 						</Button>
 					</div>
@@ -151,7 +151,6 @@ export default function SearchInputClient() {
 									([category, categoryProducts]) => (
 										<CommandGroup key={category} heading={category}>
 											{categoryProducts.map(product => {
-												const Icon = product.images;
 												return (
 													<CommandItem
 														key={product.id}
@@ -169,7 +168,6 @@ export default function SearchInputClient() {
 																	imgClassName='object-cover'
 																/>
 															</div>
-															{/* <Icon className="mr-2 size-4" /> */}
 															<div className='flex flex-col'>
 																<Text comp='h5' variant={"secondary"} size='xs'>
 																	{product.title}

@@ -1,23 +1,21 @@
 "use client";
 
 import type React from "react";
-import { useEffect, useState, useRef, useActionState } from "react"; // Добавлен useRef
+import { useState, useRef } from "react"; // Добавлен useRef
 import Image from "next/image";
 import { Input } from "@/shared/components/ui/input"; // Input останется скрытым
 import { Camera, Loader2 } from "lucide-react"; // Добавлена иконка камеры
-// import { toast } from '@payloadcms/ui'
 import { Button } from "@/shared/components/ui/button";
-// import { saveAvatar } from '@/modules/users/actions/save-avatar'
 import { cn } from "@/shared/lib/utils";
 import toast from "react-hot-toast";
+import { Text } from "@/shared/components/Text";
 
-interface AvatarUploadProps {
+type AvatarUploadProps = {
 	userId: string | undefined;
 	url: string | null;
 	size: number;
 	onUpload: (url: string) => void;
-}
-
+};
 export default function AvatarUpload({
 	userId,
 	url,
@@ -26,37 +24,9 @@ export default function AvatarUpload({
 }: AvatarUploadProps) {
 	const [avatarUrl, setAvatarUrl] = useState<string | null>(url);
 	const [uploading, setUploading] = useState(false);
+
 	const [file, setFile] = useState<File | null>(null);
 	const fileInputRef = useRef<HTMLInputElement>(null); // Ссылка на скрытый input
-
-	// const [state, saveAvatarHandler, isLoading] = useActionState<any, any>(
-	// 	saveAvatar,
-	// 	{
-	// 		success: undefined,
-	// 		errors: undefined,
-	// 	},
-	// );
-	// useEffect(() => {
-	// 	if (state.success === true) {
-	// 		toast.success("Avatar saved successfully!");
-	// 	}
-	// 	if (state.success === false) {
-	// 		toast.error("Avatar save failed!");
-	// 	}
-	// }, [state.success]);
-	// useEffect(() => {
-	//   async function downloadImage(path: string) {
-	//     try {
-	//       console.warn(
-	//         "Supabase client not available for image download. Using placeholder."
-	//       );
-	//       setAvatarUrl("/placeholder.svg?height=150&width=150");
-	//     } catch (error) {
-	//       console.error("Error downloading image: ", error);
-	//     }
-	//   }
-	//   if (url) downloadImage(url);
-	// }, [url]);
 
 	const uploadAvatar = async (event: React.ChangeEvent<HTMLInputElement>) => {
 		try {
@@ -91,24 +61,18 @@ export default function AvatarUpload({
 
 	return (
 		<div className='relative flex flex-col items-center gap-4'>
-			<div
+			<button
 				className='group relative cursor-pointer overflow-hidden rounded-full border-2 border-gray-200 shadow-sm transition-all duration-200 '
 				style={{ height: size, width: size }}
 				onClick={handleAvatarClick}
-				aria-label={
-					uploading ? "Загрузка аватара..." : "Нажмите, чтобы загрузить аватар"
-				}
-				role='button'
+				type='button'
 				tabIndex={0}
-				onKeyDown={e => {
+				onKeyUp={e => {
 					if (e.key === "Enter" || e.key === " ") {
 						handleAvatarClick();
 					}
 				}}
 			>
-				{/* {uploading ? (
-          <Loader2 className="h-8 w-8 text-white animate-spin z-10" />
-        ) : null} */}
 				{avatarUrl ? (
 					<Image
 						width={size}
@@ -119,9 +83,13 @@ export default function AvatarUpload({
 					/>
 				) : (
 					<div className='bg-muted flex h-full w-full items-center justify-center'>
-						<span className='text-muted-foreground text-sm'>
+						<Text
+							comp='p'
+							variant='mutedForeground'
+							className='text-muted-foreground text-sm'
+						>
 							Нет изображения
-						</span>
+						</Text>
 					</div>
 				)}
 
@@ -133,7 +101,7 @@ export default function AvatarUpload({
 						<Camera className='size-8 text-white' />
 					)}
 				</div>
-			</div>
+			</button>
 
 			{/* Скрытый input для выбора файла */}
 
@@ -158,10 +126,36 @@ export default function AvatarUpload({
 				>
 					Click to upload
 				</Button>
-				{/* {state.errors?.avatar_file ? (
-					<p className='py-4 text-red-600'>{state.errors.avatar_file}</p>
-				) : null} */}
 			</form>
 		</div>
 	);
 }
+
+// const [state, saveAvatarHandler, isLoading] = useActionState<any, any>(
+// 	saveAvatar,
+// 	{
+// 		success: undefined,
+// 		errors: undefined,
+// 	},
+// );
+// useEffect(() => {
+// 	if (state.success === true) {
+// 		toast.success("Avatar saved successfully!");
+// 	}
+// 	if (state.success === false) {
+// 		toast.error("Avatar save failed!");
+// 	}
+// }, [state.success]);
+// useEffect(() => {
+//   async function downloadImage(path: string) {
+//     try {
+//       console.warn(
+//         "Supabase client not available for image download. Using placeholder."
+//       );
+//       setAvatarUrl("/placeholder.svg?height=150&width=150");
+//     } catch (error) {
+//       console.error("Error downloading image: ", error);
+//     }
+//   }
+//   if (url) downloadImage(url);
+// }, [url]);

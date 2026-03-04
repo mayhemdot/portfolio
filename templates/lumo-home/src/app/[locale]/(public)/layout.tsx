@@ -22,7 +22,7 @@ export default async function Layout({ children }: PropsWithChildren) {
   return (
     <>
       <Header />
-      <main className="min-h-[calc(100dvh-112px)]">{children}</main>
+      <main className="min-h-[calc(100vh-112px)]">{children}</main>
       <Footer />
     </>
   );

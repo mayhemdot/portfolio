@@ -147,8 +147,22 @@ const product3: ProductRaw = {
 	category: CATEGORIES[1],
 	characteristics: [
 		{
+			name: { en: "Dimensions", ru: "Размеры" },
+			value: {
+				en: "H: 90 cm, W: 90 cm, D: 90 cm",
+				ru: "Высота: 90 см, ширина: 90 см, глубина: 90 см",
+			},
+		},
+		{
 			name: { en: "Color", ru: "Цвет" },
 			value: { en: "Violet", ru: "Фиолетовый" },
+		},
+		{
+			name: { en: "Material", ru: "Материал" },
+			value: {
+				en: "Acrylic material with high strength",
+				ru: "Акрил с высокой степенью прочности",
+			},
 		},
 	],
 	description: {
@@ -174,10 +188,10 @@ const product3: ProductRaw = {
 
 const product4: ProductRaw = {
 	id: 4,
-	slug: "modern-rose-glass-bath-132",
+	slug: "modern-acrylic-tables-set-132",
 	title: {
-		en: "Modern rose glass bath 132",
-		ru: "Современная розовая стеклянная ванна 132",
+		en: "Modern Acrylic Tables Set 132",
+		ru: "Современный комплект акриловых столиков 132",
 	},
 	price: { rub: 93000, usd: 999 },
 	images: [
@@ -185,8 +199,8 @@ const product4: ProductRaw = {
 			id: 1,
 			url: "/images/product_4.png",
 			alt: {
-				en: "Modern rose glass bath 132",
-				ru: "Розовая стеклянная ванна 132",
+				en: "Modern grey and orange acrylic tables set 132",
+				ru: "Комплект серо-оранжевых акриловых столиков 132",
 			},
 			createdAt: new Date().toISOString(),
 			updatedAt: new Date().toISOString(),
@@ -194,21 +208,40 @@ const product4: ProductRaw = {
 	],
 	category: CATEGORIES[3],
 	characteristics: [
-		{ name: { en: "Color", ru: "Цвет" }, value: { en: "Rose", ru: "Розовый" } },
+		{
+			name: { en: "Color", ru: "Цвет" },
+			value: { en: "Grey & Orange", ru: "Серый и оранжевый" },
+		},
 		{
 			name: { en: "Material", ru: "Материал" },
-			value: { en: "Glass", ru: "Тонированное стекло" },
+			value: { en: "Premium Acrylic", ru: "Премиальный акрил" },
+		},
+		{
+			name: { en: "Set Includes", ru: "Комплектация" },
+			value: { en: "2 Tables", ru: "2 столика" },
+		},
+		{
+			name: { en: "Dimensions (Large Table)", ru: "Размеры (большой столик)" },
+			value: { en: "90 × 60 × 60 cm", ru: "90 × 60 × 60 см" },
+		},
+		{
+			name: { en: "Dimensions (Small Table)", ru: "Размеры (малый столик)" },
+			value: { en: "60 × 40 × 40 cm", ru: "60 × 40 × 40 см" },
 		},
 	],
 	meta: {
 		title: {
-			en: "Modern rose glass bath 132",
-			ru: "Современная розовая стеклянная ванна 132",
+			en: "Modern Acrylic Tables Set 132",
+			ru: "Комплект современных акриловых столиков 132",
 		},
 		description: {
-			en: "A luxury rose glass bath with a modern design.",
-			ru: "Роскошная стеклянная ванна в розовом цвете.",
+			en: "Designer set of two modern acrylic tables in an elegant grey and vibrant orange palette. The combination of proportions creates a dynamic composition suitable for contemporary interiors.",
+			ru: "Дизайнерский комплект из двух современных акриловых столиков в стильной серо-оранжевой палитре. Контраст пропорций создаёт динамичную композицию, идеально подходящую для современного интерьера.",
 		},
+	},
+	description: {
+		en: "This designer set includes two modern acrylic tables created in a refined minimalist style. Crafted from high-quality semi-transparent acrylic, the tables are presented in an elegant grey and vibrant orange palette, forming a bold yet balanced contrast. The larger table (90 × 60 × 60 cm) serves as a striking centerpiece, while the smaller piece (60 × 40 × 40 cm) complements it with lighter proportions, creating a dynamic layered composition. Smooth rounded edges and sculptural arched supports give the design a sense of fluidity and architectural clarity. More than just functional furniture, this set acts as a contemporary art accent — ideal for minimalist, high-tech, or futuristic interiors.",
+		ru: "Дизайнерский комплект включает два современных акриловых столика, выполненных в утончённом минималистичном стиле. Столики изготовлены из качественного полупрозрачного акрила и представлены в стильной серо-оранжевой палитре, создающей выразительный, но гармоничный контраст. Большой столик (90 × 60 × 60 см) выступает эффектным центральным акцентом, а компактная модель (60 × 40 × 40 см) дополняет композицию лёгкими пропорциями и позволяет создавать многоуровневое пространство. Плавные скруглённые края и дугообразные опоры придают конструкции ощущение динамики и архитектурной выразительности. Этот комплект — не просто функциональная мебель, а современный арт-объект, идеально подходящий для интерьеров в стиле минимализм, хай-тек или футуризм.",
 	},
 	inStock: true,
 	enableVariants: false,
@@ -239,7 +272,21 @@ const product5: ProductRaw = {
 	],
 	category: CATEGORIES[2],
 	characteristics: [
-		{ name: { en: "Color", ru: "Цвет" }, value: { en: "Red", ru: "Красный" } },
+		{
+			name: { en: "Dimensions", ru: "Размеры" },
+			value: {
+				en: "H: 40 cm, W: 40 cm, D: 25 cm",
+				ru: "Высота: 40 см, ширина: 40, глубина: 25 см",
+			},
+		},
+		{
+			name: { en: "Color", ru: "Цвет" },
+			value: { en: "Red", ru: "Красный" },
+		},
+		{
+			name: { en: "Material", ru: "Материал" },
+			value: { en: "Glass", ru: "Тонированное стекло" },
+		},
 	],
 	description: {
 		en: "This is a designer table lamp with a pronounced sculptural character, designed as a rectangular block with horizontal textured segments that create a layered effect.",
@@ -282,14 +329,35 @@ const product6: ProductRaw = {
 			updatedAt: new Date().toISOString(),
 		},
 	],
-	description: { en: "", ru: "" },
 	category: CATEGORIES[2],
 	characteristics: [
 		{
+			name: { en: "Dimensions", ru: "Размеры" },
+			value: {
+				en: "H: 60 cm, W: 40 cm, D: 25 cm",
+				ru: "Высота: 60 см, ширина: 40 см, глубина: 25 см",
+			},
+		},
+		{
 			name: { en: "Color", ru: "Цвет" },
-			value: { en: "Orange", ru: "Оранжевый" },
+			value: { en: "Red", ru: "Красный" },
+		},
+		{
+			name: { en: "Material", ru: "Материал" },
+			value: { en: "Glass", ru: "Тонированное стекло" },
 		},
 	],
+	description: {
+		en: "This is a designer table lamp with a pronounced sculptural character, designed as a rectangular block with horizontal textured segments that create a layered effect.",
+		ru: "Это дизайнерская настольная лампа с ярко выраженным скульптурным характером, выполненная в виде прямоугольного блока с горизонтальными рельефными сегментами, создающими эффект слоёв",
+	},
+	// description: { en: "", ru: "" },
+	// characteristics: [
+	// 	{
+	// 		name: { en: "Color", ru: "Цвет" },
+	// 		value: { en: "Orange", ru: "Оранжевый" },
+	// 	},
+	// ],
 	meta: {
 		title: {
 			en: "Modern orange glass lamp 004",

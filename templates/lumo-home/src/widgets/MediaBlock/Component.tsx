@@ -1,0 +1,88 @@
+import type { StaticImageData } from "next/image";
+import type React from "react";
+import type { MediaType } from "@/shared/components/Media/types";
+import { Text } from "@/shared/components/Text";
+import { cn } from "@/shared/lib/utils";
+import { Media } from "../../shared/components/Media";
+
+type Props = {
+	media: MediaType;
+  title?: string;
+	introContent?: string;
+	breakout?: boolean;
+	captionClassName?: string;
+	className?: string;
+	enableGutter?: boolean;
+	imgClassName?: string;
+	staticImage?: StaticImageData;
+	disableInnerContainer?: boolean;
+};
+
+export const MediaBlock: React.FC<Props> = props => {
+	const {
+		captionClassName,
+		className,
+		enableGutter = true,
+		imgClassName,
+		media,
+    title,
+		introContent,
+		staticImage,
+		disableInnerContainer,
+	} = props;
+
+	const caption = media?.caption?.toString() || introContent;
+	//   if (media && typeof media === "object") caption = media.caption;
+  
+	return (
+		<div
+			className={cn(
+				"fl-py-32/128 bg-secondary mx-auto flex h-full w-full items-center justify-center xl:min-h-[120dvh]",
+				className,
+			)}
+		>
+			{(media || staticImage) && (
+				<div className='relative mx-auto max-w-[90%] grow md:max-w-[80%] xl:max-w-[60%]'>
+          <div className="space-y-4 w-2/3">
+            <Text comp="h4" variant={"secondary"} size={"lg"} className="font-bold capitalize leading-tight">
+              {title}
+            </Text>
+            <Text
+              comp='p'
+              size={"xs"}
+              variant={"secondary"}
+              className='whitespace-pre-wrap! rounded-2xl pb-4 pt-0 md:pb-8 xl:pb-16'
+              >
+              {introContent}
+            </Text>
+          </div>
+          
+					<Media
+						// videoClassName='border border-border rounded-[0.8rem] h-full !w-full aspect-video'
+						imgClassName={cn(
+							"border border-border rounded-[0.8rem] h-full !w-full aspect-video object-cover",
+							imgClassName,
+						)}
+						resource={media}
+						src={staticImage}
+					/>
+					{caption && (
+						<div
+							className={cn(
+								"mt-6",
+								{
+									container: !disableInnerContainer,
+								},
+								captionClassName,
+							)}
+						>
+							<Text size={"xs"} comp='p'>
+								{caption}
+							</Text>
+						</div>
+					)}
+				</div>
+			)}
+		</div>
+	);
+};

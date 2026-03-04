@@ -7,11 +7,11 @@ import type { PaginatedDocs } from "@/modules/products/queries/searchProducts";
 export const getProductsWhere = ({
 	search,
 	sortBy,
-  categorySlug,
+	categorySlug,
 	page = String(1),
 	localeCode = routing.defaultLocale,
 }: {
-  categorySlug?: string;
+	categorySlug?: string;
 	search?: string;
 	sortBy?: string;
 	page?: string;
@@ -25,10 +25,9 @@ export const getProductsWhere = ({
 		products = [...products].sort((a, b) => b.price - a.price);
 	}
 
-  if(categorySlug) {
-
-    products = products.filter(p => p.category.slug === categorySlug);
-  }
+	if (categorySlug) {
+		products = products.filter(p => p.category.slug === categorySlug);
+	}
 
 	if (search) {
 		products = products.filter(p =>

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-import { cache, ComponentProps, ComponentPropsWithRef, HTMLProps } from "react";
+import { cache, type ComponentProps } from "react";
 import type { Lang, LocaleCode } from "@/i18n/localization";
 import { AddToCartButton } from "@/modules/cart/ui/AddToCartButton";
 import { UpdateQuantityCart } from "@/modules/cart/ui/UpdateQuantity";
 import { PRODUCTS } from "@/modules/products/model/data";
-import { Product, ProductRaw } from "@/modules/products/model/types";
+import { Product, type ProductRaw } from "@/modules/products/model/types";
 import { DynamicBreadcrumb } from "@/shared/components/Breadcrumbs";
 import { Media } from "@/shared/components/Media";
 import { SliderArchive } from "@/shared/components/SliderArchive";
 import { Text } from "@/shared/components/Text";
-import { generateMeta } from "@/shared/utils/generateMeta";
 import { ViewTransition } from "react";
+import { constructMetadata } from "@/shared/utils/meta";
 
 // export const dynamic = 'force-static'
 // export const revalidate = 600
@@ -41,6 +41,7 @@ export default async function ProductPage({ params }: Args) {
 	return (
 		<div className='mx-auto'>
 			<DynamicBreadcrumb
+				padding={true}
 				breadcrumbs={generateBreadcrumbs(product, language as Lang)}
 			/>
 			<article className='mt-4 flex w-full max-w-full grow flex-col items-stretch pb-16 xl:mt-8'>
@@ -137,6 +138,8 @@ export default async function ProductPage({ params }: Args) {
 				<div className='fl-px-16/32 container max-w-full'>
 					{product.relatedProducts && product.relatedProducts.length > 0 && (
 						<SliderArchive
+							relationTo='products'
+							name='relatedProducts'
 							products={PRODUCTS.filter(prod =>
 								product.relatedProductsRaw.includes(prod.id),
 							)}
@@ -170,7 +173,12 @@ export async function generateMetadata({
 
 	const product = queryProductBySlug({ slug, locale });
 
-	return generateMeta({ doc: product });
+	return constructMetadata({
+		title: product.title,
+		onlyName: false,
+		locale: locale as LocaleCode,
+		url: `/products/${slug}`,
+	});
 }
 
 function generateBreadcrumbs(
@@ -221,7 +229,7 @@ async function ProductCardForm({
 					<AddToCartButton
 						btnClassName='ml-auto justify-self-end w-full'
 						product={product.raw}
-						variant={"ghost"}
+						variant={"secondary"}
 						size={"xl"}
 						rounded={"default"}
 					/>

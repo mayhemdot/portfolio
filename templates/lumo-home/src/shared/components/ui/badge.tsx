@@ -54,7 +54,8 @@ const bdgVariants = cva(
         lg: "h-14 fl-text-16/20 px-6 has-[>svg]:px-4" /* 56px */,
         xl: "h-16 fl-text-18/24 px-8 has-[>svg]:px-5" /* 64px */,
         icon: "size-10",
-        iconXS: "size-3 xl:size-4",
+        iconXS: "size-4",
+        iconXXS : "size-2",
         // icon-sm: 'size-8',
         // icon-lg: 'size-14',
         // icon-xl: 'size-16'

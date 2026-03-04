@@ -1,17 +1,11 @@
 "use client";
 
-import {
-  LogInIcon,
-  Menu,
-  SettingsIcon,
-  ShoppingBag,
-  User as UserIcon,
-  X,
-} from "lucide-react";
+import { LogInIcon, Menu, User as UserIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { use, useState } from "react";
+import { useState } from "react";
 import { LogoutButton } from "@/modules/auth/ui/auth/LogoutButton";
+import { generateNavItems } from "@/modules/common/nav/model/nav-items";
 import type { User } from "@/modules/users/model/types";
 import { LanguageSwitcher } from "@/shared/components/Header/LanguageSwitcher";
 import { Nav } from "@/shared/components/Header/Nav";
@@ -27,38 +21,9 @@ import {
   SheetTrigger,
 } from "@/shared/components/ui/sheet";
 
-function generateNavItems(t: any) {
-  return [
-    {
-      icon: UserIcon,
-      label: t("Headers.Mobile.AccountLink"),
-      href: "/account",
-      active: true,
-    },
-    {
-      icon: ShoppingBag,
-      label: t("Headers.Mobile.OrderLink"),
-      href: "/account/orders",
-      badge: "3",
-      active: false,
-    },
-    {
-      icon: SettingsIcon,
-      label: t("Headers.Mobile.SettingsLink"),
-      href: "/account/settings",
-      badge: "",
-    },
-    // { icon: Heart, label: 'Избранное', href: '/account/wishlist', badge: '12' },
-    // { icon: CreditCard, label: 'Способы оплаты', href: '/account/payment' },
-    // { icon: MapPin, label: 'Адреса', href: '/account/addresses' },
-    // { icon: Star, label: 'Отзывы', href: '/account/reviews' },
-    // { icon: Bell, label: 'Уведомления', href: '/account/notifications' },
-    // { icon: Gift, label: 'Бонусы', href: '/account/rewards', badge: '250' },
-  ];
-}
-
 export function MobileMenuSheet({ user }: { user: User | null | undefined }) {
   const [isOpen, setIsOpen] = useState(false);
+
   const t = useTranslations("Global");
 
   return (
@@ -70,7 +35,11 @@ export function MobileMenuSheet({ user }: { user: User | null | undefined }) {
           className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          {isOpen ? (
+            <X className="icon-size-important" />
+          ) : (
+            <Menu className="icon-size-important" />
+          )}
         </Button>
       </SheetTrigger>
 
@@ -83,17 +52,17 @@ export function MobileMenuSheet({ user }: { user: User | null | undefined }) {
         <div className="grow">
           <ScrollArea className="min-h-0! max-h-full! grow">
             {user ? (
-              <UserInfoPreview user={user} className="p-4 bg-secondary" />
+              <UserInfoPreview user={user} className="bg-secondary p-4" />
             ) : (
               <Link className="flex items-center gap-6 p-2" href={"/login"}>
-                <LogInIcon className="size-4 mr-3" />
+                <LogInIcon className="icon-size-important mr-3" />
                 <p className="font-medium">{t("Buttons.LogIn")}</p>
               </Link>
             )}
             <Nav navigationItems={generateNavItems(t)} />
           </ScrollArea>
         </div>
-      
+
         <div className="bg-secondary p-4">
           <LanguageSwitcher isMobile={true} />
         </div>

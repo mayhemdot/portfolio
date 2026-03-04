@@ -36,13 +36,12 @@ export function LanguageSwitcher({ isMobile = false }: { isMobile?: boolean }) {
 	return (
 		<Select
 			defaultValue={defaultLocale}
-			// dir="center"
 			disabled={isPending}
 			onValueChange={nextLocale => onSelectChange(nextLocale as LocaleCode)}
 		>
 			<SelectTrigger
-				className={cn("text-center! bg-background! w-full w-full", {
-					"justify-center! [&_svg]:hidden! p-2! size-8! xl:size-9! 2xl:size-10!":
+				className={cn("text-center! bg-background! w-full", {
+					"justify-center! [&_svg]:hidden! p-0! icon-size-btn-important cursor-pointer":
 						!isMobile,
 				})}
 			>

@@ -67,7 +67,6 @@ export default async function RootLayout(props: Props) {
 
 	const { locale } = await params;
 
-	// const countryCode = getCountryCodeFromLocale(locale);
 	const lang = getLanguageFromLocale(locale);
 
 	const currentLocale = localization.locales.find(loc => loc.code === locale);

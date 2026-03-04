@@ -9,6 +9,7 @@ const textVariants = cva("leading-tight whitespace-pre-line", {
 		},
 		weight: {
 			thin: "font-thin",
+			semiBold: "font-semibold",
 			normal: "font-normal",
 			medium: "font-medium",
 			bold: "font-bold",
@@ -19,8 +20,9 @@ const textVariants = cva("leading-tight whitespace-pre-line", {
 			md: "fl-text-28/64",
 			smd: "fl-text-24/48",
 			sm: "fl-text-20/32",
+			xsm: "fl-text-18/24",
 			xs: "fl-text-16/22",
-			xxs: "fl-text-14/20",
+			xxs: "fl-text-14/18",
 		},
 		variant: {
 			primary: "text-background", //text-[var(--color-foreground)]

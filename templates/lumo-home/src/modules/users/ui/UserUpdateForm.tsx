@@ -4,7 +4,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { InputField } from "@/shared/components/InputField";
 import { Button } from "@/shared/components/ui/button";
-import { User } from "@/modules/users/model/types";
+import type { User } from "@/modules/users/model/types";
+import { Text } from "@/shared/components/Text";
 
 type Props = {
 	user: User;
@@ -21,7 +22,11 @@ export function UserUpdateForm({ user, avatarUrl }: Props) {
 	};
 	return (
 		<form onSubmit={handleSignin} className='mb-4 space-y-4'>
-			<h3 className='fl-text-20/32'>Basic information</h3>
+			<Text comp='h3' variant='secondary' size='sm' className='text-nowrap'>
+				{/* {t("title")} */}
+				{"Basic information"}
+			</Text>
+
 			<div className='flex flex-col gap-4 md:flex-row'>
 				<InputField
 					label={""}
@@ -62,10 +67,10 @@ export function UserUpdateForm({ user, avatarUrl }: Props) {
 			>
 				{isLoading ? (
 					<>
-						<Loader2 className='size-5 mr-2 animate-spin' /> Сохранение...
+						<Loader2 className='icon-size mr-2 animate-spin' /> Saving...
 					</>
 				) : (
-					"Обновить профиль"
+					"Update profile"
 				)}
 			</Button>
 			{errors?.root && (

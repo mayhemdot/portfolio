@@ -4,7 +4,7 @@ import { Search, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { parseAsString, useQueryState } from "nuqs";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import type { Lang, LocaleCode } from "@/i18n/localization";
 import { Product } from "@/modules/products/model/types";
@@ -34,7 +34,9 @@ export default function SearchDropdownMenu() {
 	const [open, setOpen] = useState(false);
 
 	const ref = useRef<HTMLInputElement | null>(null);
+
 	const localeCode = useLocale() as LocaleCode;
+
 	const { language } = new Intl.Locale(localeCode);
 
 	const pathname = usePathname();
@@ -79,6 +81,7 @@ export default function SearchDropdownMenu() {
 		if (isLoading) return;
 
 		setIsLoading(true);
+
 		try {
 			const searchedProduct = searchProducts({ term, localeCode });
 			if (searchedProduct?.docs?.length > 0) {
@@ -120,9 +123,9 @@ export default function SearchDropdownMenu() {
 					<div className='bg-secondary rounded-full p-2 md:p-3'>
 						<Button variant='ghost' size={"icon"}>
 							{!open ? (
-								<Search className='size-4 shrink-0' />
+								<Search className='icon-size' />
 							) : (
-								<X className='size-4 shrink-0' />
+								<X className='icon-size' />
 							)}
 						</Button>
 					</div>
@@ -132,7 +135,7 @@ export default function SearchDropdownMenu() {
 					showDialogOverlay={true}
 					classNameDialog={"bg-transparent!"}
 					className={cn(
-						"bg-secondary! rounded-none! w-full! max-w-full! fl-top-16/24 left-1/2 mt-[90px] h-[calc(100vh)] origin-top -translate-x-1/2 translate-y-0 overflow-hidden p-4 transition-all duration-300 md:p-8",
+						"bg-secondary! rounded-none! w-full! max-w-full! fl-top-16/24 left-1/2 mt-[90px] h-[calc(100vh-90px)] origin-top -translate-x-1/2 translate-y-0 overflow-hidden p-4 transition-all duration-300 md:p-8",
 					)}
 				>
 					<DialogTitle className='sr-only hidden'>Search menu</DialogTitle>
@@ -202,28 +205,12 @@ export default function SearchDropdownMenu() {
 
 							<SliderArchive
 								relationTo={"products"}
-								name={"products"}
+								name={"search-products"}
 								products={products?.docs?.map(p => p.raw)}
 								locale={localeCode}
 								inCatalogButton={false}
 								showNavigation={!!products?.docs.length}
 							/>
-
-							{/* <Button
-								type='submit'
-								size='lg'
-								className={cn(
-									"rounded-full! border-none! mt-auto hidden w-full",
-									{
-										flex: products?.docs.length > 0,
-									},
-								)}
-								onClick={() => {
-									setSearchAndInput("");
-								}}
-							>
-								{t("form.clearButton")}
-							</Button> */}
 						</div>
 					</div>
 				</DialogContent>
@@ -247,22 +234,22 @@ function SearchArchive({
 }) {
 	return (
 		<div>
-			<Text comp='h3' variant={"secondary"} className=''>
+			<Text comp='h3' size={"xsm"} variant={"secondary"} className=''>
 				{title}
 			</Text>
 			<ul className={"flex flex-col gap-1 pt-2"}>
 				{items?.map(item => (
 					<li
 						key={item.term}
-						className='flex cursor-pointer items-center gap-2 rounded-lg bg-zinc-100 px-2 py-1 hover:opacity-70'
+						className='flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 hover:opacity-70'
 					>
-						<Search className='size-4 shrink-0' />
+						<Search className='icon-size' />
 						<Text
 							comp='p'
-							size={"xxs"}
+							size={"xs"}
 							onClick={() => setSearchInput(item.term)}
 							variant={"secondary"}
-							className='whitespace-nowrap! overflow-hidden! text-ellipsis! min-w-0! block! grow truncate '
+							className='whitespace-nowrap! overflow-hidden! text-ellipsis! min-w-0! block! grow truncate'
 						>
 							{item.term}
 						</Text>
@@ -276,7 +263,7 @@ function SearchArchive({
 								variant={"secondary"}
 								onClick={() => removeItem?.(item.term, localeCode)}
 							>
-								<X />
+								<X className='icon-size' />
 							</Button>
 						}
 					</li>
