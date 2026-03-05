@@ -1,5 +1,6 @@
 import type { Locale } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { PromoRoundBlock } from "@/app/[locale]/(public)/(home)/_ui/PromoRoundBlock";
 import type { LocaleCode } from "@/i18n/localization";
 import { FormBlock } from "@/widgets/Form/Component";
 import { MarqueeBlock } from "@/widgets/MarqueeBlock/Component";
@@ -8,7 +9,7 @@ import { BenefitsSection } from "./_ui/Benefits";
 import { CategorySection } from "./_ui/CategorySection";
 import { Hero } from "./_ui/HeroSection";
 import { ProductSection } from "./_ui/ProductSection";
-import { PromoBlock } from "./_ui/PromoBlock";
+// import { PromoBlock } from "./_ui/PromoBlock";
 
 type Args = {
 	params: Promise<{
@@ -45,14 +46,13 @@ export default async function HomePage({ params }: Args) {
 			<Hero />
 			<CategorySection locale={locale as LocaleCode} />
 			<ProductSection locale={locale as LocaleCode} />
-			<PromoBlock introContent={t("PromoSection.title")} />
+			<PromoRoundBlock id={"promo"} introContent={t("PromoSection.title")} />
 			<BenefitsSection />
 			<MediaBlock
 				title={t("MediaSection.title")}
 				introContent={t("MediaSection.description")}
 				media={MEDIA}
 			/>
-
 			<FormBlock
 				introContent={t("FormSection.title")}
 				enableIntro={true}

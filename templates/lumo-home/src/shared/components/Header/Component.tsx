@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import { CartSheet } from "@/modules/cart/ui/CartSheet";
 import { SearchInput } from "@/modules/products/ui/search";
 import { retrieveCustomer } from "@/modules/users/actions/getUser";
-import { ADMIN } from "@/modules/users/model/data";
 import type { User } from "@/modules/users/model/types";
 import { DesktopDropdownMenu } from "@/shared/components/Header/DesktopDropdownMenu";
 import { LanguageSwitcher } from "@/shared/components/Header/LanguageSwitcher";
@@ -12,89 +11,87 @@ import { Logo } from "@/shared/components/Header/Logo";
 import { MobileMenuSheet } from "@/shared/components/Header/MobileMenu";
 import { CMSLink } from "@/shared/components/Link";
 import { btnVariants } from "@/shared/components/ui/button";
+// import { ADMIN } from "@/modules/users/model/data";
 
 type Props = {
-  user?: User | null;
-  searchIsHidden?: boolean;
+	user?: User | null;
+	searchIsHidden?: boolean;
 };
 
 export async function Header(props: Props) {
-  // const user = await getCurrentUserAction({ depth: 2, redirectUrl: null });
-  const user: User = await retrieveCustomer();
-
-  return <HeaderBlock {...{ ...props, user: user }} />;
+	const user: User = await retrieveCustomer();
+	return <HeaderBlock {...{ ...props, user: user }} />;
 }
 
 export async function HeaderBlock(props: Props) {
-  const { searchIsHidden = false, user } = props;
-  const t = await getTranslations("HeaderBlock");
+	const { searchIsHidden = false, user } = props;
+	const t = await getTranslations("HeaderBlock");
 
-  // const header: HeaderType = await getCachedGlobal("header", 1)();
-  const HEADER = {
-    navItems: [
-      {
-        link: {
-          href: "/",
-          label: "Home",
-        },
-      },
-      {
-        link: {
-          href: "/about",
-          label: "About",
-        },
-      },
-      {
-        link: {
-          href: "/contact",
-          label: "Contact",
-        },
-      },
-    ],
-    logo: null,
-  };
+	const HEADER = {
+		navItems: [
+			{
+				link: {
+					href: "/",
+					label: "Home",
+				},
+			},
+			{
+				link: {
+					href: "/about",
+					label: "About",
+				},
+			},
+			{
+				link: {
+					href: "/contact",
+					label: "Contact",
+				},
+			},
+		],
+		logo: null,
+	};
 
-  return (
-    <header className="fl-pt-16/24 fl-px-8/32 sticky z-50 flex w-full items-center justify-between self-center">
-      <Logo />
-      <div className="fl-gap-x-8/16 flex items-center">
-        {!searchIsHidden && (
-          <div className={"hidden lg:block"}>
-            {HEADER.navItems?.map((item, index) => (
-              <CMSLink size={"sm"} key={String(index)} {...item} />
-            ))}
-            <SearchInput />
-          </div>
-        )}
+	return (
+		<header className='fl-pt-16/24 fl-px-8/32 sticky z-50 flex w-full items-center justify-between self-center'>
+			<Logo />
+			<div className='fl-gap-x-8/16 flex items-center'>
+				{!searchIsHidden && (
+					<div className={"hidden lg:block"}>
+						{HEADER.navItems?.map((item, index) => (
+							<CMSLink size={"sm"} key={String(index)} {...item} />
+						))}
+						<SearchInput />
+					</div>
+				)}
 
-        <ShellButton>
-          <LanguageSwitcher isMobile={false} />
-        </ShellButton>
+				<ShellButton>
+					<LanguageSwitcher isMobile={false} />
+				</ShellButton>
 
-        <div className="fl-gap-x-12/16 fl-px-16/24 bg-secondary flex items-center rounded-full py-3">
-          <CartSheet />
-          {user ? (
-            <DesktopDropdownMenu user={user} />
-          ) : (
-            <Link className={btnVariants({})} href={"/login"}>
-              {t("logIn")}
-            </Link>
-          )}
-          <MobileMenuSheet user={user} />
-        </div>
-      </div>
-    </header>
-  );
+				<div className='fl-gap-x-12/16 fl-px-16/24 bg-secondary flex items-center rounded-full py-3'>
+					<CartSheet />
+					{user ? (
+						<DesktopDropdownMenu user={user} />
+					) : (
+						<Link className={btnVariants({})} href={"/login"}>
+							{t("logIn")}
+						</Link>
+					)}
+					<MobileMenuSheet user={user} />
+				</div>
+			</div>
+		</header>
+	);
 }
 
 export function ShellButton({ children }: PropsWithChildren) {
-  return (
-    <div
-      className={
-        "bg-secondary hidden items-center rounded-full p-2 md:p-3 lg:flex"
-      }
-    >
-      {children}
-    </div>
-  );
+	return (
+		<div
+			className={
+				"bg-secondary hidden items-center rounded-full p-2 md:p-3 lg:flex"
+			}
+		>
+			{children}
+		</div>
+	);
 }

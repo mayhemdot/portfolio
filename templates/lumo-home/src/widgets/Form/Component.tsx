@@ -56,7 +56,7 @@ export const FormBlock: React.FC<
           font="sans"
           comp={"p"}
           size={"lg"}
-          className="mb-6 text-center font-normal leading-none! md:mb-8 lg:mb-12"
+          className="mb-6 text-center font-semibold! leading-none! md:mb-8 lg:mb-12"
         >
           {introContent}
         </Text>
@@ -68,7 +68,7 @@ export const FormBlock: React.FC<
             <form
               id={formID}
               onSubmit={handleSubmit}
-              className="fl-px-16/32 fl-py-16/32 bg-secondary 2xl:rounded-4xl grid grid-cols-1 items-start gap-3 rounded-2xl md:rounded-3xl lg:grid-cols-3 xl:gap-4"
+              className="fl-px-16/32 fl-py-24/48 bg-secondary 2xl:rounded-4xl grid grid-cols-1 items-start gap-3 rounded-2xl md:rounded-3xl lg:grid-cols-3 xl:gap-4"
             >
               <div className="col-span-2 w-full grow space-y-4 last:mb-0">
                 <EmailInput

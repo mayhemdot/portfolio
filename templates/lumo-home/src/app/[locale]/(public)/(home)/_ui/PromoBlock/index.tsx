@@ -14,7 +14,7 @@ export const PromoBlock: React.FC<any> = (props) => {
       {introContent && (
         <div className="w-[80%] sm:w-[70%] md:w-[40%] xl:w-[33%] aspect-3/4 rounded-[400px] bg-secondary">
           <span className="absolute w-full left-[50%] -translate-y-1/2 top-1/2 -translate-x-[50%] z-10">
-            <p className="fl-text-28/80 whitespace-pre-line text-dark font-medium text-center leading-none">
+            <p className="fl-text-28/80 whitespace-pre-line text-dark font-medium text-center leading-tight">
               {introContent}
             </p>
           </span>

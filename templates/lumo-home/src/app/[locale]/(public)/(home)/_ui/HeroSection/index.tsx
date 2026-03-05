@@ -1,537 +1,135 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import type { SlotProps } from "@radix-ui/react-slot";
 import { gsap } from "gsap";
-import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import React from "react";
-import BtnCurve from "@/shared/components/icons/BtnCurve";
 import ThornsIcon from "@/shared/components/icons/ThornsIcon";
 import { TitleBackground } from "@/shared/components/icons/TitleBackground";
-import TitleIcon, { TitleSvg } from "@/shared/components/icons/TitleSvg";
-import { CMSLink } from "@/shared/components/Link";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/shared/components/ui/avatar";
-import { Badge } from "@/shared/components/ui/badge";
-import { Button, btnVariants } from "@/shared/components/ui/button";
-import { cn } from "@/shared/lib/utils";
-
-// import { SliderHero } from "./SliderHero";
+import { TitleSvg } from "@/shared/components/icons/TitleSvg";
+import { btnVariants } from "@/shared/components/ui/button";
+import { SlideUp } from "@/shared/components/animations/SlideUp";
+// import BtnCurve from "@/shared/components/icons/BtnCurve";
 
 gsap.registerPlugin(useGSAP);
 
 export function Hero() {
-  const scopeRef = React.useRef<HTMLDivElement | null>(null);
-  // const leftSideRef = React.useRef<HTMLDivElement | null>(null);
-  // const rightSideRef = React.useRef<HTMLDivElement | null>(null);
-  const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
-  const timeline = React.useRef(gsap.timeline({ paused: true })).current;
+	const scopeRef = React.useRef<HTMLDivElement | null>(null);
+	const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
+	const timeline = React.useRef(gsap.timeline({ paused: true })).current;
 
-    useGSAP(
-      () => {
-        // Refs allow you to access DOM nodes
-        // then we can animate them like so...
-        if (
-          buttonRef.current 
-          // &&
-          // buttonRef.current.querySelector(".link-text") &&
-          // buttonRef.current.querySelector(".link-icon")
-        ) {
-          buttonRef.current.style.width = "0%";
-          buttonRef.current.style.opacity = "0";
-  
-          timeline
-            .to(
-              buttonRef.current,
-              {
-                opacity: 1,
-                duration: 0.1,
-              },
-              "-=0.4",
-            )
-            // .fromTo(
-            //   leftSideRef.current,
-            //   {
-            //     filter: "blur(200px)",
-            //     y: "2%",
-            //     opacity: 0,
-            //   },
-            //   {
-            //     filter: "blur(0px)",
-            //     opacity: 1,
-            //     y: "0%",
-            //     duration: 0.8,
-            //   },
-            // )
-            // .fromTo(
-            //   rightSideRef.current,
-            //   {
-            //     filter: "blur(200px)",
-            //     y: "2%",
-            //     opacity: 0,
-            //   },
-            //   {
-            //     filter: "blur(0px)",
-            //     opacity: 1,
-            //     y: "0%",
-            //     duration: 0.8,
-            //   },
-            //   "-=0.8",
-            // )
-            // .fromTo(
-            //   buttonRef.current,
-            //   {
-            //     scale: "0",
-            //   },
-            //   {
-            //     scale: "1",
-            //     duration: 0.6,
-            //   },
-            //   "-=0.8",
-            // )
-            // .fromTo(
-            //   buttonRef.current.querySelector(".link-icon"),
-            //   {
-            //     scale: "0",
-            //   },
-            //   {
-            //     scale: "1",
-            //     duration: 0.4,
-            //   },
-            //   "-=0.1",
-            // )
-            .to(buttonRef.current, {
-              width: "74%",
-              duration: 0.37,
-              ease: "power4.out"
-            })
-            .to(buttonRef.current.querySelector(".link-text"), {
-              opacity: 1,
-              duration: 0.37,
-              // animation: 'easeInOut',
-            });
-  
-          timeline.play();
-        }
-      },
-      { scope: scopeRef },
-    );
+	useGSAP(
+		() => {
+			// Refs allow you to access DOM nodes
+			// then we can animate them like so...
+			if (buttonRef.current) {
+				buttonRef.current.style.width = "0%";
+				buttonRef.current.style.opacity = "0";
 
-  return (
-    <section
-      ref={scopeRef}
-      className="hero relative mx-auto flex h-[calc(100svh-200px)] grow mb-32"
-    >
-      <div className="relative h-full fl-mx-8/32 rounded-2xl xl:rounded-4xl fl-mt-8/16 w-full bg-secondary">
-        {/* TEXT / HEADING */}
-        <div className="content-hero relative w-full">
-          <TitleBackground className="absolute z-0 w-[96%] lg:w-[76%] bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+				timeline
+					.to(
+						buttonRef.current,
+						{
+							opacity: 1,
+							duration: 0.1,
+						},
+						"-=0.4",
+					)
+					.to(buttonRef.current, {
+						width: "74%",
+						duration: 0.37,
+						ease: "power4.out",
+					})
+					.to(buttonRef.current.querySelector(".link-text"), {
+						opacity: 1,
+						duration: 0.37,
+						// animation: 'easeInOut',
+					});
 
-          {/* <div className="w-[70%] absolute sm:w-[50%] top-1/2 lg:w-[22%] left-1/2 -translate-x-1/2"> */}
-           <SlideUp tag="div" className="main-image w-[70%] absolute! sm:w-[50%] top-1/2 lg:w-[22%] left-1/2 -translate-x-1/2" timeline={timeline} animationDelay={0.1} animationDuration={0.3}>
-              <div className="relative aspect-9/12">
-                <Image
-                  src={"/hero__image.png"}
-                  alt={"hero image"}
-                  fill
-                  className="object-cover"
-                  priority={true}
-                  sizes="100%"
-                />
-              </div>
-     
-          </SlideUp>
+				timeline.play();
+			}
+		},
+		{ scope: scopeRef },
+	);
 
-          <div className="h-fit bottom-0 absolute w-[84%] sm:w-[76%] lg:w-[45%] left-[50%] -translate-x-1/2">
-            <div className="mx-auto w-fit relative mb-12 font-medium">
-              <span className="relative tracking-widest z-10 fl-text-16/20">
-                FURNITURE MADE FROM ITALY
-              </span>
-              <ThornsIcon className="absolute z-0 fl-w-60/100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
-              <h1 className="fl-text-120/360 sr-only">LUMO</h1>
-               <SlideUp timeline={timeline} tag={"h1"} animationDelay={-0.1} animationDuration={0.6}>
-                  <TitleSvg className="bottom-0 z-10 w-full block h-fit" />
-               </SlideUp>
-            </div>
-          </div>
+	return (
+		<section
+			ref={scopeRef}
+			className='hero relative mx-auto mb-32 flex h-[calc(100svh-200px)] grow'
+		>
+			<div className='fl-mx-8/32 xl:rounded-4xl fl-mt-8/16 bg-secondary relative h-full w-full rounded-2xl'>
+				<div className='content-hero relative w-full'>
+					<TitleBackground className='pointer-events-none absolute bottom-0 left-1/2 z-0 w-[96%] -translate-x-1/2 translate-y-1/2 lg:w-[76%]' />
 
-          <SlideUp 
-            tag="div" 
-            className="absolute z-1 fl-text-13/20 bottom-1/5 max-w-[max(20%,220px)] left-[5%] sm:left-[15%] md:left-[25%] bg-[#313131/4] backdrop-blur-xl p-4 border-[#F4F4F4] border rounded-2xl" 
-            timeline={timeline} 
-            animationDelay={-0.2} 
-            animationDuration={0.37}>
-            Infusing spaces with light and emotion, our unique creations transform interiors into art. 
-              We don't just design furniture—we curate a feeling.
-          </SlideUp>
-        <div className="hero-button absolute bottom-0 z-1 left-1/2 -translate-x-1/2 translate-y-1/2 ">
-          <Link
-            ref={buttonRef}
-            className={btnVariants({
-              variant: "default",
-              size: "xl",
-              className: "will-change-transform opacity-0 [&>span]:opacity-0  mt-1 z-0 relative mx-auto! flex! items-center justify-center",
-            })} 
-            href={"/products"}>
-           
-           <span className={"link-text text-[length:inherit] opacity-0"}>
-              EXPLORE COLLECTION
-           </span>
-          
-            {/* {t("showMore")} */}
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-//  <CMSLink
-//               ref={buttonRef}
-//               className={
-//                 "max-w-115 mx-auto w-[16%] opacity-0 [&>span]:opacity-0"
-//               }
-//               size={"xl"}
-//               appearance={"default"}
-//               icon={ChevronRight}
-//               label={t("showMore")}
-//               url={"/products"}
-//             />
-// export function HeroOld() {
-//   const scopeRef = React.useRef<HTMLDivElement | null>(null);
-//   // const leftSideRef = React.useRef<HTMLDivElement | null>(null);
-//   // const rightSideRef = React.useRef<HTMLDivElement | null>(null);
-//   // const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
-//   // const timeline = React.useRef(gsap.timeline({ paused: true })).current;
+					{/* <div className="w-[70%] absolute sm:w-[50%] top-1/2 lg:w-[22%] left-1/2 -translate-x-1/2"> */}
+					<SlideUp
+						tag='div'
+						className='main-image absolute! left-1/2 top-1/2 w-[70%] -translate-x-1/2 sm:w-[50%] lg:w-[22%]'
+						timeline={timeline}
+						animationDelay={0.1}
+						animationDuration={0.3}
+					>
+						<div className='aspect-9/12 relative'>
+							<Image
+								src={"/hero__image.png"}
+								alt={"hero image"}
+								fill
+								className='object-cover'
+								priority={true}
+								sizes='100%'
+							/>
+						</div>
+					</SlideUp>
 
-//   return (
-//     <section
-//       ref={scopeRef}
-//       className="relative  mx-auto flex h-[calc(100svh-200px)] grow"
-//     >
-//       <div className="relative h-full fl-mx-8/32 rounded-4xl fl-mt-8/16 w-full bg-secondary">
-//         {/* TEXT / HEADING */}
-//         <div className="h-[40%] lg:h-[50%] relative w-full">
-//           <TitleBackground className="absolute z-0 w-[96%] lg:w-[76%] bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 pointer-events-none" />
+					<div className='absolute bottom-0 left-[50%] h-fit w-[84%] -translate-x-1/2 sm:w-[76%] lg:w-[45%]'>
+						<div className='relative mx-auto mb-12 w-fit font-medium'>
+							<span className='fl-text-16/20 relative z-10 tracking-widest'>
+								FURNITURE MADE FROM ITALY
+							</span>
+							<ThornsIcon className='fl-w-60/100 pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2' />
+						</div>
+						<h1 className='fl-text-120/360 sr-only'>LUMO</h1>
+						<SlideUp
+							timeline={timeline}
+							tag={"h1"}
+							animationDelay={-0.1}
+							animationDuration={0.6}
+						>
+							<TitleSvg className='bottom-0 z-10 block h-fit w-full' />
+						</SlideUp>
+					</div>
+				</div>
 
-//           {/* <div className="w-[70%] absolute sm:w-[50%] top-1/2 lg:w-[22%] left-1/2 -translate-x-1/2"> */}
-//           <div className="w-[70%] absolute sm:w-[48%] top-[67%] lg:w-[22%] left-1/2 -translate-x-1/2">
-//             <div className="relative aspect-9/12">
-//               <Image src={"/hero__image.png"} alt={"hero image"}  fill  className="object-cover"/>
-//             </div>
-//           </div>
+				<SlideUp
+					tag='div'
+					className='z-1 fl-text-13/20 bottom-1/5 absolute left-[5%] max-w-[max(20%,220px)] rounded-2xl border border-[#F4F4F4] bg-[#313131/4] p-4 backdrop-blur-xl sm:left-[15%] md:left-[25%]'
+					timeline={timeline}
+					animationDelay={-0.2}
+					animationDuration={0.37}
+				>
+					Infusing spaces with light and emotion, our unique creations transform
+					interiors into art. We don't just design furniture—we curate a
+					feeling.
+				</SlideUp>
+				<div className='hero-button z-1 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 '>
+					<Link
+						ref={buttonRef}
+						className={btnVariants({
+							variant: "default",
+							size: "xl",
+							className:
+								"mx-auto! flex! relative z-0 mt-1 items-center justify-center opacity-0 will-change-transform [&>span]:opacity-0",
+						})}
+						href={"/products"}
+					>
+						<span className={"link-text text-[length:inherit] opacity-0"}>
+							EXPLORE COLLECTION
+						</span>
 
-//           <div className="h-fit bottom-0 absolute w-[84%] sm:w-[76%] lg:w-[45%] left-[50%] -translate-x-1/2">
-//             <div className="mx-auto w-fit relative mb-12 font-medium">
-//               <span className="relative tracking-widest z-10 fl-text-13/20">
-//                 FURNITURE MADE FROM ITALY
-//               </span>
-//               <ThornsIcon className="absolute z-0 fl-w-50/100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-//             </div>
-
-//             <h1 className="fl-text-120/360 sr-only">LUMO</h1>
-//             <TitleSvg className="bottom-0 z-10 w-full block h-fit" />
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export const MainHero: React.FC = () => {
-//   const scopeRef = React.useRef<HTMLDivElement | null>(null);
-//   const leftSideRef = React.useRef<HTMLDivElement | null>(null);
-//   const rightSideRef = React.useRef<HTMLDivElement | null>(null);
-//   const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
-//   const timeline = React.useRef(gsap.timeline({ paused: true })).current;
-
-//   const t = useTranslations("HomePage.HeroSection");
-
-//   useGSAP(
-//     () => {
-//       // Refs allow you to access DOM nodes
-//       // then we can animate them like so...
-//       if (
-//         buttonRef.current &&
-//         buttonRef.current.querySelector(".link-text") &&
-//         buttonRef.current.querySelector(".link-icon")
-//       ) {
-//         buttonRef.current.style.width = "10%";
-//         buttonRef.current.style.opacity = "0";
-
-//         timeline
-//           .to(
-//             buttonRef.current,
-//             {
-//               opacity: 1,
-//               duration: 0.1,
-//             },
-//             "-=0.4",
-//           )
-//           .fromTo(
-//             leftSideRef.current,
-//             {
-//               filter: "blur(200px)",
-//               y: "2%",
-//               opacity: 0,
-//             },
-//             {
-//               filter: "blur(0px)",
-//               opacity: 1,
-//               y: "0%",
-//               duration: 0.8,
-//             },
-//           )
-//           .fromTo(
-//             rightSideRef.current,
-//             {
-//               filter: "blur(200px)",
-//               y: "2%",
-//               opacity: 0,
-//             },
-//             {
-//               filter: "blur(0px)",
-//               opacity: 1,
-//               y: "0%",
-//               duration: 0.8,
-//             },
-//             "-=0.8",
-//           )
-//           .fromTo(
-//             buttonRef.current,
-//             {
-//               scale: "0",
-//             },
-//             {
-//               scale: "1",
-//               duration: 0.6,
-//             },
-//             "-=0.8",
-//           )
-//           .fromTo(
-//             buttonRef.current.querySelector(".link-icon"),
-//             {
-//               scale: "0",
-//             },
-//             {
-//               scale: "1",
-//               duration: 0.4,
-//             },
-//             "-=0.1",
-//           )
-//           .to(buttonRef.current, {
-//             width: "100%",
-//             duration: 0.4,
-//           })
-//           .to(buttonRef.current.querySelector(".link-text"), {
-//             opacity: 1,
-//             duration: 0.1,
-//             // animation: 'easeInOut',
-//           });
-
-//         timeline.play();
-//       }
-//     },
-//     { scope: scopeRef },
-//   );
-
-//   return (
-//     <section
-//       ref={scopeRef}
-//       className="relative mx-auto flex h-[calc(100dvh-100px)] w-full items-start"
-//     >
-//       <div className="padding-default relative h-full w-full">
-//         <div
-//           ref={leftSideRef}
-//           className="absolute left-0 top-0 z-0 h-full w-full grow pt-24 opacity-0 md:w-1/2 md:pt-8 xl:block xl:w-1/3 xl:pt-10"
-//         >
-//           <div className="relative h-fit">
-//             <SliderHero />
-//           </div>
-//           <div className="bg-secondary hidden flex-col gap-0 rounded-2xl p-2 text-center leading-tight lg:inline-flex xl:p-4">
-//             <span className="fl-text-20/24 font-normal">
-//               100<span style={{ fontFamily: "Arial" }}>%</span>
-//             </span>
-//             <span className="fl-text-20/24 font-normal">Safety Guarantee</span>
-//           </div>
-//         </div>
-
-//         <div className="fl-pt-96/192 relative z-10 mx-auto h-full w-full xl:w-1/3">
-//           <div className="absolute left-1/2 top-0 z-10 mx-auto flex w-fit -translate-x-1/2 translate-y-[60%] flex-col justify-center gap-4 xl:translate-y-[40%] xl:gap-8">
-//             <div>
-//               <SlideUp
-//                 timeline={timeline}
-//                 tag={"h1"}
-//                 className={
-//                   "fl-text-80/140 text-nowrap leading-tight! font-medium"
-//                 }
-//                 animationDelay={0}
-//               >
-//                 LUMO HOME
-//               </SlideUp>
-//               <SlideUp
-//                 timeline={timeline}
-//                 tag={"div"}
-//                 className={
-//                   "fl-text-32/58 text-nowrap leading-tight! mb-4 xl:mb-8"
-//                 }
-//                 animationDelay={0}
-//               >
-//                 {/* Modern Lightning & Furniture */}
-//                 {t("title")}
-//               </SlideUp>
-//               <SlideUp
-//                 tag={"p"}
-//                 timeline={timeline}
-//                 animationDelay={0}
-//                 className={"fl-max-w-260/340 fl-text-16/20 ml-auto self-end"}
-//               >
-//                 {t("description")}
-//                 {/* Infusing spaces with light and emotion, our unique creations
-//                 transform interiors into art. We don't just design furniture —
-//                 we curate a feeling. */}
-//               </SlideUp>
-//             </div>
-//             {/* <p className="fl-max-w-260/340 text-fluid self-end">
-//             Infusing spaces with light and emotion, our unique creations
-//             transform interiors into art. We don't just design furniture—we
-//             curate a feeling.
-//           </p> */}
-
-//             <CMSLink
-//               ref={buttonRef}
-//               className={
-//                 "max-w-115 mx-auto w-[16%] opacity-0 [&>span]:opacity-0"
-//               }
-//               size={"xl"}
-//               appearance={"default"}
-//               icon={ChevronRight}
-//               label={t("showMore")}
-//               url={"/products"}
-//             />
-//           </div>
-
-//           <div className="absolute left-0 top-0 z-0 h-screen w-[120%] translate-x-[-10%] translate-y-[-10%] backdrop-blur-2xl xl:hidden" />
-//         </div>
-
-//         <div
-//           ref={rightSideRef}
-//           className="heroRightSide absolute right-0 top-0 z-10 h-full grow py-4 opacity-0 md:py-8 xl:block xl:w-1/3 xl:py-10"
-//         >
-//           <div className="flex h-full flex-col items-center justify-start">
-//             <div className="max-w-65 flex w-full grow flex-col items-end gap-2">
-//               <Badge size={"sm"} variant={"outline"} className="fl-text-20/24">
-//                 {/* 1000+ Happy clients */}
-//                 <span className="fl-text-20/24 font-medium">
-//                   {t("ourClients.title")}
-//                 </span>{" "}
-//                 {t("ourClients.description")}
-//               </Badge>
-//               <Badge size={"sm"} variant={"outline"} className="fl-text-20/24">
-//                 <span className="fl-text-20/24 font-medium">
-//                   {t("ourDesign.title")}
-//                 </span>{" "}
-//                 {t("ourDesign.description")}
-//               </Badge>
-//             </div>
-//             <div className="max-w-65 bg-secondary mb-[10%] w-fit space-y-3 rounded-2xl p-3">
-//               <Badge
-//                 variant={"outline"}
-//                 className="fl-text-20/24 bg-background w-full"
-//               >
-//                 {t("topSale")}
-//               </Badge>
-
-//               <div className="flex w-fit flex-row gap-2">
-//                 {[
-//                   {
-//                     src: "/images/product_2.jpg",
-//                   },
-//                   {
-//                     src: "/images/product_3.jpg",
-//                   },
-//                   {
-//                     src: "/images/product_4.jpg",
-//                   },
-//                   {
-//                     src: "/images/product_5.jpg",
-//                   },
-//                 ].map(({ src }, i) => (
-//                   <Avatar
-//                     key={src}
-//                     className={cn("size-[52px] xl:size-[68px]", {
-//                       "-ml-[24px]": i > 0,
-//                     })}
-//                   >
-//                     <AvatarImage src={src} alt="@shadcn" />
-//                     <AvatarFallback>CN</AvatarFallback>
-//                   </Avatar>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-export function SlideUp({
-  timeline,
-  tag = "h1",
-  children,
-  className,
-  animationDuration = 0.275,
-  animationDelay = 0,
-}: {
-  timeline?: gsap.core.Timeline;
-  tag?:
-    | string
-    | React.ForwardRefExoticComponent<
-        SlotProps & React.RefAttributes<HTMLElement>
-      >;
-  children: React.ReactNode;
-  className?: string;
-  animationDuration?: number;
-  animationDelay?: number;
-}) {
-  const ref = React.useRef<HTMLAnchorElement | null>(null);
-
-  useGSAP(() => {
-    if (!ref.current) return;
-
-    ref.current.style.opacity = "0";
-    // Refs allow you to access DOM nodes
-    const def = {
-      opacity: "1",
-      y: 0,
-      filter: "blur(0px)",
-      duration: animationDuration,
-      animationDelay,
-    };
-    // then we can animate them like so...
-    if (timeline) {
-      timeline.to(ref.current, def, animationDelay > 0 ? `+=${Number(animationDelay)}` : `-=${Number(animationDelay) * -1}`);
-    } else {
-      gsap.to(ref.current, def);
-    }
-  }, []);
-
-  const Comp = tag;
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        "translate-y-[20px] opacity-0 blur-2xl will-change-transform",
-        className,
-      )}
-    >
-      {children}
-    </Comp>
-  );
+						{/* {t("showMore")} */}
+					</Link>
+				</div>
+			</div>
+		</section>
+	);
 }
