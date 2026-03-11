@@ -56,8 +56,8 @@
 	"HomePage": {
 		"HeroSection": {
 			"title": "Modern Lightning & Furniture",
-			"description": "Infusing spaces with light and emotion, our unique creations transform interiors into art. We don't just design furniture—we curate a feeling.",
-			"showMore": "Read more",
+			"description": "Infusing spaces with light and emotion, our unique creations transform interiors into art.\r\nWe don't just design furniture—we curate a feeling.",
+			"showMore": "Explore collection",
 			"topSale": "Best of sales",
 			"ourDesign": {
 				"title": "3",
@@ -73,7 +73,7 @@
 		},
 		"MediaSection": {
 			"title": "Where Design Meets Presence",
-      "description": "Bold form. Refined material. Absolute precision.\r\nCrafted in tinted acrylic, each piece balances lightness and strength — designed to be seen, designed to be remembered."
+			"description": "Bold form. Refined material. Absolute precision.\r\nCrafted in tinted acrylic, each piece balances lightness and strength — designed to be seen, designed to be remembered."
 		},
 		"BenefitsSection": {
 			"title": "Why Choose Us",

@@ -107,7 +107,7 @@ export function SliderArchive(props: Props) {
 					className={btnVariants({
 						variant: "secondary",
 						size: "xl",
-						className: "mt-4 w-full uppercase md:mt-8",
+						className: "mt-4 cursor-pointer! w-full uppercase md:mt-8",
 					})}
 				>
 					{t("inCatalog")}

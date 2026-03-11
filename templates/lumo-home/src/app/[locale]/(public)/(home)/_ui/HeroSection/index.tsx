@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useTranslations } from "next-intl";
 import ThornsIcon from "@/shared/components/icons/ThornsIcon";
 import { TitleBackground } from "@/shared/components/icons/TitleBackground";
 import { TitleSvg } from "@/shared/components/icons/TitleSvg";
@@ -17,6 +18,7 @@ export function Hero() {
 	const scopeRef = React.useRef<HTMLDivElement | null>(null);
 	const buttonRef = React.useRef<HTMLAnchorElement | null>(null);
 	const timeline = React.useRef(gsap.timeline({ paused: true })).current;
+	const t = useTranslations("HomePage.HeroSection");
 
 	useGSAP(
 		() => {
@@ -55,16 +57,17 @@ export function Hero() {
 	return (
 		<section
 			ref={scopeRef}
-			className='hero relative mx-auto mb-32 flex h-[calc(100svh-200px)] grow'
+			className='hero relative mx-auto mb-32 flex h-[calc(100svh-200px)] min-h-[740px] grow'
 		>
 			<div className='fl-mx-8/32 xl:rounded-4xl fl-mt-8/16 bg-secondary relative h-full w-full rounded-2xl'>
 				<div className='content-hero relative w-full'>
 					<TitleBackground className='pointer-events-none absolute bottom-0 left-1/2 z-0 w-[96%] -translate-x-1/2 translate-y-1/2 lg:w-[76%]' />
 
 					{/* <div className="w-[70%] absolute sm:w-[50%] top-1/2 lg:w-[22%] left-1/2 -translate-x-1/2"> */}
+					{/* className='main-image absolute! left-1/2 top-1/2 w-[70%] -translate-x-1/2 sm:w-[50%] lg:w-[33%] xl:w-[22%]' */}
 					<SlideUp
 						tag='div'
-						className='main-image absolute! left-1/2 top-1/2 w-[70%] -translate-x-1/2 sm:w-[50%] lg:w-[22%]'
+						className='main-image absolute! fl-w-240/400 left-1/2 top-[70%] h-fit -translate-x-1/2'
 						timeline={timeline}
 						animationDelay={0.1}
 						animationDuration={0.3}
@@ -99,17 +102,15 @@ export function Hero() {
 						</SlideUp>
 					</div>
 				</div>
-
+				{/* border-[#F4F4F4]  #DCDED7*/}
 				<SlideUp
 					tag='div'
-					className='z-1 fl-text-13/20 bottom-1/5 absolute left-[5%] max-w-[max(20%,220px)] rounded-2xl border border-[#F4F4F4] bg-[#313131/4] p-4 backdrop-blur-xl sm:left-[15%] md:left-[25%]'
+					className='z-1 fl-text-13/20 bottom-1/6 absolute left-[5%] max-w-[max(23%,260px)] whitespace-pre-line rounded-2xl border border-white bg-[#313131/4] p-4 backdrop-blur-xl sm:left-[15%] md:left-[25%]'
 					timeline={timeline}
 					animationDelay={-0.2}
 					animationDuration={0.37}
 				>
-					Infusing spaces with light and emotion, our unique creations transform
-					interiors into art. We don't just design furniture—we curate a
-					feeling.
+					{t("description")}
 				</SlideUp>
 				<div className='hero-button z-1 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 '>
 					<Link
@@ -118,15 +119,13 @@ export function Hero() {
 							variant: "default",
 							size: "xl",
 							className:
-								"mx-auto! flex! relative z-0 mt-1 items-center justify-center opacity-0 will-change-transform [&>span]:opacity-0",
+								"mx-auto! flex! relative z-0 mt-1 items-center justify-center uppercase opacity-0 will-change-transform [&>span]:opacity-0",
 						})}
 						href={"/products"}
 					>
 						<span className={"link-text text-[length:inherit] opacity-0"}>
-							EXPLORE COLLECTION
+							{t("showMore")}
 						</span>
-
-						{/* {t("showMore")} */}
 					</Link>
 				</div>
 			</div>

@@ -1,20 +1,26 @@
 "use client";
-import { useRef } from "react";
 import { Search, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { parseAsString, useQueryState } from "nuqs";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import type { Lang, LocaleCode } from "@/i18n/localization";
+import { PRODUCTS } from "@/modules/products/model/data";
+import {
+	type SearchHistoryItem,
+	useSearchHistoryStore,
+} from "@/modules/products/model/search-store";
 import { Product } from "@/modules/products/model/types";
 import {
 	type PaginatedDocs,
 	searchProducts,
 } from "@/modules/products/queries/searchProducts";
+import { ShellButton } from "@/shared/components/Header/Component";
+import { InputField } from "@/shared/components/InputField";
+import { SliderArchive } from "@/shared/components/SliderArchive";
 import { Text } from "@/shared/components/Text";
 import { Button } from "@/shared/components/ui/button";
-
 import {
 	Dialog,
 	DialogContent,
@@ -22,13 +28,6 @@ import {
 	DialogTrigger,
 } from "@/shared/components/ui/dialog";
 import { cn } from "@/shared/lib/utils";
-import { InputField } from "@/shared/components/InputField";
-import { SliderArchive } from "@/shared/components/SliderArchive";
-import {
-	type SearchHistoryItem,
-	useSearchHistoryStore,
-} from "@/modules/products/model/search-store";
-import { PRODUCTS } from "@/modules/products/model/data";
 
 export default function SearchDropdownMenu() {
 	const [open, setOpen] = useState(false);
@@ -121,21 +120,25 @@ export default function SearchDropdownMenu() {
 			<Dialog open={open} onOpenChange={setOpen}>
 				<DialogTrigger asChild>
 					<div className='bg-secondary rounded-full p-2 md:p-3'>
-						<Button variant='ghost' size={"icon"}>
+						{/* <ShellButton> */}
+						<Button variant='ghost' size={"icon"} className=''>
 							{!open ? (
 								<Search className='icon-size' />
 							) : (
 								<X className='icon-size' />
 							)}
 						</Button>
+						{/* </ShellButton> */}
 					</div>
 				</DialogTrigger>
+
+				{/* fl-pt-16/24 */}
 				<DialogContent
 					showCloseButton={false}
 					showDialogOverlay={true}
 					classNameDialog={"bg-transparent!"}
 					className={cn(
-						"bg-secondary! rounded-none! w-full! max-w-full! fl-top-16/24 left-1/2 mt-[90px] h-[calc(100vh-90px)] origin-top -translate-x-1/2 translate-y-0 overflow-hidden p-4 transition-all duration-300 md:p-8",
+						"bg-secondary! rounded-none! w-full! max-w-full! fl-top-66/114 left-1/2  h-[calc(100vh-90px)] origin-top -translate-x-1/2 translate-y-0 overflow-hidden p-4 transition-all duration-300 md:p-8",
 					)}
 				>
 					<DialogTitle className='sr-only hidden'>Search menu</DialogTitle>
@@ -241,9 +244,9 @@ function SearchArchive({
 				{items?.map(item => (
 					<li
 						key={item.term}
-						className='flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 hover:opacity-70'
+						className='flex cursor-pointer items-center gap-2 rounded-lg  px-2 py-1 hover:opacity-70'
 					>
-						<Search className='icon-size' />
+						<Search className='icon-size-important shrink-0' />
 						<Text
 							comp='p'
 							size={"xs"}
@@ -263,7 +266,7 @@ function SearchArchive({
 								variant={"secondary"}
 								onClick={() => removeItem?.(item.term, localeCode)}
 							>
-								<X className='icon-size' />
+								<X className='icon-size-important' />
 							</Button>
 						}
 					</li>

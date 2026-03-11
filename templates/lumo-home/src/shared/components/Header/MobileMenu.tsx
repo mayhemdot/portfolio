@@ -32,7 +32,7 @@ export function MobileMenuSheet({ user }: { user: User | null | undefined }) {
         <Button
           variant="default"
           size="icon"
-          className="lg:hidden"
+          className="lg:hidden cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (

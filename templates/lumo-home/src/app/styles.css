@@ -40,7 +40,7 @@
 }
 
 @theme {
-    --expand: (100vw - 320px) / (1920 - 320);
+	--expand: (100vw - 320px) / (1920 - 320);
 }
 
 @theme inline {
@@ -117,8 +117,6 @@
 	--sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-
-
 @custom-variant fl-text {
 	@slot;
 }
@@ -130,9 +128,7 @@
 
 @utility fl-px-* {
 	--spread-px: calc(--modifier(integer) - --value(integer));
-	padding-left: calc(
-		--value(integer) * 1px + var(--spread-px) * var(--expand)
-	);
+	padding-left: calc(--value(integer) * 1px + var(--spread-px) * var(--expand));
 	padding-right: calc(
 		--value(integer) * 1px + var(--spread-px) * var(--expand)
 	);
@@ -140,9 +136,7 @@
 
 @utility fl-pt-* {
 	--spread-pt: calc(--modifier(integer) - --value(integer));
-	padding-top: calc(
-		--value(integer) * 1px + var(--spread-pt) * var(--expand)
-	);
+	padding-top: calc(--value(integer) * 1px + var(--spread-pt) * var(--expand));
 }
 
 @utility fl-pb-* {
@@ -155,9 +149,7 @@
 
 @utility fl-py-* {
 	--spread-py: calc(--modifier(integer) - --value(integer));
-	padding-top: calc(
-		--value(integer) * 1px + var(--spread-py) * var(--expand)
-	);
+	padding-top: calc(--value(integer) * 1px + var(--spread-py) * var(--expand));
 	padding-bottom: calc(
 		--value(integer) * 1px + var(--spread-py) * var(--expand)
 	);
@@ -165,19 +157,13 @@
 
 @utility fl-mx-* {
 	--spread-mx: calc(--modifier(integer) - --value(integer));
-	margin-left: calc(
-		--value(integer) * 1px + var(--spread-mx) * var(--expand)
-	);
-	margin-right: calc(
-		--value(integer) * 1px + var(--spread-mx) * var(--expand)
-	);
+	margin-left: calc(--value(integer) * 1px + var(--spread-mx) * var(--expand));
+	margin-right: calc(--value(integer) * 1px + var(--spread-mx) * var(--expand));
 }
 
 @utility fl-mt-* {
 	--spread-mt: calc(--modifier(integer) - --value(integer));
-	margin-top: calc(
-		--value(integer) * 1px + var(--spread-mt) * var(--expand)
-	);
+	margin-top: calc(--value(integer) * 1px + var(--spread-mt) * var(--expand));
 }
 
 @utility fl-mb-* {
@@ -189,9 +175,7 @@
 
 @utility fl-my-* {
 	--spread-my: calc(--modifier(integer) - --value(integer));
-	margin-top: calc(
-		--value(integer) * 1px + var(--spread-my) * var(--expand)
-	);
+	margin-top: calc(--value(integer) * 1px + var(--spread-my) * var(--expand));
 	margin-bottom: calc(
 		--value(integer) * 1px + var(--spread-my) * var(--expand)
 	);
@@ -259,18 +243,16 @@
 } */
 
 @layer base {
-
-  svg {
-    vertical-align: middle; 
-  }
-
-	* {
-		@apply border-border box-border outline-ring/50 leading-normal fl-text-13/20;
+	svg {
+		vertical-align: middle;
 	}
 
+	* {
+		@apply border-border outline-ring/50 fl-text-13/20 box-border leading-normal;
+	}
 
 	body {
-		@apply min-h-dvh bg-background text-foreground flex flex-col items-center fl-text-13/20;
+		@apply min-h-dvh bg-background text-foreground fl-text-13/20 flex flex-col items-center;
 	}
 
 	/* container */
@@ -297,11 +279,11 @@
 	}
 
 	.icon-size {
-		@apply size-5;
+		@apply size-4;
 	}
 
 	.icon-size-important {
-		@apply size-5!;
+		@apply size-4!;
 	}
 
 	/* .before-wider {
@@ -320,38 +302,38 @@
     z-index: -1; 
   } */
 
-  .hero {
-    .content-hero {
-      @apply h-[44%] lg:h-[50%]
-    }
-    .main-image {
-      @apply -translate-x-1/2 absolute left-1/2 top-[67%] w-[min(70%,22rem)];
-    }
-    .hero-button {
-      @apply w-[min(90%,30rem)]!;
-      position: relative;
-      /* w-[90%] sm:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[25%] */
-      /* max-width: 100%; */
-    }
+	.hero {
+		.content-hero {
+			@apply h-[44%] lg:h-[50%];
+		}
+		.main-image {
+			@apply absolute left-1/2 top-[67%] w-[min(70%,22rem)] -translate-x-1/2;
+		}
+		.hero-button {
+			@apply w-[min(90%,30rem)]!;
+			position: relative;
+			/* w-[90%] sm:w-[80%] md:w-[40%] xl:w-[30%] 2xl:w-[25%] */
+			/* max-width: 100%; */
+		}
 
-    .hero-button::before {
-        max-width: 100%;
-        position: absolute;
-        content: '';
-        transform: translateY(-50%);
-        /* top: -50%; */
-        left: 0;
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-        background-image: url("/btn-curve.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        z-index: -1;
-        opacity: 1;
-    }
-  }
+		.hero-button::before {
+			max-width: 100%;
+			position: absolute;
+			content: "";
+			transform: translateY(-50%);
+			/* top: -50%; */
+			left: 0;
+			width: 100%;
+			max-width: 100%;
+			height: 100%;
+			background-image: url("/btn-curve.svg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			z-index: -1;
+			opacity: 1;
+		}
+	}
 }
 
 .padding-default {

@@ -67,7 +67,7 @@ export function CartSheet() {
 					className={btnVariants({
 						variant: "ghost",
 						size: "icon",
-						className: "p-0! relative",
+						className: "p-0! relative cursor-pointer",
 					})}
 				>
 					<Badge
@@ -77,7 +77,7 @@ export function CartSheet() {
 					>
 						{cartItems?.length || 0}
 					</Badge>
-					<ShoppingCartIcon className='icon-size antialiased' />
+					<ShoppingCartIcon className='icon-size antialiased shrink-0' />
 				</button>
 				{/* </ShellButton> */}
 				{/* <button
