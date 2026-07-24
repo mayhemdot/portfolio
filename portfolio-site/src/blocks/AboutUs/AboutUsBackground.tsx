@@ -28,6 +28,6 @@ export function AboutUsBackground() {
   //     // { scope: '.aboutUsBlock' },
   //   )
   return (
-    <div className="aboutUsBackground rounded-3xl  mx-2 md:mx-4   h-full z-0 bg-black dark:bg-card absolute inset-0 left-0 top-0" />
+    <div className="aboutUsBackground rounded-3xl  mx-1 md:mx-2 h-full z-0 bg-black dark:bg-card absolute inset-0 left-0 top-0" />
   )
 }

@@ -220,7 +220,7 @@ function AboutCard({
       <div className="aboutFlipCardBack">
         <div className="relative px-8 py-8 flex justify-between h-full flex-col mx-auto z-10">
           <Badge variant={'outline'} className="text-white font-extralight">
-            {'FRONTEND'}
+            {badge}
           </Badge>
           <div>
             <h4 className={'text-left w-fit leading-tight mx-auto fl-text-20/28! mb-3'}>{title}</h4>

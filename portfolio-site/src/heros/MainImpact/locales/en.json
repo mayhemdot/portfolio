@@ -1,0 +1,15 @@
+{
+  "linkToContacts": "Contact",
+  "linkToConatctButton": "Contact",
+  "linkToBlog": "Blog",
+  "linkToBlogButton": "Blog",
+  "introText": "Go to projects",
+  "disciplines": {
+    "line1": "Art Direction Web Design UX & UI",
+    "line2": "Design Frontend Developement Backend",
+    "line3": "Developement Animation & Interaction E-Commerce"
+  },
+  "ourSocialMedia": "OUR SOCIAL MEDIA",
+  "telegram": "Telegram",
+  "bhance": "Bhance"
+}

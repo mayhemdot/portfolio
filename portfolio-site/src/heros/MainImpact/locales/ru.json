@@ -1,0 +1,15 @@
+{
+  "linkToContacts": "Связаться",
+  "linkToConatctButton": "Контакты",
+  "linkToBlog": "Блог",
+  "linkToBlogButton": "Блог",
+  "introText": "Смотреть проекты",
+  "disciplines": {
+    "line1": "Арт-дирекшн Веб-дизайн UX/UI",
+    "line2": "Дизайн Фронтенд-разработка Бэкенд",
+    "line3": "Разработка Анимация и интерактив E-Commerce"
+  },
+  "ourSocialMedia": "НАШИ СОЦСЕТИ",
+  "telegram": "Telegram",
+  "bhance": "Bhance"
+}

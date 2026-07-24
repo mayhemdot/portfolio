@@ -3,24 +3,25 @@
 
 :root {
   --background: hsl(0 0% 91%);
-  --foreground: hsl(222.2 84% 4.9%);
+  --foreground: hsl(0, 0%, 5%);
 
   --card: hsl(240 5% 96%);
-  --card-foreground: hsl(222.2 84% 4.9%);
+  --card-foreground: hsl(0, 0%, 5%);
 
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(222.2 84% 4.9%);
+  --popover-foreground: hsl(0, 0%, 5%);
 
-  --primary: hsl(222.2 47.4% 11.2%);
+  --primary: hsl(0, 0%, 5%);
+  /* // hsl(222.2 47.4% 11.2%); */
   --primary-foreground: hsl(210 40% 98%);
 
   --secondary: hsl(210 40% 96.1%);
-  --secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --secondary-foreground: hsl(0, 0%, 5%);
 
   --muted: hsl(210 40% 96.1%);
   --muted-foreground: hsl(215.4 16.3% 46.9%);
 
-  --accent: hsl(210 40% 96.1%);
+  --accent: hsl(15, 96%, 53%);
   --accent-foreground: hsl(222.2 47.4% 11.2%);
 
   --destructive: hsl(0 84.2% 60.2%);
@@ -28,7 +29,7 @@
 
   --border: hsl(240 6% 80%);
   --input: hsl(214.3 31.8% 91.4%);
-  --ring: hsl(222.2 84% 4.9%);
+  --ring: hsl(0, 0%, 5%);
 
   --radius: 0.2rem;
 
@@ -44,7 +45,7 @@
   --card: hsl(0 0% 4%);
   --card-foreground: hsl(210 40% 98%);
 
-  --popover: hsl(222.2 84% 4.9%);
+  --popover: hsl(0, 0%, 5%);
   --popover-foreground: hsl(210 40% 98%);
 
   --primary: hsl(210 40% 98%);
@@ -113,24 +114,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 @custom-variant fl-text {
   @slot;
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.  @config
- '../../../tailwind.config.mjs'; 
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -140,57 +129,63 @@
   }
 }
 
+@theme {
+  --breakpoint-3xl: 112.5rem;
+  /* 1800px */
+  --expand: (100vw - 320px) / (1920 - 320);
+}
+
+@utility container {
+  @variant 3xl {
+    max-width: 1800px;
+  }
+}
+
 @utility fl-text-* {
   --spreadText: calc(--modifier(integer) - --value(integer));
 
-  font-size: calc(--value(integer) * 1px + var(--spreadText) * ((100vw - 320px) / (1920 - 320)));
+  font-size: calc(--value(integer) * 1px + var(--spreadText) * var(--expand));
 }
 
 @utility fl-px-* {
   --spreadX: calc(--modifier(integer) - --value(integer));
 
-  padding-left: calc(--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320)));
-
-  padding-right: calc(--value(integer) * 1px + var(--spreadX) * ((100vw - 320px) / (1920 - 320)));
+  padding-left: calc(--value(integer) * 1px + var(--spreadX) * var(--expand));
+  padding-right: calc(--value(integer) * 1px + var(--spreadX) * var(--expand));
 }
 
 @utility fl-pt-* {
   --spreadT: calc(--modifier(integer) - --value(integer));
 
-  padding-top: calc(--value(integer) * 1px + var(--spreadT) * ((100vw - 320px) / (1920 - 320)));
+  padding-top: calc(--value(integer) * 1px + var(--spreadT) * var(--expand));
 }
 
 @utility fl-pb-* {
   --spreadB: calc(--modifier(integer) - --value(integer));
 
-  padding-bottom: calc(--value(integer) * 1px + var(--spreadB) * ((100vw - 320px) / (1920 - 320)));
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadB) * var(--expand));
 }
 
 @utility fl-py-* {
   --spreadY: calc(--modifier(integer) - --value(integer));
 
-  padding-top: calc(--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320)));
-
-  padding-bottom: calc(--value(integer) * 1px + var(--spreadY) * ((100vw - 320px) / (1920 - 320)));
+  padding-top: calc(--value(integer) * 1px + var(--spreadY) * var(--expand));
+  padding-bottom: calc(--value(integer) * 1px + var(--spreadY) * var(--expand));
 }
 
 @utility fl-w-* {
   --spreadW: calc(--modifier(integer) - --value(integer));
-  width: calc(
-    --value(integer) * 1px + var(--spreadW) * ((100vw - 320px) / (1920 - 320))
-  ) !important;
+  width: calc(--value(integer) * 1px + var(--spreadW) * var(--expand)) !important;
 }
 
 @utility fl-max-w-* {
   --spreadMW: calc(--modifier(integer) - --value(integer));
-  max-width: calc(
-    --value(integer) * 1px + var(--spreadMW) * ((100vw - 320px) / (1920 - 320))
-  ) !important;
+  max-width: calc(--value(integer) * 1px + var(--spreadMW) * var(--expand)) !important;
 }
 
 @utility fl-gap-* {
   --spreadG: calc(--modifier(integer) - --value(integer));
-  gap: calc(--value(integer) * 1px + var(--spreadG) * ((100vw - 320px) / (1920 - 320))) !important;
+  gap: calc(--value(integer) * 1px + var(--spreadG) * var(--expand)) !important;
 }
 
 .heightWithoutHeader {
@@ -255,6 +250,7 @@
 }
 
 @media (max-width: 1000px) {
+
   #card-1,
   #card-2,
   #card-3,
@@ -265,6 +261,7 @@
   .aboutFlipCardFront {
     display: none;
   }
+
   .aboutFlipCard {
     width: 80%;
     position: absolute;
@@ -282,6 +279,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -326,4 +324,152 @@ html[data-theme='light'] {
 body {
   overflow-x: clip;
   @apply bg-background text-foreground min-h-screen flex flex-col;
+}
+
+main {
+  position: relative;
+}
+
+
+/* ===================================================================== */
+
+.df-px {
+  @apply px-3 lg:px-4 3xl:px-8;
+}
+
+.df-px-xs {
+  @apply px-1.5 lg:px-2 3xl:px-4;
+}
+
+.df-px-xxs {
+  @apply px-1 lg:px-1.5 3xl:px-2;
+}
+
+/* ===================================================================== */
+
+.df-py {
+  @apply py-3 lg:py-4 3xl:py-8;
+}
+
+.df-py-xs {
+  @apply py-1.5 lg:py-2 3xl:py-4;
+}
+
+.df-py-xxs {
+  @apply py-1 lg:py-1.5 3xl:py-2;
+}
+
+/* ===================================================================== */
+
+.df-p {
+  @apply p-3 lg:p-4 3xl:p-8;
+}
+
+.df-p-2-6 {
+  @apply p-2 lg:p-3 3xl:p-6;
+}
+
+.df-pb {
+  @apply pb-3 lg:pb-4 3xl:pb-8;
+}
+
+/* ===================================================================== */
+
+/* Общие отступы секций */
+
+.df-gap-x-1-4 {
+  @apply gap-x-1 md:gap-x-2 lg:gap-x-3 3xl:gap-x-4;
+}
+
+.df-gap-x-2-6 {
+  @apply gap-x-2 md:gap-x-3 lg:gap-x-4 3xl:gap-x-6;
+}
+
+.df-gap-x-3-8 {
+  @apply gap-x-3 md:gap-x-4 lg:gap-x-6 3xl:gap-x-8;
+}
+
+/* xy  */
+
+.df-gap-1-4 {
+  @apply gap-1 md:gap-2 lg:gap-3 3xl:gap-4;
+}
+
+.df-gap-2-6 {
+  @apply gap-2 md:gap-3 lg:gap-4 3xl:gap-6;
+}
+
+.df-gap-3-8 {
+  @apply gap-3 md:gap-4 lg:gap-6 3xl:gap-8;
+}
+
+/* y */
+.df-gap-y-1-4 {
+  @apply gap-y-1 md:gap-y-2 lg:gap-y-3 3xl:gap-y-4;
+}
+
+.df-gap-y-3-8 {
+  @apply gap-y-3 md:gap-y-4 lg:gap-y-6 3xl:gap-y-8;
+}
+
+.df-gap-y-8-16 {
+  @apply gap-y-8 md:gap-y-12 3xl:gap-y-16;
+}
+
+/* ===================================================================== */
+
+/* Отступы секций */
+
+/* 8px - 32px */
+.df-section-mx-2-8 {
+  @apply mx-2 lg:mx-4 3xl:mx-8;
+}
+
+/* 8px - 32px */
+.df-section-mb-2-8 {
+  @apply mb-2 lg:mb-4 3xl:mb-8;
+}
+
+/* mb-8 md:mb-12 xl:mb-16 */
+
+/* 32px - 64px */
+.df-section-mb-8-16 {
+  @apply mb-8 lg:mb-12 3xl:mb-16;
+}
+
+/* 48px - 128px */
+.df-section-mb-12-32 {
+  @apply mb-12 md:mb-24 3xl:mb-32;
+}
+
+/* 48px - 192px */
+.df-section-mb-16-48 {
+  @apply mb-24 md:mb-36 lg:mb-48 xl:mb-60 3xl:mb-72;
+}
+
+/* ===================================================================== */
+
+/* Отступы Text */
+/* Text compact */
+
+/* 1-2 */
+.df-text-space-y-small {
+  @apply space-y-1 lg:space-y-1.5 3xl:space-y-2;
+}
+
+/* 2-3 */
+.df-text-space-y {
+  @apply space-y-2 lg:space-y-2.5 3xl:space-y-3;
+}
+
+/* 2.5-5 */
+/* Text normal */
+.df-text-space-y-balance {
+  @apply space-y-2.5 sm:space-y-3 lg:space-y-4 3xl:space-y-5;
+}
+
+/* 4-8 */
+/* Text editorial */
+.df-text-space-y-editorial {
+  @apply space-y-4 lg:space-y-6 3xl:space-y-8;
 }

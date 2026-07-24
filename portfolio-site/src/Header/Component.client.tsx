@@ -47,22 +47,24 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
+  // after first section: 
+  // text-white mix-blend-difference 
   return (
     <header
       ref={headerRef}
-      className="fl-px-8/16 fl-py-8/16 h-16 xl:h-20 sticky top-0 z-50 text-white mix-blend-difference"
+      className="fl-px-8/16 fl-py-8/16 h-16 xl:h-20 sticky top-0 w-full z-100"
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="flex justify-between gap-8 text-inherit">
-        <Link href="/">
-          <LogoIcon className="w-10! h-10! 2xl:w-16! 2xl:h-16!" />
+        <Link href="/" className="">
+          <LogoIcon className="size-10! 2xl:w-16! 2xl:h-16!" />
           {/* <Logo loading="eager" priority="high" className="invert dark:invert-0" /> */}
         </Link>
         {/* <HeaderNav data={data} /> */}
 
-        <nav className="w-full md:w-1/2 lg:w-1/3 fl-text-8/12 mt-auto text-inherit ">
-          <div className="z-20 w-full justify-between flex gap-3">
-            {['WORKS', 'ABOUT', 'UPDATES', "LET'S TALK"].map((item, index) => (
+        <nav className="w-2/3 md:w-1/2 bg-foreground text-background!  lg:w-1/3 fl-text-8/12 mt-auto">
+          <div className="z-20 w-full pt-3 px-3 md:px-4 justify-between flex gap-3">
+            {['HOME', 'ABOUT', 'WORKS', "LET'S TALK"].map((item, index) => (
               <div key={index} className="inline-flex text-nowrap pb-3 text-inherit">
                 <span className="sr-only">{item}</span>
                 {item}

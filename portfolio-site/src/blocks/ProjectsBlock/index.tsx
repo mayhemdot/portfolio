@@ -42,7 +42,7 @@ export async function ProjectsBlock({ populateBy, limit, selectedDocs }: Project
     }
   }
   return (
-    <div className="min-h-dvh bg-black dark:bg-card text-white dark:text-black">
+    <div id="projects" className="min-h-dvh bg-black dark:bg-card text-white dark:text-black">
       <Bounded className={'fl-py-64/180'}>
         <h3 className="relative w-full text-center fl-text-20/40 px-4 md:w-3/5 md:mx-auto py-16 z-10">
           Our Projects
@@ -53,9 +53,10 @@ export async function ProjectsBlock({ populateBy, limit, selectedDocs }: Project
             projects
               ?.filter((project) => typeof project === 'object')
               .map(({ id, title, year, gallery }) => (
-                <div key={id} className="projectContainer flex items-center">
+                <div key={id} className="projectContainer flex flex-col md:flex-row items-center">
                   <div className="projectMedia basis-1/2">
-                    <div className="px-12 py-8 bg-amber-600">
+                  {/* bg-amber-600 */} 
+                    <div className="px-12 py-8 bg-accent">
                       {typeof gallery?.[0] === 'object' ? (
                         <Media resource={gallery?.[0]!.mediaItem!} />
                       ) : null}

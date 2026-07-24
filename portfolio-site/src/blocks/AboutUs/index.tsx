@@ -23,7 +23,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
           )}
           {description && (
             <RichText
-              className="fl-text-18/24 prose font-extralight text-white"
+              className="fl-text-18/24 px-4 prose font-extralight text-white"
               data={description}
               enableGutter={false}
             />
@@ -32,7 +32,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
         <div className="z-10 w-full px-4 md:mx-auto mb-16 md:w-3/5 fl-text-12/16 grid font-extralight text-gray-300/80 grid-cols-3 gap-3">
           {features?.map((feature, index) => {
             return (
-              <div key={index} className={'grow'}>
+              <div key={index} className={'grow px-4'}>
                 <RichText data={feature?.feature!} className={'text-left'} enableGutter={false} />
               </div>
             )
