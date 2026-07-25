@@ -1,97 +1,148 @@
-import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { useControls } from "leva";
-import { ArchModel } from "./ArchModelOriginal";
+'use client'
 
-export function Scene() {
-  const {
-    x,
-    y,
-    z,
-    rotX,
-    rotY,
-    rotZ,
-    fov,
-  } = useControls("Camera", {
-    x: { value: -20, min: -100, max: 100, step: 0.1 },
-    y: { value: 6.3, min: -100, max: 100, step: 0.1 },
-    z: { value: 15.6, min: -100, max: 100, step: 0.1 },
+import * as THREE from 'three'
+import React, { useRef } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { PerspectiveCamera } from '@react-three/drei'
+import { ArchModel } from './ArchModelOriginal'
 
-    rotX: { value: 0, min: -180, max: 180, step: 1 },
-    rotY: { value: 0, min: -180, max: 180, step: 1 },
-    rotZ: { value: 0, min: -180, max: 180, step: 1 },
+export interface CameraPose {
+  x: number
+  y: number
+  z: number
+  rotX: number
+  rotY: number
+  rotZ: number
+  fov: number
+}
 
-    fov: { value: 45, min: 10, max: 120, step: 1 },
-  });
+export interface CameraPathConfig {
+  start: CameraPose
+  mid: CameraPose
+  end: CameraPose
+}
+
+export const CAMERA_CONFIG: {
+  desktop: CameraPathConfig
+  mobile: CameraPathConfig
+} = {
+  desktop: {
+    start: {
+      x: -20,
+      y: 6,
+      z: 15,
+      rotX: 0,
+      rotY: 0,
+      rotZ: 0,
+      fov: 45,
+    },
+    mid: {
+      x: -15,
+      y: 5,
+      z: 0,
+      rotX: 0,
+      rotY: -90,
+      rotZ: 0,
+      fov: 45,
+    },
+    end: {
+      x: 4,
+      y: 4,
+      z: 0,
+      rotX: 0,
+      rotY: -90,
+      rotZ: 0,
+      fov: 45,
+    },
+  },
+  mobile: {
+    start: {
+      x: -26,
+      y: 6,
+      z: 15.6,
+      rotX: 0,
+      rotY: 0,
+      rotZ: 0,
+      fov: 45,
+    },
+    mid: {
+      x: -22,
+      y: 5,
+      z: 0,
+      rotX: 0,
+      rotY: -90,
+      rotZ: 0,
+      fov: 45,
+    },
+    end: {
+      x: 0,
+      y: 5,
+      z: 0,
+      rotX: 0,
+      rotY: -90,
+      rotZ: 0,
+      fov: 45,
+    },
+  },
+}
+
+function ScrollCameraController({
+  cameraStateRef,
+}: {
+  cameraStateRef: React.MutableRefObject<CameraPose>
+}) {
+  const { camera } = useThree()
+
+  useFrame(() => {
+    const s = cameraStateRef.current
+
+    camera.position.set(s.x, s.y, s.z)
+    camera.rotation.set(
+      THREE.MathUtils.degToRad(s.rotX),
+      THREE.MathUtils.degToRad(s.rotY),
+      THREE.MathUtils.degToRad(s.rotZ),
+    )
+
+    if (camera instanceof THREE.PerspectiveCamera) {
+      if (Math.abs(camera.fov - s.fov) > 0.01) {
+        camera.fov = s.fov
+        camera.updateProjectionMatrix()
+      }
+    }
+  })
+
+  return null
+}
+
+export function Scene({
+  cameraStateRef,
+}: {
+  cameraStateRef?: React.MutableRefObject<CameraPose>
+}) {
+  const fallbackRef = useRef<CameraPose>({
+    ...CAMERA_CONFIG.desktop.start,
+  })
+
+  const activeRef = cameraStateRef ?? fallbackRef
 
   return (
-    <Canvas className="w-full h-[calc(100vh+80px)]! absolute! -mt-[80px] -z-1">
+    <Canvas className="w-full h-[calc(100vh+80px)]! absolute! -mt-20 -z-1">
       <PerspectiveCamera
         makeDefault
-        position={[x, y, z]}
-        rotation={[
-          THREE.MathUtils.degToRad(rotX),
-          THREE.MathUtils.degToRad(rotY),
-          THREE.MathUtils.degToRad(rotZ),
+        position={[
+          CAMERA_CONFIG.desktop.start.x,
+          CAMERA_CONFIG.desktop.start.y,
+          CAMERA_CONFIG.desktop.start.z,
         ]}
-        fov={fov}
+        fov={CAMERA_CONFIG.desktop.start.fov}
       />
+
+      <ScrollCameraController cameraStateRef={activeRef} />
 
       <ambientLight intensity={1} />
       <directionalLight position={[5, 10, 5]} intensity={1} />
 
       <ArchModel />
-
-      <OrbitControls />
     </Canvas>
-  );
+  )
 }
-
-// import { Canvas } from "@react-three/fiber";
-// import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-// import * as THREE from "three";
-// import { ArchModel } from "./ArchModelOriginal";
-// import { useEffect, useState } from "react";
-
-// export function Scene() {
-//   const [isMobile, setIsMobile] = useState(false);
-
-//   useEffect(() => {
-//     const check = () => setIsMobile(window.innerWidth < 768);
-//     check();
-
-//     window.addEventListener("resize", check);
-//     return () => window.removeEventListener("resize", check);
-//   }, []);
-//   const position = isMobile ? [-32, 16.3, 10.6] : [-20, 6.3, 15.6] as any;
-//   return (
-//     <Canvas className="w-full h-[calc(100vh+80px)]! absolute! -mt-[80px] -z-1">
-//       <PerspectiveCamera
-//         makeDefault
-//         // [-20, 6.3, 15.6]}
-//         position={position}
-//         rotation={[
-//           THREE.MathUtils.degToRad(86),
-//           THREE.MathUtils.degToRad(0),
-//           THREE.MathUtils.degToRad(-60),
-//         ]}
-//         fov={45}
-//       />
-
-//       <ambientLight intensity={1} />
-
-//       <directionalLight
-//         position={[20, 20, 20]}
-//         intensity={2}
-//         castShadow
-//       />
-
-//       <ArchModel/>
-
-//       <OrbitControls
-//         enableZoom={false}
-//       />
-//     </Canvas>
-//   );
-// }

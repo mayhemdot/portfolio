@@ -77,8 +77,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-family-alum: var(--font-alum);
-  --font-alum: var(--font-alum);
+
+  --font-heading: var(--font-nyght-serif), serif;
+  --font-sans: var(--font-manrope), sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -127,9 +129,52 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.payload-richtext h1,
+.payload-richtext h2,
+.payload-richtext h3,
+.payload-richtext h4,
+.payload-richtext h5,
+.payload-richtext h6 {
+  font-family: var(--font-heading);
+}
+
+@utility font-heading {
+  font-family: var(--font-heading);
+}
+
+@utility font-sans {
+  font-family: var(--font-sans);
 }
 
 @theme {
+  --font-heading: var(--font-nyght-serif), serif;
+  --font-sans: var(--font-manrope), sans-serif;
   --breakpoint-3xl: 112.5rem;
   /* 1800px */
   --expand: (100vw - 320px) / (1920 - 320);

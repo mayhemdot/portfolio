@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 
 import { cn } from '@/utilities/ui'
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
+// import { GeistMono } from 'geist/font/mono'
+// import { GeistSans } from 'geist/font/sans'
 import React from 'react'
-import { Montserrat_Alternates } from 'next/font/google'
+import { Manrope } from 'next/font/google'
+import localFont from 'next/font/local'
 import { ScrollSmoothLayout } from '@/components/ScrollSmooth'
 import { AdminBar } from '@/components/AdminBar'
 import { Footer } from '@/Footer/Component'
@@ -13,36 +14,66 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
-import localFont from 'next/font/local'
 import { getServerSideURL } from '@/utilities/getURL'
 import './globals.css'
 
-const montserrat = Montserrat_Alternates({
-  weight: ['400', '700'],
+const manrope = Manrope({
+  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-montserrat',
+  variable: '--font-manrope',
   display: 'swap',
 })
 
-export const ppValue = localFont({
+const nyghtSerif = localFont({
   src: [
     {
-      path: './_fonts/pp_valve/PPValve-PlainExtraLight.otf', // Укажите правильный путь к файлу
-      weight: '200',
+      path: './_fonts/night-serif/NyghtSerif-Light.woff2',
+      weight: '300',
       style: 'normal',
     },
     {
-      path: './_fonts/pp_valve/PPValve-PlainMedium.otf', // Укажите правильный путь к файлу
+      path: './_fonts/night-serif/NyghtSerif-LightItalic.woff2',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: './_fonts/night-serif/NyghtSerif-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './_fonts/pp_valve/PPValve-PlainExtraBold.otf', // Добавьте файлы для других начертаний
-      weight: '800',
+      path: './_fonts/night-serif/NyghtSerif-RegularItalic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './_fonts/night-serif/NyghtSerif-Medium.woff2',
+      weight: '500',
       style: 'normal',
     },
+    {
+      path: './_fonts/night-serif/NyghtSerif-MediumItalic.woff2',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: './_fonts/night-serif/NyghtSerif-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './_fonts/night-serif/NyghtSerif-BoldItalic.woff2',
+      weight: '700',
+      style: 'italic',
+    },
+    // {
+    //   path: './_fonts/night-serif/NyghtSerif-Dark.woff2',
+    //   weight: '900',
+    //   style: 'normal',
+    // },
   ],
-  variable: '--font-pp-value', // Определяем CSS-переменную
+  variable: '--font-nyght-serif',
+  display: 'swap',
 })
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -50,7 +81,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html
-      className={cn(montserrat.className, ppValue.className)}
+      className={cn(manrope.variable, nyghtSerif.variable)}
       lang="en"
       suppressHydrationWarning
     >
