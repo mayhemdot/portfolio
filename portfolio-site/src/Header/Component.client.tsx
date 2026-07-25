@@ -101,18 +101,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     () => {
       if (!headerRef.current) return
 
-      // Header entrance animation
-      gsap.fromTo(
-        headerRef.current,
-        { y: '-100%' },
-        {
-          y: '0%',
-          ease: 'power4.out',
-          duration: 1,
-          delay: 1,
-        },
-      )
-
       const updateAllProgress = () => {
         const scrollY = window.scrollY || document.documentElement.scrollTop
 
@@ -131,11 +119,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
           }
 
           fillEl.style.transform = `scaleX(${progress})`
-
-          if (process.env.NODE_ENV === 'development') {
-            // Debug logging for actual scroll positions vs calculated progress
-            // console.debug(`[NavProgress] ${item.id} | Start: ${bounds.start.toFixed(0)}px | End: ${bounds.end.toFixed(0)}px | ScrollY: ${scrollY.toFixed(0)}px | Progress: ${(progress * 100).toFixed(1)}%`)
-          }
         })
       }
 
@@ -180,15 +163,15 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   return (
     <header
       ref={headerRef}
-      className="fl-px-8/16 fl-py-8/16 h-16 xl:h-20 sticky top-0 w-full z-100"
+      className="fl-px-8/16 fl-pt-8/16 pb-0 h-16 xl:h-20 sticky top-0 w-full z-100"
       {...(theme ? { 'data-theme': theme } : {})}
     >
-      <div className="flex justify-between gap-8 text-inherit">
+      <div className="flex justify-between items-end gap-8 text-inherit">
         <Link href="/" className="">
           <LogoIcon className="size-10! 2xl:w-16! 2xl:h-16!" />
         </Link>
 
-        <nav className="w-2/3 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/12 mt-auto rounded-lg overflow-hidden shadow-lg">
+        <nav className="w-2/3 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/12 mt-auto self-end rounded-lg overflow-hidden shadow-lg">
           <div className="z-20 w-full pt-3 px-3 md:px-4 justify-between flex gap-3">
             {NAV_ITEMS.map((item, index) => (
               <a
