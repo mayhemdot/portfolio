@@ -9,7 +9,7 @@ import gsap from 'gsap'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export function InfoAboutUsBlockWrapper({ children, id }: PropsWithChildren<{ id: string }>) {
+export function InfoAboutUsBlockWrapper({ children }: PropsWithChildren) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   useGSAP(
     () => {
@@ -40,7 +40,6 @@ export function InfoAboutUsBlockWrapper({ children, id }: PropsWithChildren<{ id
     <div
       ref={containerRef}
       className="aboutUsBlock mt-[-1px] relative min-h-svh text-center"
-      id={`block-${id}`}
     >
       {children}
     </div>

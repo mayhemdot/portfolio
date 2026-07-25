@@ -42,7 +42,7 @@ export async function ProjectsBlock({ populateBy, limit, selectedDocs }: Project
     }
   }
   return (
-    <div id="projects" className="min-h-dvh bg-black dark:bg-card text-white dark:text-black">
+    <div id="works" className="min-h-dvh bg-black dark:bg-card text-white dark:text-black">
       <Bounded className={'fl-py-64/180'}>
         <h3 className="relative w-full text-center fl-text-20/40 px-4 md:w-3/5 md:mx-auto py-16 z-10">
           Our Projects

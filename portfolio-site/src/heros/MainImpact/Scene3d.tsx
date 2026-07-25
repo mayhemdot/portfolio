@@ -38,7 +38,7 @@ export const CAMERA_CONFIG: {
     },
     mid: {
       x: -15,
-      y: 5,
+      y: 4.5,
       z: 0,
       rotX: 0,
       rotY: -90,

@@ -7,11 +7,11 @@ import { InfoAboutUsBlockWrapper } from './InfoAboutUsBlockWrapper'
 import { AboutUsBackground } from './AboutUsBackground'
 
 export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
-  const { id, title, description, features } = props
+  const { title, description, features } = props
 
   return (
-    <>
-      <InfoAboutUsBlockWrapper id={`block-${id}`}>
+    <section  id="about">
+      <InfoAboutUsBlockWrapper>
         <AboutUsBackground />
         <div className="relative w-full px-4 md:w-3/5 md:mx-auto py-16 z-10">
           {title && (
@@ -59,9 +59,9 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
         {/* <AboutUsClient /> */}
         {/* <CollectionArchive posts={posts} /> */}
       </InfoAboutUsBlockWrapper>
-
       <Skills />
+
       {/* <div className="min-h-[200vh]" ref={projectsContainerRef}></div> */}
-    </>
+    </section>
   )
 }

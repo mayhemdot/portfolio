@@ -106,10 +106,10 @@ export const MainImpactHero: React.FC<Page['hero']> = ({ richText }) => {
 
       const scrollTl = gsap.timeline({
         scrollTrigger: {
-          trigger: heroRef.current,
+          trigger: document.documentElement,
           start: 'top top',
           end: '+=150%',
-          pin: true,
+          pin: heroRef.current,
           scrub: 1,
           invalidateOnRefresh: true,
         },
@@ -138,6 +138,10 @@ export const MainImpactHero: React.FC<Page['hero']> = ({ richText }) => {
           duration: 1,
           ease: 'power1.inOut',
         })
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh()
+      })
     },
     { scope: heroRef },
   )
@@ -149,6 +153,7 @@ export const MainImpactHero: React.FC<Page['hero']> = ({ richText }) => {
   return (
     <div
       ref={heroRef}
+      id="home"
       className="relative flex items-stretch justify-center heightWithoutHeader df-px-xs"
     >
       <div className="max-w-[220px] grow h-full flex flex-col df-gap-2-6 justify-end absolute left-0 df-px z-0">

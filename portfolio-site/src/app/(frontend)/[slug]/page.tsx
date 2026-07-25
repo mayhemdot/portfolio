@@ -9,6 +9,7 @@ import { homeStatic } from '@/endpoints/seed/home-static'
 
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { RenderHero } from '@/heros/RenderHero'
+import { LetsTalkSection } from '@/blocks/LetsTalkSection'
 import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -67,7 +68,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page
 
   return (
-    <article >
+    <article>
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
@@ -76,6 +77,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       <RenderHero {...hero} />
       <RenderBlocks blocks={layout} />
+      <LetsTalkSection />
     </article>
   )
 }
