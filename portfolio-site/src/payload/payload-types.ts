@@ -705,6 +705,30 @@ export interface AboutUs {
     };
     [k: string]: unknown;
   } | null;
+  skills?:
+    | {
+        category: string;
+        items?:
+          | {
+              name: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  skillsList?:
+    | {
+        category: string;
+        items?:
+          | {
+              name: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'aboutUs';
@@ -1338,6 +1362,30 @@ export interface AboutUsSelect<T extends boolean = true> {
       };
   skillsTitle?: T;
   skillsDescription?: T;
+  skills?:
+    | T
+    | {
+        category?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  skillsList?:
+    | T
+    | {
+        category?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

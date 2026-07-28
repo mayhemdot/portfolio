@@ -3,8 +3,11 @@ import type { AboutUs as AboutUsProps } from "@/payload/payload-types";
 import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
 import { AboutUsBackground } from "./AboutUsBackground";
+import { defaultSkills, defaultSkillsList } from "./defaultSkills";
 import { MySkilsList } from "./MySkilsList";
 import { Skills } from "./SkillsCard";
+
+export { defaultSkills, defaultSkillsList };
 // import Marquee from "../../Marquee";
 // import { InfoAboutUsBlockWrapper } "./AboutUsBackgroundkWrapper";
 // import { AboutUsBackground } from "./InfoAboutUsBlockWrapper";
@@ -25,7 +28,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 			<div className="overflow-clip bg-black container rounded-3xl mx-auto z-10 flex items-center h-[150vh]">
 				<div className="relative h-[70vh] w-full lg:h-screen">
 					<div className="grid grid-cols-8 max-h-full h-full relative">
-						<div className="flex items-end lg:items-center h-full col-start-2 md:col-start-2 z-1 col-span-6 md:col-span-4">
+						<div className="flex items-end lg:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
 							<AboutText icon="" title={title} description={description} />
 						</div>
 

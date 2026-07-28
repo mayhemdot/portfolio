@@ -5,6 +5,9 @@ import {
 	lexicalEditor,
 } from "@payloadcms/richtext-lexical";
 import type { Block } from "payload";
+import { defaultSkills, defaultSkillsList } from "./defaultSkills";
+
+export { defaultSkills, defaultSkillsList };
 
 export const AboutUs: Block = {
 	slug: "aboutUs",
@@ -105,10 +108,58 @@ export const AboutUs: Block = {
 			label: "Skills Description",
 		},
 
-		// {
-		//   name: 'description',
-		//   type: 'text',
-		//   required: true,
-		// },
+		{
+			name: "skills",
+			label: "Skills List",
+			type: "array",
+			fields: [
+				{
+					name: "category",
+					type: "text",
+					required: true,
+					label: "Category Name",
+				},
+				{
+					name: "items",
+					type: "array",
+					label: "Skills",
+					fields: [
+						{
+							name: "name",
+							type: "text",
+							required: true,
+							label: "Skill Name",
+						},
+					],
+				},
+			],
+		},
+
+		{
+			name: "skillsList",
+			label: "Skills List (Alias)",
+			type: "array",
+			admin: {
+				hidden: true,
+			},
+			fields: [
+				{
+					name: "category",
+					type: "text",
+					required: true,
+				},
+				{
+					name: "items",
+					type: "array",
+					fields: [
+						{
+							name: "name",
+							type: "text",
+							required: true,
+						},
+					],
+				},
+			],
+		},
 	],
 };

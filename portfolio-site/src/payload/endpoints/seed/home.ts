@@ -1,5 +1,6 @@
 import type { RequiredDataFromCollectionSlug } from 'payload'
 import type { Media } from '@/payload/payload-types'
+import { defaultSkills } from '@/payload/blocks/AboutUs/config'
 
 type HomeArgs = {
   heroImage: Media
@@ -140,6 +141,13 @@ export const home: (args: HomeArgs) => RequiredDataFromCollectionSlug<'pages'> =
       },
     },
     layout: [
+      {
+        blockName: 'About Us Block',
+        blockType: 'aboutUs',
+        media: heroImage.id,
+        skills: defaultSkills,
+        skillsList: defaultSkills,
+      },
       {
         blockName: 'Content Block',
         blockType: 'content',
