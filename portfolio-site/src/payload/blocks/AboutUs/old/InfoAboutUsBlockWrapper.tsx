@@ -1,0 +1,41 @@
+"use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import React, { type PropsWithChildren } from "react";
+
+export function InfoAboutUsBlockWrapper({ children }: PropsWithChildren) {
+	const containerRef = React.useRef<HTMLDivElement>(null);
+	useGSAP(
+		() => {
+			const tl = gsap.to(".aboutUsBackground", {
+				marginLeft: 0,
+				marginRight: 0,
+				borderRadius: 0,
+				duration: 1,
+				ease: "power4.inOut",
+				scrollTrigger: {
+					trigger: containerRef.current,
+					start: "top top",
+					end: `+=${window.innerHeight}px`,
+					scrub: 1,
+					pin: true,
+					pinSpacing: true,
+					invalidateOnRefresh: true,
+					anticipatePin: 1, // помогает на мобильных
+				},
+			});
+			return () => tl.kill();
+		},
+
+		{ scope: containerRef },
+	);
+
+	return (
+		<div
+			ref={containerRef}
+			className="aboutUsBlock mt-[-1px] relative min-h-dvh text-center"
+		>
+			{children}
+		</div>
+	);
+}

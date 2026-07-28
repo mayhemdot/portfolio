@@ -1,6 +1,9 @@
 import { withPayload } from '@payloadcms/next/withPayload'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 import redirects from './redirects.js'
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -8,9 +11,11 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   images: {
     remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
+      /* 'https://example.com' */
+      ...[NEXT_PUBLIC_SERVER_URL, "https://ui.shadcn.com/schema.json"].map((item) => {
         const url = new URL(item)
 
         return {
@@ -33,4 +38,5 @@ const nextConfig = {
   redirects,
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withPayload(withNextIntl(nextConfig), { devBundleServerPackages: false })
+

@@ -31,10 +31,10 @@ import { SlugField as SlugField_3817bf644402e67bfe6577f60ef982de } from '@payloa
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
 import { ReindexButton as ReindexButton_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
-import { RowLabel as RowLabel_ec255a65fa6fa8d1faeb09cf35284224 } from '@/Header/RowLabel'
-import { RowLabel as RowLabel_1f6ff6ff633e3695d348f4f3c58f1466 } from '@/Footer/RowLabel'
-import { default as default_1a7510af427896d367a49dbf838d2de6 } from '@/components/BeforeDashboard'
-import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
+import { RowLabel as RowLabel_8398a4425d6f4704f54bc6b1b2fd629b } from '@/payload/blocks/Header/RowLabel'
+import { RowLabel as RowLabel_d04dd2b28553b9903010bcaca8350173 } from '@/payload/blocks/Footer/RowLabel'
+import { default as default_ec4faf0207c87847ad4fc887f53d906a } from '@/shared/components/BeforeDashboard'
+import { default as default_0dee3767f18303ef22d2a9ed88053da7 } from '@/shared/components/BeforeLogin'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -70,8 +70,8 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/plugin-search/client#LinkToDoc": LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,
   "@payloadcms/plugin-search/client#ReindexButton": ReindexButton_aead06e4cbf6b2620c5c51c9ab283634,
-  "@/Header/RowLabel#RowLabel": RowLabel_ec255a65fa6fa8d1faeb09cf35284224,
-  "@/Footer/RowLabel#RowLabel": RowLabel_1f6ff6ff633e3695d348f4f3c58f1466,
-  "@/components/BeforeDashboard#default": default_1a7510af427896d367a49dbf838d2de6,
-  "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e
+  "@/payload/blocks/Header/RowLabel#RowLabel": RowLabel_8398a4425d6f4704f54bc6b1b2fd629b,
+  "@/payload/blocks/Footer/RowLabel#RowLabel": RowLabel_d04dd2b28553b9903010bcaca8350173,
+  "@/shared/components/BeforeDashboard#default": default_ec4faf0207c87847ad4fc887f53d906a,
+  "@/shared/components/BeforeLogin#default": default_0dee3767f18303ef22d2a9ed88053da7
 }

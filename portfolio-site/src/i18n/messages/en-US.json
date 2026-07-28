@@ -1,0 +1,616 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "expandLabel": "Expand",
+    "collapseLabel": "Collapse",
+    "delete": "Delete",
+    "siteName": "All AI Tools"
+  },
+  "header": {
+    "login": "Login",
+    "profile": "Profile",
+    "logout": "Logout",
+    "dropdown-menu": {
+      "trigger-btn": "Tools",
+      "tools": {
+        "account": "Account",
+        "remove-background": "Remove Background",
+        "inpaint-image": "Inpaint image",
+        "upscale-image": "Upscale photo",
+        "zoom-image": "Zoom image",
+        "compress-image": "Compress image"
+      }
+    }
+  },
+  "home-page": {
+    "hero": {
+      "title": {
+        "create": "Create",
+        "format": "Format",
+        "elevate": "Elevate",
+        "byAI": "Powered by AI"
+      },
+      "description": "AI-powered image tools to remove backgrounds, enhance quality, and transform photos",
+      "buttons": {
+        "try-now": "Try now",
+        "how-it-works": "How it works"
+      }
+    },
+    "hero2": {
+      "title": "Format & Create visuals in seconds"
+    },
+    "tools-list": {
+      "all-tools-btn": "All tools",
+
+      "background-remove": {
+        "label": "Background Removal",
+        "description": "Extract the main subject from images with exceptional accuracy"
+      },
+      "inpaint": {
+        "label": "Image Restoration",
+        "description": "Remove defects and unwanted objects, and restore missing details in photos"
+      },
+      "upscale": {
+        "label": "Photo Upscaling",
+        "description": "Enhance image quality and detail without losing clarity"
+      },
+      "zoom": {
+        "label": "Image Enlargement",
+        "description": "Enlarge images while preserving sharpness and detail"
+      },
+      "compress": {
+        "label": "Image Compression",
+        "description": "Compress images without losing quality"
+      },
+      "upload": {
+        "label": "Original image",
+        "description": ""
+      },
+      "crop": {
+        "label": "Cropped image",
+        "description": ""
+      }
+    },
+    "how-its-works": {
+      "title": "How it <accent>works</accent>",
+      "tabs": {
+        "free": {
+          "title": "Basic (free)",
+          "steps": [
+            {
+              "id": 1,
+              "title": "Getting Started",
+              "description": "Before using the free version, make sure your browser supports local AI processing. No data is sent to our servers."
+            },
+            {
+              "id": 2,
+              "title": "Model download",
+              "description": "In the free version, you need to download a model sized approximately between 50 and 200 MB. All processing is performed using your device's computational resources, so performance may vary depending on its capabilities."
+            },
+            {
+              "id": 3,
+              "title": "Upload an Image",
+              "description": "Drag and drop your image here, or click to select a file from your computer."
+            },
+            {
+              "id": 4,
+              "title": "Processing On Your Image",
+              "description": "After uploading, wait for the results. In the free version, processing time depends on your device's performance."
+            },
+            {
+              "id": 5,
+              "title": "Waiting for Results",
+              "description": "Your final results will appear automatically."
+            }
+          ]
+        },
+        "pro": {
+          "title": "Pro",
+          "badge": "Best quality",
+          "placeholder": "Pro mode is coming soon."
+        }
+      }
+    },
+    "sections": {
+      "usecases": {
+        "title": "Usecases",
+        "subtitle": "Discover the power of AI"
+      },
+      "advantages": {
+        "title": "Our <accent>Advantages</accent>"
+      },
+      "pipeline": {
+        "title": "Pipeline of processing"
+      },
+      "questions": {
+        "title": "Base questions",
+        "subtitle": "Still curious? Send us a message and we'll get back to you"
+      }
+    },
+    "usecases": {
+      "tools": {
+        "upscaling-image": "Photo Upscaling",
+        "remove-background": "Remove Background",
+        "zoom-image": "Zoom Image",
+        "inpaint-image": "Inpaint Image"
+      }
+    },
+    "advantages": {
+      "free": {
+        "title": "Free",
+        "description": "Use it completely free — no hidden fees.",
+        "alt": "Free icon"
+      },
+      "privacy": {
+        "title": "Privacy",
+        "description": "All results stay only in your browser.",
+        "alt": "Privacy icon"
+      },
+      "top-quality": {
+        "title": "Top Quality",
+        "description": "Content generation at a professional level.",
+        "alt": "Top quality icon"
+      }
+    },
+    "pipeline": {
+      "processing": {
+        "label": "Processing",
+        "title": "Processing",
+        "body": "After uploading, wait for the results. In the free version, processing time depends on your device's performance."
+      },
+      "compression": {
+        "label": "Compression",
+        "title": "Compression",
+        "body": "Data is compressed using adaptive algorithms to reduce size while preserving full signal integrity across all channels."
+      },
+      "converting": {
+        "label": "Converting",
+        "title": "Converting",
+        "body": "Raw input is transformed into a normalized format compatible with the model's expected schema and feature space."
+      },
+      "apply-model": {
+        "label": "Apply model",
+        "title": "Apply model",
+        "body": "The trained model is applied to the converted data, generating structured predictions and ranked output."
+      },
+      "data-capture": {
+        "label": "Data capture",
+        "title": "Data capture",
+        "body": "After uploading, wait for the results. In the free version, processing time depends on your device's performance."
+      }
+    },
+    "questions": {
+      "faq": [
+        {
+          "question": "Is the application completely free?",
+          "answer": "Yes, it's completely free. In Free Mode, the entire process runs locally on your device, so no external services or cloud processing are required."
+        },
+        {
+          "question": "Which file formats are supported?",
+          "answer": "We support PNG, JPEG, WebP, and AVIF. You can upload images in any supported format and download them in your preferred format."
+        },
+        {
+          "question": "Does it work on mobile devices?",
+          "answer": "Yes. The application works on all modern mobile browsers. Performance may vary depending on your device hardware."
+        },
+        {
+          "question": "How do I remove downloaded models?",
+          "answer": "Downloaded AI models are stored in your browser cache and may consume significant disk space. You can remove cached models at any time from your account dashboard."
+        },
+        {
+          "question": "Are there any limitations?",
+          "answer": "Because AI models run directly in your browser, performance depends on your device. Some models can use GPU acceleration for faster processing, while others rely primarily on the CPU, which may result in slower performance. Processing speed, memory usage, and model availability can vary across devices and browsers."
+        }
+      ]
+    }
+  },
+  "all-tools-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools"
+    },
+    "title": "All <accent>tools</accent>",
+    "meta-title": "All Tools",
+    "meta-description": "Explore all of our AI-powered image editing and enhancement tools."
+  },
+  "feedback-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "feedback": "Feedback"
+    },
+    "title": "Send Your <accent>Suggestions</accent>",
+    "meta-title": "Feedback",
+    "meta-description": "Submit your feedback, suggestions, or bug reports to improve All AI Tools."
+  },
+  "privacy-policy-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "privacy-policy": "Privacy Policy"
+    },
+    "title": "Privacy <accent>Policy</accent>",
+    "intro": "Welcome to All AI Tools! We believe your privacy should be simple and respected. This policy explains how we handle your information.",
+    "meta-title": "Privacy Policy",
+    "meta-description": "Learn how All AI Tools protects your privacy, processes images client-side, and handles data.",
+    "local-processing": {
+      "title": "1. Zero Server Uploads (Local AI)",
+      "description": "Most of our AI photo enhancement and editing features run entirely inside your browser. Your images are processed directly on your device and are never uploaded, stored, or analyzed on our servers."
+    },
+    "data-collection": {
+      "title": "2. What We Collect",
+      "description": "We do not require account registration to use our basic tools. We only collect details you voluntarily provide (like your email when sending feedback) and basic anonymous metadata (like browser version and device type) to ensure our in-browser models run smoothly."
+    },
+    "data-usage": {
+      "title": "3. How We Use Information",
+      "description": "Any basic diagnostic data is strictly used to optimize local browser processing performance. We never sell, rent, or monetize your personal details or images."
+    },
+    "cookies": {
+      "title": "4. Cookies and Local Storage",
+      "description": "We use local browser storage (such as IndexedDB) to temporarily cache the AI models and store your recent session edits. This data remains on your device. We may use simple cookies for site traffic analysis."
+    },
+    "contact": {
+      "title": "5. Get in Touch",
+      "description": "If you have any questions or want to request data deletion, email us at {email}. We represent the {siteName} team and are here to help."
+    }
+  },
+  "terms-of-use-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "terms-of-use": "Terms of Use"
+    },
+    "title": "Terms of <accent>Use</accent>",
+    "intro": "These Terms of Use explain the rules and guidelines for using the All AI Tools website and service. By using our platform, you agree to these conditions.",
+    "meta-title": "Terms of Use",
+    "meta-description": "Read the Terms of Use for All AI Tools to understand your rights, responsibilities, and use of our AI tools.",
+    "acceptance": {
+      "title": "1. Acceptance of terms",
+      "description": "By accessing or using {siteName}, you agree to be bound by these terms. If you do not agree with any part of these terms, please stop using our services."
+    },
+    "ai-usage": {
+      "title": "2. In-Browser AI processing & limitations",
+      "description": "Our AI models execute client-side. Processing speed, quality, and memory usage depend heavily on your device hardware (CPU/GPU). We do not guarantee specific processing speeds or outcomes, as performance varies by browser and device."
+    },
+    "intellectual-property": {
+      "title": "3. Ownership of code & your outputs",
+      "description": "All software, designs, algorithms, and brand assets of {siteName} are our intellectual property. However, we claim no ownership over the images you upload or generate—you retain full rights to your own outputs."
+    },
+    "fair-use": {
+      "title": "4. Fair use and restrictions",
+      "description": "You agree not to bypass our client-side protections, distribute malicious code, scrape our site, or use our platform for illegal purposes. You are solely responsible for the images you process."
+    },
+    "disclaimer": {
+      "title": "5. Disclaimers and limitation of liability",
+      "description": "Our services are provided on an 'as-is' and 'as-available' basis without warranties of any kind. {siteName} is not responsible for any data loss, hardware strain, or indirect damages resulting from your use of local AI models."
+    },
+    "contact": {
+      "title": "6. Contact information",
+      "description": "If you have questions, feedback, or inquiries regarding these Terms of Use, please reach out to us at {email}. We represent the {siteName} team."
+    }
+  },
+  "remove-background-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "remove-background": "Background removal"
+    },
+    "title": "Background <accent>removal</accent>",
+    "meta-title": "Remove Background",
+    "meta-description": "Remove the background from your images automatically in seconds with our AI tool."
+  },
+  "inpaint-image-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "inpaint-image": "Image Restoration"
+    },
+    "title": "Image <accent>restoration</accent>",
+    "meta-title": "Inpaint Image",
+    "meta-description": "Restore your photos and remove unwanted objects or defects using AI inpainting."
+  },
+  "compress-image-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "compress-image": "Image Compression"
+    },
+    "title": "Image <accent>compression</accent>",
+    "meta-title": "Compress Image",
+    "meta-description": "Compress your images to reduce file size without losing quality."
+  },
+  "upscale-image-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "upscale-image": "Photo Upscaling"
+    },
+    "title": "Photo <accent>upscaling</accent>",
+    "meta-title": "Upscale Photo",
+    "meta-description": "Upscale your photos and increase image resolution with high quality using AI."
+  },
+  "zoom-image-page": {
+    "breadcrumbs": {
+      "home": "Home",
+      "tools": "Tools",
+      "zoom-image": "Image Enlargement"
+    },
+    "title": "Image <accent>enlargement</accent>",
+    "meta-title": "Zoom Image",
+    "meta-description": "Enlarge and zoom into your images without losing sharpness and detail."
+  },
+  "footer": {
+    "sitemap": {
+      "title": "Sitemap",
+      "home": "Home",
+      "tools": "Tools",
+      "feedback": "Feedback"
+    },
+    "support": {
+      "title": "Support",
+      "email": "Email us",
+      "telegram": "Telegram",
+      "feedback": "Contact & Feedback"
+    },
+    "documents": {
+      "title": "Documents",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    },
+    "rights": "All rights reserved.",
+    "create": {
+      "title": "Create",
+      "background-removal": "Background removal",
+      "upscale-image": "Upscale image",
+      "inpaint-image": "Inpaint image",
+      "zoom-image": "Zoom image"
+    },
+    "website": {
+      "title": "The Website",
+      "home": "Home",
+      "all-tools": "All tools"
+    }
+  },
+  "feedback-form": {
+    "email": "Your email",
+    "feedback": "Your feedback",
+    "terms": "By submitting this form, I agree to ",
+    "terms-link": "Terms of Use",
+    "and": " and ",
+    "privacy-policy": "Privacy Policy",
+    "submit": "Send"
+  },
+  "editor": {
+    "crop": "Crop",
+    "undo": "Undo",
+    "redo": "Redo",
+    "clear-session": "Clear Session",
+    "delete-session-confirm": "Are you sure you want to delete this session and all its related data?",
+    "previous-sessions": "Previous Sessions",
+    "download": "Download",
+    "format": "Format",
+    "select-model-placeholder": "Select a model",
+    "select-model-title": "Select {title} model",
+    "select-model-description": "Choose the model that fits your image",
+    "toolbar": {
+      "trigger": "Tools",
+      "sheet-title": "Model Menu",
+      "sheet-description": "Setting options",
+      "back": "Back",
+      "basic-tools": "Basic tools",
+      "crop-image": "Crop image",
+      "background-color": "Background color",
+      "ai-tools": "AI tools",
+      "tools": {
+        "background-remove": "Remove background",
+        "upscale": "Upscale image",
+        "zoom": "Zoom image",
+        "inpaint": "Inpaint image",
+        "compress": "Compress image"
+      }
+    },
+    "config": {
+      "remove-background": {
+        "title": "Remove background",
+        "applyLabel": "Apply"
+      },
+      "upscale": {
+        "title": "Upscale image",
+        "applyLabel": "Upscale"
+      },
+      "zoom": {
+        "title": "Zoom image",
+        "applyLabel": "Zoom"
+      },
+      "inpaint": {
+        "title": "Inpaint image",
+        "applyLabel": "Inpaint"
+      }
+    }
+  },
+  "image-uploader": {
+    "processing": "Processing...",
+    "dropzoneText": "Drag and drop images here, or click to select files",
+    "selectImage": "Select image"
+  },
+  "ai-model-selector": {
+    "downloaded": "Downloaded",
+    "useModel": "Use Model",
+    "downloadingModel": "Downloading model...",
+    "progress": "Progress"
+  },
+  "auth": {
+    "login": {
+      "breadcrumbs": {
+        "home": "Home",
+        "login": "Login"
+      },
+      "title": "Login",
+      "description": "Enter your email below to login to your account",
+      "email": "Email",
+      "email-placeholder": "m@example.com",
+      "password": "Password",
+      "forgot-password": "Forgot password?",
+      "submit": "Sign In",
+      "or-continue-with": "Or continue with",
+      "github-login": "GitHub",
+      "no-account": "Don't have an account?",
+      "register-link": "Sign Up",
+      "error-invalid": "Invalid email or password",
+      "error-password-required": "Password is required",
+      "error-email": "Invalid email format",
+      "error-unexpected": "An unexpected error occurred",
+      "success": "Logged in successfully!",
+      "meta-title": "Login",
+      "meta-description": "Log in to your All AI Tools account to edit and enhance your photos."
+    },
+    "register": {
+      "breadcrumbs": {
+        "home": "Home",
+        "register": "Register"
+      },
+      "title": "Create an Account",
+      "description": "Enter your details below to create your account",
+      "name": "Name",
+      "name-placeholder": "John Doe",
+      "email": "Email",
+      "email-placeholder": "m@example.com",
+      "password": "Password",
+      "confirm-password": "Confirm Password",
+      "submit": "Sign Up",
+      "or-continue-with": "Or continue with",
+      "github-register": "GitHub",
+      "has-account": "Already have an account?",
+      "login-link": "Sign In",
+      "error-name-required": "Name is required",
+      "error-match": "Passwords do not match",
+      "error-length": "Password must be at least 8 characters",
+      "error-email": "Invalid email format",
+      "error-exists": "Email already exists",
+      "error-unexpected": "An unexpected error occurred",
+      "success": "Account created successfully!",
+      "meta-title": "Register",
+      "meta-description": "Create an All AI Tools account to edit and enhance your photos."
+    },
+    "forgot-password": {
+      "breadcrumbs": {
+        "home": "Home",
+        "forgot-password": "Forgot Password"
+      },
+      "title": "Forgot Password",
+      "description": "Enter your email address to receive a password reset link",
+      "email": "Email",
+      "email-placeholder": "m@example.com",
+      "submit": "Send Reset Link",
+      "back-to-login": "Back to Login",
+      "success": "If the email is registered, a password reset link has been sent.",
+      "error-email": "Invalid email format",
+      "error-unexpected": "An unexpected error occurred",
+      "meta-title": "Forgot Password",
+      "meta-description": "Request a password reset link."
+    },
+    "reset-password": {
+      "breadcrumbs": {
+        "home": "Home",
+        "reset-password": "Reset Password"
+      },
+      "title": "Reset Password",
+      "description": "Enter your new password below",
+      "password": "New Password",
+      "confirm-password": "Confirm Password",
+      "submit": "Reset Password",
+      "back-to-login": "Back to Login",
+      "success": "Your password has been successfully reset.",
+      "error-match": "Passwords do not match",
+      "error-length": "Password must be at least 8 characters",
+      "error-invalid-token": "Invalid or expired token",
+      "error-unexpected": "An unexpected error occurred",
+      "meta-title": "Reset Password",
+      "meta-description": "Choose a new password for your account."
+    }
+  },
+  "profile": {
+    "menu": "Menu",
+    "my-profile": "My Profile",
+    "balances": "Balances",
+    "joined-date": "from {date}",
+    "your-balance": "Your balance",
+    "tokens": "{count} tokens",
+    "buy-tokens": "Buy tokens",
+    "edit-profile": "My Profile",
+    "email-label": "Your email",
+    "username-label": "Your username",
+    "username-placeholder": "Your name",
+    "update-btn": "Update",
+    "local-models": "Local models",
+    "no-local-models": "No local models cached",
+    "toast-success": "Profile updated successfully!",
+    "toast-error": "Failed to update profile",
+    "usage": "Usage",
+    "daily": "Daily",
+    "monthly": "Monthly",
+    "generations-count": "{count} Generations",
+    "transactions": "Transactions",
+    "transaction-purchase": "Purchase",
+    "no-transactions": "No transactions found",
+    "security": "Security",
+    "change-password": "Change password",
+    "current-password": "Current password",
+    "new-password": "New password",
+    "confirm-password": "Confirm new password",
+    "delete-account": "Delete Account",
+    "delete-account-desc": "Once you delete your account, there is no going back. Please be certain.",
+    "change-password-btn": "Change password",
+    "delete-account-btn": "Delete account",
+    "error-length": "Password must be at least 8 characters",
+    "error-match": "Passwords must match",
+    "error-required": "This field is required",
+    "success-change-password": "Password changed successfully!",
+    "step-current-title": "Current password",
+    "step-current-desc": "Enter your current password",
+    "step-new-title": "New password",
+    "step-new-desc": "Create a new password for your account",
+    "step-success-title": "Password changed",
+    "step-success-desc": "Your password has been successfully updated",
+    "next": "Next",
+    "back": "Back",
+    "done": "Done",
+    "change-password-title": "Change Password",
+    "local-ai-tools": "Local AI Tools",
+    "local-ai-desc": "Manage settings and downloads for running AI models directly on your device.",
+    "local-execution": "Local Execution",
+    "local-execution-desc": "Run AI models in your browser using local hardware when available. If disabled, tasks will run in the cloud.",
+    "execution-provider": "Preferred Execution Provider",
+    "execution-provider-desc": "Choose WebGPU for high-performance hardware acceleration, or WASM for standard CPU execution.",
+    "manage-models": "Manage AI Models",
+    "model-category-bg": "Background Removal",
+    "model-category-upscale": "Image Upscaler",
+    "model-category-inpaint": "Object Removal / Inpainting",
+    "model-status-not-downloaded": "Not downloaded",
+    "model-status-downloaded": "Cached",
+    "model-status-downloading": "Downloading...",
+    "model-status-paused": "Paused",
+    "model-btn-download": "Download",
+    "model-btn-pause": "Pause",
+    "model-btn-resume": "Resume",
+    "model-btn-delete": "Delete cache",
+    "model-btn-set-active": "Set Active",
+    "model-btn-active": "Active",
+    "toast-active-success": "Active model updated successfully!",
+    "toast-active-error": "Failed to update active model",
+    "only-loaded-models": "Only loaded models",
+    "model-status-error": "Error",
+    "toast-delete-success": "Model cache deleted successfully!",
+    "toast-delete-error": "Failed to delete model cache",
+    "no-loaded-models": "No downloaded models in this category.",
+    "no-models-available": "No models available.",
+    "models-loading": "Loading models..."
+  },
+  "seo": {
+    "title": "All AI Tools – AI Photo Editor & Photo Enhancer",
+    "description": "AI-powered image editor and photo enhancer that helps you improve and transform your photos quickly."
+  }
+}
