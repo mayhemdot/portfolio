@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
-import React, { cache } from "react";
+import { cache } from "react";
 import { RenderHero } from "@/payload/blocks/heros/RenderHero";
-import { LetsTalkSection } from "@/payload/blocks/LetsTalkSection";
 import { RenderBlocks } from "@/payload/blocks/RenderBlocks";
 import { homeStatic } from "@/payload/endpoints/seed/home-static";
 import configPromise from "@/payload/payload.config";
@@ -11,6 +10,7 @@ import { LivePreviewListener } from "@/shared/components/LivePreviewListener";
 import { PayloadRedirects } from "@/shared/components/PayloadRedirects";
 import { generateMeta } from "@/utilities/generateMeta";
 import PageClient from "./page.client";
+// import { LetsTalkSection } from "@/payload/blocks/LetsTalkSection";
 
 export async function generateStaticParams() {
 	const payload = await getPayload({ config: configPromise });
@@ -75,8 +75,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 			<RenderHero {...hero} />
 			<RenderBlocks blocks={layout} />
-
-			<LetsTalkSection />
+			{/* <LetsTalkSection /> */}
 		</>
 	);
 }

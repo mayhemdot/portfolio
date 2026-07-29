@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type React from "react";
 import { useRef } from "react";
 import type { AboutUs as AboutUsProps } from "@/payload/payload-types";
+import FiveIcon from "@/shared/components/icons/FiveIcon";
+import TetrisIcon from "@/shared/components/icons/TetrisIcon";
 import {
 	Accordion,
 	AccordionContent,
@@ -80,12 +82,12 @@ export const MySkilsList: React.FC<AboutUsProps> = (props) => {
 	return (
 		<section
 			ref={containerRef}
-			className="relative text-primary-foreground! min-h-screen fl-mt-64/200"
+			className="relative text-primary-foreground! bg-black min-h-screen fl-pt-120/200"
 		>
 			<div className="grid grid-cols-8 w-full max-h-full h-full relative fl-gap-24/64 items-start">
 				<div className="md:sticky relative md:top-28 self-start flex h-fit col-start-1 md:col-start-2 z-1 col-span-8 md:col-span-3">
 					<AboutText
-						icon=""
+						icon={<TetrisIcon size={48} />}
 						title={skillsTitle}
 						description={skillsDescription}
 					/>
@@ -101,9 +103,9 @@ export const MySkilsList: React.FC<AboutUsProps> = (props) => {
 								<AccordionItem
 									key={cat.category || idx}
 									value={`item-${idx}`}
-									className="skill-accordion-item py-8"
+									className="skill-accordion-item fl-py-24/48 first:pt-0!"
 								>
-									<AccordionTrigger className="fl-text-20/40 font-normal!">
+									<AccordionTrigger className="fl-text-20/40 py-0! font-normal!">
 										{cat.category}
 									</AccordionTrigger>
 									<AccordionContent className="fl-text-12/20">

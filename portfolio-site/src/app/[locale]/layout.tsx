@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import localFont from "next/font/local";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import { type Locale, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import React, { type PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { Providers } from "@/app/[locale]/_providers";
 import { InitTheme } from "@/app/[locale]/_providers/Theme/InitTheme";
 import { getLanguageFromLocale } from "@/i18n/helpers";
@@ -72,7 +70,6 @@ export default async function RootLayout({ params, children }: Props) {
 							<main className="main min-h-screen shrink-0">{children}</main>
 
 							<Footer />
-							{/* <div>dd</div> */}
 						</ScrollSmoothLayout>
 					</NextIntlClientProvider>
 				</Providers>

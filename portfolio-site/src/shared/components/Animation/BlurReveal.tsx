@@ -10,21 +10,19 @@ if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
 }
 
-type TriggerTarget = string | Element | RefObject<Element | null>;
+export type TriggerTarget = string | Element | RefObject<Element | null>;
 
-export type FillRevealProps = {
-	children: ReactNode;
+export type BlurRevealProps = {
+	children?: ReactNode;
 	className?: string;
-	direction?: "ltr" | "rtl";
-	fillDuration?: number;
-	textDelay?: number;
-	fillClassName?: string;
-	textClassName?: string;
+	contentClassName?: string;
+	duration?: number;
+	textBlur?: number; // initial blur amount, px
 	delay?: number;
-	textBlur?: number; // initial blur, px
+	ease?: string;
 	scrollTrigger?:
 		| boolean
-		| string // shorthand: selector string used directly as trigger
+		| string
 		| {
 				start?: string;
 				toggleActions?: string;
@@ -37,20 +35,17 @@ function isRefObject(value: unknown): value is RefObject<Element | null> {
 	return typeof value === "object" && value !== null && "current" in value;
 }
 
-export function FillReveal({
+export function BlurReveal({
 	children,
 	className = "",
-	direction = "rtl",
-	fillDuration = 1.2,
-	textDelay = 0.2,
-	fillClassName = "bg-secondary",
-	textClassName = "",
-	delay = 0,
+	contentClassName = "",
+	duration = 0.5,
 	textBlur = 8,
+	delay = 0,
+	ease = "power2.out",
 	scrollTrigger,
-}: FillRevealProps) {
+}: BlurRevealProps) {
 	const wrapRef = useRef<HTMLDivElement>(null);
-	const fillRef = useRef<HTMLDivElement>(null);
 	const textRef = useRef<HTMLDivElement>(null);
 
 	const isStEnabled = Boolean(scrollTrigger);
@@ -69,15 +64,19 @@ export function FillReveal({
 
 	useGSAP(
 		() => {
-			// const fromClip =
-			// 	direction === "rtl" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)";
-
-			const resolvedTrigger: string | Element | null =
+			const resolvedTrigger: Element | null =
 				typeof stTrigger === "string"
-					? stTrigger
+					? document.querySelector(stTrigger)
 					: isRefObject(stTrigger)
 						? stTrigger.current
 						: ((stTrigger as Element | undefined) ?? wrapRef.current);
+
+			if (isStEnabled && !resolvedTrigger) {
+				console.warn(
+					`[BlurReveal] scrollTrigger target not found for:`,
+					stTrigger,
+				);
+			}
 
 			const scrollTriggerConfig = isStEnabled
 				? {
@@ -89,46 +88,29 @@ export function FillReveal({
 					}
 				: undefined;
 
-			const tl = gsap.timeline({
-				defaults: { ease: "power2.out" },
-				delay,
-				scrollTrigger: scrollTriggerConfig,
-			});
-
-			tl
-				// .set(fillRef.current, { clipPath: fromClip })
-				// .set(textRef.current, {
-				// 	opacity: 0,
-				// 	filter: `blur(${textBlur}px)`,
-				// })
-				.to(
-					fillRef.current,
-					{
-						clipPath: "inset(0 0 0 0%)",
-						duration: fillDuration,
-						ease: "power2.inOut",
-					},
-					`+=${delay}`,
-				)
+			gsap
+				.timeline({
+					defaults: { ease },
+					scrollTrigger: scrollTriggerConfig,
+					// delay,
+				})
 				.to(
 					textRef.current,
 					{
 						opacity: 1,
 						filter: "blur(0px)",
-						duration: 0.5,
-						ease: "power2.out",
+						duration,
 					},
-					`+=${textDelay}`,
+					`+=${delay}`,
 				);
 		},
 		{
-			// scope: wrapRef,
+			scope: wrapRef,
 			dependencies: [
-				direction,
-				fillDuration,
-				textDelay,
-				delay,
+				duration,
 				textBlur,
+				delay,
+				ease,
 				isStEnabled,
 				stStart,
 				stToggleActions,
@@ -139,31 +121,16 @@ export function FillReveal({
 	);
 
 	return (
-		<div ref={wrapRef} className={cn(`relative w-fit`, className)}>
-			<div
-				ref={fillRef}
-				className={cn(`absolute inset-0`, fillClassName)}
-				style={{
-					clipPath:
-						direction === "rtl" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-				}}
-			/>
+		<div ref={wrapRef} className={cn("relative w-fit", className)}>
 			<div
 				ref={textRef}
-				className={cn(`relative opacity-0 blur-md`, textClassName)}
+				className={cn("relative opacity-0", contentClassName)}
+				style={{
+					filter: `blur(${textBlur}px)`,
+				}}
 			>
 				{children}
 			</div>
 		</div>
-
-		// <div ref={wrapRef} className={cn(`relative w-fit`, className)}>
-		// 	<div ref={fillRef} className={cn(`absolute inset-0`, fillClassName)} />
-		// 	<div
-		// 		ref={textRef}
-		// 		className={cn(`relative opacity-0 blur-none`, textClassName)}
-		// 	>
-		// 		{children}
-		// 	</div>
-		// </div>
 	);
 }

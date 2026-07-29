@@ -36,9 +36,9 @@ export async function ProjectsBlock({
 		}
 	}
 	return (
-		<div
+		<section
 			id="works"
-			className="min-h-dvh heightWithoutHeader bg-black dark:bg-card text-white dark:text-black"
+			className="min-h-dvh heightWithoutHeader bg-black text-primary-foreground"
 		>
 			<Bounded className={"fl-py-64/180 df-text-space-y-editorial"}>
 				<h3 className="relative w-full text-center fl-text-20/40 md:w-3/5 md:mx-auto z-10">
@@ -56,7 +56,7 @@ export async function ProjectsBlock({
 									className={cn(
 										"flex flex-col df-gap-3-8 md:flex-row items-center",
 										{
-											"even:flex-row-reverse": id % 1 === 0,
+											"md:even:flex-row-reverse": id % 1 === 0,
 										},
 									)}
 								>
@@ -78,9 +78,9 @@ export async function ProjectsBlock({
 											className="df-px df-py"
 											fillClassName="bg-black"
 										>
-											{title && <h4 className="fl-text-20/40">{title}</h4>}
+											{title && <h4 className="fl-text-16/24">{title}</h4>}
 											{year && (
-												<span className="text-secondary fl-text-20/24">
+												<span className="text-secondary fl-text-12/16">
 													{year}
 												</span>
 											)}
@@ -93,6 +93,6 @@ export async function ProjectsBlock({
 					)}
 				</div>
 			</Bounded>
-		</div>
+		</section>
 	);
 }

@@ -203,6 +203,7 @@ export interface Page {
     | AboutUs
     | ApproachBlock
     | FormBlock
+    | LetsTalkBlock
   )[];
   meta?: {
     title?: string | null;
@@ -956,6 +957,46 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LetsTalkBlock".
+ */
+export interface LetsTalkBlock {
+  title?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subtitle?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  media?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'letsTalkSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1253,6 +1294,7 @@ export interface PagesSelect<T extends boolean = true> {
         aboutUs?: T | AboutUsSelect<T>;
         approachBlock?: T | ApproachBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        letsTalkSection?: T | LetsTalkBlockSelect<T>;
       };
   meta?:
     | T
@@ -1438,6 +1480,17 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LetsTalkBlock_select".
+ */
+export interface LetsTalkBlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  media?: T;
   id?: T;
   blockName?: T;
 }

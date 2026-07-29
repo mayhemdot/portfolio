@@ -1,7 +1,11 @@
 import type React from "react";
 import type { AboutUs as AboutUsProps } from "@/payload/payload-types";
+import { FillReveal } from "@/shared/components/Animation/FillReveal";
+import ChrestIcon from "@/shared/components/icons/ChrestIcon";
+import FiveIcon from "@/shared/components/icons/FiveIcon";
 import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
+import { cn } from "@/shared/lib/utils";
 import { AboutUsBackground } from "./AboutUsBackground";
 import { defaultSkills, defaultSkillsList } from "./defaultSkills";
 import { MySkilsList } from "./MySkilsList";
@@ -25,11 +29,17 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 	return (
 		<section id="about" className="relative text-primary-foreground">
 			<AboutUsBackground />
-			<div className="overflow-clip bg-black container rounded-3xl mx-auto z-10 flex items-center h-[150vh]">
+			{/* rounded-3xl */}
+			<div className="about-content overflow-clip df-px pr-0! bg-black container mx-auto z-10 flex items-center h-screen xl:h-[150vh]">
 				<div className="relative h-[65vh] w-full xl:h-screen">
 					<div className="grid grid-cols-8 max-h-full h-full relative">
 						<div className="flex items-end lg:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
-							<AboutText icon="" title={title} description={description} />
+							<AboutText
+								icon={<FiveIcon size={48} />}
+								title={title}
+								description={description}
+								isBlur={true}
+							/>
 						</div>
 
 						{media && (
@@ -55,14 +65,24 @@ export function AboutText({
 	icon,
 	title,
 	description,
+	isBlur = false,
 }: {
 	icon: any;
 	title: any;
 	description: any;
+	isBlur?: boolean;
 }) {
 	return (
-		<div className="df-px df-py df-text-space-y-balance rounded-2xl backdrop-blur-3xl">
-			<div className="size-16 bg-accent">IC</div>
+		<FillReveal
+			className={cn("df-px df-py")}
+			scrollTrigger={".about-content"}
+			fillClassName="backdrop-blur-3xl"
+			textClassName="df-text-space-y"
+			textDelay={0.3}
+			delay={0.2}
+		>
+			{/* <div className="size-16 bg-accent">IC</div> */}
+			{icon && icon}
 			{title && (
 				<RichText
 					className="fl-text-20/40 font-sans"
@@ -78,6 +98,6 @@ export function AboutText({
 					enableGutter={false}
 				/>
 			)}
-		</div>
+		</FillReveal>
 	);
 }

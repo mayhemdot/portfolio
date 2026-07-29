@@ -20,6 +20,7 @@ import { hero } from "../../blocks/heros/config";
 import { Marquee } from "../../blocks/Marquee/config";
 import { MediaBlock } from "../../blocks/MediaBlock/config";
 import { ProjectsBlock } from "../../blocks/ProjectsBlock/config";
+import { LetsTalkBlock } from "../../blocks/LetsTalkSection/config";
 import { populatePublishedAt } from "../../hooks/populatePublishedAt";
 import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage";
 
@@ -85,6 +86,7 @@ export const Pages: CollectionConfig<"pages"> = {
 								AboutUs,
 								Approach,
 								FormBlock,
+								LetsTalkBlock,
 							],
 							required: true,
 							admin: {

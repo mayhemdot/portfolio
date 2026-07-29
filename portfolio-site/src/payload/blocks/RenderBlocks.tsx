@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { AboutUsBlock } from "@/payload/blocks/AboutUs";
+import { ApproachBlock } from "@/payload/blocks/Approach";
 import { ArchiveBlock } from "@/payload/blocks/ArchiveBlock/Component";
 import { CallToActionBlock } from "@/payload/blocks/CallToAction/Component";
 import { ContentBlock } from "@/payload/blocks/Content/Component";
 import { FormBlock } from "@/payload/blocks/Form/Component";
+import { LetsTalkSection } from "@/payload/blocks/LetsTalkSection";
 import Marquee from "@/payload/blocks/Marquee";
 import { MediaBlock } from "@/payload/blocks/MediaBlock/Component";
-import { ApproachBlock } from "@/payload/blocks/Approach";
 import { ProjectsBlock } from "@/payload/blocks/ProjectsBlock";
 import type { Page } from "@/payload/payload-types";
 
@@ -20,6 +21,7 @@ const blockComponents = {
 	projects: ProjectsBlock,
 	aboutUs: AboutUsBlock,
 	approachBlock: ApproachBlock,
+	letsTalkSection: LetsTalkSection,
 };
 
 export const RenderBlocks: React.FC<{

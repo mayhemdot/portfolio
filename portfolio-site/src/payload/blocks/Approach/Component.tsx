@@ -1,5 +1,6 @@
 import type React from "react";
 import type { ApproachBlock as ApproachBlockType } from "@/payload/payload-types";
+import ThreeIcon from "@/shared/components/icons/ThreeIcon";
 import { cn } from "@/utilities/ui";
 
 export type ApproachBlockProps = Partial<ApproachBlockType> & {
@@ -43,6 +44,7 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 
 	return (
 		<section
+			id="approach"
 			className={cn(
 				"relative fl-py-96/120 text-foreground overflow-hidden",
 				className,
@@ -65,7 +67,9 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 					{title && <h2 className="fl-text-20/40 font-heading">{title}</h2>}
 
 					{/* Accent Pixel Decorative Graphic */}
-					<div
+
+					<ThreeIcon className="mx-auto" size={48} />
+					{/* <div
 						className="flex items-center justify-center gap-1.5 my-5"
 						aria-hidden="true"
 					>
@@ -74,7 +78,7 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 						<span className="h-2.5 w-2.5 rounded-[1px] bg-[#F95700] shadow-[0_0_10px_rgba(249,87,0,0.5)]" />
 						<span className="h-2 w-2 rounded-[1px] bg-[#F95700]/70" />
 						<span className="h-1.5 w-1.5 rounded-[1px] bg-[#F95700]/30" />
-					</div>
+					</div> */}
 
 					{subtitle && (
 						<p className="max-w-xl mx-auto text-left font-heading fl-text-20/24">
@@ -91,7 +95,7 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 								key={item.id || index}
 								className="group relative flex flex-col justify-between df-py df-px"
 							>
-								<div className="df-text-space-y">
+								<div className="df-text-space-y text-center">
 									{/* Badge / Pill */}
 									{item.badge && (
 										<div>
