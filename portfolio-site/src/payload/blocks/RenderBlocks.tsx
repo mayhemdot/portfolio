@@ -6,6 +6,7 @@ import { ContentBlock } from "@/payload/blocks/Content/Component";
 import { FormBlock } from "@/payload/blocks/Form/Component";
 import Marquee from "@/payload/blocks/Marquee";
 import { MediaBlock } from "@/payload/blocks/MediaBlock/Component";
+import { ApproachBlock } from "@/payload/blocks/Approach";
 import { ProjectsBlock } from "@/payload/blocks/ProjectsBlock";
 import type { Page } from "@/payload/payload-types";
 
@@ -18,6 +19,7 @@ const blockComponents = {
 	marquee: Marquee,
 	projects: ProjectsBlock,
 	aboutUs: AboutUsBlock,
+	approachBlock: ApproachBlock,
 };
 
 export const RenderBlocks: React.FC<{

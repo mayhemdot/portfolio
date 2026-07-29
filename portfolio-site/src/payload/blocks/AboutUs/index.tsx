@@ -23,10 +23,10 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 	} = props;
 
 	return (
-		<section id="about" className="relative text-primary-foreground ">
+		<section id="about" className="relative text-primary-foreground">
 			<AboutUsBackground />
 			<div className="overflow-clip bg-black container rounded-3xl mx-auto z-10 flex items-center h-[150vh]">
-				<div className="relative h-[70vh] w-full lg:h-screen">
+				<div className="relative h-[65vh] w-full xl:h-screen">
 					<div className="grid grid-cols-8 max-h-full h-full relative">
 						<div className="flex items-end lg:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
 							<AboutText icon="" title={title} description={description} />
@@ -35,7 +35,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 						{media && (
 							<Media
 								resource={media}
-								className="absolute right-0 overflow-clip rounded-tl-3xl rounded-bl-3xl top-0 h-full w-[88%] md:w-2/3 xl:w-1/2 z-0"
+								className="absolute right-0 overflow-clip rounded-tl-3xl rounded-bl-3xl top-0 h-full w-[88%] md:w-2/3 2xl:w-1/2 z-0"
 								pictureClassName="block w-full max-h-full h-full"
 								imgClassName="w-full h-full object-cover"
 							/>
@@ -61,7 +61,7 @@ export function AboutText({
 	description: any;
 }) {
 	return (
-		<div className="df-px df-py df-text-space-y-editorial rounded-2xl backdrop-blur-3xl">
+		<div className="df-px df-py df-text-space-y-balance rounded-2xl backdrop-blur-3xl">
 			<div className="size-16 bg-accent">IC</div>
 			{title && (
 				<RichText

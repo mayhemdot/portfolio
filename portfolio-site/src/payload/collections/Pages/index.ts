@@ -11,6 +11,7 @@ import { generatePreviewPath } from "../../../utilities/generatePreviewPath";
 import { authenticated } from "../../access/authenticated";
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished";
 import { AboutUs } from "../../blocks/AboutUs/config";
+import { Approach } from "../../blocks/Approach/config";
 import { Archive } from "../../blocks/ArchiveBlock/config";
 import { CallToAction } from "../../blocks/CallToAction/config";
 import { Content } from "../../blocks/Content/config";
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig<"pages"> = {
 								MediaBlock,
 								Archive,
 								AboutUs,
+								Approach,
 								FormBlock,
 							],
 							required: true,

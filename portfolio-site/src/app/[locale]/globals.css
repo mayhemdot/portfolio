@@ -141,7 +141,6 @@
   h5,
   h6 {
     font-family: var(--font-heading);
-
   }
 
   h1 {
@@ -385,7 +384,7 @@ main {
 /* ===================================================================== */
 
 .df-px {
-  @apply px-3 lg:px-4 3xl:px-8;
+  @apply px-3 md:px-4 lg:px-6 3xl:px-8;
 }
 
 .df-px-xs {
@@ -399,7 +398,7 @@ main {
 /* ===================================================================== */
 
 .df-py {
-  @apply py-3 lg:py-4 3xl:py-8;
+  @apply py-3 md:py-4 lg:py-6 3xl:py-8;
 }
 
 .df-py-xs {
@@ -516,13 +515,13 @@ main {
 /* 2.5-5 */
 /* Text normal */
 .df-text-space-y-balance {
-  @apply space-y-2.5 sm:space-y-3 lg:space-y-4 3xl:space-y-5;
+  @apply space-y-2.5 sm:space-y-3 lg:space-y-4 xl:space-y-6 2xl:space-y-8 3xl:space-y-10;
 }
 
 /* 4-8 */
 /* Text editorial */
 .df-text-space-y-editorial {
-  @apply space-y-4 lg:space-y-6 3xl:space-y-8;
+  @apply space-y-4 lg:space-y-6 xl:space-y-8 2xl:space-y-12 3xl:space-y-16;
 }
 
 

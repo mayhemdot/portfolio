@@ -7,6 +7,7 @@ import type {
 import { FillReveal } from "@/shared/components/Animation/FillReveal";
 import { Bounded } from "@/shared/components/Bounded";
 import { Media } from "@/shared/components/Media";
+import { cn } from "@/shared/lib/utils";
 
 export async function ProjectsBlock({
 	populateBy,
@@ -39,8 +40,8 @@ export async function ProjectsBlock({
 			id="works"
 			className="min-h-dvh heightWithoutHeader bg-black dark:bg-card text-white dark:text-black"
 		>
-			<Bounded className={"fl-py-64/180"}>
-				<h3 className="relative w-full font-bold text-center fl-text-20/40 px-4 md:w-3/5 md:mx-auto py-16 z-10">
+			<Bounded className={"fl-py-64/180 df-text-space-y-editorial"}>
+				<h3 className="relative w-full text-center fl-text-20/40 md:w-3/5 md:mx-auto z-10">
 					Our Projects
 				</h3>
 
@@ -52,7 +53,12 @@ export async function ProjectsBlock({
 								<div
 									key={id}
 									data-project-card={id}
-									className="flex flex-col df-gap-3-8 md:flex-row items-center"
+									className={cn(
+										"flex flex-col df-gap-3-8 md:flex-row items-center",
+										{
+											"even:flex-row-reverse": id % 1 === 0,
+										},
+									)}
 								>
 									<div className="projectMedia basis-1/2">
 										<div className="df-px df-py bg-accent">
@@ -70,15 +76,11 @@ export async function ProjectsBlock({
 											}}
 											direction="ltr"
 											className="df-px df-py"
-											fillClassName="bg-accent"
+											fillClassName="bg-black"
 										>
-											{title && (
-												<span className="block fl-text-20/24 font-extralight">
-													{title}
-												</span>
-											)}
+											{title && <h4 className="fl-text-20/40">{title}</h4>}
 											{year && (
-												<span className="block text-secondary fl-text-20/24 font-extralight">
+												<span className="text-secondary fl-text-20/24">
 													{year}
 												</span>
 											)}

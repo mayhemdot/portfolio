@@ -201,6 +201,7 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | AboutUs
+    | ApproachBlock
     | FormBlock
   )[];
   meta?: {
@@ -735,6 +736,26 @@ export interface AboutUs {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ApproachBlock".
+ */
+export interface ApproachBlock {
+  eyebrow?: string | null;
+  title: string;
+  subtitle?: string | null;
+  items?:
+    | {
+        badge?: string | null;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'approachBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
@@ -1230,6 +1251,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         aboutUs?: T | AboutUsSelect<T>;
+        approachBlock?: T | ApproachBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
       };
   meta?:
@@ -1384,6 +1406,25 @@ export interface AboutUsSelect<T extends boolean = true> {
               name?: T;
               id?: T;
             };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ApproachBlock_select".
+ */
+export interface ApproachBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  title?: T;
+  subtitle?: T;
+  items?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
         id?: T;
       };
   id?: T;
