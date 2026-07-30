@@ -1,5 +1,5 @@
-// storage-adapter-import-placeholder
-import { sqliteAdapter } from "@payloadcms/db-sqlite";
+import { postgresAdapter } from "@payloadcms/db-postgres";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import path from "path";
 import { buildConfig, type PayloadRequest } from "payload";
 import sharp from "sharp"; // sharp-import
@@ -59,18 +59,23 @@ export default buildConfig({
 	localization: localization as any,
 	// This config helps us configure global or default features that the other editors can inherit
 	editor: defaultLexical,
-	db: sqliteAdapter({
-		client: {
-			url: process.env.DATABASE_URI || "",
+	db: postgresAdapter({
+		pool: {
+			connectionString: process.env.DATABASE_URI || "",
 		},
-		push: false,
 	}),
 	collections: [Pages, Projects, Media, Categories, Users],
 	cors: [getServerSideURL()].filter(Boolean),
 	globals: [Header, Footer],
 	plugins: [
 		...plugins,
-		// storage-adapter-placeholder
+		vercelBlobStorage({
+			enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+			collections: {
+				media: true,
+			},
+			token: process.env.BLOB_READ_WRITE_TOKEN,
+		}),
 	],
 	secret: process.env.PAYLOAD_SECRET,
 	sharp,
