@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
 import { cache } from "react";
-import type { LocaleCode } from "@/i18n/localization";
 import { RenderHero } from "@/payload/blocks/heros/RenderHero";
 import { RenderBlocks } from "@/payload/blocks/RenderBlocks";
 import { homeStatic } from "@/payload/endpoints/seed/home-static";
@@ -12,17 +11,25 @@ import { PayloadRedirects } from "@/shared/components/PayloadRedirects";
 import { generateMeta } from "@/utilities/generateMeta";
 import PageClient from "./page.client";
 
-// import { LetsTalkSection } from "@/payload/blocks/LetsTalkSection";
-
-type Args = {
+// 1. Тип для Page и generateMetadata
+type PageArgs = {
 	params: Promise<{
 		slug?: string;
-		locale?: LocaleCode;
+		locale?: string;
 	}>;
 };
 
-export async function generateStaticParams({ params }: Args) {
-	const { locale } = await params;
+// 2. Тип для generateStaticParams
+type StaticParamsArgs = {
+	params:
+		| Promise<{ slug?: string; locale?: string }>
+		| { slug?: string; locale?: string };
+};
+
+export async function generateStaticParams({ params }: StaticParamsArgs) {
+	const resolvedParams = await Promise.resolve(params);
+	const locale = resolvedParams?.locale;
+
 	const payload = await getPayload({ config: configPromise });
 	const pages = await payload.find({
 		collection: "pages",
@@ -30,22 +37,24 @@ export async function generateStaticParams({ params }: Args) {
 		limit: 1000,
 		overrideAccess: false,
 		pagination: false,
-		locale: locale,
+		locale: locale as any,
 		select: {
 			slug: true,
 		},
 	});
 
-	return pages.docs
-		?.filter((doc) => {
-			return doc.slug !== "home";
-		})
-		.map(({ slug }) => {
-			return { slug };
-		});
+	return (
+		pages.docs
+			?.filter((doc) => {
+				return doc.slug !== "home";
+			})
+			.map(({ slug }) => {
+				return { slug, locale };
+			}) || []
+	);
 }
 
-export default async function Page({ params: paramsPromise }: Args) {
+export default async function Page({ params: paramsPromise }: PageArgs) {
 	const { isEnabled: draft } = await draftMode();
 	const { slug = "home", locale } = await paramsPromise;
 	// Decode to support slugs with special characters
@@ -86,7 +95,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 export async function generateMetadata({
 	params: paramsPromise,
-}: Args): Promise<Metadata> {
+}: PageArgs): Promise<Metadata> {
 	const { slug = "home", locale } = await paramsPromise;
 	// Decode to support slugs with special characters
 	const decodedSlug = decodeURIComponent(slug);
@@ -99,13 +108,7 @@ export async function generateMetadata({
 }
 
 const queryPageBySlug = cache(
-	async ({
-		slug,
-		locale,
-	}: {
-		slug: string;
-		locale: LocaleCode | undefined;
-	}) => {
+	async ({ slug, locale }: { slug: string; locale: string | undefined }) => {
 		const { isEnabled: draft } = await draftMode();
 
 		const payload = await getPayload({ config: configPromise });
@@ -117,7 +120,7 @@ const queryPageBySlug = cache(
 			pagination: false,
 			overrideAccess: draft,
 			depth: 3,
-			locale,
+			locale: locale as any,
 			where: {
 				slug: {
 					equals: slug,

@@ -20,20 +20,20 @@ import { manrope, nyghtSerif } from "./_fonts/fonts";
 
 import "./globals.css";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
 	return [{ locale: "en-US" }, { locale: "ru-RU" }];
 	// return routing.locales.map((locale) => getLanguageFromLocale(locale));
 }
 
 type Props = PropsWithChildren<{
-	params: Promise<{ locale: LocaleCode }>;
+	params: Promise<{ locale?: string }>;
 }>;
 
 export default async function RootLayout({ params, children }: Props) {
 	const { isEnabled } = await draftMode();
 	const { locale } = await params;
 
-	const lang = getLanguageFromLocale(locale);
+	const lang = getLanguageFromLocale(locale as LocaleCode);
 
 	const currentLocale = localization.locales.find((loc) => loc.code === locale);
 	const direction = currentLocale?.rtl ? "rtl" : "ltr";
@@ -42,7 +42,7 @@ export default async function RootLayout({ params, children }: Props) {
 		notFound();
 	}
 
-	setRequestLocale(locale);
+	setRequestLocale(locale as LocaleCode);
 
 	const messages = await getMessages({ locale: locale });
 	return (
