@@ -3,6 +3,7 @@ import type {
 	Media as MediaType,
 } from "@/payload/payload-types";
 import { BlurReveal } from "@/shared/components/Animation/BlurReveal";
+import { FillReveal } from "@/shared/components/Animation/FillReveal";
 import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
 import { GetInTouch } from "./GetInTouch";
@@ -24,19 +25,43 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 			id="lets-talk"
 			className="relative min-h-[130vh] bg-black text-primary-foreground flex flex-col items-center justify-center py-24 df-px overflow-clip"
 		>
-			{mediaResource && (
-				<Media
-					resource={mediaResource}
-					fill
-					className="absolute inset-0 z-0 w-full h-full"
-					pictureClassName="absolute inset-0 w-full h-full block"
-					imgClassName="absolute inset-0 w-full h-full object-cover pointer-events-none"
-					videoClassName="absolute inset-0 w-full h-full object-cover pointer-events-none"
-				/>
-			)}
-
-			<div className="lets-talk-text relative z-10 max-w-3xl text-center df-text-space-y">
-				{title && (
+			<div className="lets-talk-text">
+				{mediaResource && (
+					<Media
+						resource={mediaResource}
+						blurDataURL={
+							"data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABQAQCdASoQAAkABUB8JZwABDOAAP7vyfqFR+cYp10sP3Ja+rsaqrG4AAA="
+						}
+						fill
+						className="absolute inset-0 z-0 w-full h-full"
+						pictureClassName="absolute inset-0 w-full h-full block"
+						imgClassName="absolute inset-0 w-full h-full object-cover object-[70%] pointer-events-none"
+						videoClassName="absolute inset-0 w-full h-full object-cover pointer-events-none"
+					/>
+				)}
+				{/* <div className="lets-talk-text relative z-10 max-w-3xl text-center df-text-space-y df-px df-py backdrop-blur-3xl"> */}
+				{title && subtitle && (
+					<FillReveal
+						className={"df-px df-py"}
+						scrollTrigger={".lets-talk-text"}
+						fillClassName="backdrop-blur-3xl"
+						textClassName="df-text-space-y-balance"
+						textDelay={0}
+						delay={0}
+					>
+						<RichText
+							className="fl-text-32/64 font-heading font-normal text-primary-foreground"
+							data={title}
+							enableGutter={false}
+						/>
+						<RichText
+							className="fl-text-16/20 mx-auto"
+							data={subtitle}
+							enableGutter={false}
+						/>
+					</FillReveal>
+				)}
+				{/* {title && (
 					<BlurReveal scrollTrigger=".lets-talk-text" delay={0.2}>
 						<RichText
 							className="fl-text-32/64 font-heading font-normal text-primary-foreground"
@@ -61,7 +86,7 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 					className="pt-4 mx-auto"
 				>
 					<GetInTouch />
-				</BlurReveal>
+				</BlurReveal> */}
 			</div>
 		</section>
 	);

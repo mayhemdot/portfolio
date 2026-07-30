@@ -6,8 +6,8 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { useHeaderTheme } from "@/app/[locale]/_providers/HeaderTheme";
@@ -18,7 +18,11 @@ if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
 }
 
-const NAV_ITEMS: { key: keyof IntlMessages["nav"]; href: string; id: string }[] = [
+const NAV_ITEMS: {
+	key: keyof IntlMessages["nav"];
+	href: string;
+	id: string;
+}[] = [
 	{ key: "home", href: "#home", id: "home" },
 	{ key: "about", href: "#about", id: "about" },
 	{ key: "works", href: "#works", id: "works" },
@@ -172,7 +176,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 					<LogoIcon className="size-10! 2xl:w-16! 2xl:h-16!" />
 				</Link>
 
-				<nav className="w-2/3 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/16 mt-auto self-end rounded-lg overflow-hidden shadow-lg">
+				<nav className="w-3/4 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/16 mt-auto self-end rounded-lg overflow-hidden shadow-lg">
 					<div className="z-20 w-full pt-3 px-3 md:px-4 justify-between flex gap-3">
 						{NAV_ITEMS.map((item, index) => (
 							<a
@@ -182,7 +186,9 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 								className="relative group flex flex-col grow items-center text-nowrap pb-2 text-inherit cursor-pointer select-none"
 							>
 								<span className="font-sans font-medium tracking-wider">
-									{item.key === "contact" ? tButtons("contact") : tNav(item.key)}
+									{item.key === "contact"
+										? tButtons("contact")
+										: tNav(item.key)}
 								</span>
 
 								<div className="w-full h-[2px] bg-background/20 mt-1.5 relative overflow-hidden rounded-full">

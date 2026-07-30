@@ -14,7 +14,7 @@ const TOTAL_DURATION = 2.0;
 
 export const MainImpactComponent: React.FC<any> = (props) => {
 	const { richText, eyebrow, subtitle, items, links } = props;
-	console.log("MainImpactComponent props >>", items);
+	// console.log("MainImpactComponent props >>", items);
 	const heroRef = React.useRef<HTMLDivElement>(null);
 	const heroContentRef = React.useRef<HTMLDivElement>(null);
 	const heroLeftRef = React.useRef<HTMLDivElement>(null);

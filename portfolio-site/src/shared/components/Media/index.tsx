@@ -17,7 +17,19 @@ export const Media: React.FC<Props> = (props) => {
 
 	return (
 		<Tag className={className}>
-			{isVideo ? <VideoMedia {...props} /> : <ImageMedia {...props} />}
+			{isVideo ? (
+				<VideoMedia {...props} />
+			) : (
+				<ImageMedia
+					{...props}
+					blurDataURL={
+						props?.blurDataURL ||
+						(typeof props.resource === "object"
+							? props.resource?.blurDataURL
+							: "")
+					}
+				/>
+			)}
 		</Tag>
 	);
 };

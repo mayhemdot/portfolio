@@ -41,6 +41,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 								description={description}
 								isBlur={true}
 								action={<GetInTouch />}
+								className=" translate-y-1/3 md:translate-y-0"
 							/>
 						</div>
 
@@ -51,6 +52,9 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 								className="absolute right-0 overflow-clip rounded-tl-3xl rounded-bl-3xl top-0 h-full w-[88%] md:w-2/3 2xl:w-1/2 z-0"
 								pictureClassName="block w-full max-h-full h-full"
 								imgClassName="w-full h-full object-cover"
+								blurDataURL={
+									"data:image/webp;base64,UklGRogAAABXRUJQVlA4WAoAAAAQAAAADwAAEAAAQUxQSBIAAAABD9D/iAgIBJL8qdbbIKL/oQ9WUDggUAAAAJADAJ0BKhAAEQA/OYa6VC8pJaMwCAHgJwlsALDsET89GC2bQwAA4PcwOeydujRU7uocF4Pgszmn3XmEkFx1GVBO4IphN6Z6SOq5KgAwgAAA"
+								}
 							/>
 						)}
 					</div>
@@ -70,16 +74,18 @@ export function AboutText({
 	description,
 	action,
 	isBlur = false,
+	className,
 }: {
 	icon: any;
 	title: any;
 	action?: any;
 	description: any;
 	isBlur?: boolean;
+	className?: string;
 }) {
 	return (
 		<FillReveal
-			className={cn("df-px df-py")}
+			className={cn("df-px df-py", className)}
 			scrollTrigger={".about-content"}
 			fillClassName="backdrop-blur-3xl"
 			textClassName="df-text-space-y-balance"
