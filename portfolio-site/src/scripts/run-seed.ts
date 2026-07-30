@@ -4,13 +4,10 @@ import path from 'path'
 dotenv.config({ path: path.resolve(process.cwd(), '.env.locale') })
 dotenv.config({ path: path.resolve(process.cwd(), '.env') })
 
-if (!process.env.DATABASE_URI || process.env.DATABASE_URI === 'file:./qe.db') {
-  const dbPath = path.resolve(process.cwd(), 'qe.db')
-  process.env.DATABASE_URI = `file:${dbPath}`
-}
 if (!process.env.PAYLOAD_SECRET) {
   process.env.PAYLOAD_SECRET = 'YOUR_SECRET_HERE'
 }
+process.env.VERCEL_BLOB_ENABLED = 'false'
 
 import { getPayload } from 'payload'
 import { seed } from './seed'

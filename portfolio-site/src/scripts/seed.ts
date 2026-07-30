@@ -1,4 +1,8 @@
 import type { Payload, CollectionSlug, GlobalSlug } from 'payload'
+import { createLocalReq } from 'payload'
+import { sql } from '@payloadcms/db-postgres'
+import path from 'path'
+import fs from 'fs'
 
 export const seedData = {
   "collections": {
@@ -2696,17 +2700,84 @@ export const seedData = {
   }
 } as const
 
+function extractLocaleData(data: any, targetLocale: string): any {
+  if (data === null || data === undefined) return data
+  if (Array.isArray(data)) {
+    return data.map((item) => extractLocaleData(item, targetLocale))
+  }
+  if (typeof data === 'object') {
+    const keys = Object.keys(data)
+    const isLocalizedMap =
+      keys.length > 0 &&
+      keys.every((k) => k === 'en-US' || k === 'ru-RU' || k === 'en' || k === 'ru')
+    if (isLocalizedMap) {
+      const val =
+        data[targetLocale] !== undefined
+          ? data[targetLocale]
+          : data['en-US'] !== undefined
+            ? data['en-US']
+            : Object.values(data)[0]
+      return extractLocaleData(val, targetLocale)
+    }
+    const result: Record<string, any> = {}
+    for (const key of keys) {
+      result[key] = extractLocaleData(data[key], targetLocale)
+    }
+    return result
+  }
+  return data
+}
+
+const EXCLUDED_COLLECTIONS = [
+  'search',
+  'payload-jobs',
+  'payload-migrations',
+  'payload-locked-documents',
+  'payload-preferences',
+]
+
+const SEED_ORDER: string[] = [
+  'users',
+  'categories',
+  'media',
+  'forms',
+  'form-submissions',
+  'projects',
+  'pages',
+]
+
 export async function seed(payload: Payload): Promise<void> {
   payload.logger.info('Starting seed process from generated seedData...')
 
-  const collections = Object.keys(seedData.collections) as CollectionSlug[]
+  const localReq = await createLocalReq({ locale: 'en-US' }, payload)
+
+  const collectionsInSeed = Object.keys(seedData.collections).filter(
+    (c) => !EXCLUDED_COLLECTIONS.includes(c),
+  )
+  const collections = [
+    ...SEED_ORDER.filter((c) => collectionsInSeed.includes(c)),
+    ...collectionsInSeed.filter((c) => !SEED_ORDER.includes(c)),
+  ] as CollectionSlug[]
+
   const globals = Object.keys(seedData.globals) as GlobalSlug[]
 
-  // Clear existing collection records
-  for (const collection of collections) {
+  // Truncate tables and reset identity sequences in PostgreSQL
+  try {
+    payload.logger.info('Truncating tables and resetting identity sequences in PostgreSQL...')
+    if ((payload.db as any)?.drizzle?.execute) {
+      await (payload.db as any).drizzle.execute(
+        sql.raw(`TRUNCATE TABLE "users", "categories", "media", "forms", "form_submissions", "projects", "pages", "redirects", "search" RESTART IDENTITY CASCADE;`)
+      )
+    }
+  } catch (err: any) {
+    payload.logger.warn(`Could not truncate tables: ${err.message || err}`)
+  }
+
+  // Clear existing collection records in reverse dependency order
+  for (const collection of [...collections].reverse()) {
     try {
       payload.logger.info(`Clearing ${collection}...`)
-      await payload.db.deleteMany({ collection, where: {}, req: {} as any })
+      await payload.db.deleteMany({ collection, where: {}, req: localReq as any })
     } catch (err: any) {
       payload.logger.warn(`Could not clear ${collection}: ${err.message || err}`)
     }
@@ -2714,30 +2785,157 @@ export async function seed(payload: Payload): Promise<void> {
 
   // Seed collection documents
   for (const collection of collections) {
-    const items = (seedData.collections as unknown as Record<string, readonly any[]>)[collection] || []
+    const rawItems = (seedData.collections as unknown as Record<string, readonly any[]>)[collection] || []
+    const items = [...rawItems].sort((a, b) => (a.id && b.id ? a.id - b.id : 0))
     payload.logger.info(`Seeding ${items.length} records into ${collection}...`)
-    for (const item of items) {
+    for (const itemRaw of items) {
+      const item = JSON.parse(JSON.stringify(itemRaw))
       try {
-        await payload.create({
+        if (collection === 'users') {
+          item.password = item.password || process.env.ADMIN_PASSWORD || 'Password123!'
+        }
+
+        if (collection === 'categories') {
+          delete item.breadcrumbs
+        }
+
+        if (collection === 'media') {
+          try {
+            const itemEn = extractLocaleData(item, 'en-US')
+            if (typeof itemEn.url === 'string' && itemEn.url.includes('null')) {
+              delete itemEn.url
+            }
+
+            const filename = itemEn.filename
+            let fileBuffer: Buffer | null = null
+            if (filename) {
+              const candidates = [
+                path.resolve(process.cwd(), 'public/media', filename),
+                path.resolve(process.cwd(), 'src/payload/endpoints/seed', filename),
+                path.resolve(process.cwd(), 'public', filename),
+              ]
+              for (const cand of candidates) {
+                if (fs.existsSync(cand)) {
+                  fileBuffer = fs.readFileSync(cand)
+                  break
+                }
+              }
+            }
+
+            let fileObj: any = undefined
+            if (fileBuffer && filename) {
+              fileObj = {
+                name: filename,
+                data: fileBuffer,
+                mimetype: itemEn.mimeType || 'image/webp',
+                size: fileBuffer.byteLength,
+              }
+            } else {
+              const fallbackBuffer = Buffer.from(
+                'UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAQAcJaQAA3AA/v38gAA=',
+                'base64',
+              )
+              fileObj = {
+                name: filename || 'placeholder.webp',
+                data: fallbackBuffer,
+                mimetype: itemEn.mimeType || 'image/webp',
+                size: fallbackBuffer.byteLength,
+              }
+            }
+
+            let createdMedia: any = null
+            try {
+              createdMedia = await payload.create({
+                collection: 'media',
+                data: itemEn as any,
+                file: fileObj,
+                locale: 'en-US',
+                req: localReq,
+                overrideAccess: true,
+              })
+            } catch (fileErr: any) {
+              payload.logger.warn(`File upload skipped for ${itemEn.filename || itemEn.id}: ${fileErr.message || fileErr}. Creating DB record directly...`)
+              createdMedia = await payload.create({
+                collection: 'media',
+                data: itemEn as any,
+                locale: 'en-US',
+                req: localReq,
+                overrideAccess: true,
+                context: { disableCloudStorage: true, skipCloudStorage: true },
+              })
+            }
+
+            if (createdMedia && createdMedia.id) {
+              const itemRu = extractLocaleData(item, 'ru-RU')
+              if (typeof itemRu.url === 'string' && itemRu.url.includes('null')) {
+                delete itemRu.url
+              }
+              await payload.update({
+                collection: 'media',
+                id: createdMedia.id,
+                data: itemRu as any,
+                locale: 'ru-RU',
+                req: localReq,
+                overrideAccess: true,
+                context: { disableCloudStorage: true, skipCloudStorage: true },
+              })
+            }
+          } catch (err: any) {
+            payload.logger.warn(`Media creation skipped/failed for ${item.filename || item.id}: ${err.message || err}`)
+          }
+          continue
+        }
+
+        const dataEn = extractLocaleData(item, 'en-US')
+        if (dataEn && typeof dataEn === 'object') {
+          delete dataEn.breadcrumbs
+        }
+        const createdDoc = await payload.create({
           collection,
-          data: item as any,
+          data: dataEn as any,
+          locale: 'en-US',
+          req: localReq,
           overrideAccess: true,
         })
+
+        const dataRu = extractLocaleData(item, 'ru-RU')
+        if (dataRu && typeof dataRu === 'object') {
+          delete dataRu.breadcrumbs
+        }
+        if (createdDoc && createdDoc.id) {
+          await payload.update({
+            collection,
+            id: createdDoc.id,
+            data: dataRu as any,
+            locale: 'ru-RU',
+            req: localReq,
+            overrideAccess: true,
+          })
+        }
       } catch (err: any) {
-        payload.logger.error(`Failed to create record in ${collection}: ${err.message || err}`)
+        payload.logger.error(`Failed to create record in ${collection} (ID: ${item.id}): ${err.message || err}`)
       }
     }
   }
 
   // Seed globals
   for (const globalSlug of globals) {
-    const data = (seedData.globals as unknown as Record<string, any>)[globalSlug]
-    if (data) {
+    const data = JSON.parse(JSON.stringify((seedData.globals as unknown as Record<string, any>)[globalSlug] || {}))
+    if (Object.keys(data).length > 0) {
       payload.logger.info(`Updating global ${globalSlug}...`)
       try {
         await payload.updateGlobal({
           slug: globalSlug,
-          data: data as any,
+          data: extractLocaleData(data, 'en-US') as any,
+          locale: 'en-US',
+          req: localReq,
+          overrideAccess: true,
+        })
+        await payload.updateGlobal({
+          slug: globalSlug,
+          data: extractLocaleData(data, 'ru-RU') as any,
+          locale: 'ru-RU',
+          req: localReq,
           overrideAccess: true,
         })
       } catch (err: any) {
