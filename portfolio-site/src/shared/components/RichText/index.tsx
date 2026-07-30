@@ -9,7 +9,6 @@ import {
 	type JSXConvertersFunction,
 	LinkJSXConverter,
 } from "@payloadcms/richtext-lexical/react";
-import { BannerBlock } from "@/payload/blocks/Banner/Component";
 import { CallToActionBlock } from "@/payload/blocks/CallToAction/Component";
 import {
 	CodeBlock,
@@ -17,7 +16,6 @@ import {
 } from "@/payload/blocks/Code/Component";
 import { MediaBlock } from "@/payload/blocks/MediaBlock/Component";
 import type {
-	BannerBlock as BannerBlockProps,
 	CallToActionBlock as CTABlockProps,
 	MediaBlock as MediaBlockProps,
 } from "@/payload/payload-types";
@@ -26,7 +24,7 @@ import { cn } from "@/utilities/ui";
 type NodeTypes =
 	| DefaultNodeTypes
 	| SerializedBlockNode<
-			CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps
+			CTABlockProps | MediaBlockProps | CodeBlockProps
 	  >;
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
@@ -35,7 +33,7 @@ const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
 		throw new Error("Expected value to be an object");
 	}
 	const slug = value.slug;
-	return relationTo === "posts" ? `/posts/${slug}` : `/${slug}`;
+	return relationTo === "projects" ? `/projects/${slug}` : `/${slug}`;
 };
 
 const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
@@ -44,9 +42,6 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
 	...defaultConverters,
 	...LinkJSXConverter({ internalDocToHref }),
 	blocks: {
-		banner: ({ node }) => (
-			<BannerBlock className="col-start-2 mb-4" {...node.fields} />
-		),
 		mediaBlock: ({ node }) => (
 			<MediaBlock
 				className="col-start-1 col-span-3"

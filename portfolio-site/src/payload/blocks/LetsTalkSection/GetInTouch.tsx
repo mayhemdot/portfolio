@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import { CMSLink } from "@/shared/components/Link";
+import { cn } from "@/shared/lib/utils";
 
-export function GetInTouch() {
+export function GetInTouch({ className }: { className?: string }) {
 	const t = useTranslations("buttons");
 
 	return (
@@ -9,7 +10,10 @@ export function GetInTouch() {
 			url="/contact"
 			size="lg"
 			appearance="default"
-			className="px-8 py-3 rounded-none uppercase backdrop-blur-3xl font-sans font-light fl-text-14/18 transition-opacity"
+			className={cn(
+				"px-8 py-3 rounded-none uppercase backdrop-blur-3xl font-sans font-light fl-text-14/18 transition-opacity",
+				className,
+			)}
 		>
 			{t("getInTouch")}
 

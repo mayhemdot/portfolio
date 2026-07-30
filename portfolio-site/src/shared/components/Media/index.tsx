@@ -23,10 +23,10 @@ export const Media: React.FC<Props> = (props) => {
 				<ImageMedia
 					{...props}
 					blurDataURL={
-						props?.blurDataURL ||
-						(typeof props.resource === "object"
-							? props.resource?.blurDataURL
-							: "")
+						(props?.blurDataURL ||
+							(typeof props.resource === "object"
+								? props.resource?.blurDataURL
+								: undefined)) ?? undefined
 					}
 				/>
 			)}

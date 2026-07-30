@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import type React from "react";
-import type { Page, Post } from "@/payload/payload-types";
+import type { Page, Project } from "@/payload/payload-types";
 import { getCachedDocument } from "@/utilities/getDocument";
 import { getCachedRedirects } from "@/utilities/getRedirects";
 
@@ -31,14 +31,14 @@ export const PayloadRedirects: React.FC<Props> = async ({
 
 			const document = (await getCachedDocument(collection, id)()) as
 				| Page
-				| Post;
+				| Project;
 			redirectUrl = `${redirectItem.to?.reference?.relationTo !== "pages" ? `/${redirectItem.to?.reference?.relationTo}` : ""}/${
-				document?.slug
+				document && 'slug' in document ? document.slug : ''
 			}`;
 		} else {
 			redirectUrl = `${redirectItem.to?.reference?.relationTo !== "pages" ? `/${redirectItem.to?.reference?.relationTo}` : ""}/${
-				typeof redirectItem.to?.reference?.value === "object"
-					? redirectItem.to?.reference?.value?.slug
+				typeof redirectItem.to?.reference?.value === "object" && 'slug' in redirectItem.to.reference.value
+					? redirectItem.to.reference.value.slug
 					: ""
 			}`;
 		}

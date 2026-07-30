@@ -20,7 +20,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
 									<Card
 										className="h-full"
 										doc={result}
-										relationTo="posts"
+										relationTo="projects"
 										showCategories
 									/>
 								</div>

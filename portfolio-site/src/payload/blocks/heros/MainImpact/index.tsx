@@ -118,7 +118,7 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 			return (
 				<div>
 					<FillReveal className={"flex flex-col!"}>
-						{topLinks.map((linkItem, idx) => (
+						{topLinks.map((linkItem: any, idx: number) => (
 							<CMSLink
 								key={String(idx)}
 								{...linkItem.link}

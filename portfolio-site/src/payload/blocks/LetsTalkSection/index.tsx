@@ -45,12 +45,12 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 						className={"df-px df-py"}
 						scrollTrigger={".lets-talk-text"}
 						fillClassName="backdrop-blur-3xl"
-						textClassName="df-text-space-y-balance"
+						textClassName="df-text-space-y"
 						textDelay={0}
 						delay={0}
 					>
 						<RichText
-							className="fl-text-32/64 font-heading font-normal text-primary-foreground"
+							className="fl-text-32/64 leading-tight font-heading font-normal text-primary-foreground"
 							data={title}
 							enableGutter={false}
 						/>
@@ -59,6 +59,7 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 							data={subtitle}
 							enableGutter={false}
 						/>
+						<GetInTouch className="mt-4" />
 					</FillReveal>
 				)}
 				{/* {title && (

@@ -12,7 +12,6 @@ import { Header } from "./blocks/Header/config";
 import { Categories } from "./collections/Categories";
 import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
-import { Posts } from "./collections/Posts";
 import { Projects } from "./collections/Projects";
 import { Users } from "./collections/Users";
 import { plugins } from "./plugins";
@@ -64,8 +63,9 @@ export default buildConfig({
 		client: {
 			url: process.env.DATABASE_URI || "",
 		},
+		push: false,
 	}),
-	collections: [Pages, Posts, Projects, Media, Categories, Users],
+	collections: [Pages, Projects, Media, Categories, Users],
 	cors: [getServerSideURL()].filter(Boolean),
 	globals: [Header, Footer],
 	plugins: [
