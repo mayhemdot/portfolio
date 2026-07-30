@@ -4,24 +4,25 @@
 	"description": "Website template for Payload",
 	"license": "MIT",
 	"type": "module",
+	"packageManager": "bun@1.2.2",
 	"scripts": {
 		"build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
 		"postbuild": "next-sitemap --config next-sitemap.config.cjs",
 		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-		"dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
+		"dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && bun run build && bun start",
 		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
 		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-		"ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
+		"ii": "cross-env NODE_OPTIONS=--no-deprecation bun install",
 		"lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
 		"lint:biome": "biome lint ./src",
 		"lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
 		"payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-		"reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
-		"seed:apply": "cross-env NODE_OPTIONS=--no-deprecation npx tsx src/scripts/run-seed.ts",
-		"seed:generate": "cross-env NODE_OPTIONS=--no-deprecation npx tsx src/scripts/generate-seed.ts",
+		"reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm -f bun.lock bun.lockb pnpm-lock.yaml && bun install",
+		"seed:apply": "cross-env NODE_OPTIONS=--no-deprecation bun run src/scripts/run-seed.ts",
+		"seed:generate": "cross-env NODE_OPTIONS=--no-deprecation bun run src/scripts/generate-seed.ts",
 		"start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-		"test": "pnpm run test:int && pnpm run test:e2e",
-		"test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test --config=playwright.config.ts",
+		"test": "bun run test:int && bun run test:e2e",
+		"test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" bunx playwright test --config=playwright.config.ts",
 		"test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
 	},
 	"dependencies": {
@@ -95,16 +96,5 @@
 		"typescript": "5.7.3",
 		"vite-tsconfig-paths": "5.1.4",
 		"vitest": "3.2.3"
-	},
-	"engines": {
-		"node": "^22",
-		"pnpm": "^9 || ^10"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"sharp",
-			"esbuild",
-			"unrs-resolver"
-		]
 	}
 }
