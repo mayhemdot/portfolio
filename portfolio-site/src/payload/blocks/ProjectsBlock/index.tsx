@@ -80,8 +80,11 @@ export async function ProjectsBlock({
 										<FillReveal
 											scrollTrigger={{
 												trigger: `[data-project-card="${id}"]`,
-												start: "top 75%",
+												start: "top 85%",
 											}}
+											fillDuration={0.3}
+											delay={0}
+											textDelay={0}
 											direction="ltr"
 											className="df-px df-py"
 											fillClassName="bg-black"

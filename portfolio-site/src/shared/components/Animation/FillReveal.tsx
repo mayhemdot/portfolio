@@ -41,7 +41,7 @@ export function FillReveal({
 	children,
 	className = "",
 	direction = "rtl",
-	fillDuration = 1,
+	fillDuration = 0.7,
 	textDelay = 0.2,
 	fillClassName = "bg-secondary",
 	textClassName = "",
@@ -112,7 +112,7 @@ export function FillReveal({
 				{
 					opacity: 1,
 					filter: "blur(0px)",
-					duration: 0.5,
+					duration: 0.37,
 					ease: "power2.out",
 				},
 				`+=${textDelay}`,

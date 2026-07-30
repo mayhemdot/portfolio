@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import React, { useRef } from "react";
 import { CMSLink } from "@/shared/components/Link";
 import { Badge } from "@/shared/components/ui/badge";
@@ -14,7 +15,7 @@ if (typeof window !== "undefined") {
 
 export function Skills() {
 	const containerRef = useRef<HTMLDivElement>(null);
-
+	const locale = useLocale();
 	useGSAP(
 		() => {
 			const mm = gsap.matchMedia();
@@ -162,7 +163,12 @@ export function Skills() {
 					id="card-1"
 					badge="UI/UX"
 					title={"WEB DESIGN"}
-					description={"Skilled to create convinident interface"}
+					description={
+						{
+							"en-US": "Prototyping • Landings • Design Systems",
+							"ru-RU": "Прототипирование • Лендинги • Дизайн-системы",
+						}[locale] || ""
+					}
 					lightSrc={"/redd-light.png"}
 					frontSrc={"/images/cover-11.png"}
 					className={"fl-w-220/380"}
@@ -171,7 +177,12 @@ export function Skills() {
 					badge="WEB DEVELOPMENT"
 					id="card-2"
 					title={"FULL-STACK DEVELOPMENT"}
-					description={"Skilled to create convinident interface "}
+					description={
+						{
+							"en-US": "Frontend • Backend • Architecture • Databases • API",
+							"ru-RU": "Frontend • Backend • Архитектура • Базы данных • API",
+						}[locale] || ""
+					}
 					lightSrc={"/blue-light.png"}
 					frontSrc={"/images/cover-22.png"}
 					className={"fl-w-220/380"}
@@ -181,7 +192,12 @@ export function Skills() {
 					badge="3D MODELING"
 					id="card-3"
 					title={"3D ARTIST"}
-					description={"Skilled to create convinident interface"}
+					description={
+						{
+							"en-US": "3D Modeling • Texturing • Rendering",
+							"ru-RU": "3D-моделирование • Текстурирование • Рендеринг",
+						}[locale] || ""
+					}
 					lightSrc={"/green-light.png"}
 					frontSrc={"/images/cover-33.png"}
 					className={"fl-w-220/380"}
@@ -226,20 +242,18 @@ function AboutCard({
 					<Badge variant={"outline"} className="text-white font-extralight">
 						{badge}
 					</Badge>
-					<div>
+					<div className="flex flex-col items-center self-center w-fit">
 						<h4
-							className={
-								"text-left w-fit leading-tight mx-auto fl-text-20/28! mb-3"
-							}
+							className={"text-center w-fit leading-tight fl-text-20/32! mb-3"}
 						>
 							{title}
 						</h4>
-						<p className="font-extralight text-center text-secondary fl-text-14/16">
+						<p className="font-extralight w-fit text-center text-secondary fl-text-14/16">
 							{description}
 						</p>
 					</div>
-
-					<CMSLink url={"/about"}>Read more</CMSLink>
+					<div></div>
+					{/* <CMSLink url={"/about"}>Read more</CMSLink> */}
 				</div>
 				<Image
 					alt="green light"

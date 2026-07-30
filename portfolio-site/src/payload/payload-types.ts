@@ -152,7 +152,6 @@ export interface Page {
   title: string;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'mainImpact';
-    eyebrow?: string | null;
     subtitle?: string | null;
     items?:
       | {
@@ -1275,7 +1274,6 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
-        eyebrow?: T;
         subtitle?: T;
         items?:
           | T
