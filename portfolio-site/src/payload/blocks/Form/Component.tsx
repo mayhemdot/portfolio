@@ -127,15 +127,15 @@ export const FormBlock: React.FC<
 	);
 
 	return (
-		<div className="container lg:max-w-3xl">
+		<div className="container mx-auto lg:max-w-xl fl-py-12/32 df-text-space-y">
 			{enableIntro && introContent && !hasSubmitted && (
 				<RichText
-					className="mb-8 lg:mb-12"
+					className="fl-text-20/40 mx-auto"
 					data={introContent}
 					enableGutter={false}
 				/>
 			)}
-			<div className="p-4 lg:p-6 border border-border rounded-[0.8rem]">
+			<div className="df-px df-py border border-border rounded-3xl">
 				<FormProvider {...formMethods}>
 					{!isLoading && hasSubmitted && confirmationType === "message" && (
 						<RichText data={confirmationMessage} />
@@ -155,7 +155,7 @@ export const FormBlock: React.FC<
 											fields?.[field.blockType as keyof typeof fields];
 										if (Field) {
 											return (
-												<div className="mb-6 last:mb-0" key={index}>
+												<div className="mb-4 last:mb-0" key={index}>
 													<Field
 														form={formFromProps}
 														{...field}
@@ -163,6 +163,7 @@ export const FormBlock: React.FC<
 														control={control}
 														errors={errors}
 														register={register}
+														className="rounded-full!"
 													/>
 												</div>
 											);
@@ -171,7 +172,13 @@ export const FormBlock: React.FC<
 									})}
 							</div>
 
-							<Button form={formID} type="submit" variant="default">
+							<Button
+								form={formID}
+								type="submit"
+								variant="default"
+								size="xl"
+								className="grow w-full rounded-full cursor-pointer"
+							>
 								{submitButtonLabel}
 							</Button>
 						</form>

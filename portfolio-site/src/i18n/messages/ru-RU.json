@@ -1,4 +1,18 @@
 {
+  "nav": {
+    "home": "Главная",
+    "about": "Обо мне",
+    "works": "Проекты",
+    "approach": "Подход",
+    "contact": "Обсудить проект"
+  },
+  "buttons": {
+    "contact": "Обсудить проект",
+    "viewProject": "Смотреть проект",
+    "seeAllWorks": "Все проекты",
+    "getInTouch": "Связаться",
+    "backToHome": "На главную"
+  },
   "common": {
     "cancel": "Отменить",
     "confirm": "Подтвердить",

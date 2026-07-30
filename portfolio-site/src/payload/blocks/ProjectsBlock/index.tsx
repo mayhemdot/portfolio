@@ -7,12 +7,14 @@ import type {
 import { FillReveal } from "@/shared/components/Animation/FillReveal";
 import { Bounded } from "@/shared/components/Bounded";
 import { Media } from "@/shared/components/Media";
+import RichText from "@/shared/components/RichText";
 import { cn } from "@/shared/lib/utils";
 
 export async function ProjectsBlock({
 	populateBy,
 	limit,
 	selectedDocs,
+	introContent,
 }: ProjectBlockProps) {
 	let projects: Project[] = [];
 
@@ -41,10 +43,16 @@ export async function ProjectsBlock({
 			className="min-h-dvh heightWithoutHeader bg-black text-primary-foreground"
 		>
 			<Bounded className={"fl-py-64/180 df-text-space-y-editorial"}>
-				<h3 className="relative w-full text-center fl-text-20/40 md:w-3/5 md:mx-auto z-10">
+				{/* <h3 className="relative w-full text-center fl-text-20/40 md:w-3/5 md:mx-auto z-10">
 					Our Projects
-				</h3>
-
+				</h3> */}
+				{introContent && (
+					<RichText
+						data={introContent}
+						enableGutter={false}
+						className="fl-text-20/40 mx-auto text-center w-fit font-heading"
+					/>
+				)}
 				<div className="flex flex-col fl-gap-16/32">
 					{projects?.length ? (
 						projects
@@ -78,9 +86,9 @@ export async function ProjectsBlock({
 											className="df-px df-py"
 											fillClassName="bg-black"
 										>
-											{title && <h4 className="fl-text-16/24">{title}</h4>}
+											{title && <h4 className="fl-text-20/32">{title}</h4>}
 											{year && (
-												<span className="text-secondary fl-text-12/16">
+												<span className="text-secondary fl-text-14/18">
 													{year}
 												</span>
 											)}

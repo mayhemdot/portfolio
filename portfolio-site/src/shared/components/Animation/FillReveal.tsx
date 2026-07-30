@@ -41,7 +41,7 @@ export function FillReveal({
 	children,
 	className = "",
 	direction = "rtl",
-	fillDuration = 1.2,
+	fillDuration = 1,
 	textDelay = 0.2,
 	fillClassName = "bg-secondary",
 	textClassName = "",
@@ -94,32 +94,29 @@ export function FillReveal({
 				delay,
 				scrollTrigger: scrollTriggerConfig,
 			});
-
-			tl
-				// .set(fillRef.current, { clipPath: fromClip })
-				// .set(textRef.current, {
-				// 	opacity: 0,
-				// 	filter: `blur(${textBlur}px)`,
-				// })
-				.to(
-					fillRef.current,
-					{
-						clipPath: "inset(0 0 0 0%)",
-						duration: fillDuration,
-						ease: "power2.inOut",
-					},
-					`+=${delay}`,
-				)
-				.to(
-					textRef.current,
-					{
-						opacity: 1,
-						filter: "blur(0px)",
-						duration: 0.5,
-						ease: "power2.out",
-					},
-					`+=${textDelay}`,
-				);
+			// .set(fillRef.current, { clipPath: fromClip })
+			// .set(textRef.current, {
+			// 	opacity: 0,
+			// 	filter: `blur(${textBlur}px)`,
+			// })
+			tl.to(
+				fillRef.current,
+				{
+					clipPath: "inset(0 0 0 0%)",
+					duration: fillDuration,
+					ease: "power2.inOut",
+				},
+				`+=${delay}`,
+			).to(
+				textRef.current,
+				{
+					opacity: 1,
+					filter: "blur(0px)",
+					duration: 0.5,
+					ease: "power2.out",
+				},
+				`+=${textDelay}`,
+			);
 		},
 		{
 			// scope: wrapRef,

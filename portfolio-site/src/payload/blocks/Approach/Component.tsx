@@ -95,7 +95,7 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 								key={item.id || index}
 								className="group relative flex flex-col justify-between df-py df-px"
 							>
-								<div className="df-text-space-y text-center">
+								<div className="df-text-space-y text-center md:text-left">
 									{/* Badge / Pill */}
 									{item.badge && (
 										<div>

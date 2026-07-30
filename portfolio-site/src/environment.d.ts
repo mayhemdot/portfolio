@@ -1,3 +1,5 @@
+type Messages = typeof import("./i18n/messages/en-US.json");
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -7,8 +9,11 @@ declare global {
       VERCEL_PROJECT_PRODUCTION_URL: string
     }
   }
+
+  interface IntlMessages extends Messages {}
 }
 
 // If this file has no import/export statements (i.e. is a script)
 // convert it into a module by adding an empty export statement.
 export {}
+

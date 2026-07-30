@@ -1,4 +1,18 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "works": "Works",
+    "approach": "Approach",
+    "contact": "Let's Talk"
+  },
+  "buttons": {
+    "contact": "Let's Talk",
+    "viewProject": "View Project",
+    "seeAllWorks": "See All Works",
+    "getInTouch": "Get in Touch",
+    "backToHome": "Back to Home"
+  },
   "common": {
     "cancel": "Cancel",
     "confirm": "Confirm",

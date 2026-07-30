@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { getPayload, type RequiredDataFromCollectionSlug } from "payload";
 import { cache } from "react";
+import type { LocaleCode } from "@/i18n/localization";
 import { RenderHero } from "@/payload/blocks/heros/RenderHero";
 import { RenderBlocks } from "@/payload/blocks/RenderBlocks";
 import { homeStatic } from "@/payload/endpoints/seed/home-static";
@@ -10,9 +11,18 @@ import { LivePreviewListener } from "@/shared/components/LivePreviewListener";
 import { PayloadRedirects } from "@/shared/components/PayloadRedirects";
 import { generateMeta } from "@/utilities/generateMeta";
 import PageClient from "./page.client";
+
 // import { LetsTalkSection } from "@/payload/blocks/LetsTalkSection";
 
-export async function generateStaticParams() {
+type Args = {
+	params: Promise<{
+		slug?: string;
+		locale?: LocaleCode;
+	}>;
+};
+
+export async function generateStaticParams({ params }: Args) {
+	const { locale } = await params;
 	const payload = await getPayload({ config: configPromise });
 	const pages = await payload.find({
 		collection: "pages",
@@ -20,31 +30,24 @@ export async function generateStaticParams() {
 		limit: 1000,
 		overrideAccess: false,
 		pagination: false,
+		locale: locale,
 		select: {
 			slug: true,
 		},
 	});
 
-	const params = pages.docs
+	return pages.docs
 		?.filter((doc) => {
 			return doc.slug !== "home";
 		})
 		.map(({ slug }) => {
 			return { slug };
 		});
-
-	return params;
 }
-
-type Args = {
-	params: Promise<{
-		slug?: string;
-	}>;
-};
 
 export default async function Page({ params: paramsPromise }: Args) {
 	const { isEnabled: draft } = await draftMode();
-	const { slug = "home" } = await paramsPromise;
+	const { slug = "home", locale } = await paramsPromise;
 	// Decode to support slugs with special characters
 	const decodedSlug = decodeURIComponent(slug);
 	const url = `/${decodedSlug}`;
@@ -52,6 +55,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	page = await queryPageBySlug({
 		slug: decodedSlug,
+		locale,
 	});
 
 	// Remove this code once your website is seeded
@@ -83,33 +87,44 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({
 	params: paramsPromise,
 }: Args): Promise<Metadata> {
-	const { slug = "home" } = await paramsPromise;
+	const { slug = "home", locale } = await paramsPromise;
 	// Decode to support slugs with special characters
 	const decodedSlug = decodeURIComponent(slug);
 	const page = await queryPageBySlug({
 		slug: decodedSlug,
+		locale,
 	});
 
 	return generateMeta({ doc: page });
 }
 
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-	const { isEnabled: draft } = await draftMode();
+const queryPageBySlug = cache(
+	async ({
+		slug,
+		locale,
+	}: {
+		slug: string;
+		locale: LocaleCode | undefined;
+	}) => {
+		const { isEnabled: draft } = await draftMode();
 
-	const payload = await getPayload({ config: configPromise });
+		const payload = await getPayload({ config: configPromise });
 
-	const result = await payload.find({
-		collection: "pages",
-		draft,
-		limit: 1,
-		pagination: false,
-		overrideAccess: draft,
-		where: {
-			slug: {
-				equals: slug,
+		const result = await payload.find({
+			collection: "pages",
+			draft,
+			limit: 1,
+			pagination: false,
+			overrideAccess: draft,
+			depth: 3,
+			locale,
+			where: {
+				slug: {
+					equals: slug,
+				},
 			},
-		},
-	});
+		});
 
-	return result.docs?.[0] || null;
-});
+		return result.docs?.[0] || null;
+	},
+);

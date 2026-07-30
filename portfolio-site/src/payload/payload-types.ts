@@ -152,6 +152,16 @@ export interface Page {
   title: string;
   hero: {
     type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'mainImpact';
+    eyebrow?: string | null;
+    subtitle?: string | null;
+    items?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
     richText?: {
       root: {
         type: string;
@@ -280,6 +290,7 @@ export interface Post {
 export interface Media {
   id: number;
   alt?: string | null;
+  blurDataURL?: string | null;
   caption?: {
     root: {
       type: string;
@@ -1264,6 +1275,16 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         type?: T;
+        eyebrow?: T;
+        subtitle?: T;
+        items?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              description?: T;
+              id?: T;
+            };
         richText?: T;
         links?:
           | T
@@ -1547,6 +1568,7 @@ export interface ProjectsSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  blurDataURL?: T;
   caption?: T;
   updatedAt?: T;
   createdAt?: T;

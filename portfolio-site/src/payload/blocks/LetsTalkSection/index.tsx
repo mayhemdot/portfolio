@@ -1,12 +1,11 @@
-import React from "react";
 import type {
 	LetsTalkBlock as LetsTalkBlockProps,
 	Media as MediaType,
 } from "@/payload/payload-types";
 import { BlurReveal } from "@/shared/components/Animation/BlurReveal";
-import { CMSLink } from "@/shared/components/Link";
 import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
+import { GetInTouch } from "./GetInTouch";
 
 export type LetsTalkSectionProps = Partial<LetsTalkBlockProps> & {
 	media?: MediaType | string | number | null;
@@ -23,7 +22,7 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 	return (
 		<section
 			id="lets-talk"
-			className="relative min-h-[130vh] bg-black text-primary-foreground flex flex-col items-center justify-center py-24 df-px overflow-hidden"
+			className="relative min-h-[130vh] bg-black text-primary-foreground flex flex-col items-center justify-center py-24 df-px overflow-clip"
 		>
 			{mediaResource && (
 				<Media
@@ -55,19 +54,14 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 						/>
 					</BlurReveal>
 				)}
-				{/* fl-text-20/40 */}
-				<div className="pt-4 flex justify-center">
-					<BlurReveal scrollTrigger=".lets-talk-text" delay={0.3}>
-						<CMSLink
-							url="/contacts"
-							size="lg"
-							appearance="default"
-							className="px-8 py-3 rounded-none bg-accent font-sans font-light fl-text-14/18 hover:bg-accent/80! transition-opacity"
-						>
-							Get In Touch
-						</CMSLink>
-					</BlurReveal>
-				</div>
+
+				<BlurReveal
+					scrollTrigger=".lets-talk-text"
+					delay={0.3}
+					className="pt-4 mx-auto"
+				>
+					<GetInTouch />
+				</BlurReveal>
 			</div>
 		</section>
 	);

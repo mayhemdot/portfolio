@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
@@ -17,12 +18,12 @@ if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
 }
 
-const NAV_ITEMS = [
-	{ label: "HOME", href: "#home", id: "home" },
-	{ label: "ABOUT", href: "#about", id: "about" },
-	{ label: "WORKS", href: "#works", id: "works" },
-	{ label: "APPROACH", href: "#approach", id: "approach" },
-	{ label: "LET'S TALK", href: "#lets-talk", id: "lets-talk" },
+const NAV_ITEMS: { key: keyof IntlMessages["nav"]; href: string; id: string }[] = [
+	{ key: "home", href: "#home", id: "home" },
+	{ key: "about", href: "#about", id: "about" },
+	{ key: "works", href: "#works", id: "works" },
+	{ key: "approach", href: "#approach", id: "approach" },
+	{ key: "contact", href: "#lets-talk", id: "lets-talk" },
 ];
 
 function getSectionBounds(id: string) {
@@ -52,6 +53,8 @@ interface HeaderClientProps {
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
+	const tNav = useTranslations("nav");
+	const tButtons = useTranslations("buttons");
 	const [theme, setTheme] = useState<string | null>(null);
 
 	const { headerTheme, setHeaderTheme } = useHeaderTheme();
@@ -179,7 +182,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 								className="relative group flex flex-col grow items-center text-nowrap pb-2 text-inherit cursor-pointer select-none"
 							>
 								<span className="font-sans font-medium tracking-wider">
-									{item.label}
+									{item.key === "contact" ? tButtons("contact") : tNav(item.key)}
 								</span>
 
 								<div className="w-full h-[2px] bg-background/20 mt-1.5 relative overflow-hidden rounded-full">
