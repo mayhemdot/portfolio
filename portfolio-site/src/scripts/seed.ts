@@ -69,16 +69,25 @@ export const seedData = {
           "richText": {
             "en-US": {
               "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
                 "children": [
                   {
+                    "tag": "h1",
+                    "type": "heading",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
                     "children": [
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "DIRECTION",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       },
                       {
@@ -86,12 +95,12 @@ export const seedData = {
                         "version": 1
                       },
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "DESIGN",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       },
                       {
@@ -99,42 +108,41 @@ export const seedData = {
                         "version": 1
                       },
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "DEVELOPMENT",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       }
                     ],
-                    "direction": "ltr",
-                    "format": "",
-                    "indent": 0,
-                    "type": "heading",
-                    "version": 1,
-                    "tag": "h1"
+                    "direction": "ltr"
                   }
                 ],
-                "direction": "ltr",
-                "format": "",
-                "indent": 0,
-                "type": "root",
-                "version": 1
+                "direction": "ltr"
               }
             },
             "ru-RU": {
               "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
                 "children": [
                   {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
                     "children": [
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "Проектирование",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       },
                       {
@@ -142,12 +150,12 @@ export const seedData = {
                         "version": 1
                       },
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "Дизайн",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       },
                       {
@@ -155,29 +163,21 @@ export const seedData = {
                         "version": 1
                       },
                       {
-                        "detail": 0,
-                        "format": 0,
                         "mode": "normal",
-                        "style": "",
                         "text": "Разработка",
                         "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
                         "version": 1
                       }
                     ],
                     "direction": null,
-                    "format": "",
-                    "indent": 0,
-                    "type": "paragraph",
-                    "version": 1,
-                    "textFormat": 0,
-                    "textStyle": ""
+                    "textStyle": "",
+                    "textFormat": 0
                   }
                 ],
-                "direction": null,
-                "format": "",
-                "indent": 0,
-                "type": "root",
-                "version": 1
+                "direction": null
               }
             }
           },
@@ -374,79 +374,87 @@ export const seedData = {
             "title": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h3",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Hi, I’m Evgenii!",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h3"
+                      "direction": null
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Привет, Я Евгений!",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             },
             "description": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "             With 8 years in web development and a background in construction finance, ",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         },
                         {
@@ -454,186 +462,178 @@ export const seedData = {
                           "version": 1
                         },
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "I bridge the gap between structural precision and creative engineering.",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Имея 8-летний опыт работы в сфере веб-разработки и финансирования строительства, я устраняю разрыв между структурной точностью и креативным подходом к проектированию.",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             },
             "skillsTitle": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h3",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "My skills. ",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h3"
+                      "direction": null
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h3",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Компетенции",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h3"
+                      "direction": null
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             },
             "skillsDescription": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "          From memory-level performance with Rust and WebGL to pixel-perfect motion and scalable web architecture.",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "         От управления памятью до визуального интерактива и масштабируемых систем",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             }
@@ -648,64 +648,64 @@ export const seedData = {
             "introContent": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Our projects",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Проекты",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             },
@@ -783,126 +783,126 @@ export const seedData = {
             "title": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h2",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Let's Build Something Together",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h2"
+                      "direction": null
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h2",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Реализуем ваш проект вместе",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": null,
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h2"
+                      "direction": null
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             },
             "subtitle": {
               "en-US": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "center",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Have an idea or a project in mind? Get in touch and let's turn it into reality.",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "center",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "type": "paragraph",
+                      "format": "center",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "У вас есть идея или проект? Свяжитесь с нами, и мы воплотим их в жизнь.",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
                       "direction": null,
-                      "format": "center",
-                      "indent": 0,
-                      "type": "paragraph",
-                      "version": 1,
-                      "textFormat": 0,
-                      "textStyle": ""
+                      "textStyle": "",
+                      "textFormat": 0
                     }
                   ],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": null
                 }
               }
             }
@@ -958,61 +958,61 @@ export const seedData = {
               "en-US": {
                 "root": {
                   "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h3",
                       "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
+                          "mode": "normal",
+                          "text": "Example contact form:",
                           "type": "text",
+                          "style": "",
                           "detail": 0,
                           "format": 0,
-                          "mode": "normal",
-                          "style": "",
-                          "text": "Example contact form:",
                           "version": 1
                         }
                       ],
-                      "direction": "ltr",
-                      "format": "",
-                      "indent": 0,
-                      "tag": "h3",
-                      "version": 1
+                      "direction": "ltr"
                     }
                   ],
-                  "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "version": 1
+                  "direction": "ltr"
                 }
               },
               "ru-RU": {
                 "root": {
+                  "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "tag": "h3",
+                      "type": "heading",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
-                          "detail": 0,
-                          "format": 0,
                           "mode": "normal",
-                          "style": "",
                           "text": "Отправь форму",
                           "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
                           "version": 1
                         }
                       ],
-                      "direction": "ltr",
-                      "format": "",
-                      "indent": 0,
-                      "type": "heading",
-                      "version": 1,
-                      "tag": "h3"
+                      "direction": "ltr"
                     }
                   ],
-                  "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "type": "root",
-                  "version": 1
+                  "direction": "ltr"
                 }
               }
             }
@@ -1042,7 +1042,8 @@ export const seedData = {
       {
         "id": 4,
         "title": {
-          "en-US": "ALL AI TOOLS"
+          "en-US": "ALL AI TOOLS",
+          "ru-RU": "ALL AI TOOLS"
         },
         "year": "2026",
         "gallery": [
@@ -1055,7 +1056,8 @@ export const seedData = {
       {
         "id": 3,
         "title": {
-          "en-US": "PROPSPERITY CANDLES"
+          "en-US": "PROPSPERITY CANDLES",
+          "ru-RU": "PROPSPERITY CANDLES"
         },
         "year": "2024",
         "gallery": [
@@ -1068,7 +1070,8 @@ export const seedData = {
       {
         "id": 2,
         "title": {
-          "en-US": "EDGE MASTERY"
+          "en-US": "EDGE MASTERY",
+          "ru-RU": "EDGE MASTERY"
         },
         "year": "2025",
         "gallery": [
@@ -1081,7 +1084,8 @@ export const seedData = {
       {
         "id": 1,
         "title": {
-          "en-US": "LUMO HOME"
+          "en-US": "LUMO HOME",
+          "ru-RU": "LUMO HOME"
         },
         "year": "2025",
         "gallery": [
@@ -1096,11 +1100,13 @@ export const seedData = {
       {
         "id": 13,
         "alt": {
-          "en-US": "My photo"
+          "en-US": "My photo",
+          "ru-RU": "My photo"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/me1%20(1)-2.webp",
         "thumbnailURL": "/api/media/file/me1%20(1)-2-300x321.webp",
@@ -1173,29 +1179,51 @@ export const seedData = {
       {
         "id": 12,
         "alt": {
-          "en-US": "My photo"
+          "en-US": "My photo",
+          "ru-RU": "My photo"
         },
         "blurDataURL": null,
         "caption": {
           "en-US": {
             "root": {
-              "children": [
-                {
-                  "children": [],
-                  "direction": null,
-                  "format": "",
-                  "indent": 0,
-                  "type": "paragraph",
-                  "version": 1,
-                  "textFormat": 0,
-                  "textStyle": ""
-                }
-              ],
-              "direction": null,
+              "type": "root",
               "format": "",
               "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [],
+                  "direction": null,
+                  "textStyle": "",
+                  "textFormat": 0
+                }
+              ],
+              "direction": null
+            }
+          },
+          "ru-RU": {
+            "root": {
               "type": "root",
-              "version": 1
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [],
+                  "direction": null,
+                  "textStyle": "",
+                  "textFormat": 0
+                }
+              ],
+              "direction": null
             }
           }
         },
@@ -1270,11 +1298,13 @@ export const seedData = {
       {
         "id": 11,
         "alt": {
-          "en-US": "arch shine"
+          "en-US": "arch shine",
+          "ru-RU": "arch shine"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/arch-shine.png",
         "thumbnailURL": "/api/media/file/arch-shine-300x169.png",
@@ -1347,11 +1377,13 @@ export const seedData = {
       {
         "id": 10,
         "alt": {
-          "en-US": "Фоторедактор"
+          "en-US": "Фоторедактор",
+          "ru-RU": "Фоторедактор"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/All%20AI%20Tools%20%E2%80%93%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%BE%D1%80%20%D0%B8%20%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%84%D0%BE%D1%82%D0%BE%20%D0%BD%D0%B0%20%D0%B1%D0%B0%D0%B7%D0%B5%20%D0%98%D0%98%20-%20Google%20Chrome%202026-07-29%2007-29-26.mp4",
         "thumbnailURL": null,
@@ -1424,11 +1456,13 @@ export const seedData = {
       {
         "id": 9,
         "alt": {
-          "en-US": "Ароматическая свеча"
+          "en-US": "Ароматическая свеча",
+          "ru-RU": "Ароматическая свеча"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/Candles%20-%20Google%20Chrome%202025-10-10_cmp.mp4",
         "thumbnailURL": null,
@@ -1501,11 +1535,13 @@ export const seedData = {
       {
         "id": 8,
         "alt": {
-          "en-US": "Сайт с ножами"
+          "en-US": "Сайт с ножами",
+          "ru-RU": "Сайт с ножами"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/Edge_Mastery_Premium_Knives_%26_Sharpening_Tools_Google_Chrome_2025_cm.mp4",
         "thumbnailURL": null,
@@ -1578,11 +1614,13 @@ export const seedData = {
       {
         "id": 7,
         "alt": {
-          "en-US": "My photo"
+          "en-US": "My photo",
+          "ru-RU": "My photo"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/me1%20(1).webp",
         "thumbnailURL": "/api/media/file/me1%20(1)-300x321.webp",
@@ -1655,11 +1693,13 @@ export const seedData = {
       {
         "id": 6,
         "alt": {
-          "en-US": "My photo"
+          "en-US": "My photo",
+          "ru-RU": "My photo"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/me1.webp",
         "thumbnailURL": "/api/media/file/me1-300x321.webp",
@@ -1731,9 +1771,15 @@ export const seedData = {
       },
       {
         "id": 5,
-        "alt": {},
+        "alt": {
+          "en-US": "{}",
+          "ru-RU": "{}"
+        },
         "blurDataURL": null,
-        "caption": {},
+        "caption": {
+          "en-US": {},
+          "ru-RU": {}
+        },
         "url": "/api/media/file/LUMO%20HOME%20_%20Modern%20furniture_cm-1.mp4",
         "thumbnailURL": null,
         "filename": "LUMO HOME _ Modern furniture_cm-1.mp4",
@@ -1805,11 +1851,13 @@ export const seedData = {
       {
         "id": 4,
         "alt": {
-          "en-US": "Straight metallic shapes with a blue gradient"
+          "en-US": "Straight metallic shapes with a blue gradient",
+          "ru-RU": "Straight metallic shapes with a blue gradient"
         },
         "blurDataURL": null,
         "caption": {
-          "en-US": null
+          "en-US": null,
+          "ru-RU": null
         },
         "url": "/api/media/file/image-hero1-5.webp",
         "thumbnailURL": "/api/media/file/image-hero1-5-300x169.webp",
@@ -1882,70 +1930,133 @@ export const seedData = {
       {
         "id": 3,
         "alt": {
-          "en-US": "Curving abstract shapes with an orange and blue gradient"
+          "en-US": "Curving abstract shapes with an orange and blue gradient",
+          "ru-RU": "Curving abstract shapes with an orange and blue gradient"
         },
         "blurDataURL": null,
         "caption": {
           "en-US": {
             "root": {
               "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
               "children": [
                 {
                   "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "mode": "normal",
+                      "text": "Photo by ",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": "Photo by ",
                       "version": 1
                     },
                     {
                       "type": "link",
-                      "children": [
-                        {
-                          "type": "text",
-                          "detail": 0,
-                          "format": 0,
-                          "mode": "normal",
-                          "style": "",
-                          "text": "Andrew Kliatskyi",
-                          "version": 1
-                        }
-                      ],
-                      "direction": "ltr",
                       "fields": {
-                        "linkType": "custom",
+                        "url": "https://unsplash.com/@kirp",
                         "newTab": true,
-                        "url": "https://unsplash.com/@kirp"
+                        "linkType": "custom"
                       },
                       "format": "",
                       "indent": 0,
-                      "version": 2
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
                     },
                     {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": " on Unsplash.",
                       "version": 1
                     }
                   ],
                   "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "textFormat": 0,
-                  "version": 1
+                  "textFormat": 0
                 }
               ],
-              "direction": "ltr",
+              "direction": "ltr"
+            }
+          },
+          "ru-RU": {
+            "root": {
+              "type": "root",
               "format": "",
               "indent": 0,
-              "version": 1
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Photo by ",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    },
+                    {
+                      "type": "link",
+                      "fields": {
+                        "url": "https://unsplash.com/@kirp",
+                        "newTab": true,
+                        "linkType": "custom"
+                      },
+                      "format": "",
+                      "indent": 0,
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
+                    },
+                    {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
             }
           }
         },
@@ -2020,70 +2131,133 @@ export const seedData = {
       {
         "id": 2,
         "alt": {
-          "en-US": "Curving abstract shapes with an orange and blue gradient"
+          "en-US": "Curving abstract shapes with an orange and blue gradient",
+          "ru-RU": "Curving abstract shapes with an orange and blue gradient"
         },
         "blurDataURL": null,
         "caption": {
           "en-US": {
             "root": {
               "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
               "children": [
                 {
                   "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "mode": "normal",
+                      "text": "Photo by ",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": "Photo by ",
                       "version": 1
                     },
                     {
                       "type": "link",
-                      "children": [
-                        {
-                          "type": "text",
-                          "detail": 0,
-                          "format": 0,
-                          "mode": "normal",
-                          "style": "",
-                          "text": "Andrew Kliatskyi",
-                          "version": 1
-                        }
-                      ],
-                      "direction": "ltr",
                       "fields": {
-                        "linkType": "custom",
+                        "url": "https://unsplash.com/@kirp",
                         "newTab": true,
-                        "url": "https://unsplash.com/@kirp"
+                        "linkType": "custom"
                       },
                       "format": "",
                       "indent": 0,
-                      "version": 2
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
                     },
                     {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": " on Unsplash.",
                       "version": 1
                     }
                   ],
                   "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "textFormat": 0,
-                  "version": 1
+                  "textFormat": 0
                 }
               ],
-              "direction": "ltr",
+              "direction": "ltr"
+            }
+          },
+          "ru-RU": {
+            "root": {
+              "type": "root",
               "format": "",
               "indent": 0,
-              "version": 1
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Photo by ",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    },
+                    {
+                      "type": "link",
+                      "fields": {
+                        "url": "https://unsplash.com/@kirp",
+                        "newTab": true,
+                        "linkType": "custom"
+                      },
+                      "format": "",
+                      "indent": 0,
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
+                    },
+                    {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
             }
           }
         },
@@ -2158,70 +2332,133 @@ export const seedData = {
       {
         "id": 1,
         "alt": {
-          "en-US": "Curving abstract shapes with an orange and blue gradient"
+          "en-US": "Curving abstract shapes with an orange and blue gradient",
+          "ru-RU": "Curving abstract shapes with an orange and blue gradient"
         },
         "blurDataURL": null,
         "caption": {
           "en-US": {
             "root": {
               "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
               "children": [
                 {
                   "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "mode": "normal",
+                      "text": "Photo by ",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": "Photo by ",
                       "version": 1
                     },
                     {
                       "type": "link",
-                      "children": [
-                        {
-                          "type": "text",
-                          "detail": 0,
-                          "format": 0,
-                          "mode": "normal",
-                          "style": "",
-                          "text": "Andrew Kliatskyi",
-                          "version": 1
-                        }
-                      ],
-                      "direction": "ltr",
                       "fields": {
-                        "linkType": "custom",
+                        "url": "https://unsplash.com/@kirp",
                         "newTab": true,
-                        "url": "https://unsplash.com/@kirp"
+                        "linkType": "custom"
                       },
                       "format": "",
                       "indent": 0,
-                      "version": 2
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
                     },
                     {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": " on Unsplash.",
                       "version": 1
                     }
                   ],
                   "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "textFormat": 0,
-                  "version": 1
+                  "textFormat": 0
                 }
               ],
-              "direction": "ltr",
+              "direction": "ltr"
+            }
+          },
+          "ru-RU": {
+            "root": {
+              "type": "root",
               "format": "",
               "indent": 0,
-              "version": 1
+              "version": 1,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Photo by ",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    },
+                    {
+                      "type": "link",
+                      "fields": {
+                        "url": "https://unsplash.com/@kirp",
+                        "newTab": true,
+                        "linkType": "custom"
+                      },
+                      "format": "",
+                      "indent": 0,
+                      "version": 2,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Andrew Kliatskyi",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr"
+                    },
+                    {
+                      "mode": "normal",
+                      "text": " on Unsplash.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr",
+                  "textFormat": 0
+                }
+              ],
+              "direction": "ltr"
             }
           }
         },
@@ -2298,7 +2535,8 @@ export const seedData = {
       {
         "id": 6,
         "title": {
-          "en-US": "Engineering"
+          "en-US": "Engineering",
+          "ru-RU": "Engineering"
         },
         "generateSlug": false,
         "slug": "engineering",
@@ -2309,7 +2547,15 @@ export const seedData = {
               "doc": 6,
               "url": "/engineering",
               "label": "Engineering",
-              "id": "6a64ff90da1e9a203859fa73"
+              "id": "6a6b40c9a4e5a4362445ec9b"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 6,
+              "url": "/engineering",
+              "label": "Engineering",
+              "id": "6a6b40cba4e5a4362445ec9c"
             }
           ]
         }
@@ -2317,7 +2563,8 @@ export const seedData = {
       {
         "id": 5,
         "title": {
-          "en-US": "Software"
+          "en-US": "Software",
+          "ru-RU": "Software"
         },
         "generateSlug": false,
         "slug": "software",
@@ -2328,7 +2575,15 @@ export const seedData = {
               "doc": 5,
               "url": "/software",
               "label": "Software",
-              "id": "6a64ff90da1e9a203859fa72"
+              "id": "6a6b40c6a4e5a4362445ec99"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 5,
+              "url": "/software",
+              "label": "Software",
+              "id": "6a6b40c8a4e5a4362445ec9a"
             }
           ]
         }
@@ -2336,7 +2591,8 @@ export const seedData = {
       {
         "id": 4,
         "title": {
-          "en-US": "Design"
+          "en-US": "Design",
+          "ru-RU": "Design"
         },
         "generateSlug": false,
         "slug": "design",
@@ -2347,7 +2603,15 @@ export const seedData = {
               "doc": 4,
               "url": "/design",
               "label": "Design",
-              "id": "6a64ff90da1e9a203859fa71"
+              "id": "6a6b40c3a4e5a4362445ec97"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 4,
+              "url": "/design",
+              "label": "Design",
+              "id": "6a6b40c5a4e5a4362445ec98"
             }
           ]
         }
@@ -2355,7 +2619,8 @@ export const seedData = {
       {
         "id": 3,
         "title": {
-          "en-US": "Finance"
+          "en-US": "Finance",
+          "ru-RU": "Finance"
         },
         "generateSlug": false,
         "slug": "finance",
@@ -2366,7 +2631,15 @@ export const seedData = {
               "doc": 3,
               "url": "/finance",
               "label": "Finance",
-              "id": "6a64ff90da1e9a203859fa70"
+              "id": "6a6b40bfa4e5a4362445ec95"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 3,
+              "url": "/finance",
+              "label": "Finance",
+              "id": "6a6b40c2a4e5a4362445ec96"
             }
           ]
         }
@@ -2374,7 +2647,8 @@ export const seedData = {
       {
         "id": 2,
         "title": {
-          "en-US": "News"
+          "en-US": "News",
+          "ru-RU": "News"
         },
         "generateSlug": false,
         "slug": "news",
@@ -2385,7 +2659,15 @@ export const seedData = {
               "doc": 2,
               "url": "/news",
               "label": "News",
-              "id": "6a64ff90da1e9a203859fa6f"
+              "id": "6a6b40bca4e5a4362445ec93"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 2,
+              "url": "/news",
+              "label": "News",
+              "id": "6a6b40bea4e5a4362445ec94"
             }
           ]
         }
@@ -2393,7 +2675,8 @@ export const seedData = {
       {
         "id": 1,
         "title": {
-          "en-US": "Technology"
+          "en-US": "Technology",
+          "ru-RU": "Technology"
         },
         "generateSlug": false,
         "slug": "technology",
@@ -2404,7 +2687,15 @@ export const seedData = {
               "doc": 1,
               "url": "/technology",
               "label": "Technology",
-              "id": "6a64ff90da1e9a203859fa6e"
+              "id": "6a6b40b9a4e5a4362445ec91"
+            }
+          ],
+          "ru-RU": [
+            {
+              "doc": 1,
+              "url": "/technology",
+              "label": "Technology",
+              "id": "6a6b40bba4e5a4362445ec92"
             }
           ]
         }
@@ -2421,7 +2712,8 @@ export const seedData = {
             "createdAt": "2026-07-30T06:01:20.736Z",
             "expiresAt": "2026-07-30T08:01:20.736Z"
           }
-        ]
+        ],
+        "collection": "users"
       }
     ],
     "redirects": [],
@@ -2438,10 +2730,12 @@ export const seedData = {
             "blockName": "full-name",
             "blockType": "text",
             "label": {
-              "en-US": "Full Name"
+              "en-US": "Full Name",
+              "ru-RU": "Full Name"
             },
             "defaultValue": {
-              "en-US": null
+              "en-US": null,
+              "ru-RU": null
             }
           },
           {
@@ -2452,7 +2746,8 @@ export const seedData = {
             "blockName": "email",
             "blockType": "email",
             "label": {
-              "en-US": "Email"
+              "en-US": "Email",
+              "ru-RU": "Email"
             }
           },
           {
@@ -2464,7 +2759,8 @@ export const seedData = {
             "blockName": "phone",
             "blockType": "number",
             "label": {
-              "en-US": "Phone"
+              "en-US": "Phone",
+              "ru-RU": "Phone"
             }
           },
           {
@@ -2475,46 +2771,79 @@ export const seedData = {
             "blockName": "message",
             "blockType": "textarea",
             "label": {
-              "en-US": "Message"
+              "en-US": "Message",
+              "ru-RU": "Message"
             },
             "defaultValue": {
-              "en-US": null
+              "en-US": null,
+              "ru-RU": null
             }
           }
         ],
         "submitButtonLabel": {
-          "en-US": "Submit"
+          "en-US": "Submit",
+          "ru-RU": "Submit"
         },
         "confirmationType": "message",
         "confirmationMessage": {
           "en-US": {
             "root": {
               "type": "root",
+              "format": "",
+              "indent": 0,
+              "version": 1,
               "children": [
                 {
+                  "tag": "h2",
                   "type": "heading",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
+                      "mode": "normal",
+                      "text": "The contact form has been submitted successfully.",
                       "type": "text",
+                      "style": "",
                       "detail": 0,
                       "format": 0,
-                      "mode": "normal",
-                      "style": "",
-                      "text": "The contact form has been submitted successfully.",
                       "version": 1
                     }
                   ],
-                  "direction": "ltr",
-                  "format": "",
-                  "indent": 0,
-                  "tag": "h2",
-                  "version": 1
+                  "direction": "ltr"
                 }
               ],
-              "direction": "ltr",
+              "direction": "ltr"
+            }
+          },
+          "ru-RU": {
+            "root": {
+              "type": "root",
               "format": "",
               "indent": 0,
-              "version": 1
+              "version": 1,
+              "children": [
+                {
+                  "tag": "h2",
+                  "type": "heading",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "The contact form has been submitted successfully.",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "direction": "ltr"
             }
           }
         },
@@ -2530,37 +2859,68 @@ export const seedData = {
             "replyTo": null,
             "emailFrom": "\"Payload\" <demo@payloadcms.com>",
             "subject": {
-              "en-US": "You've received a new message."
+              "en-US": "You've received a new message.",
+              "ru-RU": "You've received a new message."
             },
             "message": {
               "en-US": {
                 "root": {
                   "type": "root",
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
                   "children": [
                     {
                       "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
                       "children": [
                         {
+                          "mode": "normal",
+                          "text": "Your contact form submission was successfully received.",
                           "type": "text",
+                          "style": "",
                           "detail": 0,
                           "format": 0,
-                          "mode": "normal",
-                          "style": "",
-                          "text": "Your contact form submission was successfully received.",
                           "version": 1
                         }
                       ],
                       "direction": "ltr",
-                      "format": "",
-                      "indent": 0,
-                      "textFormat": 0,
-                      "version": 1
+                      "textFormat": 0
                     }
                   ],
-                  "direction": "ltr",
+                  "direction": "ltr"
+                }
+              },
+              "ru-RU": {
+                "root": {
+                  "type": "root",
                   "format": "",
                   "indent": 0,
-                  "version": 1
+                  "version": 1,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "format": "",
+                      "indent": 0,
+                      "version": 1,
+                      "children": [
+                        {
+                          "mode": "normal",
+                          "text": "Your contact form submission was successfully received.",
+                          "type": "text",
+                          "style": "",
+                          "detail": 0,
+                          "format": 0,
+                          "version": 1
+                        }
+                      ],
+                      "direction": "ltr",
+                      "textFormat": 0
+                    }
+                  ],
+                  "direction": "ltr"
                 }
               }
             }
@@ -2569,55 +2929,11 @@ export const seedData = {
       }
     ],
     "form-submissions": [],
-    "search": [
-      {
-        "id": 3,
-        "title": {
-          "en-US": "Dollar and Sense: The Financial Forecast"
-        },
-        "priority": 0,
-        "slug": "dollar-and-sense-the-financial-forecast",
-        "meta": {
-          "title": "Dollar and Sense: The Financial Forecast",
-          "description": "Money isn't just currency; it's a language. Dive deep into its nuances, where strategy meets intuition in the vast sea of finance.",
-          "image": 3
-        },
-        "categories": []
-      },
-      {
-        "id": 2,
-        "title": {
-          "en-US": "Global Gaze: Beyond the Headlines"
-        },
-        "priority": 0,
-        "slug": "global-gaze",
-        "meta": {
-          "title": "Global Gaze: Beyond the Headlines",
-          "description": "Explore the untold and overlooked. A magnified view into the corners of the world, where every story deserves its spotlight.",
-          "image": 2
-        },
-        "categories": []
-      },
-      {
-        "id": 1,
-        "title": {
-          "en-US": "Digital Horizons: A Glimpse into Tomorrow"
-        },
-        "priority": 0,
-        "slug": "digital-horizons",
-        "meta": {
-          "title": "Digital Horizons: A Glimpse into Tomorrow",
-          "description": "Dive into the marvels of modern innovation, where the only constant is change. A journey where pixels and data converge to craft the future.",
-          "image": 1
-        },
-        "categories": []
-      }
-    ],
-    "payload-jobs": []
+    "payload-kv": []
   },
   "globals": {
     "header": {
-      "id": 1,
+      "id": 7,
       "navItems": [
         {
           "id": "6a64ff99da1e9a203859fab8",
@@ -2625,10 +2941,12 @@ export const seedData = {
             "type": "custom",
             "newTab": null,
             "url": {
-              "en-US": "/posts"
+              "en-US": "/posts",
+              "ru-RU": "/posts"
             },
             "label": {
-              "en-US": "Posts"
+              "en-US": "Posts",
+              "ru-RU": "Posts"
             }
           }
         },
@@ -2642,10 +2960,12 @@ export const seedData = {
               "value": 1
             },
             "url": {
-              "en-US": null
+              "en-US": null,
+              "ru-RU": null
             },
             "label": {
-              "en-US": "Contact"
+              "en-US": "Contact",
+              "ru-RU": "Contact"
             }
           }
         }
@@ -2661,10 +2981,12 @@ export const seedData = {
             "type": "custom",
             "newTab": null,
             "url": {
-              "en-US": "/admin"
+              "en-US": "/admin",
+              "ru-RU": "/admin"
             },
             "label": {
-              "en-US": "Admin"
+              "en-US": "Admin",
+              "ru-RU": "Admin"
             }
           }
         },
@@ -2674,10 +2996,12 @@ export const seedData = {
             "type": "custom",
             "newTab": true,
             "url": {
-              "en-US": "https://github.com/payloadcms/payload/tree/main/templates/website"
+              "en-US": "https://github.com/payloadcms/payload/tree/main/templates/website",
+              "ru-RU": "https://github.com/payloadcms/payload/tree/main/templates/website"
             },
             "label": {
-              "en-US": "Source Code"
+              "en-US": "Source Code",
+              "ru-RU": "Source Code"
             }
           }
         },
@@ -2687,10 +3011,12 @@ export const seedData = {
             "type": "custom",
             "newTab": true,
             "url": {
-              "en-US": "https://payloadcms.com/"
+              "en-US": "https://payloadcms.com/",
+              "ru-RU": "https://payloadcms.com/"
             },
             "label": {
-              "en-US": "Payload"
+              "en-US": "Payload",
+              "ru-RU": "Payload"
             }
           }
         }
