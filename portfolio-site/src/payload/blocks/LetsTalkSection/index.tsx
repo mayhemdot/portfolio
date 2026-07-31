@@ -2,11 +2,12 @@ import type {
 	LetsTalkBlock as LetsTalkBlockProps,
 	Media as MediaType,
 } from "@/payload/payload-types";
-import { BlurReveal } from "@/shared/components/Animation/BlurReveal";
+// import { BlurReveal } from "@/shared/components/Animation/BlurReveal";
 import { FillReveal } from "@/shared/components/Animation/FillReveal";
 import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
 import { GetInTouch } from "./GetInTouch";
+import { MediaReveal } from "@/shared/components/Animation/MediaReveal";
 
 export type LetsTalkSectionProps = Partial<LetsTalkBlockProps> & {
 	media?: MediaType | string | number | null;
@@ -23,21 +24,28 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 	return (
 		<section
 			id="lets-talk"
-			className="relative min-h-[130vh] bg-black text-primary-foreground flex flex-col items-center justify-center py-24 df-px overflow-clip"
+			className="relative min-h-screen bg-black text-primary-foreground flex flex-col items-center justify-center df-px overflow-clip"
 		>
 			<div className="lets-talk-text">
 				{mediaResource && (
+        <MediaReveal 
+          scrollTrigger={".lets-talk-text"}
+          className="absolute inset-0 z-0 w-full h-full backdrop-blur-3xl"
+          //  className="backdrop-blur-3xl absolute right-0 top-0 w-[88%] md:w-2/3 2xl:w-1/2 z-0"
+           duration={0.7}
+           delay={0}>
 					<Media
 						resource={mediaResource}
 						blurDataURL={
 							"data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABQAQCdASoQAAkABUB8JZwABDOAAP7vyfqFR+cYp10sP3Ja+rsaqrG4AAA="
 						}
 						fill
-						className="absolute inset-0 z-0 w-full h-full"
+						
 						pictureClassName="absolute inset-0 w-full h-full block"
 						imgClassName="absolute inset-0 w-full h-full object-cover object-[70%] pointer-events-none"
 						videoClassName="absolute inset-0 w-full h-full object-cover pointer-events-none"
 					/>
+        </MediaReveal>
 				)}
 				{/* <div className="lets-talk-text relative z-10 max-w-3xl text-center df-text-space-y df-px df-py backdrop-blur-3xl"> */}
 				{title && subtitle && (

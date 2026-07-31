@@ -116,13 +116,13 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 						: null;
 
 			return (
-				<div>
+				<div className="pb-4 xl:pb-10">
 					<FillReveal className={"flex flex-col!"}>
 						{topLinks.map((linkItem: any, idx: number) => (
 							<CMSLink
 								key={String(idx)}
 								{...linkItem.link}
-								className="cursor-pointer df-px df-py-xs rounded-none w-[130px]"
+								className="cursor-pointer df-px df-py-xs rounded-none w-40"
 							/>
 						))}
 					</FillReveal>
@@ -188,14 +188,15 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 
 	return (
 		<section className="hero-wrapper h-[250vh]">
+       {/* df-px-xs */}
 			<div
 				ref={heroRef}
 				id="home"
-				className="flex items-stretch shrink-0 justify-center relative heightWithoutHeader df-px-xs"
+				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-dvh"
 			>
 				<div
 					ref={heroLeftRef}
-					className="max-w-[220px] grow h-full flex flex-col df-gap-2-6 justify-end absolute left-0 df-px z-0"
+					className="max-w-55 grow  h-full flex flex-col df-gap-2-6 justify-end absolute left-0 df-px z-0"
 				>
 					{renderLeftLinks()}
 				</div>
@@ -221,9 +222,11 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 					)}
 				</div>
 
+          {/* 2xl:top-2 -mb-10 2xl:-mb-16 */}
+          
 				<div
 					ref={heroRightRef}
-					className="max-w-[700px] mx-auto mr-2 md:mr-4 z-0 absolute right-0 h-full items-stretch justify-between flex flex-col"
+					className="max-w-175 top-4 xl:top-2 pt-10 xl:pt-16 z-0 absolute right-0 h-fit df-px"
 				>
 					{renderRightContent({ items })}
 				</div>

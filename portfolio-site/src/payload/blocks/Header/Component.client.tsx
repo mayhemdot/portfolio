@@ -168,15 +168,16 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 	return (
 		<header
 			ref={headerRef}
-			className="fl-px-8/16 fl-pt-8/16 pb-0 h-16 xl:h-20 sticky top-0 w-full z-100"
+      className="df-px sticky h-fit top-4 2xl:top-2 -mb-10 2xl:-mb-16 z-100"
+			// className="fl-px-8/16 fl-pt-8/16 pb-0 h-16 xl:h-20 sticky top-0 w-full z-100"
 			{...(theme ? { "data-theme": theme } : {})}
 		>
 			<div className="flex justify-between items-end gap-8 h-full text-inherit">
 				<Link href="/">
-					<LogoIcon className="size-10! 2xl:w-16! 2xl:h-16!" />
+					<LogoIcon className="size-10! 2xl:size-16!" />
 				</Link>
 
-				<nav className="w-3/4 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/16 mt-auto self-end rounded-lg overflow-hidden shadow-lg">
+				<nav className="w-3/4 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/16 mt-auto self-end rounded-lg overflow-hidden">
 					<div className="z-20 w-full pt-3 px-3 md:px-4 justify-between flex gap-3">
 						{NAV_ITEMS.map((item, index) => (
 							<a

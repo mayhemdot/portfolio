@@ -126,7 +126,8 @@ export function Scene({
 	const activeRef = cameraStateRef ?? fallbackRef;
 
 	return (
-		<Canvas className="max-w-full w-full h-[calc(100vh+80px)]! absolute! -mt-20 -z-1">
+    // h-[calc(100vh+80px)]! 
+		<Canvas className="max-w-full w-full h-dvh absolute! -z-1">
 			<PerspectiveCamera
 				makeDefault
 				position={[

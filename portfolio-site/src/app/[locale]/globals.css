@@ -366,7 +366,9 @@ html[data-theme='light'] {
 }
 
 body {
-  min-height: 100vh;
+
+  margin: 0;
+  line-height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -376,6 +378,7 @@ body {
 
 main {
   flex-shrink: 0;
+  min-height: 100vh;
   flex-grow: 1;
   position: relative;
 }
@@ -526,15 +529,15 @@ main {
 
 
 .aboutUsBackground {
-    position: absolute;
-    inset-block: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(100%, var(--container-width));
-    border-radius: 24px;
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--container-width));
+  border-radius: 24px;
 }
 
-    /* position: absolute;
+/* position: absolute;
     inset-block: 0;
     left: 50%;
     transform: translateX(-50%);

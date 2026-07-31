@@ -12,19 +12,16 @@ if (typeof window !== "undefined") {
 
 type TriggerTarget = string | Element | RefObject<Element | null>;
 
-export type FillRevealProps = {
+export type MediaRevealProps = {
 	children: ReactNode;
 	className?: string;
-	direction?: "ltr" | "rtl";
-	fillDuration?: number;
-	textDelay?: number;
-	fillClassName?: string;
-	textClassName?: string;
 	delay?: number;
-	textBlur?: number; // initial blur, px
+	duration?: number;
+	initialBlur?: number; // стартовый blur в px
+  
 	scrollTrigger?:
 		| boolean
-		| string // shorthand: selector string used directly as trigger
+		| string
 		| {
 				start?: string;
 				toggleActions?: string;
@@ -37,21 +34,16 @@ function isRefObject(value: unknown): value is RefObject<Element | null> {
 	return typeof value === "object" && value !== null && "current" in value;
 }
 
-export function FillReveal({
+export function MediaReveal({
 	children,
 	className = "",
-	direction = "rtl",
-	fillDuration = 0.7,
-	textDelay = 0.2,
-	fillClassName = "bg-secondary",
-	textClassName = "",
 	delay = 0,
-	textBlur = 8,
+	duration = 0.5,
+	initialBlur = 12,
 	scrollTrigger,
-}: FillRevealProps) {
-	const wrapRef = useRef<HTMLDivElement>(null);
-	const fillRef = useRef<HTMLDivElement>(null);
-	const textRef = useRef<HTMLDivElement>(null);
+  
+}: MediaRevealProps) {
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	const isStEnabled = Boolean(scrollTrigger);
 	const stStart =
@@ -69,13 +61,12 @@ export function FillReveal({
 
 	useGSAP(
 		() => {
-			// const fromClip = direction === "rtl" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)";
 			const resolvedTrigger: string | Element | null =
 				typeof stTrigger === "string"
 					? stTrigger
 					: isRefObject(stTrigger)
 						? stTrigger.current
-						: ((stTrigger as Element | undefined) ?? wrapRef.current);
+						: ((stTrigger as Element | undefined) ?? containerRef.current);
 
 			const scrollTriggerConfig = isStEnabled
 				? {
@@ -87,38 +78,20 @@ export function FillReveal({
 					}
 				: undefined;
 
-			const tl = gsap.timeline({
-				defaults: { ease: "power2.out" },
+			gsap.to(containerRef.current, {
+				opacity: 1,
+				filter: "blur(0px)",
+				duration,
 				delay,
+				ease: "power2.out",
 				scrollTrigger: scrollTriggerConfig,
 			});
-			tl.to(
-				fillRef.current,
-				{
-					clipPath: "inset(0 0 0 0%)",
-					duration: fillDuration,
-					ease: "power2.inOut",
-				},
-				`+=${delay}`,
-			).to(
-				textRef.current,
-				{
-					opacity: 1,
-					filter: "blur(0px)",
-					duration: 0.37,
-					ease: "power2.out",
-				},
-				`+=${textDelay}`,
-			);
 		},
 		{
-			// scope: wrapRef,
 			dependencies: [
-				direction,
-				fillDuration,
-				textDelay,
 				delay,
-				textBlur,
+				duration,
+				initialBlur,
 				isStEnabled,
 				stStart,
 				stToggleActions,
@@ -129,21 +102,15 @@ export function FillReveal({
 	);
 
 	return (
-		<div ref={wrapRef} className={cn(`relative w-fit`, className)}>
-			<div
-				ref={fillRef}
-				className={cn(`absolute inset-0`, fillClassName)}
-				style={{
-					clipPath:
-						direction === "rtl" ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-				}}
-			/>
-			<div
-				ref={textRef}
-				className={cn(`relative opacity-0 blur-md`, textClassName)}
-			>
-				{children}
-			</div>
+		<div
+			ref={containerRef}
+			className={cn("opacity-0 shrink-0 w-full h-full", className)}
+			style={{
+				filter: `blur(${initialBlur}px)`,
+				willChange: "filter, opacity",
+			}}
+		>
+			{children}
 		</div>
 	);
 }
