@@ -15,22 +15,25 @@ const nextConfig = {
   images: {
     remotePatterns: [
       /* 'https://example.com' */
-   
-      // {
-      //   protocol: 'https',
-      //   hostname: '*.public.blob.vercel-storage.com', // Разрешаем картинки из Vercel Blob
-      // },
-    {
-        protocol: "http",
-        hostname: "localhost",
-      },
+      ...[NEXT_PUBLIC_SERVER_URL, "https://ui.shadcn.com/schema.json"].map((item) => {
+        const url = new URL(item)
+
+        return {
+          hostname: url.hostname,
+          protocol: url.protocol.replace(':', ''),
+          pathname: "/api/media/file/**",
+        }
+      }),
       {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3000",
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
         pathname: "/api/media/file/**",
       },
-
+     {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+      },
     ],
   },
   webpack: (webpackConfig) => {
@@ -45,11 +48,6 @@ const nextConfig = {
   reactStrictMode: true,
   redirects,
 }
-
-console.log(
-  "[[[remotePatterns]]]:",
-  JSON.stringify(nextConfig.images?.remotePatterns, null, 2),
-);
 
 export default withPayload(withNextIntl(nextConfig), { devBundleServerPackages: false })
 

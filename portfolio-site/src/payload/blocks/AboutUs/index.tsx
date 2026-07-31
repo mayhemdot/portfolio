@@ -21,11 +21,6 @@ export { defaultSkills, defaultSkillsList };
 export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 	const { title, description, media, features } = props;
 
-	// console.log(
-	// 	"blurDataURL >>",
-	// 	media,
-	// 	typeof media === "object" && media?.blurDataURL,
-	// );
 
 	return (
 		<section id="about" className="relative text-primary-foreground">

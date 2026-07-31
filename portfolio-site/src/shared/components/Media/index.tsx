@@ -13,7 +13,7 @@ export const Media: React.FC<Props> = (props) => {
 	}
 
 	const Tag: any = htmlElement;
-console.log(props.src)
+
 	return (  
 		<Tag className={className}>
 			{isVideo ? (
