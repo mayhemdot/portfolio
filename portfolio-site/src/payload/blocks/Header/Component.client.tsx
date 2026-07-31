@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import { useHeaderTheme } from "@/app/[locale]/_providers/HeaderTheme";
 import type { Header } from "@/payload/payload-types";
 import { LogoIcon } from "@/shared/components/Logo/LogoIcon";
+import { FillReveal } from "@/shared/components/Animation/FillReveal";
 
 if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
@@ -41,9 +40,7 @@ function getSectionBounds(id: string) {
 	}
 
 	const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
 	const rect = el.getBoundingClientRect();
-
 	const start = rect.top + scrollTop;
 
 	return {
@@ -144,9 +141,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
 			return () => {
 				window.removeEventListener("scroll", updateAllProgress);
-
 				ScrollTrigger.removeEventListener("refresh", onRefresh);
-
 				resizeObserver.disconnect();
 			};
 		},
@@ -155,60 +150,51 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 		},
 	);
 
-	useEffect(() => {
-		setHeaderTheme(null);
-	}, [pathname]);
-
-	useEffect(() => {
-		if (headerTheme && headerTheme !== theme) {
-			setTheme(headerTheme);
-		}
-	}, [headerTheme, theme]);
-
 	return (
-		<header
-			ref={headerRef}
-      className="df-px sticky h-fit top-4 2xl:top-2 -mb-10 2xl:-mb-16 z-100"
-			// className="fl-px-8/16 fl-pt-8/16 pb-0 h-16 xl:h-20 sticky top-0 w-full z-100"
-			{...(theme ? { "data-theme": theme } : {})}
-		>
-			<div className="flex justify-between items-end gap-8 h-full text-inherit">
-				<Link href="/">
-					<LogoIcon className="size-10! 2xl:size-16!" />
-				</Link>
+      <header
+        ref={headerRef}
+        className="df-px sticky overflow-x-clip h-fit top-4 xl:top-2 -mb-10 xl:-mb-16 z-100"
+        {...(theme ? { "data-theme": theme } : {})}
+      >
+        <div className="flex justify-between items-end gap-8 h-full text-inherit">
+          <Link href="/">
+            <LogoIcon className="size-10! 2xl:size-16!" />
+          </Link>
+           <FillReveal className="w-3/4 md:w-1/2 lg:w-1/3 mt-auto self-end" fillClassName="bg-foreground" >
+            <nav className="bg-foreground w-full text-background! fl-text-12/16 overflow-hidden">
+              <div className="z-20 w-full pt-3 df-px justify-between flex gap-3">
+                {NAV_ITEMS.map((item, index) => (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.id)}
+                    className="relative group flex flex-col grow items-center text-nowrap pb-2 text-inherit cursor-pointer select-none"
+                  >
+                    <span className="tracking-wider">
+                      {item.key === "contact"
+                        ? tButtons("contact")
+                        : tNav(item.key)}
+                    </span>
 
-				<nav className="w-3/4 md:w-1/2 bg-foreground text-background! lg:w-1/3 fl-text-8/16 mt-auto self-end rounded-lg overflow-hidden">
-					<div className="z-20 w-full pt-3 px-3 md:px-4 justify-between flex gap-3">
-						{NAV_ITEMS.map((item, index) => (
-							<a
-								key={item.id}
-								href={item.href}
-								onClick={(e) => handleNavClick(e, item.id)}
-								className="relative group flex flex-col grow items-center text-nowrap pb-2 text-inherit cursor-pointer select-none"
-							>
-								<span className="font-sans font-medium tracking-wider">
-									{item.key === "contact"
-										? tButtons("contact")
-										: tNav(item.key)}
-								</span>
+                    <div className="w-full h-[2px] bg-background/20 mt-1.5 relative overflow-hidden rounded-full">
+                      <div
+                        ref={(el) => {
+                          progressRefs.current[index] = el;
+                        }}
+                        className="h-full bg-accent w-full origin-left transition-transform duration-75 ease-out"
+                        style={{
+                          transform: "scaleX(0)",
+                        }}
+                      />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </nav>
+          </FillReveal>
+        </div>
+      </header>
 
-								<div className="w-full h-[2px] bg-background/20 mt-1.5 relative overflow-hidden rounded-full">
-									<div
-										ref={(el) => {
-											progressRefs.current[index] = el;
-										}}
-										className="h-full bg-accent w-full origin-left transition-transform duration-75 ease-out"
-										style={{
-											transform: "scaleX(0)",
-										}}
-									/>
-								</div>
-							</a>
-						))}
-					</div>
-				</nav>
-			</div>
-		</header>
 	);
 };
 

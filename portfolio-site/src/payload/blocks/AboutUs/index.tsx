@@ -17,20 +17,20 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 
 
 	return (
-		<section id="about" className="relative text-primary-foreground">
+		<section id="about" className="relative text-primary-foreground max-w-full overflow-clip">
 			<AboutUsBackground />
 			{/* rounded-3xl */}
-			<div className="about-content overflow-clip df-px pr-0! bg-black container mx-auto z-10 flex items-center h-screen xl:h-[150vh]">
+			<div className="about-content overflow-clip df-px pr-0 bg-black container mx-auto z-10 flex items-center h-full min-h-screen xl:min-h-[150vh]">
 				<div className="relative h-[65vh] w-full xl:h-screen">
 					<div className="grid grid-cols-8 max-h-full h-full relative">
-						<div className="flex items-end lg:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
+						<div className="flex items-end xl:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
 							<AboutText
 								icon={<FiveIcon size={48} />}
 								title={title}
 								description={description}
 								isBlur={true}
 								action={<GetInTouch />}
-								className="translate-y-1/3 md:translate-y-0"
+								className="translate-y-1/3 xl:translate-y-0"
 							/>
 						</div>
 

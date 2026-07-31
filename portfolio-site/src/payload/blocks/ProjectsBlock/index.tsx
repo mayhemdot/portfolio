@@ -40,7 +40,7 @@ export async function ProjectsBlock({
 	return (
 		<section
 			id="works"
-			className="min-h-dvh heightWithoutHeader bg-black text-primary-foreground"
+			className="min-h-dvh h-full overflow-x-clip bg-black text-primary-foreground"
 		>
 			<Bounded className={"fl-py-64/180 df-text-space-y-editorial"}>
 				{/* <h3 className="relative w-full text-center fl-text-20/40 md:w-3/5 md:mx-auto z-10">

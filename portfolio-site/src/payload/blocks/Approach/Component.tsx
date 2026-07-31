@@ -46,7 +46,7 @@ export const ApproachBlock: React.FC<ApproachBlockProps> = (props) => {
 		<section
 			id="approach"
 			className={cn(
-				"relative fl-py-96/120 text-foreground overflow-hidden",
+				"relative fl-py-96/120 text-foreground overflow-x-hidden",
 				className,
 			)}
 		>

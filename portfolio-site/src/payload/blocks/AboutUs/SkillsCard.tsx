@@ -156,7 +156,7 @@ export function Skills() {
 	return (
 		<div
 			ref={containerRef}
-			className="cardsWrapper flex justify-center items-center h-full bg-black min-h-dvh dark:bg-card overflow-x-hidden"
+			className="cardsWrapper flex justify-center items-center h-full bg-black min-h-dvh dark:bg-card overflow-hidden"
 		>
 			<div className="cardContainer flex justify-center flex-row h-[50%] md:h-fit text-primary-foreground">
 				<AboutCard

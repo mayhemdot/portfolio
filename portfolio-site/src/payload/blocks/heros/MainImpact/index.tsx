@@ -122,40 +122,24 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 							<CMSLink
 								key={String(idx)}
 								{...linkItem.link}
-								className="cursor-pointer df-px df-py-xs rounded-none w-40"
+								className="cursor-pointer bg-primary-foreground border-none df-px df-py-xs rounded-none w-40"
 							/>
 						))}
 					</FillReveal>
 					{bottomLink && (
-						<CMSLink
-							{...bottomLink.link}
-							appearance={"default"}
-							className="rounded-none w-full df-px df-py-xs"
-						/>
+            <FillReveal fillClassName="bg-black" className="w-full!" delay={0.1}>
+              <CMSLink
+                {...bottomLink.link}
+                appearance={"default"}
+                className="rounded-none grow w-full df-px df-py-xs"
+              />
+            </FillReveal>
 					)}
 				</div>
 			);
 		}
 
-		// return (
-		// 	<div>
-		// 		<FillReveal className={"flex flex-col!"}>
-		// 			<CMSLink url={"/telegram"} className="cursor-pointer df-px df-py-xs">
-		// 				Telegram
-		// 			</CMSLink>
-		// 			<CMSLink url={"/contacts"} className="cursor-pointer df-px df-py-xs">
-		// 				Bhance
-		// 			</CMSLink>
-		// 		</FillReveal>
-		// 		<CMSLink
-		// 			url={"/contacts"}
-		// 			appearance={"default"}
-		// 			className="rounded-none w-full df-px df-py-xs"
-		// 		>
-		// 			Contact
-		// 		</CMSLink>
-		// 	</div>
-		// );
+
 	};
 
 	const renderRightContent = ({ items }: { items: any[] }) => {
@@ -187,16 +171,16 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 	};
 
 	return (
-		<section className="hero-wrapper h-[250vh]">
+		<section className="hero-wrapper h-[250vh] overflow-x-clip">
        {/* df-px-xs */}
 			<div
 				ref={heroRef}
 				id="home"
-				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-dvh"
+				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-lvh"
 			>
 				<div
 					ref={heroLeftRef}
-					className="max-w-55 grow  h-full flex flex-col df-gap-2-6 justify-end absolute left-0 df-px z-0"
+					className="max-w-55 grow h-svh self-start flex flex-col df-gap-2-6 justify-end absolute left-0 top-0 df-px z-0"
 				>
 					{renderLeftLinks()}
 				</div>
@@ -226,7 +210,7 @@ export const MainImpactComponent: React.FC<any> = (props) => {
           
 				<div
 					ref={heroRightRef}
-					className="max-w-175 top-4 xl:top-2 pt-10 xl:pt-16 z-0 absolute right-0 h-fit df-px"
+					className="max-w-175 w-fit top-4 xl:top-2 pt-10 xl:pt-16 z-0 absolute right-0 h-fit df-px"
 				>
 					{renderRightContent({ items })}
 				</div>

@@ -24,7 +24,7 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 	return (
 		<section
 			id="lets-talk"
-			className="relative min-h-screen bg-black text-primary-foreground flex flex-col items-center justify-center df-px overflow-clip"
+			className="relative min-h-screen overflow-clip bg-black text-primary-foreground flex flex-col items-center justify-center df-px"
 		>
 			<div className="lets-talk-text">
 				{mediaResource && (
