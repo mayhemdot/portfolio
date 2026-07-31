@@ -9,7 +9,7 @@ import configPromise from "@/payload/payload.config";
 import { LivePreviewListener } from "@/shared/components/LivePreviewListener";
 import { PayloadRedirects } from "@/shared/components/PayloadRedirects";
 import { generateMeta } from "@/utilities/generateMeta";
-import PageClient from "./page.client";
+// import PageClient from "./page.client";
 
 // 1. Тип для Page и generateMetadata
 type PageArgs = {
@@ -80,7 +80,7 @@ export default async function Page({ params: paramsPromise }: PageArgs) {
 
 	return (
 		<>
-			<PageClient />
+			{/* <PageClient /> */}
 			{/* Allows redirects for valid pages too */}
 			<PayloadRedirects disableNotFound url={url} />
 

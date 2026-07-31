@@ -172,15 +172,15 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 
 	return (
 		<section className="hero-wrapper h-[250vh] overflow-x-clip">
-       {/* df-px-xs */}
+    
 			<div
 				ref={heroRef}
 				id="home"
-				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-lvh"
+				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-screen"
 			>
 				<div
 					ref={heroLeftRef}
-					className="max-w-55 grow h-svh self-start flex flex-col df-gap-2-6 justify-end absolute left-0 top-0 df-px z-0"
+					className="max-w-55 grow h-screen self-start flex flex-col df-gap-2-6 justify-end absolute left-0 top-0 df-px z-0"
 				>
 					{renderLeftLinks()}
 				</div>
@@ -189,11 +189,11 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 					ref={heroContentRef}
 					className="grow text-center self-center z-10 flex flex-col items-center justify-center"
 				>
-					{eyebrow && (
+					{/* {eyebrow && (
 						<span className="fl-text-14/18 uppercase tracking-widest text-muted-foreground mb-2">
 							{eyebrow}
 						</span>
-					)}
+					)} */}
 					{richText && (
 						<RichText
 							className="mb-6 fl-text-46/90 font-heading leading-tight prose xl:mb-8 *:text-foreground"
@@ -208,12 +208,13 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 
           {/* 2xl:top-2 -mb-10 2xl:-mb-16 */}
           
-				<div
+				{/* <div
 					ref={heroRightRef}
-					className="max-w-175 w-fit top-4 xl:top-2 pt-10 xl:pt-16 z-0 absolute right-0 h-fit df-px"
+					className="max-w-175 w-fit top-4 xl:top-2 pt-10 xl:pt-16 z-0 absolute right-0 overflow-x-clip h-fit df-px"
 				>
+
 					{renderRightContent({ items })}
-				</div>
+				</div> */}
 				<Scene cameraStateRef={cameraStateRef} />
 			</div>
 		</section>

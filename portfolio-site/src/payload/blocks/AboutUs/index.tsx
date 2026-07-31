@@ -38,7 +38,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
               <MediaReveal 
                 scrollTrigger={".about-content"}
                 className="backdrop-blur-3xl absolute right-0 top-0  w-[88%] md:w-2/3 2xl:w-1/2 z-0"
-                duration={0.7}
+                duration={1}
                 delay={0}
               >
                 <Media

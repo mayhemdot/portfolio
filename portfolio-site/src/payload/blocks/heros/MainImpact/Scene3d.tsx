@@ -127,7 +127,7 @@ export function Scene({
 
 	return (
     // h-[calc(100vh+80px)]! 
-		<Canvas className="max-w-full w-full h-lvh absolute! -z-1">
+		<Canvas className="max-w-full h-full w-full absolute! -z-1">
 			<PerspectiveCamera
 				makeDefault
 				position={[

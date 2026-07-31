@@ -18,7 +18,7 @@ export type MediaRevealProps = {
 	delay?: number;
 	duration?: number;
 	initialBlur?: number; // стартовый blur в px
-  
+  saturateTo?: number
 	scrollTrigger?:
 		| boolean
 		| string
@@ -38,10 +38,10 @@ export function MediaReveal({
 	children,
 	className = "",
 	delay = 0,
-	duration = 0.5,
+	duration = 1,
 	initialBlur = 12,
 	scrollTrigger,
-  
+  saturateTo = 1,
 }: MediaRevealProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
 
@@ -80,7 +80,7 @@ export function MediaReveal({
 
 			gsap.to(containerRef.current, {
 				opacity: 1,
-				filter: "blur(0px)",
+				filter: `blur(0px) saturate(${saturateTo})`,
 				duration,
 				delay,
 				ease: "power2.out",
@@ -104,9 +104,9 @@ export function MediaReveal({
 	return (
 		<div
 			ref={containerRef}
-			className={cn("opacity-0 shrink-0 w-full h-full", className)}
+			className={cn("shrink-0 w-full h-full", className)}
 			style={{
-				filter: `blur(${initialBlur}px)`,
+				filter: `blur(${initialBlur}px) saturate(0.8)`,
 				willChange: "filter, opacity",
 			}}
 		>

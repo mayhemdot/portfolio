@@ -29,18 +29,19 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 			<div className="lets-talk-text">
 				{mediaResource && (
         <MediaReveal 
+          saturateTo={2}
           scrollTrigger={".lets-talk-text"}
           className="absolute inset-0 z-0 w-full h-full backdrop-blur-3xl"
           //  className="backdrop-blur-3xl absolute right-0 top-0 w-[88%] md:w-2/3 2xl:w-1/2 z-0"
            duration={0.7}
            delay={0}>
 					<Media
+           
 						resource={mediaResource}
 						blurDataURL={
 							"data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAABQAQCdASoQAAkABUB8JZwABDOAAP7vyfqFR+cYp10sP3Ja+rsaqrG4AAA="
 						}
 						fill
-						
 						pictureClassName="absolute inset-0 w-full h-full block"
 						imgClassName="absolute inset-0 w-full h-full object-cover object-[70%] pointer-events-none"
 						videoClassName="absolute inset-0 w-full h-full object-cover pointer-events-none"

@@ -153,30 +153,28 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 	return (
       <header
         ref={headerRef}
-        className="df-px sticky overflow-x-clip h-fit top-4 xl:top-2 -mb-10 xl:-mb-16 z-100"
+        className="df-px block sticky overflow-x-clip top-4 xl:top-2 -mb-10 xl:-mb-16 z-100"
         {...(theme ? { "data-theme": theme } : {})}
       >
-        <div className="flex justify-between items-end gap-8 h-full text-inherit">
-          <Link href="/">
-            <LogoIcon className="size-10! 2xl:size-16!" />
-          </Link>
-           <FillReveal className="w-3/4 md:w-1/2 lg:w-1/3 mt-auto self-end" fillClassName="bg-foreground" >
-            <nav className="bg-foreground w-full text-background! fl-text-12/16 overflow-hidden">
-              <div className="z-20 w-full pt-3 df-px justify-between flex gap-3">
+        <FillReveal className="block w-fit lg:w-1/2 xl:w-1/3 mt-auto max-h-full ml-auto self-end" fillClassName="bg-foreground" >
+          <nav className="bg-foreground w-full text-background! h-10 xl:h-16 fl-text-10/16 overflow-hidden">
+              <div className="z-20 w-full df-px justify-between h-full items-center flex gap-3">
+                {/* pt-2 xl:pt-3 */}
                 {NAV_ITEMS.map((item, index) => (
                   <a
                     key={item.id}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.id)}
-                    className="relative group flex flex-col grow items-center text-nowrap pb-2 text-inherit cursor-pointer select-none"
+                    className="relative group flex min-w-12.5 flex-col grow items-center text-nowrap text-inherit cursor-pointer select-none"
                   >
+                    {/* pb-1.5 xl:pb-2 */}
                     <span className="tracking-wider">
                       {item.key === "contact"
                         ? tButtons("contact")
                         : tNav(item.key)}
                     </span>
 
-                    <div className="w-full h-[2px] bg-background/20 mt-1.5 relative overflow-hidden rounded-full">
+                    <div className="w-full h-[2px] bg-background/20 mt-1 xl:mt-1.5 relative overflow-hidden rounded-full">
                       <div
                         ref={(el) => {
                           progressRefs.current[index] = el;
@@ -190,9 +188,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                   </a>
                 ))}
               </div>
-            </nav>
-          </FillReveal>
-        </div>
+          </nav>
+        </FillReveal>
       </header>
 
 	);
