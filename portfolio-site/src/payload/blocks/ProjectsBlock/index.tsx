@@ -10,6 +10,33 @@ import { Media } from "@/shared/components/Media";
 import RichText from "@/shared/components/RichText";
 import { cn } from "@/shared/lib/utils";
 
+function getProjectDateValue(project: Project): number {
+	if (!project?.year) return -Infinity;
+
+	const yearStr = String(project.year).trim();
+	if (!yearStr) return -Infinity;
+
+	const dateMs = Date.parse(yearStr);
+	if (!Number.isNaN(dateMs)) {
+		return dateMs;
+	}
+
+	const match = yearStr.match(/\d{4}/);
+	if (match) {
+		const parsedYear = Number.parseInt(match[0], 10);
+		if (!Number.isNaN(parsedYear)) {
+			return new Date(`${parsedYear}-01-01`).getTime();
+		}
+	}
+
+	const num = Number.parseInt(yearStr, 10);
+	if (!Number.isNaN(num)) {
+		return num;
+	}
+
+	return -Infinity;
+}
+
 export async function ProjectsBlock({
 	populateBy,
 	limit,
@@ -25,18 +52,27 @@ export async function ProjectsBlock({
 			collection: "projects",
 			depth: 1,
 			limit: limit || 10,
+			sort: "-year",
 		});
 
 		projects = fetched.docs;
 	} else {
 		if (selectedDocs?.length) {
-			const filteredSelected = selectedDocs?.map((project) => {
-				if (typeof project.value === "object") return project.value;
-			}) as Project[];
+			const filteredSelected = selectedDocs
+				.filter((project) => typeof project.value === "object")
+				.map((project) => project.value as Project);
 
 			projects = filteredSelected;
 		}
 	}
+
+	const sortedProjects = [...projects].sort((a, b) => {
+		const valA = getProjectDateValue(a);
+		const valB = getProjectDateValue(b);
+		if (valA === valB) return 0;
+		return valB - valA;
+	});
+
 	return (
 		<section
 			id="works"
@@ -54,8 +90,8 @@ export async function ProjectsBlock({
 					/>
 				)}
 				<div className="flex flex-col fl-gap-16/32">
-					{projects?.length ? (
-						projects
+					{sortedProjects?.length ? (
+						sortedProjects
 							?.filter((project) => typeof project === "object")
 							.map(({ id, title, year, gallery }) => (
 								<div
