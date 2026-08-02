@@ -202,6 +202,30 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
+    rightLinks?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'projects';
+                  value: number | Project;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline-solid') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
     media?: (number | null) | Media;
   };
   layout: (
@@ -1238,6 +1262,21 @@ export interface PagesSelect<T extends boolean = true> {
             };
         richText?: T;
         links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        rightLinks?:
           | T
           | {
               link?:

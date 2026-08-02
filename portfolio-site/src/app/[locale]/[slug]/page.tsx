@@ -9,6 +9,9 @@ import configPromise from "@/payload/payload.config";
 import { LivePreviewListener } from "@/shared/components/LivePreviewListener";
 import { PayloadRedirects } from "@/shared/components/PayloadRedirects";
 import { generateMeta } from "@/utilities/generateMeta";
+import { Header } from "@/payload/blocks/Header/Component";
+import { Button } from "@/shared/components/ui/button";
+import { BackButton } from "@/shared/components/BackButton";
 // import PageClient from "./page.client";
 
 // 1. Тип для Page и generateMetadata
@@ -67,8 +70,9 @@ export default async function Page({ params: paramsPromise }: PageArgs) {
 		locale,
 	});
 
+  const isHome = slug === "home";
 	// Remove this code once your website is seeded
-	if (!page && slug === "home") {
+	if (!page && isHome) {
 		page = homeStatic;
 	}
 
@@ -85,9 +89,11 @@ export default async function Page({ params: paramsPromise }: PageArgs) {
 			<PayloadRedirects disableNotFound url={url} />
 
 			{draft && <LivePreviewListener />}
-
-			<RenderHero {...hero} />
-			<RenderBlocks blocks={layout} />
+      { isHome ? <Header /> : (<BackButton />) }
+      <main className="main min-h-screen shrink-0">
+          <RenderHero {...hero} />
+          <RenderBlocks blocks={layout} />
+      </main>
 			{/* <LetsTalkSection /> */}
 		</>
 	);

@@ -127,10 +127,14 @@ export const FormBlock: React.FC<
 	);
 
 	return (
-		<div className="container mx-auto lg:max-w-xl fl-py-12/32 df-text-space-y">
+		<div className="container mx-auto lg:max-w-xl fl-py-12/32 df-px df-text-space-y">
+
+      <div className="w-full text-center pt-4">
+        <h1 className="fl-text-24/32">{formFromProps?.title}</h1>
+      </div>
 			{enableIntro && introContent && !hasSubmitted && (
 				<RichText
-					className="fl-text-20/40 mx-auto"
+					className="fl-text-12/20 mx-auto"
 					data={introContent}
 					enableGutter={false}
 				/>

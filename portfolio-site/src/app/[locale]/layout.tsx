@@ -66,9 +66,9 @@ export default async function RootLayout({ params, children }: Props) {
                 preview: isEnabled,
               }}
             /> */}
-							<Header />
-							<main className="main min-h-screen shrink-0">{children}</main>
-
+					
+                {children}
+             
 							<Footer />
 						</ScrollSmoothLayout>
 					</NextIntlClientProvider>

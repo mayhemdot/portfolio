@@ -64,6 +64,12 @@ export const hero: Field = {
 				maxRows: 5,
 			},
 		}),
+    linkGroup({
+			overrides: {
+        name: 'rightLinks',
+				maxRows: 3,
+			},
+		}),
 		{
 			name: "media",
 			type: "upload",

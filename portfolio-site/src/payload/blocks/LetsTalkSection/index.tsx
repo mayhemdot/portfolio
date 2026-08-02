@@ -59,7 +59,7 @@ export function LetsTalkSection(props: LetsTalkSectionProps) {
 						delay={0}
 					>
 						<RichText
-							className="fl-text-32/64 leading-tight font-heading font-normal text-primary-foreground"
+							className="fl-text-32/64 text-left leading-tight font-heading font-normal text-primary-foreground"
 							data={title}
 							enableGutter={false}
 						/>

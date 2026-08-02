@@ -176,18 +176,18 @@ export const MainImpactComponent: React.FC<any> = (props) => {
 			<div
 				ref={heroRef}
 				id="home"
-				className="flex items-stretch shrink-0 justify-center p-0! relative min-h-screen"
+				className="flex items-stretch shrink-0 justify-center p-0! relative h-screen min-h-screen"
 			>
-				<div
+				{/* <div
 					ref={heroLeftRef}
 					className="max-w-55 grow h-screen self-start flex flex-col df-gap-2-6 justify-end absolute left-0 top-0 df-px z-0"
 				>
 					{renderLeftLinks()}
-				</div>
+				</div> */}
 
 				<div
 					ref={heroContentRef}
-					className="grow text-center self-center z-10 flex flex-col items-center justify-center"
+					className="grow min-h-screen h-full text-center self-center z-10 flex flex-col items-center justify-center"
 				>
 					{/* {eyebrow && (
 						<span className="fl-text-14/18 uppercase tracking-widest text-muted-foreground mb-2">

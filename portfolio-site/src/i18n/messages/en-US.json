@@ -13,6 +13,12 @@
     "getInTouch": "Get in Touch",
     "backToHome": "Back to Home"
   },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or may have been moved.",
+    "backToHome": "Back to Home"
+  },
   "common": {
     "cancel": "Cancel",
     "confirm": "Confirm",

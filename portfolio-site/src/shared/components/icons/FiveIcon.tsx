@@ -13,12 +13,12 @@ const FiveIcon: React.FC<FiveIconProps> = ({
 }) => {
 	return (
 		<svg
-			width={size}
-			height={size}
 			viewBox="0 0 65 64"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 			className={className}
+      width={size}
+			height={size}
 		>
 			<title>Five</title>
 			<path

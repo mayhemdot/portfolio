@@ -25,7 +25,7 @@ export const AboutUsBlock: React.FC<AboutUsProps> = async (props) => {
 					<div className="grid grid-cols-8 max-h-full h-full relative">
 						<div className="flex items-end xl:items-center h-full col-start-1 md:col-start-2 z-1 col-span-6 md:col-span-4">
 							<AboutText
-								icon={<FiveIcon size={48} />}
+								icon={<FiveIcon size={32} />}
 								title={title}
 								description={description}
 								isBlur={true}
